@@ -50,113 +50,22 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `Hello World!`
-  String get helloWorld {
+  /// `Import Wallet`
+  String get importWallet {
     return Intl.message(
-      'Hello World!',
-      name: 'helloWorld',
+      'Import Wallet',
+      name: 'importWallet',
       desc: '',
       args: [],
     );
   }
 
-  /// `Change language`
-  String get changeLanguage {
+  /// `Create Wallet`
+  String get createWallet {
     return Intl.message(
-      'Change language',
-      name: 'changeLanguage',
+      'Create Wallet',
+      name: 'createWallet',
       desc: '',
-      args: [],
-    );
-  }
-
-  /// `Notification Screen`
-  String get notificationScreen {
-    return Intl.message(
-      'Notification Screen',
-      name: 'notificationScreen',
-      desc: 'Screen for testing notification',
-      args: [],
-    );
-  }
-
-  /// `Enter your name here`
-  String get enterYourNameHere {
-    return Intl.message(
-      'Enter your name here',
-      name: 'enterYourNameHere',
-      desc: 'Ask user to enter their name',
-      args: [],
-    );
-  }
-
-  /// `Your name is {userName}`
-  String yourNameIs(String userName) {
-    return Intl.message(
-      'Your name is $userName',
-      name: 'yourNameIs',
-      desc: 'Show username',
-      args: [userName],
-    );
-  }
-
-  /// `Enter any number here`
-  String get enterAnyNumberHere {
-    return Intl.message(
-      'Enter any number here',
-      name: 'enterAnyNumberHere',
-      desc: 'Ask user to enter any number',
-      args: [],
-    );
-  }
-
-  /// `{username}'s number is {number}`
-  String userNumberIs(String username, double number) {
-    final NumberFormat numberNumberFormat = NumberFormat.compactSimpleCurrency(
-        locale: Intl.getCurrentLocale(), decimalDigits: 1);
-    final String numberString = numberNumberFormat.format(number);
-
-    return Intl.message(
-      '$username\'s number is $numberString',
-      name: 'userNumberIs',
-      desc: 'Show user\'s number',
-      args: [username, numberString],
-    );
-  }
-
-  /// `Today is {today}, tomorrow is {tomorrow}`
-  String todayTomorrow(DateTime today, DateTime tomorrow) {
-    final DateFormat todayDateFormat = DateFormat.yMd(Intl.getCurrentLocale());
-    final String todayString = todayDateFormat.format(today);
-
-    final DateFormat tomorrowDateFormat =
-        DateFormat.yMd(Intl.getCurrentLocale());
-    final String tomorrowString = tomorrowDateFormat.format(tomorrow);
-
-    return Intl.message(
-      'Today is $todayString, tomorrow is $tomorrowString',
-      name: 'todayTomorrow',
-      desc: 'Show today and tomorrow for user',
-      args: [todayString, tomorrowString],
-    );
-  }
-
-  /// `{count,plural, =0{no {thing}} =1{{count} {thing}} other{{count} {thing}s}`
-  String nThings(int count, String thing) {
-    return Intl.message(
-      '{count,plural, =0{no $thing} =1{$count $thing} other{$count ${thing}s}',
-      name: 'nThings',
-      desc: 'plural message with thing parameter',
-      args: [count, thing],
-    );
-  }
-
-  /// `chicken`
-  String get chicken {
-    return Intl.message(
-      'chicken',
-      name: 'chicken',
-      desc: 'Chicken in english',
       args: [],
     );
   }

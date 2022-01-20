@@ -20,31 +20,9 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
-  static String m0(count, thing) =>
-      "{count,plural, =0{no ${thing}} =1{${count} ${thing}} other{${count} ${thing}s}";
-
-  static String m1(today, tomorrow) =>
-      "Today is ${today}, tomorrow is ${tomorrow}";
-
-  static String m2(username, number) => "${username}\'s number is ${number}";
-
-  static String m3(userName) => "Your name is ${userName}";
-
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "changeLanguage":
-            MessageLookupByLibrary.simpleMessage("Change language"),
-        "chicken": MessageLookupByLibrary.simpleMessage("chicken"),
-        "enterAnyNumberHere":
-            MessageLookupByLibrary.simpleMessage("Enter any number here"),
-        "enterYourNameHere":
-            MessageLookupByLibrary.simpleMessage("Enter your name here"),
-        "helloWorld": MessageLookupByLibrary.simpleMessage("Hello World!"),
-        "nThings": m0,
-        "notificationScreen":
-            MessageLookupByLibrary.simpleMessage("Notification Screen"),
-        "todayTomorrow": m1,
-        "userNumberIs": m2,
-        "yourNameIs": m3
+        "createWallet": MessageLookupByLibrary.simpleMessage("Create Wallet"),
+        "importWallet": MessageLookupByLibrary.simpleMessage("Import Wallet")
       };
 }
