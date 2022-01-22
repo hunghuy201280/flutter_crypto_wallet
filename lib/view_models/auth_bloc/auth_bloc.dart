@@ -12,13 +12,13 @@ part 'auth_bloc.freezed.dart';
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   AuthBloc() : super(const AuthState.unauthenticated()) {
     on<_AuthInitial>((event, emit) async {
-      emit(await _appStart());
+      emit(await _authStart());
     });
     on<_AuthLoggedIn>((event, emit) => {});
     on<_AuthLoggedOut>((event, emit) => {});
   }
 
-  Future<AuthState> _appStart() async {
+  Future<AuthState> _authStart() async {
     await _clearIfFirstRunAfterUninstall();
 
     var box = await Hive.openBox(AppHiveBoxs.wallet);
@@ -45,6 +45,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         AppPref.wallet.walletSelect
       ]);
       await boxConfig.put(AppPref.config.firstRun, false);
+
     }
   }
 }

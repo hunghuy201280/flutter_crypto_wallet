@@ -26,6 +26,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "createWallet": MessageLookupByLibrary.simpleMessage("Create Wallet"),
         "easyWayToManageYourEWallet": MessageLookupByLibrary.simpleMessage(
             "Easy way to manage your e-wallet"),
+        "enterToYourWallet":
+            MessageLookupByLibrary.simpleMessage("Enter to your wallet"),
         "importWallet": MessageLookupByLibrary.simpleMessage("Import Wallet"),
         "manageYourEveryPennyAndTransactionWithEase":
             MessageLookupByLibrary.simpleMessage(

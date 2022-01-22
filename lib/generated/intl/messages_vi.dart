@@ -26,6 +26,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "createWallet": MessageLookupByLibrary.simpleMessage("Tạo ví"),
         "easyWayToManageYourEWallet": MessageLookupByLibrary.simpleMessage(
             "Dễ dàng để quản lý ví điện tử của bạn"),
+        "enterToYourWallet":
+            MessageLookupByLibrary.simpleMessage("Truy cập vào ví"),
         "importWallet": MessageLookupByLibrary.simpleMessage("Nhập ví"),
         "manageYourEveryPennyAndTransactionWithEase":
             MessageLookupByLibrary.simpleMessage(

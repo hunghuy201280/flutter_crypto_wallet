@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ntf_marketplace/views/home/home_screen.dart';
 import 'package:flutter_ntf_marketplace/views/login/login_screen.dart';
+import 'package:flutter_ntf_marketplace/views/onboarding_screen.dart';
 import 'package:flutter_ntf_marketplace/views/splash_screen.dart';
 
 import 'custom_route/fade_page_route.dart';
@@ -12,6 +13,11 @@ class AppRoute {
       case SplashScreen.id:
         return CupertinoPageRoute(
           builder: (_) => const SplashScreen(),
+          settings: settings,
+        );
+      case OnboardingScreen.id:
+        return FadePageRoute(
+          page: const OnboardingScreen(),
           settings: settings,
         );
       case LoginScreen.id:

@@ -80,6 +80,16 @@ class S {
     );
   }
 
+  /// `Enter to your wallet`
+  String get enterToYourWallet {
+    return Intl.message(
+      'Enter to your wallet',
+      name: 'enterToYourWallet',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Import Wallet`
   String get importWallet {
     return Intl.message(

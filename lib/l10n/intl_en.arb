@@ -3,6 +3,7 @@
   "appName" : "App Name",
   "easyWayToManageYourEWallet" : "Easy way to manage your e-wallet",
   "manageYourEveryPennyAndTransactionWithEase": "Manage your every penny and transaction with ease",
+  "enterToYourWallet" : "Enter to your wallet",
   "importWallet" : "Import Wallet",
   "createWallet" : "Create Wallet"
 }

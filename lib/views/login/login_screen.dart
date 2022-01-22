@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ntf_marketplace/configs/color_config.dart';
 import 'package:flutter_ntf_marketplace/configs/text_config.dart';
 import 'package:flutter_ntf_marketplace/generated/l10n.dart';
+import 'package:flutter_ntf_marketplace/view_models/auth_bloc/auth_bloc.dart';
 import 'package:flutter_ntf_marketplace/view_models/login_bloc/login_bloc.dart';
 import 'package:flutter_ntf_marketplace/views/login/import_wallet_screen.dart';
 import 'package:flutter_ntf_marketplace/views/login/setup_wallet_screen.dart';
@@ -22,6 +23,12 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  @override
+  void initState() {
+    super.initState();
+    context.read<AuthBloc>().add(const AuthEvent.initial());
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -45,119 +52,71 @@ class __BodyScreenState extends State<_BodyScreen> {
   @override
   Widget build(BuildContext context) {
     final s = S.of(context);
-    return SizedBox(
-      height: 1.sh,
-      width: 1.sw,
+    return Center(
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
+        mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
         children: [
-          SvgPicture.asset(
-            'assets/icons/icon_app.svg',
-            width: 211.w,
-            height: 211.w,
+          Hero(
+            tag: 'icon_app',
+            child: SvgPicture.asset(
+              'assets/icons/icon_app.svg',
+              height: 211.w,
+              width: 211.w,
+              color: AppColors.kColor6,
+            ),
           ),
           SizedBox(
             height: 90.h,
           ),
-          Stack(
-            clipBehavior: Clip.none,
-            alignment: Alignment.center,
-            children: [
-              Positioned(
-                child: Container(
-                  margin:
-                      EdgeInsets.symmetric(horizontal: 20.w, vertical: 24.h),
-                  height: 340.h,
-                  decoration: BoxDecoration(
-                    color: AppColors.kColor2,
-                    borderRadius: BorderRadius.circular(30.w),
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 21.w),
-                        child: Text(
-                          s.easyWayToManageYourEWallet,
-                          style: TextConfigs.kHeader2_9.copyWith(),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 20.h,
-                      ),
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 53.w),
-                        child: Text(
-                          s.manageYourEveryPennyAndTransactionWithEase,
-                          style: TextConfigs.kLabel_9,
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 36.h,
-                      ),
-                      Container(
-                        decoration: BoxDecoration(boxShadow: [
-                          BoxShadow(
-                            color: AppColors.kColor6.withOpacity(0.2),
-                            offset: Offset(0, 10.h),
-                            blurRadius: 40.w,
-                            spreadRadius: 0,
-                          )
-                        ]),
-                        child: Material(
-                          clipBehavior: Clip.hardEdge,
-                          color: AppColors.kColor6,
-                          borderRadius: BorderRadius.circular(25.w),
-                          child: InkWell(
-                            splashFactory: InkRipple.splashFactory,
-                            onTap: () {},
-                            child: Padding(
-                              padding: EdgeInsets.all(13.w),
-                              child: SvgPicture.asset(
-                                'assets/icons/icon_arrow_right.svg',
-                                width: 24.w,
-                                height: 24.w,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 20.h,
-                      ),
-                    ],
-                  ),
+          Text(
+            s.enterToYourWallet,
+            style: TextConfigs.kHeader3_9,
+          ),
+          SizedBox(
+            height: 60.h,
+          ),
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              primary: AppColors.kColor6,
+              splashFactory: InkRipple.splashFactory,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(
+                  Radius.circular(20.w),
                 ),
               ),
-              Positioned(
-                bottom: 284.h,
-                child: Center(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(
-                          color: AppColors.kColor6.withOpacity(0.2),
-                          offset: Offset(0, 10.h),
-                          blurRadius: 40.w,
-                          spreadRadius: 0,
-                        )
-                      ],
-                    ),
-                    child: SvgPicture.asset(
-                      'assets/icons/icon_wallet_solid.svg',
-                      height: 164.h,
-                      width: 164.h,
-                      color: AppColors.kColor6,
-                    ),
-                  ),
+            ),
+            onPressed: () {},
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 50.w, vertical: 21.h),
+              child: Text(
+                s.createWallet,
+                style: TextConfigs.kHeader4_9,
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 20.h,
+          ),
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              primary: AppColors.kColor2,
+              splashFactory: InkRipple.splashFactory,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(
+                  Radius.circular(20.w),
                 ),
               ),
-            ],
+            ),
+            onPressed: () {},
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 50.w, vertical: 21.h),
+              child: Text(
+                s.importWallet,
+                style: TextConfigs.kHeader4_9,
+              ),
+            ),
           ),
         ],
       ),
