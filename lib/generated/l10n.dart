@@ -50,6 +50,36 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
+  /// `App Name`
+  String get appName {
+    return Intl.message(
+      'App Name',
+      name: 'appName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Easy way to manage your e-wallet`
+  String get easyWayToManageYourEWallet {
+    return Intl.message(
+      'Easy way to manage your e-wallet',
+      name: 'easyWayToManageYourEWallet',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Manage your every penny and transaction with ease`
+  String get manageYourEveryPennyAndTransactionWithEase {
+    return Intl.message(
+      'Manage your every penny and transaction with ease',
+      name: 'manageYourEveryPennyAndTransactionWithEase',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Import Wallet`
   String get importWallet {
     return Intl.message(

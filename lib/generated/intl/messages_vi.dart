@@ -22,7 +22,13 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "appName": MessageLookupByLibrary.simpleMessage("App Name"),
         "createWallet": MessageLookupByLibrary.simpleMessage("Tạo ví"),
-        "importWallet": MessageLookupByLibrary.simpleMessage("Nhập ví")
+        "easyWayToManageYourEWallet": MessageLookupByLibrary.simpleMessage(
+            "Dễ dàng để quản lý ví điện tử của bạn"),
+        "importWallet": MessageLookupByLibrary.simpleMessage("Nhập ví"),
+        "manageYourEveryPennyAndTransactionWithEase":
+            MessageLookupByLibrary.simpleMessage(
+                "Quản lý từng xu và giao dịch của bạn một cách dễ dàng")
       };
 }
