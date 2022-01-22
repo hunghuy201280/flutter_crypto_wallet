@@ -4,9 +4,10 @@ import 'package:flutter_ntf_marketplace/view_models/auth_bloc/auth_bloc.dart';
 import 'package:flutter_ntf_marketplace/views/home/home_screen.dart';
 import 'package:flutter_ntf_marketplace/views/login/login_screen.dart';
 import 'package:provider/src/provider.dart';
+import 'package:web3dart/web3dart.dart';
 
 class SplashScreen extends StatefulWidget {
-  static const String id = "splash";
+  static const String id = "/splash";
   const SplashScreen({Key? key}) : super(key: key);
 
   @override
@@ -25,19 +26,13 @@ class _SplashScreenState extends State<SplashScreen> {
     return BlocListener<AuthBloc, AuthState>(
       listener: (context, state) => state.when(
         unauthenticated: () {
-          Navigator.pushNamedAndRemoveUntil(
+          Navigator.pushReplacementNamed(
             context,
             LoginScreen.id,
-            (route) => false,
           );
         },
-        authenticated: (privateKey) {
-          Navigator.pushNamedAndRemoveUntil(
-            context,
-            HomeScreen.id,
-            (route) => false,
-          );
-        },
+        authenticatedNoPassword: (wallet) {},
+        authenticated: (Wallet wallet) {},
       ),
       child: const Scaffold(
         body: Center(

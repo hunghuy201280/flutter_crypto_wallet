@@ -22,9 +22,15 @@ class _$AuthStateTearOff {
     return const UnAuthenticated();
   }
 
-  Authenticated authenticated({required String privateKey}) {
+  AuthenticatedNoPassword authenticatedNoPassword({required String wallet}) {
+    return AuthenticatedNoPassword(
+      wallet: wallet,
+    );
+  }
+
+  Authenticated authenticated({required Wallet wallet}) {
     return Authenticated(
-      privateKey: privateKey,
+      wallet: wallet,
     );
   }
 }
@@ -37,37 +43,44 @@ mixin _$AuthState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() unauthenticated,
-    required TResult Function(String privateKey) authenticated,
+    required TResult Function(String wallet) authenticatedNoPassword,
+    required TResult Function(Wallet wallet) authenticated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? unauthenticated,
-    TResult Function(String privateKey)? authenticated,
+    TResult Function(String wallet)? authenticatedNoPassword,
+    TResult Function(Wallet wallet)? authenticated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? unauthenticated,
-    TResult Function(String privateKey)? authenticated,
+    TResult Function(String wallet)? authenticatedNoPassword,
+    TResult Function(Wallet wallet)? authenticated,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(UnAuthenticated value) unauthenticated,
+    required TResult Function(AuthenticatedNoPassword value)
+        authenticatedNoPassword,
     required TResult Function(Authenticated value) authenticated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(UnAuthenticated value)? unauthenticated,
+    TResult Function(AuthenticatedNoPassword value)? authenticatedNoPassword,
     TResult Function(Authenticated value)? authenticated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UnAuthenticated value)? unauthenticated,
+    TResult Function(AuthenticatedNoPassword value)? authenticatedNoPassword,
     TResult Function(Authenticated value)? authenticated,
     required TResult orElse(),
   }) =>
@@ -130,7 +143,8 @@ class _$UnAuthenticated implements UnAuthenticated {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() unauthenticated,
-    required TResult Function(String privateKey) authenticated,
+    required TResult Function(String wallet) authenticatedNoPassword,
+    required TResult Function(Wallet wallet) authenticated,
   }) {
     return unauthenticated();
   }
@@ -139,7 +153,8 @@ class _$UnAuthenticated implements UnAuthenticated {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? unauthenticated,
-    TResult Function(String privateKey)? authenticated,
+    TResult Function(String wallet)? authenticatedNoPassword,
+    TResult Function(Wallet wallet)? authenticated,
   }) {
     return unauthenticated?.call();
   }
@@ -148,7 +163,8 @@ class _$UnAuthenticated implements UnAuthenticated {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? unauthenticated,
-    TResult Function(String privateKey)? authenticated,
+    TResult Function(String wallet)? authenticatedNoPassword,
+    TResult Function(Wallet wallet)? authenticated,
     required TResult orElse(),
   }) {
     if (unauthenticated != null) {
@@ -161,6 +177,8 @@ class _$UnAuthenticated implements UnAuthenticated {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(UnAuthenticated value) unauthenticated,
+    required TResult Function(AuthenticatedNoPassword value)
+        authenticatedNoPassword,
     required TResult Function(Authenticated value) authenticated,
   }) {
     return unauthenticated(this);
@@ -170,6 +188,7 @@ class _$UnAuthenticated implements UnAuthenticated {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(UnAuthenticated value)? unauthenticated,
+    TResult Function(AuthenticatedNoPassword value)? authenticatedNoPassword,
     TResult Function(Authenticated value)? authenticated,
   }) {
     return unauthenticated?.call(this);
@@ -179,6 +198,7 @@ class _$UnAuthenticated implements UnAuthenticated {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UnAuthenticated value)? unauthenticated,
+    TResult Function(AuthenticatedNoPassword value)? authenticatedNoPassword,
     TResult Function(Authenticated value)? authenticated,
     required TResult orElse(),
   }) {
@@ -194,11 +214,154 @@ abstract class UnAuthenticated implements AuthState {
 }
 
 /// @nodoc
+abstract class $AuthenticatedNoPasswordCopyWith<$Res> {
+  factory $AuthenticatedNoPasswordCopyWith(AuthenticatedNoPassword value,
+          $Res Function(AuthenticatedNoPassword) then) =
+      _$AuthenticatedNoPasswordCopyWithImpl<$Res>;
+  $Res call({String wallet});
+}
+
+/// @nodoc
+class _$AuthenticatedNoPasswordCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res>
+    implements $AuthenticatedNoPasswordCopyWith<$Res> {
+  _$AuthenticatedNoPasswordCopyWithImpl(AuthenticatedNoPassword _value,
+      $Res Function(AuthenticatedNoPassword) _then)
+      : super(_value, (v) => _then(v as AuthenticatedNoPassword));
+
+  @override
+  AuthenticatedNoPassword get _value => super._value as AuthenticatedNoPassword;
+
+  @override
+  $Res call({
+    Object? wallet = freezed,
+  }) {
+    return _then(AuthenticatedNoPassword(
+      wallet: wallet == freezed
+          ? _value.wallet
+          : wallet // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AuthenticatedNoPassword implements AuthenticatedNoPassword {
+  const _$AuthenticatedNoPassword({required this.wallet});
+
+  @override
+  final String wallet;
+
+  @override
+  String toString() {
+    return 'AuthState.authenticatedNoPassword(wallet: $wallet)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is AuthenticatedNoPassword &&
+            const DeepCollectionEquality().equals(other.wallet, wallet));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(wallet));
+
+  @JsonKey(ignore: true)
+  @override
+  $AuthenticatedNoPasswordCopyWith<AuthenticatedNoPassword> get copyWith =>
+      _$AuthenticatedNoPasswordCopyWithImpl<AuthenticatedNoPassword>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() unauthenticated,
+    required TResult Function(String wallet) authenticatedNoPassword,
+    required TResult Function(Wallet wallet) authenticated,
+  }) {
+    return authenticatedNoPassword(wallet);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? unauthenticated,
+    TResult Function(String wallet)? authenticatedNoPassword,
+    TResult Function(Wallet wallet)? authenticated,
+  }) {
+    return authenticatedNoPassword?.call(wallet);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? unauthenticated,
+    TResult Function(String wallet)? authenticatedNoPassword,
+    TResult Function(Wallet wallet)? authenticated,
+    required TResult orElse(),
+  }) {
+    if (authenticatedNoPassword != null) {
+      return authenticatedNoPassword(wallet);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UnAuthenticated value) unauthenticated,
+    required TResult Function(AuthenticatedNoPassword value)
+        authenticatedNoPassword,
+    required TResult Function(Authenticated value) authenticated,
+  }) {
+    return authenticatedNoPassword(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(UnAuthenticated value)? unauthenticated,
+    TResult Function(AuthenticatedNoPassword value)? authenticatedNoPassword,
+    TResult Function(Authenticated value)? authenticated,
+  }) {
+    return authenticatedNoPassword?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UnAuthenticated value)? unauthenticated,
+    TResult Function(AuthenticatedNoPassword value)? authenticatedNoPassword,
+    TResult Function(Authenticated value)? authenticated,
+    required TResult orElse(),
+  }) {
+    if (authenticatedNoPassword != null) {
+      return authenticatedNoPassword(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AuthenticatedNoPassword implements AuthState {
+  const factory AuthenticatedNoPassword({required String wallet}) =
+      _$AuthenticatedNoPassword;
+
+  String get wallet;
+  @JsonKey(ignore: true)
+  $AuthenticatedNoPasswordCopyWith<AuthenticatedNoPassword> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 abstract class $AuthenticatedCopyWith<$Res> {
   factory $AuthenticatedCopyWith(
           Authenticated value, $Res Function(Authenticated) then) =
       _$AuthenticatedCopyWithImpl<$Res>;
-  $Res call({String privateKey});
+  $Res call({Wallet wallet});
 }
 
 /// @nodoc
@@ -213,13 +376,13 @@ class _$AuthenticatedCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? privateKey = freezed,
+    Object? wallet = freezed,
   }) {
     return _then(Authenticated(
-      privateKey: privateKey == freezed
-          ? _value.privateKey
-          : privateKey // ignore: cast_nullable_to_non_nullable
-              as String,
+      wallet: wallet == freezed
+          ? _value.wallet
+          : wallet // ignore: cast_nullable_to_non_nullable
+              as Wallet,
     ));
   }
 }
@@ -227,14 +390,14 @@ class _$AuthenticatedCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$Authenticated implements Authenticated {
-  const _$Authenticated({required this.privateKey});
+  const _$Authenticated({required this.wallet});
 
   @override
-  final String privateKey;
+  final Wallet wallet;
 
   @override
   String toString() {
-    return 'AuthState.authenticated(privateKey: $privateKey)';
+    return 'AuthState.authenticated(wallet: $wallet)';
   }
 
   @override
@@ -242,13 +405,12 @@ class _$Authenticated implements Authenticated {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is Authenticated &&
-            const DeepCollectionEquality()
-                .equals(other.privateKey, privateKey));
+            const DeepCollectionEquality().equals(other.wallet, wallet));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(privateKey));
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(wallet));
 
   @JsonKey(ignore: true)
   @override
@@ -259,29 +421,32 @@ class _$Authenticated implements Authenticated {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() unauthenticated,
-    required TResult Function(String privateKey) authenticated,
+    required TResult Function(String wallet) authenticatedNoPassword,
+    required TResult Function(Wallet wallet) authenticated,
   }) {
-    return authenticated(privateKey);
+    return authenticated(wallet);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? unauthenticated,
-    TResult Function(String privateKey)? authenticated,
+    TResult Function(String wallet)? authenticatedNoPassword,
+    TResult Function(Wallet wallet)? authenticated,
   }) {
-    return authenticated?.call(privateKey);
+    return authenticated?.call(wallet);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? unauthenticated,
-    TResult Function(String privateKey)? authenticated,
+    TResult Function(String wallet)? authenticatedNoPassword,
+    TResult Function(Wallet wallet)? authenticated,
     required TResult orElse(),
   }) {
     if (authenticated != null) {
-      return authenticated(privateKey);
+      return authenticated(wallet);
     }
     return orElse();
   }
@@ -290,6 +455,8 @@ class _$Authenticated implements Authenticated {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(UnAuthenticated value) unauthenticated,
+    required TResult Function(AuthenticatedNoPassword value)
+        authenticatedNoPassword,
     required TResult Function(Authenticated value) authenticated,
   }) {
     return authenticated(this);
@@ -299,6 +466,7 @@ class _$Authenticated implements Authenticated {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(UnAuthenticated value)? unauthenticated,
+    TResult Function(AuthenticatedNoPassword value)? authenticatedNoPassword,
     TResult Function(Authenticated value)? authenticated,
   }) {
     return authenticated?.call(this);
@@ -308,6 +476,7 @@ class _$Authenticated implements Authenticated {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(UnAuthenticated value)? unauthenticated,
+    TResult Function(AuthenticatedNoPassword value)? authenticatedNoPassword,
     TResult Function(Authenticated value)? authenticated,
     required TResult orElse(),
   }) {
@@ -319,9 +488,9 @@ class _$Authenticated implements Authenticated {
 }
 
 abstract class Authenticated implements AuthState {
-  const factory Authenticated({required String privateKey}) = _$Authenticated;
+  const factory Authenticated({required Wallet wallet}) = _$Authenticated;
 
-  String get privateKey;
+  Wallet get wallet;
   @JsonKey(ignore: true)
   $AuthenticatedCopyWith<Authenticated> get copyWith =>
       throw _privateConstructorUsedError;

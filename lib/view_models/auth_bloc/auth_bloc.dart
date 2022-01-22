@@ -3,6 +3,7 @@ import 'package:flutter_ntf_marketplace/constants/app_boxs.dart';
 import 'package:flutter_ntf_marketplace/constants/app_prefs.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:web3dart/web3dart.dart';
 
 part 'auth_state.dart';
 part 'auth_event.dart';
@@ -13,33 +14,37 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<_AuthInitial>((event, emit) async {
       emit(await _appStart());
     });
-    on<_AuthLoggedIn>((event, emit) => {
-
-    });
-    on<_AuthLoggedOut>((event, emit) => {
-      
-    });
+    on<_AuthLoggedIn>((event, emit) => {});
+    on<_AuthLoggedOut>((event, emit) => {});
   }
 
   Future<AuthState> _appStart() async {
     await _clearIfFirstRunAfterUninstall();
 
-    var box = await Hive.openBox(AppHiveBoxs.config);
+    var box = await Hive.openBox(AppHiveBoxs.wallet);
 
-    var privateKey = await box.get(AppPref.config.privateKey);
-    if (privateKey != null) {
-      return Authenticated(privateKey: privateKey!.toString());
+    String? walletSelected = await box.get(AppPref.wallet.walletSelect);
+    List<String>? wallets = await box.get(AppPref.wallet.walletImport);
+    if ((walletSelected != null && walletSelected.isNotEmpty)) {
+      return AuthenticatedNoPassword(wallet: walletSelected);
+    } else if (wallets != null && wallets.isNotEmpty) {
+      await box.put(AppPref.wallet.walletImport, wallets.first);
+      return AuthenticatedNoPassword(wallet: wallets.first);
     } else {
       return const UnAuthenticated();
     }
   }
 
   Future<void> _clearIfFirstRunAfterUninstall() async {
-    var box = await Hive.openBox(AppHiveBoxs.config);
-
-    if (box.get(AppPref.config.firstRun) ?? true) {
-      await box.delete(AppPref.config.privateKey);
-      await box.put(AppPref.config.firstRun, false);
+    var boxConfig = await Hive.openBox(AppHiveBoxs.config);
+    var boxWallet = await Hive.openBox(AppHiveBoxs.wallet);
+    if (boxConfig.get(AppPref.config.firstRun) ?? true) {
+      await boxWallet.deleteAll([
+        AppPref.wallet.mnemonicsPharse,
+        AppPref.wallet.walletImport,
+        AppPref.wallet.walletSelect
+      ]);
+      await boxConfig.put(AppPref.config.firstRun, false);
     }
   }
 }

@@ -8,4 +8,5 @@ class AppHiveBoxs {
   AppHiveBoxs._internal();
 
   static String get config => "CONFIG_BOX";
+  static String get wallet => "WALLET_BOX";
 }
