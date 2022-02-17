@@ -3,15 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ntf_marketplace/configs/color_config.dart';
 import 'package:flutter_ntf_marketplace/configs/text_config.dart';
 import 'package:flutter_ntf_marketplace/generated/l10n.dart';
-import 'package:flutter_ntf_marketplace/view_models/auth_bloc/auth_bloc.dart';
 import 'package:flutter_ntf_marketplace/view_models/splash_bloc/splash/splash_bloc.dart';
-import 'package:flutter_ntf_marketplace/views/home/home_screen.dart';
 import 'package:flutter_ntf_marketplace/views/login/login_screen.dart';
 import 'package:flutter_ntf_marketplace/views/onboarding_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/src/provider.dart';
-import 'package:web3dart/web3dart.dart';
 
 class SplashScreen extends StatefulWidget {
   static const String id = "/splash";
@@ -69,6 +66,7 @@ class __BodyScreenState extends State<_BodyScreen> {
             Navigator.pushNamedAndRemoveUntil(
                 context, LoginScreen.id, (route) => false);
           }
+          return null;
         },
         initial: () {},
       ),

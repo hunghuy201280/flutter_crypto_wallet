@@ -5,6 +5,7 @@ import 'package:flutter_ntf_marketplace/views/login/login_screen.dart';
 import 'package:flutter_ntf_marketplace/views/onboarding_screen.dart';
 import 'package:flutter_ntf_marketplace/views/splash_screen.dart';
 
+import '../views/create_wallet/create_wallet_screen.dart';
 import 'custom_route/fade_page_route.dart';
 
 class AppRoute {
@@ -28,6 +29,11 @@ class AppRoute {
       case HomeScreen.id:
         return CupertinoPageRoute(
           builder: (_) => const HomeScreen(),
+          settings: settings,
+        );
+      case CreateWalletScreen.id:
+        return CupertinoPageRoute(
+          builder: (_) => const CreateWalletScreen(),
           settings: settings,
         );
       default:

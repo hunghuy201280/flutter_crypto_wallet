@@ -1,18 +1,16 @@
-import 'dart:math';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ntf_marketplace/configs/color_config.dart';
 import 'package:flutter_ntf_marketplace/configs/text_config.dart';
 import 'package:flutter_ntf_marketplace/generated/l10n.dart';
 import 'package:flutter_ntf_marketplace/view_models/auth_bloc/auth_bloc.dart';
 import 'package:flutter_ntf_marketplace/view_models/login_bloc/login_bloc.dart';
-import 'package:flutter_ntf_marketplace/views/login/import_wallet_screen.dart';
-import 'package:flutter_ntf_marketplace/views/login/setup_wallet_screen.dart';
+import 'package:flutter_ntf_marketplace/views/create_wallet/create_wallet_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:web3dart/credentials.dart';
+
+import '../shared_widgets/primary_button.dart';
 
 class LoginScreen extends StatefulWidget {
   static const String id = "/login";
@@ -77,46 +75,21 @@ class __BodyScreenState extends State<_BodyScreen> {
           SizedBox(
             height: 60.h,
           ),
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              primary: AppColors.kColor6,
-              splashFactory: InkRipple.splashFactory,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(
-                  Radius.circular(20.w),
-                ),
-              ),
-            ),
-            onPressed: () {},
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 50.w, vertical: 21.h),
-              child: Text(
-                s.createWallet,
-                style: TextConfigs.kHeader4_9,
-              ),
-            ),
+          PrimaryButton(
+            title: s.createWallet,
+            horizontalPadding: 72.w,
+            onTap: () {
+              Navigator.pushNamed(context, CreateWalletScreen.id);
+            },
           ),
           SizedBox(
             height: 20.h,
           ),
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              primary: AppColors.kColor2,
-              splashFactory: InkRipple.splashFactory,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(
-                  Radius.circular(20.w),
-                ),
-              ),
-            ),
-            onPressed: () {},
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 50.w, vertical: 21.h),
-              child: Text(
-                s.importWallet,
-                style: TextConfigs.kHeader4_9,
-              ),
-            ),
+          PrimaryButton(
+            title: s.importWallet,
+            horizontalPadding: 72.w,
+            backgroundColor: AppColors.kColor2,
+            onTap: () {},
           ),
         ],
       ),
