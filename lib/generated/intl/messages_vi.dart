@@ -20,17 +20,37 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'vi';
 
+  static String m0(appName) =>
+      "Tôi hiểu rằng ${appName} không thể khôi phục mật khẩu này cho tôi.";
+
+  static String m1(num) => "Phải chứa ít nhất ${num} kí tự";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "appName": MessageLookupByLibrary.simpleMessage("App Name"),
+        "confirmPassword":
+            MessageLookupByLibrary.simpleMessage("Xác nhận mật khẩu"),
+        "createPassword": MessageLookupByLibrary.simpleMessage("Tạo mật khẩu"),
         "createWallet": MessageLookupByLibrary.simpleMessage("Tạo ví"),
+        "dontGiveThisPrivateKeyToAnyone": MessageLookupByLibrary.simpleMessage(
+            "Không tiết lộ private key này cho bất cứ ai!"),
         "easyWayToManageYourEWallet": MessageLookupByLibrary.simpleMessage(
             "Dễ dàng để quản lý ví điện tử của bạn"),
         "enterToYourWallet":
             MessageLookupByLibrary.simpleMessage("Truy cập vào ví"),
+        "getStarted": MessageLookupByLibrary.simpleMessage("Bắt đầu"),
+        "hide": MessageLookupByLibrary.simpleMessage("Ẩn"),
+        "iUnderstandThatAppNameCannotRecoverThisPasswordForMe": m0,
         "importWallet": MessageLookupByLibrary.simpleMessage("Nhập ví"),
         "manageYourEveryPennyAndTransactionWithEase":
             MessageLookupByLibrary.simpleMessage(
-                "Quản lý từng xu và giao dịch của bạn một cách dễ dàng")
+                "Quản lý từng xu và giao dịch của bạn một cách dễ dàng"),
+        "mustBeAtLeastCharacters": m1,
+        "newPassword": MessageLookupByLibrary.simpleMessage("Mật khẩu mới"),
+        "password": MessageLookupByLibrary.simpleMessage("Mật khẩu"),
+        "show": MessageLookupByLibrary.simpleMessage("Hiện"),
+        "thisPasswordWillUnlockYourWalletOnlyOnThisDevice":
+            MessageLookupByLibrary.simpleMessage(
+                "Mật khẩu này chỉ mở khóa ví của bạn trên thiết bị này.")
       };
 }

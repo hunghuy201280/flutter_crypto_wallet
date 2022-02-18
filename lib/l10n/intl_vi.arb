@@ -5,5 +5,17 @@
   "manageYourEveryPennyAndTransactionWithEase": "Quản lý từng xu và giao dịch của bạn một cách dễ dàng",
   "enterToYourWallet" : "Truy cập vào ví",
   "importWallet" : "Nhập ví",
-  "createWallet" : "Tạo ví"
+  "createWallet" : "Tạo ví",
+  "newPassword" : "Mật khẩu mới",
+  "show" : "Hiện",
+  "hide" : "Ẩn",
+  "confirmPassword" : "Xác nhận mật khẩu",
+  "password" : "Mật khẩu",
+  "mustBeAtLeastCharacters" : "Phải chứa ít nhất {num} kí tự",
+  "iUnderstandThatAppNameCannotRecoverThisPasswordForMe" : "Tôi hiểu rằng {appName} không thể khôi phục mật khẩu này cho tôi.",
+  "createPassword": "Tạo mật khẩu",
+  "dontGiveThisPrivateKeyToAnyone": "Không tiết lộ private key này cho bất cứ ai!",
+  "getStarted": "Bắt đầu",
+  "thisPasswordWillUnlockYourWalletOnlyOnThisDevice": "Mật khẩu này chỉ mở khóa ví của bạn trên thiết bị này."
+
 }

@@ -109,6 +109,116 @@ class S {
       args: [],
     );
   }
+
+  /// `New Password`
+  String get newPassword {
+    return Intl.message(
+      'New Password',
+      name: 'newPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Show`
+  String get show {
+    return Intl.message(
+      'Show',
+      name: 'show',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hide`
+  String get hide {
+    return Intl.message(
+      'Hide',
+      name: 'hide',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm Password`
+  String get confirmPassword {
+    return Intl.message(
+      'Confirm Password',
+      name: 'confirmPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password`
+  String get password {
+    return Intl.message(
+      'Password',
+      name: 'password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Must be at least {num} characters`
+  String mustBeAtLeastCharacters(int num) {
+    return Intl.message(
+      'Must be at least $num characters',
+      name: 'mustBeAtLeastCharacters',
+      desc: '',
+      args: [num],
+    );
+  }
+
+  /// `I understand that {appName} cannot recover this password for me.`
+  String iUnderstandThatAppNameCannotRecoverThisPasswordForMe(String appName) {
+    return Intl.message(
+      'I understand that $appName cannot recover this password for me.',
+      name: 'iUnderstandThatAppNameCannotRecoverThisPasswordForMe',
+      desc: '',
+      args: [appName],
+    );
+  }
+
+  /// `Create password`
+  String get createPassword {
+    return Intl.message(
+      'Create password',
+      name: 'createPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Don’t give this privatekey to anyone!`
+  String get dontGiveThisPrivateKeyToAnyone {
+    return Intl.message(
+      'Don’t give this privatekey to anyone!',
+      name: 'dontGiveThisPrivateKeyToAnyone',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Get started`
+  String get getStarted {
+    return Intl.message(
+      'Get started',
+      name: 'getStarted',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This password will unlock your wallet only on this device.`
+  String get thisPasswordWillUnlockYourWalletOnlyOnThisDevice {
+    return Intl.message(
+      'This password will unlock your wallet only on this device.',
+      name: 'thisPasswordWillUnlockYourWalletOnlyOnThisDevice',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

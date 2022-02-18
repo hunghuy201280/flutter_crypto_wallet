@@ -20,17 +20,38 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
+  static String m0(appName) =>
+      "I understand that ${appName} cannot recover this password for me.";
+
+  static String m1(num) => "Must be at least ${num} characters";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "appName": MessageLookupByLibrary.simpleMessage("App Name"),
+        "confirmPassword":
+            MessageLookupByLibrary.simpleMessage("Confirm Password"),
+        "createPassword":
+            MessageLookupByLibrary.simpleMessage("Create password"),
         "createWallet": MessageLookupByLibrary.simpleMessage("Create Wallet"),
+        "dontGiveThisPrivateKeyToAnyone": MessageLookupByLibrary.simpleMessage(
+            "Don’t give this privatekey to anyone!"),
         "easyWayToManageYourEWallet": MessageLookupByLibrary.simpleMessage(
             "Easy way to manage your e-wallet"),
         "enterToYourWallet":
             MessageLookupByLibrary.simpleMessage("Enter to your wallet"),
+        "getStarted": MessageLookupByLibrary.simpleMessage("Get started"),
+        "hide": MessageLookupByLibrary.simpleMessage("Hide"),
+        "iUnderstandThatAppNameCannotRecoverThisPasswordForMe": m0,
         "importWallet": MessageLookupByLibrary.simpleMessage("Import Wallet"),
         "manageYourEveryPennyAndTransactionWithEase":
             MessageLookupByLibrary.simpleMessage(
-                "Manage your every penny and transaction with ease")
+                "Manage your every penny and transaction with ease"),
+        "mustBeAtLeastCharacters": m1,
+        "newPassword": MessageLookupByLibrary.simpleMessage("New Password"),
+        "password": MessageLookupByLibrary.simpleMessage("Password"),
+        "show": MessageLookupByLibrary.simpleMessage("Show"),
+        "thisPasswordWillUnlockYourWalletOnlyOnThisDevice":
+            MessageLookupByLibrary.simpleMessage(
+                "This password will unlock your wallet only on this device.")
       };
 }

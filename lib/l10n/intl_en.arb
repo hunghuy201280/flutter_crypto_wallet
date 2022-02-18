@@ -5,5 +5,30 @@
   "manageYourEveryPennyAndTransactionWithEase": "Manage your every penny and transaction with ease",
   "enterToYourWallet" : "Enter to your wallet",
   "importWallet" : "Import Wallet",
-  "createWallet" : "Create Wallet"
+  "createWallet" : "Create Wallet",
+  "newPassword" : "New Password",
+  "show" : "Show",
+  "hide" : "Hide",
+  "confirmPassword" : "Confirm Password",
+  "password" : "Password",
+  "mustBeAtLeastCharacters" : "Must be at least {num} characters",
+  "@mustBeAtLeastCharacters": {
+    "placeholders": {
+      "num": {
+        "type": "int"
+      }
+    }
+  },
+  "iUnderstandThatAppNameCannotRecoverThisPasswordForMe" : "I understand that {appName} cannot recover this password for me.",
+  "@iUnderstandThatAppNameCannotRecoverThisPasswordForMe": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "createPassword": "Create password",
+  "dontGiveThisPrivateKeyToAnyone": "Don’t give this privatekey to anyone!",
+  "getStarted": "Get started",
+  "thisPasswordWillUnlockYourWalletOnlyOnThisDevice": "This password will unlock your wallet only on this device."
 }
