@@ -7,6 +7,7 @@ import 'package:flutter_ntf_marketplace/generated/l10n.dart';
 import 'package:flutter_ntf_marketplace/view_models/auth_bloc/auth_bloc.dart';
 import 'package:flutter_ntf_marketplace/view_models/login_bloc/login_bloc.dart';
 import 'package:flutter_ntf_marketplace/views/create_wallet/create_wallet_screen.dart';
+import 'package:flutter_ntf_marketplace/views/import_wallet/import_wallet_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -89,7 +90,9 @@ class __BodyScreenState extends State<_BodyScreen> {
             title: s.importWallet,
             horizontalPadding: 72.w,
             backgroundColor: AppColors.kColor2,
-            onTap: () {},
+            onTap: () {
+              Navigator.pushNamed(context, ImportWalletScreen.id);
+            },
           ),
         ],
       ),

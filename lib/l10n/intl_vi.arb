@@ -16,6 +16,9 @@
   "createPassword": "Tạo mật khẩu",
   "dontGiveThisPrivateKeyToAnyone": "Không tiết lộ private key này cho bất cứ ai!",
   "getStarted": "Bắt đầu",
+  "privateKey": "Private key",
+  "walletAddedSuccessfully": "Thêm ví thành công",
+
   "thisPasswordWillUnlockYourWalletOnlyOnThisDevice": "Mật khẩu này chỉ mở khóa ví của bạn trên thiết bị này."
 
 }

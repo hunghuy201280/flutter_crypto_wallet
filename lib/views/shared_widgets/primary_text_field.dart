@@ -14,6 +14,10 @@ class PrimaryTextField extends StatefulWidget {
     this.hint,
     this.autovalidateMode = AutovalidateMode.disabled,
     this.validator,
+    this.inputType = TextInputType.text,
+    this.inputAction = TextInputAction.done,
+    this.maxLines,
+    this.suffixIcon,
   }) : super(key: key);
 
   final TextEditingController? controller;
@@ -22,6 +26,10 @@ class PrimaryTextField extends StatefulWidget {
   final bool obscureText;
   final AutovalidateMode autovalidateMode;
   final FormFieldValidator<String>? validator;
+  final int? maxLines;
+  final TextInputType inputType;
+  final TextInputAction inputAction;
+  final Widget? suffixIcon;
   @override
   State<PrimaryTextField> createState() => _PrimaryTextFieldState();
 }
@@ -71,6 +79,11 @@ class _PrimaryTextFieldState extends State<PrimaryTextField> {
             style: TextConfigs.kBody2_9,
             obscureText: isHidden,
             validator: widget.validator,
+            maxLines: widget.maxLines ?? 1,
+            textInputAction: widget.inputAction,
+            keyboardType: widget.maxLines == null
+                ? widget.inputType
+                : TextInputType.multiline,
             decoration: InputDecoration(
               enabledBorder: defaultBorder,
               focusedBorder:
@@ -78,9 +91,11 @@ class _PrimaryTextFieldState extends State<PrimaryTextField> {
               isDense: true,
               isCollapsed: true,
               contentPadding:
-                  EdgeInsets.symmetric(vertical: 16.h, horizontal: 8.w),
+                  EdgeInsets.symmetric(vertical: 16.h, horizontal: 16.w),
               hintStyle: TextConfigs.kBody2_2,
               hintText: widget.hint,
+              suffixIcon: widget.suffixIcon,
+              suffixIconConstraints: const BoxConstraints.tightFor(),
             ),
             cursorColor: AppColors.kColor6,
           ),

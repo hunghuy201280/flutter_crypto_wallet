@@ -210,6 +210,26 @@ class S {
     );
   }
 
+  /// `Private key`
+  String get privateKey {
+    return Intl.message(
+      'Private key',
+      name: 'privateKey',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Wallet added successfully`
+  String get walletAddedSuccessfully {
+    return Intl.message(
+      'Wallet added successfully',
+      name: 'walletAddedSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `This password will unlock your wallet only on this device.`
   String get thisPasswordWillUnlockYourWalletOnlyOnThisDevice {
     return Intl.message(

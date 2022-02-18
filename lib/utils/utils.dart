@@ -1,3 +1,4 @@
+import 'package:another_flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ntf_marketplace/configs/color_config.dart';
 import 'package:flutter_ntf_marketplace/utils/extensions.dart';
@@ -6,6 +7,20 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../configs/text_config.dart';
 
 class Utils {
+  static Future showCompleteSnackBar(context, {required String message}) async {
+    await Flushbar(
+      messageText: Text(
+        message,
+        style: TextConfigs.kBody2_9,
+      ),
+      backgroundColor: AppColors.kColor6,
+      duration: const Duration(seconds: 2),
+      borderRadius: BorderRadius.circular(10),
+      margin: EdgeInsets.only(bottom: 24.h),
+      flushbarPosition: FlushbarPosition.TOP,
+    ).show(context);
+  }
+
   static AppBar buildAppBar(BuildContext context,
       {required String title, GestureTapCallback? onTap}) {
     return AppBar(

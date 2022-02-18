@@ -30,5 +30,7 @@
   "createPassword": "Create password",
   "dontGiveThisPrivateKeyToAnyone": "Don’t give this privatekey to anyone!",
   "getStarted": "Get started",
+  "privateKey": "Private key",
+  "walletAddedSuccessfully": "Wallet added successfully",
   "thisPasswordWillUnlockYourWalletOnlyOnThisDevice": "This password will unlock your wallet only on this device."
 }

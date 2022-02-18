@@ -48,9 +48,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "mustBeAtLeastCharacters": m1,
         "newPassword": MessageLookupByLibrary.simpleMessage("Mật khẩu mới"),
         "password": MessageLookupByLibrary.simpleMessage("Mật khẩu"),
+        "privateKey": MessageLookupByLibrary.simpleMessage("Private key"),
         "show": MessageLookupByLibrary.simpleMessage("Hiện"),
         "thisPasswordWillUnlockYourWalletOnlyOnThisDevice":
             MessageLookupByLibrary.simpleMessage(
-                "Mật khẩu này chỉ mở khóa ví của bạn trên thiết bị này.")
+                "Mật khẩu này chỉ mở khóa ví của bạn trên thiết bị này."),
+        "walletAddedSuccessfully":
+            MessageLookupByLibrary.simpleMessage("Thêm ví thành công")
       };
 }

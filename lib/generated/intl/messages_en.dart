@@ -49,9 +49,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "mustBeAtLeastCharacters": m1,
         "newPassword": MessageLookupByLibrary.simpleMessage("New Password"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
+        "privateKey": MessageLookupByLibrary.simpleMessage("Private key"),
         "show": MessageLookupByLibrary.simpleMessage("Show"),
         "thisPasswordWillUnlockYourWalletOnlyOnThisDevice":
             MessageLookupByLibrary.simpleMessage(
-                "This password will unlock your wallet only on this device.")
+                "This password will unlock your wallet only on this device."),
+        "walletAddedSuccessfully":
+            MessageLookupByLibrary.simpleMessage("Wallet added successfully")
       };
 }
