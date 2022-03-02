@@ -5,7 +5,7 @@ import 'package:flutter/widgets.dart';
 
 class CustomCheckBox extends StatefulWidget {
   final bool value;
-  final ValueChanged<bool> onChanged;
+  final GestureTapCallback onChanged;
   final Color checkedFillColor;
   final Widget checkedIcon;
   final Color uncheckedIconColor;
@@ -116,7 +116,7 @@ class _CustomCheckBoxState extends State<CustomCheckBox> {
   Widget build(BuildContext context) {
     return GestureDetector(
       child: _buildIcon(),
-      onTap: () => widget.onChanged(!_checked),
+      onTap: () => widget.onChanged(),
     );
   }
 }

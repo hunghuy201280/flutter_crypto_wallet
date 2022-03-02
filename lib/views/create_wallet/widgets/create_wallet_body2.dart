@@ -24,32 +24,26 @@ class CreateWalletBody2 extends StatelessWidget {
           style: TextConfigs.kLabel_9,
         ),
         48.verticalSpace,
-        Material(
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-          clipBehavior: Clip.hardEdge,
-          color: Colors.transparent,
-          child: InkWell(
-            onTap: () async {
-              await FlutterClipboard.copy(privateKey);
-              Utils.showCompleteSnackBar(context, message: "Copied");
-            },
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                8.verticalSpace,
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 32.w),
-                  child: Text(
-                    privateKey,
-                    style: TextConfigs.kSubtitle_9,
-                    textAlign: TextAlign.center,
-                  ),
+        GestureDetector(
+          onTap: () async {
+            await FlutterClipboard.copy(privateKey);
+            Utils.showToast(context, message: "Copied");
+          },
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              8.verticalSpace,
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 32.w),
+                child: Text(
+                  privateKey,
+                  style: TextConfigs.kSubtitle_9,
+                  textAlign: TextAlign.center,
                 ),
-                "paper".getIcon(width: 24.w, height: 24.w),
-                8.verticalSpace,
-              ],
-            ),
+              ),
+              "paper".getIcon(width: 24.w, height: 24.w),
+              8.verticalSpace,
+            ],
           ),
         ),
       ],

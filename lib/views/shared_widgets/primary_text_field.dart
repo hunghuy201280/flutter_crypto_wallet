@@ -18,6 +18,7 @@ class PrimaryTextField extends StatefulWidget {
     this.inputAction = TextInputAction.done,
     this.maxLines,
     this.suffixIcon,
+    this.onChanged,
   }) : super(key: key);
 
   final TextEditingController? controller;
@@ -30,6 +31,7 @@ class PrimaryTextField extends StatefulWidget {
   final TextInputType inputType;
   final TextInputAction inputAction;
   final Widget? suffixIcon;
+  final ValueChanged<String>? onChanged;
   @override
   State<PrimaryTextField> createState() => _PrimaryTextFieldState();
 }
@@ -81,6 +83,7 @@ class _PrimaryTextFieldState extends State<PrimaryTextField> {
             validator: widget.validator,
             maxLines: widget.maxLines ?? 1,
             textInputAction: widget.inputAction,
+            onChanged: widget.onChanged,
             keyboardType: widget.maxLines == null
                 ? widget.inputType
                 : TextInputType.multiline,

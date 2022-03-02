@@ -1,3 +1,3 @@
 class AppEndpoint {
-  static const exampleEndpoint = "/user";
+  static const test = "/test";
 }

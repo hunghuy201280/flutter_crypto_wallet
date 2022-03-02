@@ -2,7 +2,6 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 extension StringExt on String {
@@ -13,11 +12,6 @@ extension StringExt on String {
         width: width,
         height: height,
       );
-}
-
-extension NumberExt on num {
-  SizedBox get verticalSpace => SizedBox(height: h);
-  SizedBox get horizontalSpace => SizedBox(width: w);
 }
 
 extension OutlineInputBorderExt on OutlineInputBorder {

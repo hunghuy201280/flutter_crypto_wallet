@@ -1,11 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ntf_marketplace/views/home/home_screen.dart';
 import 'package:flutter_ntf_marketplace/views/import_wallet/import_wallet_screen.dart';
 import 'package:flutter_ntf_marketplace/views/login/login_screen.dart';
 import 'package:flutter_ntf_marketplace/views/onboarding_screen.dart';
 import 'package:flutter_ntf_marketplace/views/splash_screen.dart';
 
+import '../view_models/import_wallet_bloc/import_wallet_bloc.dart';
 import '../views/create_wallet/create_wallet_screen.dart';
 import '../views/import_wallet/import_wallet_success_screen.dart';
 import 'custom_route/fade_page_route.dart';
@@ -40,7 +42,10 @@ class AppRoute {
         );
       case ImportWalletScreen.id:
         return CupertinoPageRoute(
-          builder: (_) => const ImportWalletScreen(),
+          builder: (_) => BlocProvider(
+            create: (context) => ImportWalletBloc(),
+            child: const ImportWalletScreen(),
+          ),
           settings: settings,
         );
       case ImportWalletSuccessScreen.id:

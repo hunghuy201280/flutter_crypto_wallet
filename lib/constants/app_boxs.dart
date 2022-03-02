@@ -1,11 +1,11 @@
-class AppHiveBoxs {
-  static final AppHiveBoxs _singleton = AppHiveBoxs._internal();
+class AppHiveBoxes {
+  static final AppHiveBoxes _singleton = AppHiveBoxes._internal();
 
-  factory AppHiveBoxs() {
+  factory AppHiveBoxes() {
     return _singleton;
   }
 
-  AppHiveBoxs._internal();
+  AppHiveBoxes._internal();
 
   static String get config => "CONFIG_BOX";
   static String get wallet => "WALLET_BOX";

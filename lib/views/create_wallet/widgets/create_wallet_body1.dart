@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ntf_marketplace/utils/extensions.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../configs/text_config.dart';
@@ -46,7 +45,9 @@ class CreateWalletBody1 extends StatelessWidget {
           margin: EdgeInsets.symmetric(horizontal: 24.w),
         ),
         24.verticalSpace,
-        const CheckBoxRow(),
+        CheckBoxRow(
+          onChanged: (bool value) {},
+        ),
         48.verticalSpace,
       ],
     );

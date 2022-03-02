@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ntf_marketplace/utils/extensions.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../configs/color_config.dart';
@@ -10,8 +9,9 @@ import '../../shared_widgets/custom_checkbox.dart';
 class CheckBoxRow extends StatefulWidget {
   const CheckBoxRow({
     Key? key,
+    required this.onChanged,
   }) : super(key: key);
-
+  final ValueChanged<bool> onChanged;
   @override
   State<CheckBoxRow> createState() => _CheckBoxRowState();
 }
@@ -22,37 +22,39 @@ class _CheckBoxRowState extends State<CheckBoxRow> {
   @override
   Widget build(BuildContext context) {
     final s = S.of(context);
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        24.horizontalSpace,
-        CustomCheckBox(
-          value: isChecked,
-          onChanged: (value) {
-            setState(() {
-              isChecked = !isChecked;
-            });
-          },
-          checkBoxSize: 24.w,
-          checkedFillColor: Colors.transparent,
-          borderColor: AppColors.kColor9,
-          uncheckedFillColor: Colors.transparent,
-          uncheckedIcon: const Icon(
-            Icons.check,
-            size: 20,
-            color: AppColors.kColor9,
+    return GestureDetector(
+      onTap: onCheckChanged,
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          24.horizontalSpace,
+          CustomCheckBox(
+            value: isChecked,
+            onChanged: onCheckChanged,
+            checkBoxSize: 24.w,
+            checkedFillColor: AppColors.kColor6,
+            borderColor: AppColors.kColor9,
+            uncheckedFillColor: Colors.transparent,
+            shouldShowBorder: true,
+            checkedIcon: const SizedBox.shrink(),
           ),
-          shouldShowBorder: true,
-        ),
-        8.horizontalSpace,
-        Flexible(
-          child: Text(
-            s.iUnderstandThatAppNameCannotRecoverThisPasswordForMe(s.appName),
-            style: TextConfigs.kBody2_9,
+          8.horizontalSpace,
+          Flexible(
+            child: Text(
+              s.iUnderstandThatAppNameCannotRecoverThisPasswordForMe(s.appName),
+              style: TextConfigs.kBody2_9,
+            ),
           ),
-        ),
-        24.horizontalSpace,
-      ],
+          24.horizontalSpace,
+        ],
+      ),
     );
+  }
+
+  void onCheckChanged() {
+    setState(() {
+      isChecked = !isChecked;
+    });
+    widget.onChanged(isChecked);
   }
 }

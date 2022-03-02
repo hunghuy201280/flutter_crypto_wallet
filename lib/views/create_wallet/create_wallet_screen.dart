@@ -2,11 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ntf_marketplace/configs/color_config.dart';
 import 'package:flutter_ntf_marketplace/generated/l10n.dart';
-import 'package:flutter_ntf_marketplace/utils/extensions.dart';
 import 'package:flutter_ntf_marketplace/utils/utils.dart';
 import 'package:flutter_ntf_marketplace/views/create_wallet/widgets/create_wallet_body1.dart';
 import 'package:flutter_ntf_marketplace/views/create_wallet/widgets/create_wallet_body2.dart';
 import 'package:flutter_ntf_marketplace/views/create_wallet/widgets/nstepper.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../shared_widgets/primary_button.dart';
 
@@ -32,6 +32,7 @@ class _CreateWalletScreenState extends State<CreateWalletScreen> {
     final s = S.of(context);
     return Scaffold(
       backgroundColor: AppColors.kColor1,
+      resizeToAvoidBottomInset: false,
       appBar: Utils.buildAppBar(
         context,
         title: s.createWallet,
@@ -54,6 +55,7 @@ class _CreateWalletScreenState extends State<CreateWalletScreen> {
           ),
           Expanded(
             child: PageView(
+              physics: const NeverScrollableScrollPhysics(),
               controller: pageController,
               children: const [
                 CreateWalletBody1(),

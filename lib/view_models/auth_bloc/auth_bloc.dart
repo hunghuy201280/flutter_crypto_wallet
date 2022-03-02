@@ -5,9 +5,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:web3dart/web3dart.dart';
 
-part 'auth_state.dart';
-part 'auth_event.dart';
 part 'auth_bloc.freezed.dart';
+part 'auth_event.dart';
+part 'auth_state.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   AuthBloc() : super(const AuthState.unauthenticated()) {
@@ -21,7 +21,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   Future<AuthState> _authStart() async {
     await _clearIfFirstRunAfterUninstall();
 
-    var box = await Hive.openBox(AppHiveBoxs.wallet);
+    var box = await Hive.openBox(AppHiveBoxes.wallet);
 
     String? walletSelected = await box.get(AppPref.wallet.walletSelect);
     List<String>? wallets = await box.get(AppPref.wallet.walletImport);
@@ -36,8 +36,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   }
 
   Future<void> _clearIfFirstRunAfterUninstall() async {
-    var boxConfig = await Hive.openBox(AppHiveBoxs.config);
-    var boxWallet = await Hive.openBox(AppHiveBoxs.wallet);
+    var boxConfig = await Hive.openBox(AppHiveBoxes.config);
+    var boxWallet = await Hive.openBox(AppHiveBoxes.wallet);
     if (boxConfig.get(AppPref.config.firstRun) ?? true) {
       await boxWallet.deleteAll([
         AppPref.wallet.mnemonicsPharse,
@@ -45,7 +45,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         AppPref.wallet.walletSelect
       ]);
       await boxConfig.put(AppPref.config.firstRun, false);
-
     }
   }
 }

@@ -4,9 +4,9 @@ import 'package:flutter_ntf_marketplace/constants/app_prefs.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
-part 'splash_state.dart';
-part 'splash_event.dart';
 part 'splash_bloc.freezed.dart';
+part 'splash_event.dart';
+part 'splash_state.dart';
 
 class SplashBloc extends Bloc<SplashEvent, SplashState> {
   SplashBloc() : super(const SplashState.initial()) {
@@ -16,7 +16,7 @@ class SplashBloc extends Bloc<SplashEvent, SplashState> {
   }
 
   Future<SplashState> _appStart() async {
-    var boxConfig = await Hive.openBox(AppHiveBoxs.config);
+    var boxConfig = await Hive.openBox(AppHiveBoxes.config);
     return SplashState.firstRun(
         value: boxConfig.get(AppPref.config.firstRun) ?? true);
   }
