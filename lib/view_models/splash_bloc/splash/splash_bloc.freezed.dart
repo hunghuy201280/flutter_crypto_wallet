@@ -15,6 +15,166 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
+class _$SplashEventTearOff {
+  const _$SplashEventTearOff();
+
+  _Init splashInit() {
+    return const _Init();
+  }
+}
+
+/// @nodoc
+const $SplashEvent = _$SplashEventTearOff();
+
+/// @nodoc
+mixin _$SplashEvent {
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() splashInit,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? splashInit,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? splashInit,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) splashInit,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Init value)? splashInit,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? splashInit,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $SplashEventCopyWith<$Res> {
+  factory $SplashEventCopyWith(
+          SplashEvent value, $Res Function(SplashEvent) then) =
+      _$SplashEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$SplashEventCopyWithImpl<$Res> implements $SplashEventCopyWith<$Res> {
+  _$SplashEventCopyWithImpl(this._value, this._then);
+
+  final SplashEvent _value;
+  // ignore: unused_field
+  final $Res Function(SplashEvent) _then;
+}
+
+/// @nodoc
+abstract class _$InitCopyWith<$Res> {
+  factory _$InitCopyWith(_Init value, $Res Function(_Init) then) =
+      __$InitCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$InitCopyWithImpl<$Res> extends _$SplashEventCopyWithImpl<$Res>
+    implements _$InitCopyWith<$Res> {
+  __$InitCopyWithImpl(_Init _value, $Res Function(_Init) _then)
+      : super(_value, (v) => _then(v as _Init));
+
+  @override
+  _Init get _value => super._value as _Init;
+}
+
+/// @nodoc
+
+class _$_Init implements _Init {
+  const _$_Init();
+
+  @override
+  String toString() {
+    return 'SplashEvent.splashInit()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _Init);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() splashInit,
+  }) {
+    return splashInit();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? splashInit,
+  }) {
+    return splashInit?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? splashInit,
+    required TResult orElse(),
+  }) {
+    if (splashInit != null) {
+      return splashInit();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) splashInit,
+  }) {
+    return splashInit(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Init value)? splashInit,
+  }) {
+    return splashInit?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? splashInit,
+    required TResult orElse(),
+  }) {
+    if (splashInit != null) {
+      return splashInit(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Init implements SplashEvent {
+  const factory _Init() = _$_Init;
+}
+
+/// @nodoc
 class _$SplashStateTearOff {
   const _$SplashStateTearOff();
 
@@ -321,164 +481,4 @@ abstract class _FisrtRun implements SplashState {
   @JsonKey(ignore: true)
   _$FisrtRunCopyWith<_FisrtRun> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-class _$SplashEventTearOff {
-  const _$SplashEventTearOff();
-
-  _Init splashInit() {
-    return const _Init();
-  }
-}
-
-/// @nodoc
-const $SplashEvent = _$SplashEventTearOff();
-
-/// @nodoc
-mixin _$SplashEvent {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() splashInit,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? splashInit,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? splashInit,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Init value) splashInit,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Init value)? splashInit,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Init value)? splashInit,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $SplashEventCopyWith<$Res> {
-  factory $SplashEventCopyWith(
-          SplashEvent value, $Res Function(SplashEvent) then) =
-      _$SplashEventCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class _$SplashEventCopyWithImpl<$Res> implements $SplashEventCopyWith<$Res> {
-  _$SplashEventCopyWithImpl(this._value, this._then);
-
-  final SplashEvent _value;
-  // ignore: unused_field
-  final $Res Function(SplashEvent) _then;
-}
-
-/// @nodoc
-abstract class _$InitCopyWith<$Res> {
-  factory _$InitCopyWith(_Init value, $Res Function(_Init) then) =
-      __$InitCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$InitCopyWithImpl<$Res> extends _$SplashEventCopyWithImpl<$Res>
-    implements _$InitCopyWith<$Res> {
-  __$InitCopyWithImpl(_Init _value, $Res Function(_Init) _then)
-      : super(_value, (v) => _then(v as _Init));
-
-  @override
-  _Init get _value => super._value as _Init;
-}
-
-/// @nodoc
-
-class _$_Init implements _Init {
-  const _$_Init();
-
-  @override
-  String toString() {
-    return 'SplashEvent.splashInit()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Init);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() splashInit,
-  }) {
-    return splashInit();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? splashInit,
-  }) {
-    return splashInit?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? splashInit,
-    required TResult orElse(),
-  }) {
-    if (splashInit != null) {
-      return splashInit();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Init value) splashInit,
-  }) {
-    return splashInit(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Init value)? splashInit,
-  }) {
-    return splashInit?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Init value)? splashInit,
-    required TResult orElse(),
-  }) {
-    if (splashInit != null) {
-      return splashInit(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Init implements SplashEvent {
-  const factory _Init() = _$_Init;
 }

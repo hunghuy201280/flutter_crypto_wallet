@@ -1,6 +1,5 @@
-import 'package:dio/dio.dart';
 import 'package:flutter_ntf_marketplace/configs/app_config.dart';
-import 'package:flutter_ntf_marketplace/constants/endpoints.dart';
+import 'package:flutter_ntf_marketplace/constants/app_prefs.dart';
 
 class LocalRepository {
   static const baseUrl = AppConfigs.kServerUri;
@@ -10,10 +9,14 @@ class LocalRepository {
     return _singleton;
   }
   LocalRepository._internal();
+  late AppPref _appPref;
 
-  Future<Response> getSomething() async {
-    Dio _dio = Dio();
-    Response response = await _dio.get("$baseUrl${AppEndpoint.test}");
-    return response;
+  set appPref(AppPref pref) => _appPref = pref;
+
+  Future<void> savePrivateKey({required String privateKey}) async {
+    final wallet = _appPref.wallet;
+    final importedWallet = wallet.importedWallets;
+    importedWallet.add(privateKey);
+    wallet.setImportedWallets([...importedWallet]);
   }
 }

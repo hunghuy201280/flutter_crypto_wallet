@@ -34,14 +34,15 @@ dependencies:
 
   cupertino_icons: ^1.0.4
   web3dart: ^2.3.5
-  hive: ^2.0.5
+  hive: ^2.0.6
   hive_flutter: ^1.1.0
+  flutter_secure_storage: ^5.0.2
 
 dev_dependencies:
-  freezed:
-  build_runner:
-  json_serializable:
-
+  freezed: ^1.1.1
+  build_runner: ^2.1.7
+  json_serializable: ^6.1.4
+  hive_generator: ^1.1.2
   flutter_test:
     sdk: flutter
 

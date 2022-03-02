@@ -1,3 +1,7 @@
+import 'package:flutter_ntf_marketplace/models/configs/configs.dart';
+
+import '../models/wallet/wallet.dart';
+
 class AppPref {
   static final AppPref _singleton = AppPref._internal();
 
@@ -7,16 +11,6 @@ class AppPref {
 
   AppPref._internal();
 
-  static _Config config = _Config();
-  static _Wallet wallet = _Wallet();
-}
-
-class _Config {
-  String get firstRun => "FIRST_RUN";
-}
-
-class _Wallet {
-  String get mnemonicsPharse => "MNEMONICS_PHARSE";
-  String get walletSelect => "WALLET_SELECT";
-  String get walletImport => "WALLET_IMPORT";
+  final config = Configs();
+  final wallet = Wallet();
 }

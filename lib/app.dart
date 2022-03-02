@@ -6,12 +6,24 @@ import 'package:flutter_ntf_marketplace/view_models/app_provider.dart';
 import 'package:flutter_ntf_marketplace/view_models/auth_bloc/auth_bloc.dart';
 import 'package:flutter_ntf_marketplace/views/splash_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hive/hive.dart';
 import 'package:provider/provider.dart';
 
 import 'generated/l10n.dart';
 
-class NFTApp extends StatelessWidget {
+class NFTApp extends StatefulWidget {
   const NFTApp({Key? key}) : super(key: key);
+
+  @override
+  State<NFTApp> createState() => _NFTAppState();
+}
+
+class _NFTAppState extends State<NFTApp> {
+  @override
+  void dispose() {
+    Hive.close();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {

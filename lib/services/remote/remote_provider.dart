@@ -15,4 +15,9 @@ class RemoteProvider {
 
     return response.data;
   }
+
+  Future<String> verifyWallet({required String privateKey}) async {
+    final response = await repo.verifyWallet(privateKey: privateKey);
+    return response.data["data"].first;
+  }
 }

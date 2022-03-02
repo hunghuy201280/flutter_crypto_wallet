@@ -6,7 +6,6 @@ import 'package:flutter_ntf_marketplace/generated/l10n.dart';
 import 'package:flutter_ntf_marketplace/utils/extensions.dart';
 import 'package:flutter_ntf_marketplace/utils/utils.dart';
 import 'package:flutter_ntf_marketplace/view_models/import_wallet_bloc/import_wallet_bloc.dart';
-import 'package:flutter_ntf_marketplace/views/import_wallet/import_wallet_success_screen.dart';
 import 'package:flutter_ntf_marketplace/views/shared_widgets/primary_button.dart';
 import 'package:flutter_ntf_marketplace/views/shared_widgets/primary_text_field.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -95,7 +94,7 @@ class _ImportWalletScreenState extends State<ImportWalletScreen> {
             title: s.importWallet,
             onTap: () {
               _bloc.add(const ImportWalletImported());
-              Navigator.pushNamed(context, ImportWalletSuccessScreen.id);
+              // Navigator.pushNamed(context, ImportWalletSuccessScreen.id);
             },
           )
         ],
