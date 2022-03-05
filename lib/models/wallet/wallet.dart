@@ -12,6 +12,8 @@ class Wallet {
   static const kWalletsKey = "wallets";
   static const kSelectedWalletKey = "selectedWallet";
   static const kImportedWalletsKey = "importedWallets";
+  static const kPasscodeKey = "passCode";
+  static const kIsLoginWithBiometrics = "isLoginWithBiometrics";
 
   String get mnemonicPhrase => _box.get(kMnemonicPhraseKey, defaultValue: "");
   Future<void> setMnemonicPhrase(String value) =>
@@ -28,4 +30,12 @@ class Wallet {
       _box.get(kImportedWalletsKey, defaultValue: []);
   Future<void> setImportedWallets(List<String> value) =>
       _box.put(kImportedWalletsKey, value);
+
+  String get passCode => _box.get(kPasscodeKey);
+  Future<void> setPasscode(String value) => _box.put(kPasscodeKey, value);
+
+  bool get isLoginWithBiometrics =>
+      _box.get(kIsLoginWithBiometrics, defaultValue: false);
+  Future<void> setIsLoginWithBiometrics(bool value) =>
+      _box.put(kIsLoginWithBiometrics, value);
 }

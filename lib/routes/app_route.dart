@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_ntf_marketplace/view_models/passcode_bloc/passcode_bloc.dart';
 import 'package:flutter_ntf_marketplace/views/home/home_screen.dart';
 import 'package:flutter_ntf_marketplace/views/import_wallet/import_wallet_screen.dart';
 import 'package:flutter_ntf_marketplace/views/login/login_screen.dart';
 import 'package:flutter_ntf_marketplace/views/onboarding_screen.dart';
+import 'package:flutter_ntf_marketplace/views/passcode/passcode_screen.dart';
 import 'package:flutter_ntf_marketplace/views/splash_screen.dart';
 
 import '../view_models/import_wallet_bloc/import_wallet_bloc.dart';
@@ -51,6 +53,14 @@ class AppRoute {
       case ImportWalletSuccessScreen.id:
         return CupertinoPageRoute(
           builder: (_) => const ImportWalletSuccessScreen(),
+          settings: settings,
+        );
+      case PasscodeScreen.id:
+        return CupertinoPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) => PasscodeBloc(),
+            child: const PasscodeScreen(),
+          ),
           settings: settings,
         );
       default:
