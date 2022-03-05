@@ -36,16 +36,6 @@ class _CreateWalletScreenState extends State<CreateWalletScreen> {
       appBar: Utils.buildAppBar(
         context,
         title: s.createWallet,
-        onTap: () {
-          if (currentStep == 2) {
-            _animateToPage(0);
-            setState(() {
-              currentStep = 1;
-            });
-          } else {
-            Navigator.maybePop(context);
-          }
-        },
       ),
       body: Column(
         children: [
