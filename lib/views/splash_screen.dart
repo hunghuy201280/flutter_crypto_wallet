@@ -10,6 +10,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/src/provider.dart';
 
+import '../view_models/auth_bloc/auth_bloc.dart';
+
 class SplashScreen extends StatefulWidget {
   static const String id = "/splash";
   const SplashScreen({Key? key}) : super(key: key);
@@ -19,15 +21,17 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  late AuthBloc _authBloc;
   @override
   void initState() {
     super.initState();
+    _authBloc = context.read<AuthBloc>();
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<SplashBloc>(
-      create: (context) => SplashBloc(),
+    return BlocProvider(
+      create: (context) => SplashBloc(_authBloc),
       child: const Scaffold(
         backgroundColor: AppColors.kColor1,
         body: _BodyScreen(),
@@ -47,7 +51,7 @@ class __BodyScreenState extends State<_BodyScreen> {
   @override
   void initState() {
     WidgetsBinding.instance?.addPostFrameCallback((timeStamp) async {
-      await Future.delayed(const Duration(milliseconds: 3000));
+      await Future.delayed(const Duration(milliseconds: 2000));
       context.read<SplashBloc>().add(const SplashEvent.splashInit());
     });
     super.initState();

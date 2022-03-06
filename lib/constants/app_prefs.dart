@@ -1,10 +1,10 @@
-import 'package:flutter_ntf_marketplace/models/configs/configs.dart';
+import 'package:flutter_ntf_marketplace/models/prefs/configspref.dart';
 
-import '../models/wallet/wallet.dart';
+import '../models/prefs/walletpref.dart';
 
 class AppPref {
-  final Configs config;
-  final Wallet wallet;
+  final ConfigsPref config;
+  final WalletPref wallet;
 
   const AppPref({
     required this.config,

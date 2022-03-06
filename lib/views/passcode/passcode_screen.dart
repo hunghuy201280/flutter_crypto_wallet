@@ -23,6 +23,7 @@ class _PasscodeScreenState extends State<PasscodeScreen> {
   void initState() {
     super.initState();
     _bloc = context.read<PasscodeBloc>();
+    _bloc.add(const PasscodeInitialLoaded());
   }
 
   @override
@@ -34,7 +35,9 @@ class _PasscodeScreenState extends State<PasscodeScreen> {
         children: [
           Expanded(
             child: Column(
-              children: [],
+              children: [
+                PrimaryAvatar(size: 96.w),
+              ],
             ),
           ),
         ],

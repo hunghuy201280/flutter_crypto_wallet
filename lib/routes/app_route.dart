@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ntf_marketplace/view_models/passcode_bloc/passcode_bloc.dart';
+import 'package:flutter_ntf_marketplace/view_models/splash_bloc/splash/splash_bloc.dart';
 import 'package:flutter_ntf_marketplace/views/home/home_screen.dart';
 import 'package:flutter_ntf_marketplace/views/import_wallet/import_wallet_screen.dart';
 import 'package:flutter_ntf_marketplace/views/login/login_screen.dart';

@@ -1,16 +1,18 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter_ntf_marketplace/constants/app_prefs.dart';
+import 'package:flutter_ntf_marketplace/models/wallet/wallet.dart';
+import 'package:flutter_ntf_marketplace/services/local/local_provider.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:get/get.dart';
 
-import '../../models/wallet/wallet.dart';
+import '../../models/prefs/walletpref.dart';
 
 part 'auth_bloc.freezed.dart';
 part 'auth_event.dart';
 part 'auth_state.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
-  final _appPref = Get.find<AppPref>();
+  final _localProvider = Get.find<LocalProvider>();
   AuthBloc() : super(const AuthState.unauthenticated()) {
     on<_AuthInitial>((event, emit) async {
       emit(await _authStart());
@@ -22,29 +24,26 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   Future<AuthState> _authStart() async {
     await _clearIfFirstRunAfterUninstall();
 
-    final wallet = _appPref.wallet;
-    String walletSelected = wallet.selectedWallet;
-    List<String> wallets = wallet.wallets;
-    if (wallets.isNotEmpty) {
-      if (walletSelected.isEmpty) {
-        await wallet.setSelectedWallet(wallets.first);
-      }
-      return AuthenticatedNoPassword(wallet: walletSelected);
-    } else {
-      return const UnAuthenticated();
-    }
+    String walletSelected = _localProvider.getWalletSeleted();
+    List<String> wallets = _localProvider.getWalletsImported();
+    return AuthenticatedNoPassword(walletAddress: walletSelected);
+    // if (wallets.isNotEmpty) {
+    //   if (walletSelected.isEmpty) {
+    //     await _localProvider.saveWalletSelected(walletSelected: wallets.first);
+    //   }
+    //   return AuthenticatedNoPassword(walletAddress: walletSelected);
+    // } else {
+    //   return const UnAuthenticated();
+    // }
   }
 
   Future<void> _clearIfFirstRunAfterUninstall() async {
-    final config = _appPref.config;
-    final wallet = _appPref.wallet;
-    if (config.firstRun) {
+    if (_localProvider.isFirstRunApp()) {
       await Future.wait([
-        wallet.setSelectedWallet(""),
-        wallet.setImportedWallets([]),
-        wallet.setMnemonicPhrase(""),
-        wallet.setWallets([]),
-        config.setFirstRun(false),
+        _localProvider.saveWalletSelected(walletSelected: ""),
+        _localProvider.deleteAllPrivateKey(),
+        _localProvider.saveMnemonicPhrase(mnemonicPhrase: ""),
+        _localProvider.saveStateFirstRunApp(isFirstRun: false),
       ]);
     }
   }

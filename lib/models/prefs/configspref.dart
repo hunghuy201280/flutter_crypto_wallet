@@ -1,7 +1,7 @@
 import 'package:hive/hive.dart';
 
-class Configs {
-  const Configs({
+class ConfigsPref {
+  const ConfigsPref({
     required this.box,
   });
 

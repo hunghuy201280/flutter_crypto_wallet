@@ -7,8 +7,8 @@ import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 
 import '../constants/hive_configs.dart';
-import '../models/configs/configs.dart';
-import '../models/wallet/wallet.dart';
+import '../models/prefs/configspref.dart';
+import '../models/prefs/walletpref.dart';
 
 class AppConfigs {
   static const kServerUri = "http://localhost:3000";
@@ -16,10 +16,10 @@ class AppConfigs {
   static Future<void> initializeApp() async {
     //#region initialize AppPref
     final appPref = AppPref(
-      config: Configs(
+      config: ConfigsPref(
         box: Hive.box(HiveConfigs.kConfig),
       ),
-      wallet: Wallet(
+      wallet: WalletPref(
         box: Hive.box(HiveConfigs.kWallet),
       ),
     );

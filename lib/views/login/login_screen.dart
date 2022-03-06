@@ -22,10 +22,11 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  
   @override
   void initState() {
     super.initState();
-    context.read<AuthBloc>().add(const AuthEvent.initial());
+    
   }
 
   @override
@@ -66,16 +67,12 @@ class __BodyScreenState extends State<_BodyScreen> {
               color: AppColors.kColor6,
             ),
           ),
-          SizedBox(
-            height: 90.h,
-          ),
+          90.verticalSpace,
           Text(
             s.enterToYourWallet,
             style: TextConfigs.kHeader3_9,
           ),
-          SizedBox(
-            height: 60.h,
-          ),
+          60.verticalSpace,
           PrimaryButton(
             title: s.createWallet,
             horizontalPadding: 72.w,
@@ -84,9 +81,7 @@ class __BodyScreenState extends State<_BodyScreen> {
               Navigator.pushNamed(context, CreateWalletScreen.id);
             },
           ),
-          SizedBox(
-            height: 20.h,
-          ),
+          20.verticalSpace,
           PrimaryButton(
             title: s.importWallet,
             horizontalPadding: 72.w,
