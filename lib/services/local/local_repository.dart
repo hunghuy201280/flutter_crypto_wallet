@@ -3,15 +3,12 @@ import 'package:flutter_ntf_marketplace/constants/app_prefs.dart';
 
 class LocalRepository {
   static const baseUrl = AppConfigs.kServerUri;
-  static final LocalRepository _singleton = LocalRepository._internal();
 
-  factory LocalRepository() {
-    return _singleton;
-  }
-  LocalRepository._internal();
-  late AppPref _appPref;
+  const LocalRepository({
+    required AppPref appPref,
+  }) : _appPref = appPref;
 
-  set appPref(AppPref pref) => _appPref = pref;
+  final AppPref _appPref;
 
   Future<void> savePrivateKey({required String privateKey}) async {
     final wallet = _appPref.wallet;

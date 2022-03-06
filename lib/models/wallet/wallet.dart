@@ -1,12 +1,10 @@
 import 'package:hive/hive.dart';
 
 class Wallet {
-  static final Wallet _internal = Wallet._();
-  factory Wallet() => _internal;
-  Wallet._();
-  late Box _box;
-
-  set box(Box value) => _box = value;
+  const Wallet({
+    required this.box,
+  });
+  final Box box;
 
   static const kMnemonicPhraseKey = "mnemonicPhrase";
   static const kWalletsKey = "wallets";
@@ -15,27 +13,27 @@ class Wallet {
   static const kPasscodeKey = "passCode";
   static const kIsLoginWithBiometrics = "isLoginWithBiometrics";
 
-  String get mnemonicPhrase => _box.get(kMnemonicPhraseKey, defaultValue: "");
+  String get mnemonicPhrase => box.get(kMnemonicPhraseKey, defaultValue: "");
   Future<void> setMnemonicPhrase(String value) =>
-      _box.put(kMnemonicPhraseKey, value);
+      box.put(kMnemonicPhraseKey, value);
 
-  List<String> get wallets => _box.get(kWalletsKey, defaultValue: []);
-  Future<void> setWallets(List<String> value) => _box.put(kWalletsKey, value);
+  List<String> get wallets => box.get(kWalletsKey, defaultValue: []);
+  Future<void> setWallets(List<String> value) => box.put(kWalletsKey, value);
 
-  String get selectedWallet => _box.get(kSelectedWalletKey, defaultValue: "");
+  String get selectedWallet => box.get(kSelectedWalletKey, defaultValue: "");
   Future<void> setSelectedWallet(String value) =>
-      _box.put(kSelectedWalletKey, value);
+      box.put(kSelectedWalletKey, value);
 
   List<String> get importedWallets =>
-      _box.get(kImportedWalletsKey, defaultValue: []);
+      box.get(kImportedWalletsKey, defaultValue: []);
   Future<void> setImportedWallets(List<String> value) =>
-      _box.put(kImportedWalletsKey, value);
+      box.put(kImportedWalletsKey, value);
 
-  String get passCode => _box.get(kPasscodeKey);
-  Future<void> setPasscode(String value) => _box.put(kPasscodeKey, value);
+  String get passCode => box.get(kPasscodeKey);
+  Future<void> setPasscode(String value) => box.put(kPasscodeKey, value);
 
   bool get isLoginWithBiometrics =>
-      _box.get(kIsLoginWithBiometrics, defaultValue: false);
+      box.get(kIsLoginWithBiometrics, defaultValue: false);
   Future<void> setIsLoginWithBiometrics(bool value) =>
-      _box.put(kIsLoginWithBiometrics, value);
+      box.put(kIsLoginWithBiometrics, value);
 }

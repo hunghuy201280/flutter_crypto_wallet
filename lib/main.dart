@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_ntf_marketplace/constants/app_prefs.dart';
-import 'package:flutter_ntf_marketplace/services/local/local_repository.dart';
-import 'package:flutter_ntf_marketplace/services/remote/remote_repository.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
@@ -26,11 +23,7 @@ void main() async {
 
   await HiveConfigs().initializeHiveConfigs();
 
-  await AppConfigs.initializeApp(
-    remoteRepo: RemoteRepository(),
-    localRepository: LocalRepository(),
-    appPref: AppPref(),
-  );
+  await AppConfigs.initializeApp();
   runApp(
     ChangeNotifierProvider(
       create: (_) => AppProvider(),
