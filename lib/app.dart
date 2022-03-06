@@ -4,10 +4,8 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_ntf_marketplace/routes/app_route.dart';
 import 'package:flutter_ntf_marketplace/view_models/app_provider.dart';
 import 'package:flutter_ntf_marketplace/view_models/auth_bloc/auth_bloc.dart';
-import 'package:flutter_ntf_marketplace/views/passcode/passcode_screen.dart';
 import 'package:flutter_ntf_marketplace/views/splash_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:provider/provider.dart';
 
