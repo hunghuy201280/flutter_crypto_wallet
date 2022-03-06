@@ -11,6 +11,7 @@ class PrimaryTextField extends StatefulWidget {
     this.controller,
     required this.title,
     this.obscureText = false,
+    this.isHidden = false,
     this.hint,
     this.autovalidateMode = AutovalidateMode.disabled,
     this.validator,
@@ -25,6 +26,7 @@ class PrimaryTextField extends StatefulWidget {
   final String title;
   final String? hint;
   final bool obscureText;
+  final bool isHidden;
   final AutovalidateMode autovalidateMode;
   final FormFieldValidator<String>? validator;
   final int? maxLines;
@@ -46,64 +48,72 @@ class _PrimaryTextFieldState extends State<PrimaryTextField> {
 
   bool isHidden = false;
   @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance?.addPostFrameCallback((_) {
+      setState(() {
+        isHidden = widget.isHidden;
+      });
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     final s = S.of(context);
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 24.w),
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                widget.title,
-                style: TextConfigs.kLabel_9,
-              ),
-              if (widget.obscureText)
-                TextButton(
-                  onPressed: () {
-                    setState(() {
-                      isHidden = !isHidden;
-                    });
-                  },
-                  style: TextButton.styleFrom(
-                    primary: AppColors.kColor6,
-                  ),
-                  child: Text(
-                    isHidden ? s.show : s.hide,
-                    style: TextConfigs.kLabel_9,
-                  ),
-                )
-            ],
-          ),
-          if (!widget.obscureText) 8.verticalSpace,
-          TextFormField(
-            style: TextConfigs.kBody2_9,
-            obscureText: isHidden,
-            validator: widget.validator,
-            maxLines: widget.maxLines ?? 1,
-            textInputAction: widget.inputAction,
-            onChanged: widget.onChanged,
-            keyboardType: widget.maxLines == null
-                ? widget.inputType
-                : TextInputType.multiline,
-            decoration: InputDecoration(
-              enabledBorder: defaultBorder,
-              focusedBorder:
-                  defaultBorder.withBorder(AppColors.kColor6, width: 2),
-              isDense: true,
-              isCollapsed: true,
-              contentPadding:
-                  EdgeInsets.symmetric(vertical: 16.h, horizontal: 16.w),
-              hintStyle: TextConfigs.kBody2_2,
-              hintText: widget.hint,
-              suffixIcon: widget.suffixIcon,
-              suffixIconConstraints: const BoxConstraints.tightFor(),
+
+    return Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              widget.title,
+              style: TextConfigs.kLabel_9,
             ),
-            cursorColor: AppColors.kColor6,
+            if (widget.obscureText)
+              TextButton(
+                onPressed: () {
+                  setState(() {
+                    isHidden = !isHidden;
+                  });
+                },
+                style: TextButton.styleFrom(
+                  primary: AppColors.kColor6,
+                ),
+                child: Text(
+                  isHidden ? s.show : s.hide,
+                  style: TextConfigs.kLabel_9,
+                ),
+              )
+          ],
+        ),
+        if (!widget.obscureText) 8.verticalSpace,
+        TextFormField(
+          style: TextConfigs.kBody2_9,
+          obscureText: isHidden,
+          validator: widget.validator,
+          maxLines: widget.maxLines ?? 1,
+          textInputAction: widget.inputAction,
+          onChanged: widget.onChanged,
+          keyboardType: widget.maxLines == null
+              ? widget.inputType
+              : TextInputType.multiline,
+          decoration: InputDecoration(
+            enabledBorder: defaultBorder,
+            focusedBorder:
+                defaultBorder.withBorder(AppColors.kColor6, width: 2),
+            isDense: true,
+            isCollapsed: true,
+            contentPadding:
+                EdgeInsets.symmetric(vertical: 16.h, horizontal: 16.w),
+            hintStyle: TextConfigs.kBody2_2,
+            hintText: widget.hint,
+            suffixIcon: widget.suffixIcon,
+            suffixIconConstraints: const BoxConstraints.tightFor(),
           ),
-        ],
-      ),
+          cursorColor: AppColors.kColor6,
+        ),
+      ],
     );
   }
 }

@@ -15,6 +15,7 @@ class PasscodeBloc extends Bloc<PasscodeEvent, PasscodeState> {
   PasscodeBloc() : super(PasscodeState.initial()) {
     on<PasscodeStateSignInWithBiometricsChanged>((event, emit) async {
       await _appPref.wallet.setIsLoginWithBiometrics(event.isBiometrics);
+      emit(state.copyWith(isSignInBiotremics: event.isBiometrics));
     });
     on<PasscodeInitialLoaded>((event, emit) {
       emit(
@@ -22,6 +23,8 @@ class PasscodeBloc extends Bloc<PasscodeEvent, PasscodeState> {
             isSignInBiotremics: _appPref.wallet.isLoginWithBiometrics),
       );
     });
-    
+    on<PasscodeChanged>(
+      (event, emit) => emit(state.copyWith(password: event.passCode)),
+    );
   }
 }

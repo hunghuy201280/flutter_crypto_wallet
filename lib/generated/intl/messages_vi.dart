@@ -42,6 +42,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "hide": MessageLookupByLibrary.simpleMessage("Ẩn"),
         "iUnderstandThatAppNameCannotRecoverThisPasswordForMe": m0,
         "importWallet": MessageLookupByLibrary.simpleMessage("Nhập ví"),
+        "logInWithBiometrics":
+            MessageLookupByLibrary.simpleMessage("Đăng nhập bằng vân tay"),
         "manageYourEveryPennyAndTransactionWithEase":
             MessageLookupByLibrary.simpleMessage(
                 "Quản lý từng xu và giao dịch của bạn một cách dễ dàng"),
@@ -50,10 +52,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "password": MessageLookupByLibrary.simpleMessage("Mật khẩu"),
         "privateKey": MessageLookupByLibrary.simpleMessage("Private key"),
         "show": MessageLookupByLibrary.simpleMessage("Hiện"),
+        "signIn": MessageLookupByLibrary.simpleMessage("Đăng nhập"),
+        "signInWithBiometrics": MessageLookupByLibrary.simpleMessage(
+            "Muốn đăng nhập bằng vân tay ?"),
         "thisPasswordWillUnlockYourWalletOnlyOnThisDevice":
             MessageLookupByLibrary.simpleMessage(
                 "Mật khẩu này chỉ mở khóa ví của bạn trên thiết bị này."),
         "walletAddedSuccessfully":
-            MessageLookupByLibrary.simpleMessage("Thêm ví thành công")
+            MessageLookupByLibrary.simpleMessage("Thêm ví thành công"),
+        "welcomeBack":
+            MessageLookupByLibrary.simpleMessage("Chào mừng trở lại!")
       };
 }

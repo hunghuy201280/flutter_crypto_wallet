@@ -8,14 +8,19 @@ class PrimaryAvatar extends StatelessWidget {
   final ImageProvider? image;
   final String? imageUrl;
   final Color background;
+  final BoxFit? fit;
   PrimaryAvatar(
       {Key? key,
       this.image,
       this.imageUrl,
       required this.size,
       BoxConstraints? constraints,
-      Color? background})
-      : assert((imageUrl != null) || (image != null),
+      Color? background,
+      this.fit = BoxFit.cover})
+      : assert(
+            (imageUrl == null && image == null) ||
+                (imageUrl != null) ||
+                (image != null),
             "Only specify urlImage or image"),
         constraints = (size != null)
             ? constraints?.tighten(width: size, height: size) ??
@@ -32,11 +37,22 @@ class PrimaryAvatar extends StatelessWidget {
         borderRadius: BorderRadius.circular(size ?? 0),
       ),
       constraints: constraints,
-      child: image != null
-          ? Image(image: image!)
-          : CachedNetworkImage(
-              imageUrl: imageUrl!,
-            ),
+      child: imageImage(),
     );
+  }
+
+  Widget imageImage() {
+    if ((imageUrl == null && image == null)) {
+      return Container();
+    }
+    return image != null
+        ? Image(
+            image: image!,
+            fit: fit,
+          )
+        : CachedNetworkImage(
+            imageUrl: imageUrl!,
+            fit: fit,
+          );
   }
 }

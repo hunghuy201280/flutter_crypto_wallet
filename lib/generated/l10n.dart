@@ -239,6 +239,46 @@ class S {
       args: [],
     );
   }
+
+  /// `Welcome Back!`
+  String get welcomeBack {
+    return Intl.message(
+      'Welcome Back!',
+      name: 'welcomeBack',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Log In With Biometrics`
+  String get logInWithBiometrics {
+    return Intl.message(
+      'Log In With Biometrics',
+      name: 'logInWithBiometrics',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign In`
+  String get signIn {
+    return Intl.message(
+      'Sign In',
+      name: 'signIn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign in with Biometrics ?`
+  String get signInWithBiometrics {
+    return Intl.message(
+      'Sign in with Biometrics ?',
+      name: 'signInWithBiometrics',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

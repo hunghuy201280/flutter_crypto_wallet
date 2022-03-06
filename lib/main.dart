@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import 'app.dart';
 import 'configs/app_config.dart';
 import 'constants/hive_configs.dart';
+import 'view_models/app_bloc_observer.dart';
 import 'view_models/app_provider.dart';
 
 void main() async {
@@ -24,10 +25,13 @@ void main() async {
   await HiveConfigs().initializeHiveConfigs();
 
   await AppConfigs.initializeApp();
-  runApp(
-    ChangeNotifierProvider(
-      create: (_) => AppProvider(),
-      builder: (context, _) => const NFTApp(),
+  BlocOverrides.runZoned(
+    () => runApp(
+      ChangeNotifierProvider(
+        create: (_) => AppProvider(),
+        builder: (context, _) => const NFTApp(),
+      ),
     ),
+    blocObserver: AppBlocObserver(),
   );
 }

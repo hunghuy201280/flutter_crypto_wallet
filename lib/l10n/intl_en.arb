@@ -32,5 +32,9 @@
   "getStarted": "Get started",
   "privateKey": "Private key",
   "walletAddedSuccessfully": "Wallet added successfully",
-  "thisPasswordWillUnlockYourWalletOnlyOnThisDevice": "This password will unlock your wallet only on this device."
+  "thisPasswordWillUnlockYourWalletOnlyOnThisDevice": "This password will unlock your wallet only on this device.",
+  "welcomeBack" : "Welcome Back!",
+  "logInWithBiometrics" : "Log In With Biometrics",
+  "signIn" : "Sign In",
+  "signInWithBiometrics" : "Sign in with Biometrics ?"
 }

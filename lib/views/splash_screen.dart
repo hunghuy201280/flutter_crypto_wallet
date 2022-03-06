@@ -6,6 +6,7 @@ import 'package:flutter_ntf_marketplace/generated/l10n.dart';
 import 'package:flutter_ntf_marketplace/view_models/splash_bloc/splash/splash_bloc.dart';
 import 'package:flutter_ntf_marketplace/views/login/login_screen.dart';
 import 'package:flutter_ntf_marketplace/views/onboarding_screen.dart';
+import 'package:flutter_ntf_marketplace/views/passcode/passcode_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/src/provider.dart';
@@ -21,15 +22,14 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  late AuthBloc _authBloc;
   @override
   void initState() {
     super.initState();
-    _authBloc = context.read<AuthBloc>();
   }
 
   @override
   Widget build(BuildContext context) {
+    final _authBloc = context.read<AuthBloc>();
     return BlocProvider(
       create: (context) => SplashBloc(_authBloc),
       child: const Scaffold(
@@ -60,20 +60,35 @@ class __BodyScreenState extends State<_BodyScreen> {
   @override
   Widget build(BuildContext context) {
     final s = S.of(context);
-    return BlocListener<SplashBloc, SplashState>(
-      listener: (context, state) => state.when(
-        firstRun: (value) {
-          if (value) {
-            Navigator.pushNamedAndRemoveUntil(
-                context, OnboardingScreen.id, (route) => false);
-          } else {
-            Navigator.pushNamedAndRemoveUntil(
-                context, LoginScreen.id, (route) => false);
-          }
-          return null;
-        },
-        initial: () {},
-      ),
+    return MultiBlocListener(
+      listeners: [
+        BlocListener<SplashBloc, SplashState>(
+          listener: (context, state) => state.when(
+            firstRun: (value) {
+              if (value) {
+                Navigator.pushNamedAndRemoveUntil(
+                    context, OnboardingScreen.id, (route) => false);
+              } else {
+                Navigator.pushNamedAndRemoveUntil(
+                    context, LoginScreen.id, (route) => false);
+              }
+              return null;
+            },
+            initial: () {},
+          ),
+        ),
+        BlocListener<AuthBloc, AuthState>(
+          listener: (context, state) {
+            if (state is AuthenticatedNoPassword) {
+              Navigator.pushNamedAndRemoveUntil(
+                context,
+                PasscodeScreen.id,
+                (route) => false,
+              );
+            }
+          },
+        )
+      ],
       child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

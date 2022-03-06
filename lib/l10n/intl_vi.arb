@@ -19,6 +19,11 @@
   "privateKey": "Private key",
   "walletAddedSuccessfully": "Thêm ví thành công",
 
-  "thisPasswordWillUnlockYourWalletOnlyOnThisDevice": "Mật khẩu này chỉ mở khóa ví của bạn trên thiết bị này."
+  "thisPasswordWillUnlockYourWalletOnlyOnThisDevice": "Mật khẩu này chỉ mở khóa ví của bạn trên thiết bị này.",
+
+  "welcomeBack" : "Chào mừng trở lại!",
+  "logInWithBiometrics" : "Đăng nhập bằng vân tay",
+  "signIn" : "Đăng nhập",
+  "signInWithBiometrics" : "Muốn đăng nhập bằng vân tay ?"
 
 }

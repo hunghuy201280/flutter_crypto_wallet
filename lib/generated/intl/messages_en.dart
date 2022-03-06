@@ -43,6 +43,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "hide": MessageLookupByLibrary.simpleMessage("Hide"),
         "iUnderstandThatAppNameCannotRecoverThisPasswordForMe": m0,
         "importWallet": MessageLookupByLibrary.simpleMessage("Import Wallet"),
+        "logInWithBiometrics":
+            MessageLookupByLibrary.simpleMessage("Log In With Biometrics"),
         "manageYourEveryPennyAndTransactionWithEase":
             MessageLookupByLibrary.simpleMessage(
                 "Manage your every penny and transaction with ease"),
@@ -51,10 +53,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "privateKey": MessageLookupByLibrary.simpleMessage("Private key"),
         "show": MessageLookupByLibrary.simpleMessage("Show"),
+        "signIn": MessageLookupByLibrary.simpleMessage("Sign In"),
+        "signInWithBiometrics":
+            MessageLookupByLibrary.simpleMessage("Sign in with Biometrics ?"),
         "thisPasswordWillUnlockYourWalletOnlyOnThisDevice":
             MessageLookupByLibrary.simpleMessage(
                 "This password will unlock your wallet only on this device."),
         "walletAddedSuccessfully":
-            MessageLookupByLibrary.simpleMessage("Wallet added successfully")
+            MessageLookupByLibrary.simpleMessage("Wallet added successfully"),
+        "welcomeBack": MessageLookupByLibrary.simpleMessage("Welcome Back!")
       };
 }

@@ -43,38 +43,26 @@ class _NFTAppState extends State<NFTApp> {
           //Put Figma size here
           designSize: const Size(390, 844),
           builder: () {
-            return BlocListener<AuthBloc, AuthState>(
-              listener: (context, state) {
-                state.when(
-                  unauthenticated: () {},
-                  authenticatedNoPassword: (walletAddress) {
-                    Navigator.pushNamedAndRemoveUntil(
-                        context, PasscodeScreen.id, (route) => false);
-                  },
-                  authenticated: (wallet) {},
-                );
+            return MaterialApp(
+              localizationsDelegates: const [
+                S.delegate,
+                GlobalMaterialLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate,
+              ],
+              supportedLocales: S.delegate.supportedLocales,
+              locale: context.watch<AppProvider>().locale,
+              debugShowCheckedModeBanner: false,
+              initialRoute: SplashScreen.id,
+              onGenerateRoute: AppRoute.onGenerateRoute,
+              builder: (context, widget) {
+                if (widget == null) {
+                  debugPrint("Material builder: widget is null");
+                  return const SizedBox();
+                }
+                ScreenUtil.setContext(context);
+                return widget;
               },
-              child: MaterialApp(
-                localizationsDelegates: const [
-                  S.delegate,
-                  GlobalMaterialLocalizations.delegate,
-                  GlobalWidgetsLocalizations.delegate,
-                  GlobalCupertinoLocalizations.delegate,
-                ],
-                supportedLocales: S.delegate.supportedLocales,
-                locale: context.watch<AppProvider>().locale,
-                debugShowCheckedModeBanner: false,
-                initialRoute: SplashScreen.id,
-                onGenerateRoute: AppRoute.onGenerateRoute,
-                builder: (context, widget) {
-                  if (widget == null) {
-                    debugPrint("Material builder: widget is null");
-                    return const SizedBox();
-                  }
-                  ScreenUtil.setContext(context);
-                  return widget;
-                },
-              ),
             );
           },
         ),

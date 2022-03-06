@@ -11,13 +11,12 @@ part 'splash_event.dart';
 part 'splash_state.dart';
 
 class SplashBloc extends Bloc<SplashEvent, SplashState> {
-  final AuthBloc _authBloc;
   final _localProvider = Get.find<LocalProvider>();
-
+  final AuthBloc _authBloc;
   SplashBloc(this._authBloc) : super(const SplashState.initial()) {
     on<_Init>((event, emit) async {
-      // final passCode = _localProvider.getPasscode();
-      final passCode = "test";
+      final passCode = _localProvider.getPasscode();
+
       if (passCode.isEmpty) {
         emit(await _appStart());
       } else {

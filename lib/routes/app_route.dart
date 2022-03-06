@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_ntf_marketplace/view_models/dashboard_bloc/dashboard_bloc.dart';
+import 'package:flutter_ntf_marketplace/view_models/login_bloc/login_bloc.dart';
 import 'package:flutter_ntf_marketplace/view_models/passcode_bloc/passcode_bloc.dart';
 import 'package:flutter_ntf_marketplace/view_models/splash_bloc/splash/splash_bloc.dart';
-import 'package:flutter_ntf_marketplace/views/home/home_screen.dart';
+import 'package:flutter_ntf_marketplace/views/dashboard/dashboard_screen.dart';
 import 'package:flutter_ntf_marketplace/views/import_wallet/import_wallet_screen.dart';
 import 'package:flutter_ntf_marketplace/views/login/login_screen.dart';
 import 'package:flutter_ntf_marketplace/views/onboarding_screen.dart';
@@ -13,7 +15,6 @@ import 'package:flutter_ntf_marketplace/views/splash_screen.dart';
 import '../view_models/import_wallet_bloc/import_wallet_bloc.dart';
 import '../views/create_wallet/create_wallet_screen.dart';
 import '../views/import_wallet/import_wallet_success_screen.dart';
-import 'custom_route/fade_page_route.dart';
 
 class AppRoute {
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
@@ -24,18 +25,8 @@ class AppRoute {
           settings: settings,
         );
       case OnboardingScreen.id:
-        return FadePageRoute(
-          page: const OnboardingScreen(),
-          settings: settings,
-        );
-      case LoginScreen.id:
-        return FadePageRoute(
-          page: const LoginScreen(),
-          settings: settings,
-        );
-      case HomeScreen.id:
         return CupertinoPageRoute(
-          builder: (_) => const HomeScreen(),
+          builder: (context) => const OnboardingScreen(),
           settings: settings,
         );
       case CreateWalletScreen.id:
@@ -55,6 +46,13 @@ class AppRoute {
         return CupertinoPageRoute(
           builder: (_) => const ImportWalletSuccessScreen(),
           settings: settings,
+        );
+      case LoginScreen.id:
+        return CupertinoPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) => LoginBloc(),
+            child: const LoginScreen(),
+          ),
         );
       case PasscodeScreen.id:
         return CupertinoPageRoute(

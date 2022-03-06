@@ -11,7 +11,7 @@ class PrimaryButton extends StatelessWidget {
     this.backgroundColor = AppColors.kColor6,
     this.horizontalPadding,
     this.verticalPadding,
-    this.onTap,
+    required this.onTap,
   }) : super(key: key);
 
   final String title;
@@ -22,7 +22,7 @@ class PrimaryButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: horizontalPadding ?? 24.w),
+      padding: EdgeInsets.symmetric(horizontal: horizontalPadding ?? 0),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           primary: backgroundColor,

@@ -233,6 +233,12 @@ class _$PasscodeEventTearOff {
     );
   }
 
+  PasscodeChanged passCodeChanged({required String passCode}) {
+    return PasscodeChanged(
+      passCode: passCode,
+    );
+  }
+
   PasscodeInitialLoaded initialLoaded() {
     return const PasscodeInitialLoaded();
   }
@@ -247,18 +253,21 @@ mixin _$PasscodeEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(bool isBiometrics)
         stateSignInWithBiometricsChanged,
+    required TResult Function(String passCode) passCodeChanged,
     required TResult Function() initialLoaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(bool isBiometrics)? stateSignInWithBiometricsChanged,
+    TResult Function(String passCode)? passCodeChanged,
     TResult Function()? initialLoaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool isBiometrics)? stateSignInWithBiometricsChanged,
+    TResult Function(String passCode)? passCodeChanged,
     TResult Function()? initialLoaded,
     required TResult orElse(),
   }) =>
@@ -267,6 +276,7 @@ mixin _$PasscodeEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(PasscodeStateSignInWithBiometricsChanged value)
         stateSignInWithBiometricsChanged,
+    required TResult Function(PasscodeChanged value) passCodeChanged,
     required TResult Function(PasscodeInitialLoaded value) initialLoaded,
   }) =>
       throw _privateConstructorUsedError;
@@ -274,6 +284,7 @@ mixin _$PasscodeEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(PasscodeStateSignInWithBiometricsChanged value)?
         stateSignInWithBiometricsChanged,
+    TResult Function(PasscodeChanged value)? passCodeChanged,
     TResult Function(PasscodeInitialLoaded value)? initialLoaded,
   }) =>
       throw _privateConstructorUsedError;
@@ -281,6 +292,7 @@ mixin _$PasscodeEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(PasscodeStateSignInWithBiometricsChanged value)?
         stateSignInWithBiometricsChanged,
+    TResult Function(PasscodeChanged value)? passCodeChanged,
     TResult Function(PasscodeInitialLoaded value)? initialLoaded,
     required TResult orElse(),
   }) =>
@@ -379,6 +391,7 @@ class _$PasscodeStateSignInWithBiometricsChanged
   TResult when<TResult extends Object?>({
     required TResult Function(bool isBiometrics)
         stateSignInWithBiometricsChanged,
+    required TResult Function(String passCode) passCodeChanged,
     required TResult Function() initialLoaded,
   }) {
     return stateSignInWithBiometricsChanged(isBiometrics);
@@ -388,6 +401,7 @@ class _$PasscodeStateSignInWithBiometricsChanged
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(bool isBiometrics)? stateSignInWithBiometricsChanged,
+    TResult Function(String passCode)? passCodeChanged,
     TResult Function()? initialLoaded,
   }) {
     return stateSignInWithBiometricsChanged?.call(isBiometrics);
@@ -397,6 +411,7 @@ class _$PasscodeStateSignInWithBiometricsChanged
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool isBiometrics)? stateSignInWithBiometricsChanged,
+    TResult Function(String passCode)? passCodeChanged,
     TResult Function()? initialLoaded,
     required TResult orElse(),
   }) {
@@ -411,6 +426,7 @@ class _$PasscodeStateSignInWithBiometricsChanged
   TResult map<TResult extends Object?>({
     required TResult Function(PasscodeStateSignInWithBiometricsChanged value)
         stateSignInWithBiometricsChanged,
+    required TResult Function(PasscodeChanged value) passCodeChanged,
     required TResult Function(PasscodeInitialLoaded value) initialLoaded,
   }) {
     return stateSignInWithBiometricsChanged(this);
@@ -421,6 +437,7 @@ class _$PasscodeStateSignInWithBiometricsChanged
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(PasscodeStateSignInWithBiometricsChanged value)?
         stateSignInWithBiometricsChanged,
+    TResult Function(PasscodeChanged value)? passCodeChanged,
     TResult Function(PasscodeInitialLoaded value)? initialLoaded,
   }) {
     return stateSignInWithBiometricsChanged?.call(this);
@@ -431,6 +448,7 @@ class _$PasscodeStateSignInWithBiometricsChanged
   TResult maybeMap<TResult extends Object?>({
     TResult Function(PasscodeStateSignInWithBiometricsChanged value)?
         stateSignInWithBiometricsChanged,
+    TResult Function(PasscodeChanged value)? passCodeChanged,
     TResult Function(PasscodeInitialLoaded value)? initialLoaded,
     required TResult orElse(),
   }) {
@@ -451,6 +469,150 @@ abstract class PasscodeStateSignInWithBiometricsChanged
   $PasscodeStateSignInWithBiometricsChangedCopyWith<
           PasscodeStateSignInWithBiometricsChanged>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $PasscodeChangedCopyWith<$Res> {
+  factory $PasscodeChangedCopyWith(
+          PasscodeChanged value, $Res Function(PasscodeChanged) then) =
+      _$PasscodeChangedCopyWithImpl<$Res>;
+  $Res call({String passCode});
+}
+
+/// @nodoc
+class _$PasscodeChangedCopyWithImpl<$Res>
+    extends _$PasscodeEventCopyWithImpl<$Res>
+    implements $PasscodeChangedCopyWith<$Res> {
+  _$PasscodeChangedCopyWithImpl(
+      PasscodeChanged _value, $Res Function(PasscodeChanged) _then)
+      : super(_value, (v) => _then(v as PasscodeChanged));
+
+  @override
+  PasscodeChanged get _value => super._value as PasscodeChanged;
+
+  @override
+  $Res call({
+    Object? passCode = freezed,
+  }) {
+    return _then(PasscodeChanged(
+      passCode: passCode == freezed
+          ? _value.passCode
+          : passCode // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$PasscodeChanged implements PasscodeChanged {
+  const _$PasscodeChanged({required this.passCode});
+
+  @override
+  final String passCode;
+
+  @override
+  String toString() {
+    return 'PasscodeEvent.passCodeChanged(passCode: $passCode)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is PasscodeChanged &&
+            const DeepCollectionEquality().equals(other.passCode, passCode));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(passCode));
+
+  @JsonKey(ignore: true)
+  @override
+  $PasscodeChangedCopyWith<PasscodeChanged> get copyWith =>
+      _$PasscodeChangedCopyWithImpl<PasscodeChanged>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(bool isBiometrics)
+        stateSignInWithBiometricsChanged,
+    required TResult Function(String passCode) passCodeChanged,
+    required TResult Function() initialLoaded,
+  }) {
+    return passCodeChanged(passCode);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(bool isBiometrics)? stateSignInWithBiometricsChanged,
+    TResult Function(String passCode)? passCodeChanged,
+    TResult Function()? initialLoaded,
+  }) {
+    return passCodeChanged?.call(passCode);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(bool isBiometrics)? stateSignInWithBiometricsChanged,
+    TResult Function(String passCode)? passCodeChanged,
+    TResult Function()? initialLoaded,
+    required TResult orElse(),
+  }) {
+    if (passCodeChanged != null) {
+      return passCodeChanged(passCode);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(PasscodeStateSignInWithBiometricsChanged value)
+        stateSignInWithBiometricsChanged,
+    required TResult Function(PasscodeChanged value) passCodeChanged,
+    required TResult Function(PasscodeInitialLoaded value) initialLoaded,
+  }) {
+    return passCodeChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(PasscodeStateSignInWithBiometricsChanged value)?
+        stateSignInWithBiometricsChanged,
+    TResult Function(PasscodeChanged value)? passCodeChanged,
+    TResult Function(PasscodeInitialLoaded value)? initialLoaded,
+  }) {
+    return passCodeChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(PasscodeStateSignInWithBiometricsChanged value)?
+        stateSignInWithBiometricsChanged,
+    TResult Function(PasscodeChanged value)? passCodeChanged,
+    TResult Function(PasscodeInitialLoaded value)? initialLoaded,
+    required TResult orElse(),
+  }) {
+    if (passCodeChanged != null) {
+      return passCodeChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class PasscodeChanged implements PasscodeEvent {
+  const factory PasscodeChanged({required String passCode}) = _$PasscodeChanged;
+
+  String get passCode;
+  @JsonKey(ignore: true)
+  $PasscodeChangedCopyWith<PasscodeChanged> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -496,6 +658,7 @@ class _$PasscodeInitialLoaded implements PasscodeInitialLoaded {
   TResult when<TResult extends Object?>({
     required TResult Function(bool isBiometrics)
         stateSignInWithBiometricsChanged,
+    required TResult Function(String passCode) passCodeChanged,
     required TResult Function() initialLoaded,
   }) {
     return initialLoaded();
@@ -505,6 +668,7 @@ class _$PasscodeInitialLoaded implements PasscodeInitialLoaded {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(bool isBiometrics)? stateSignInWithBiometricsChanged,
+    TResult Function(String passCode)? passCodeChanged,
     TResult Function()? initialLoaded,
   }) {
     return initialLoaded?.call();
@@ -514,6 +678,7 @@ class _$PasscodeInitialLoaded implements PasscodeInitialLoaded {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool isBiometrics)? stateSignInWithBiometricsChanged,
+    TResult Function(String passCode)? passCodeChanged,
     TResult Function()? initialLoaded,
     required TResult orElse(),
   }) {
@@ -528,6 +693,7 @@ class _$PasscodeInitialLoaded implements PasscodeInitialLoaded {
   TResult map<TResult extends Object?>({
     required TResult Function(PasscodeStateSignInWithBiometricsChanged value)
         stateSignInWithBiometricsChanged,
+    required TResult Function(PasscodeChanged value) passCodeChanged,
     required TResult Function(PasscodeInitialLoaded value) initialLoaded,
   }) {
     return initialLoaded(this);
@@ -538,6 +704,7 @@ class _$PasscodeInitialLoaded implements PasscodeInitialLoaded {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(PasscodeStateSignInWithBiometricsChanged value)?
         stateSignInWithBiometricsChanged,
+    TResult Function(PasscodeChanged value)? passCodeChanged,
     TResult Function(PasscodeInitialLoaded value)? initialLoaded,
   }) {
     return initialLoaded?.call(this);
@@ -548,6 +715,7 @@ class _$PasscodeInitialLoaded implements PasscodeInitialLoaded {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(PasscodeStateSignInWithBiometricsChanged value)?
         stateSignInWithBiometricsChanged,
+    TResult Function(PasscodeChanged value)? passCodeChanged,
     TResult Function(PasscodeInitialLoaded value)? initialLoaded,
     required TResult orElse(),
   }) {

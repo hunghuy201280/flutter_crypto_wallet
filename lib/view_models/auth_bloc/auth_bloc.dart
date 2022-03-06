@@ -26,15 +26,15 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
     String walletSelected = _localProvider.getWalletSeleted();
     List<String> wallets = _localProvider.getWalletsImported();
-    return AuthenticatedNoPassword(walletAddress: walletSelected);
-    // if (wallets.isNotEmpty) {
-    //   if (walletSelected.isEmpty) {
-    //     await _localProvider.saveWalletSelected(walletSelected: wallets.first);
-    //   }
-    //   return AuthenticatedNoPassword(walletAddress: walletSelected);
-    // } else {
-    //   return const UnAuthenticated();
-    // }
+    // return AuthenticatedNoPassword(walletAddress: walletSelected);
+    if (wallets.isNotEmpty) {
+      if (walletSelected.isEmpty) {
+        await _localProvider.saveWalletSelected(walletSelected: wallets.first);
+      }
+      return AuthenticatedNoPassword(walletAddress: walletSelected);
+    } else {
+      return const UnAuthenticated();
+    }
   }
 
   Future<void> _clearIfFirstRunAfterUninstall() async {
