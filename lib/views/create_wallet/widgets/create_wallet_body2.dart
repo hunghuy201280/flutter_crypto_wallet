@@ -34,7 +34,7 @@ class CreateWalletBody2 extends StatelessWidget {
             children: [
               8.verticalSpace,
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 32.w),
+                padding: EdgeInsets.symmetric(horizontal: 8.w),
                 child: Text(
                   privateKey,
                   style: TextConfigs.kSubtitle_9,

@@ -37,41 +37,44 @@ class _CreateWalletScreenState extends State<CreateWalletScreen> {
         context,
         title: s.createWallet,
       ),
-      body: Column(
-        children: [
-          16.verticalSpace,
-          NStepper(
-            currentStep: currentStep,
-          ),
-          Expanded(
-            child: PageView(
-              physics: const NeverScrollableScrollPhysics(),
-              controller: pageController,
-              children: const [
-                CreateWalletBody1(),
-                CreateWalletBody2(),
-              ],
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 24.w),
+        child: Column(
+          children: [
+            16.verticalSpace,
+            NStepper(
+              currentStep: currentStep,
             ),
-          ),
-          PrimaryButton(
-            title: currentStep == 1 ? s.createPassword : s.getStarted,
-            onTap: () {
-              if (currentStep == 1) {
-                currentStep = 2;
-                pageController.animateToPage(1,
-                    duration: const Duration(milliseconds: 300),
-                    curve: Curves.easeInOutQuad);
-              } else {
-                currentStep = 1;
-                pageController.animateToPage(0,
-                    duration: const Duration(milliseconds: 300),
-                    curve: Curves.easeInOutQuad);
-              }
-              setState(() {});
-            },
-          ),
-          48.verticalSpace,
-        ],
+            Expanded(
+              child: PageView(
+                physics: const NeverScrollableScrollPhysics(),
+                controller: pageController,
+                children: const [
+                  CreateWalletBody1(),
+                  CreateWalletBody2(),
+                ],
+              ),
+            ),
+            PrimaryButton(
+              title: currentStep == 1 ? s.createPassword : s.getStarted,
+              onTap: () {
+                if (currentStep == 1) {
+                  currentStep = 2;
+                  pageController.animateToPage(1,
+                      duration: const Duration(milliseconds: 300),
+                      curve: Curves.easeInOutQuad);
+                } else {
+                  currentStep = 1;
+                  pageController.animateToPage(0,
+                      duration: const Duration(milliseconds: 300),
+                      curve: Curves.easeInOutQuad);
+                }
+                setState(() {});
+              },
+            ),
+            48.verticalSpace,
+          ],
+        ),
       ),
     );
   }

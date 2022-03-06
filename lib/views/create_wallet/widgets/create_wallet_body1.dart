@@ -16,7 +16,7 @@ class CreateWalletBody1 extends StatelessWidget {
       children: [
         24.verticalSpace,
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 64.w),
+          padding: EdgeInsets.symmetric(horizontal: 40.w),
           child: Text(
             s.thisPasswordWillUnlockYourWalletOnlyOnThisDevice,
             style: TextConfigs.kLabel_9,
@@ -42,7 +42,6 @@ class CreateWalletBody1 extends StatelessWidget {
             style: TextConfigs.kBody2_2,
           ),
           alignment: Alignment.centerLeft,
-          margin: EdgeInsets.symmetric(horizontal: 24.w),
         ),
         24.verticalSpace,
         CheckBoxRow(

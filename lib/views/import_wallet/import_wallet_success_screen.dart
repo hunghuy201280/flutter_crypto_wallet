@@ -26,28 +26,31 @@ class _ImportWalletSuccessScreenState extends State<ImportWalletSuccessScreen> {
     return Scaffold(
       backgroundColor: AppColors.kColor1,
       body: SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  "shield_done".getIcon(width: 150.w, height: 150.w),
-                  32.verticalSpace,
-                  Text(
-                    s.walletAddedSuccessfully,
-                    style: TextConfigs.kHeader4_9,
-                  ),
-                ],
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 24.w),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    "shield_done".getIcon(width: 150.w, height: 150.w),
+                    32.verticalSpace,
+                    Text(
+                      s.walletAddedSuccessfully,
+                      style: TextConfigs.kHeader4_9,
+                    ),
+                  ],
+                ),
               ),
-            ),
-            PrimaryButton(
-              title: s.getStarted,
-              onTap: () {},
-            ),
-            24.verticalSpace,
-          ],
+              PrimaryButton(
+                title: s.getStarted,
+                onTap: () {},
+              ),
+              24.verticalSpace,
+            ],
+          ),
         ),
       ),
     );

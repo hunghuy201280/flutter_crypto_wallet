@@ -27,7 +27,6 @@ class _CheckBoxRowState extends State<CheckBoxRow> {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          24.horizontalSpace,
           CustomCheckBox(
             value: isChecked,
             onChanged: onCheckChanged,
@@ -45,7 +44,6 @@ class _CheckBoxRowState extends State<CheckBoxRow> {
               style: TextConfigs.kBody2_9,
             ),
           ),
-          24.horizontalSpace,
         ],
       ),
     );

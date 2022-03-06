@@ -42,64 +42,66 @@ class _ImportWalletScreenState extends State<ImportWalletScreen> {
         title: s.importWallet,
       ),
       body: SingleChildScrollView(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            16.verticalSpace,
-            PrimaryTextField(
-              title: s.privateKey,
-              hint: s.privateKey,
-              maxLines: 5,
-              onChanged: (value) {
-                _bloc.add(ImportWalletPrivateKeyChanged(value));
-              },
-              suffixIcon: Padding(
-                padding: EdgeInsets.only(right: 8.w),
-                child: "show".getIcon(height: 24.w, width: 24.w),
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 24.w),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              16.verticalSpace,
+              PrimaryTextField(
+                title: s.privateKey,
+                hint: s.privateKey,
+                maxLines: 5,
+                onChanged: (value) {
+                  _bloc.add(ImportWalletPrivateKeyChanged(value));
+                },
+                suffixIcon: Padding(
+                  padding: EdgeInsets.only(right: 8.w),
+                  child: "show".getIcon(height: 24.w, width: 24.w),
+                ),
               ),
-            ),
-            24.verticalSpace,
-            PrimaryTextField(
-              title: s.newPassword,
-              obscureText: true,
-              onChanged: (value) {
-                _bloc.add(ImportWalletPasswordChanged(value));
-              },
-              hint: s.password,
-            ),
-            24.verticalSpace,
-            PrimaryTextField(
-              title: s.confirmPassword,
-              obscureText: true,
-              hint: s.password,
-              onChanged: (value) {
-                _bloc.add(ImportWalletRePasswordChanged(value));
-              },
-            ),
-            8.verticalSpace,
-            Container(
-              child: Text(
-                s.mustBeAtLeastCharacters(8),
-                style: TextConfigs.kBody2_2,
+              24.verticalSpace,
+              PrimaryTextField(
+                title: s.newPassword,
+                obscureText: true,
+                onChanged: (value) {
+                  _bloc.add(ImportWalletPasswordChanged(value));
+                },
+                hint: s.password,
               ),
-              alignment: Alignment.centerLeft,
-              margin: EdgeInsets.symmetric(horizontal: 24.w),
-            ),
-            24.verticalSpace,
-            CheckBoxRow(
-              onChanged: (bool value) {
-                _bloc.add(ImportWalletCheckBoxChanged(value));
-              },
-            ),
-            48.verticalSpace,
-            PrimaryButton(
-              title: s.importWallet,
-              onTap: () {
-                _bloc.add(const ImportWalletImported());
-                // Navigator.pushNamed(context, ImportWalletSuccessScreen.id);
-              },
-            )
-          ],
+              24.verticalSpace,
+              PrimaryTextField(
+                title: s.confirmPassword,
+                obscureText: true,
+                hint: s.password,
+                onChanged: (value) {
+                  _bloc.add(ImportWalletRePasswordChanged(value));
+                },
+              ),
+              8.verticalSpace,
+              Container(
+                child: Text(
+                  s.mustBeAtLeastCharacters(8),
+                  style: TextConfigs.kBody2_2,
+                ),
+                alignment: Alignment.centerLeft,
+              ),
+              24.verticalSpace,
+              CheckBoxRow(
+                onChanged: (bool value) {
+                  _bloc.add(ImportWalletCheckBoxChanged(value));
+                },
+              ),
+              48.verticalSpace,
+              PrimaryButton(
+                title: s.importWallet,
+                onTap: () {
+                  _bloc.add(const ImportWalletImported());
+                  // Navigator.pushNamed(context, ImportWalletSuccessScreen.id);
+                },
+              )
+            ],
+          ),
         ),
       ),
     );
