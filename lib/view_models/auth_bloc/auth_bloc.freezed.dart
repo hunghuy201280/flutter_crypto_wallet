@@ -447,10 +447,6 @@ class _$AuthStateTearOff {
       wallet: wallet,
     );
   }
-
-  Authenticating loading() {
-    return const Authenticating();
-  }
 }
 
 /// @nodoc
@@ -463,7 +459,6 @@ mixin _$AuthState {
     required TResult Function() unauthenticated,
     required TResult Function(String walletAddress) authenticatedNoPassword,
     required TResult Function(Wallet wallet) authenticated,
-    required TResult Function() loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -471,7 +466,6 @@ mixin _$AuthState {
     TResult Function()? unauthenticated,
     TResult Function(String walletAddress)? authenticatedNoPassword,
     TResult Function(Wallet wallet)? authenticated,
-    TResult Function()? loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -479,7 +473,6 @@ mixin _$AuthState {
     TResult Function()? unauthenticated,
     TResult Function(String walletAddress)? authenticatedNoPassword,
     TResult Function(Wallet wallet)? authenticated,
-    TResult Function()? loading,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -489,7 +482,6 @@ mixin _$AuthState {
     required TResult Function(AuthenticatedNoPassword value)
         authenticatedNoPassword,
     required TResult Function(Authenticated value) authenticated,
-    required TResult Function(Authenticating value) loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -497,7 +489,6 @@ mixin _$AuthState {
     TResult Function(UnAuthenticated value)? unauthenticated,
     TResult Function(AuthenticatedNoPassword value)? authenticatedNoPassword,
     TResult Function(Authenticated value)? authenticated,
-    TResult Function(Authenticating value)? loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -505,7 +496,6 @@ mixin _$AuthState {
     TResult Function(UnAuthenticated value)? unauthenticated,
     TResult Function(AuthenticatedNoPassword value)? authenticatedNoPassword,
     TResult Function(Authenticated value)? authenticated,
-    TResult Function(Authenticating value)? loading,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -569,7 +559,6 @@ class _$UnAuthenticated implements UnAuthenticated {
     required TResult Function() unauthenticated,
     required TResult Function(String walletAddress) authenticatedNoPassword,
     required TResult Function(Wallet wallet) authenticated,
-    required TResult Function() loading,
   }) {
     return unauthenticated();
   }
@@ -580,7 +569,6 @@ class _$UnAuthenticated implements UnAuthenticated {
     TResult Function()? unauthenticated,
     TResult Function(String walletAddress)? authenticatedNoPassword,
     TResult Function(Wallet wallet)? authenticated,
-    TResult Function()? loading,
   }) {
     return unauthenticated?.call();
   }
@@ -591,7 +579,6 @@ class _$UnAuthenticated implements UnAuthenticated {
     TResult Function()? unauthenticated,
     TResult Function(String walletAddress)? authenticatedNoPassword,
     TResult Function(Wallet wallet)? authenticated,
-    TResult Function()? loading,
     required TResult orElse(),
   }) {
     if (unauthenticated != null) {
@@ -607,7 +594,6 @@ class _$UnAuthenticated implements UnAuthenticated {
     required TResult Function(AuthenticatedNoPassword value)
         authenticatedNoPassword,
     required TResult Function(Authenticated value) authenticated,
-    required TResult Function(Authenticating value) loading,
   }) {
     return unauthenticated(this);
   }
@@ -618,7 +604,6 @@ class _$UnAuthenticated implements UnAuthenticated {
     TResult Function(UnAuthenticated value)? unauthenticated,
     TResult Function(AuthenticatedNoPassword value)? authenticatedNoPassword,
     TResult Function(Authenticated value)? authenticated,
-    TResult Function(Authenticating value)? loading,
   }) {
     return unauthenticated?.call(this);
   }
@@ -629,7 +614,6 @@ class _$UnAuthenticated implements UnAuthenticated {
     TResult Function(UnAuthenticated value)? unauthenticated,
     TResult Function(AuthenticatedNoPassword value)? authenticatedNoPassword,
     TResult Function(Authenticated value)? authenticated,
-    TResult Function(Authenticating value)? loading,
     required TResult orElse(),
   }) {
     if (unauthenticated != null) {
@@ -713,7 +697,6 @@ class _$AuthenticatedNoPassword implements AuthenticatedNoPassword {
     required TResult Function() unauthenticated,
     required TResult Function(String walletAddress) authenticatedNoPassword,
     required TResult Function(Wallet wallet) authenticated,
-    required TResult Function() loading,
   }) {
     return authenticatedNoPassword(walletAddress);
   }
@@ -724,7 +707,6 @@ class _$AuthenticatedNoPassword implements AuthenticatedNoPassword {
     TResult Function()? unauthenticated,
     TResult Function(String walletAddress)? authenticatedNoPassword,
     TResult Function(Wallet wallet)? authenticated,
-    TResult Function()? loading,
   }) {
     return authenticatedNoPassword?.call(walletAddress);
   }
@@ -735,7 +717,6 @@ class _$AuthenticatedNoPassword implements AuthenticatedNoPassword {
     TResult Function()? unauthenticated,
     TResult Function(String walletAddress)? authenticatedNoPassword,
     TResult Function(Wallet wallet)? authenticated,
-    TResult Function()? loading,
     required TResult orElse(),
   }) {
     if (authenticatedNoPassword != null) {
@@ -751,7 +732,6 @@ class _$AuthenticatedNoPassword implements AuthenticatedNoPassword {
     required TResult Function(AuthenticatedNoPassword value)
         authenticatedNoPassword,
     required TResult Function(Authenticated value) authenticated,
-    required TResult Function(Authenticating value) loading,
   }) {
     return authenticatedNoPassword(this);
   }
@@ -762,7 +742,6 @@ class _$AuthenticatedNoPassword implements AuthenticatedNoPassword {
     TResult Function(UnAuthenticated value)? unauthenticated,
     TResult Function(AuthenticatedNoPassword value)? authenticatedNoPassword,
     TResult Function(Authenticated value)? authenticated,
-    TResult Function(Authenticating value)? loading,
   }) {
     return authenticatedNoPassword?.call(this);
   }
@@ -773,7 +752,6 @@ class _$AuthenticatedNoPassword implements AuthenticatedNoPassword {
     TResult Function(UnAuthenticated value)? unauthenticated,
     TResult Function(AuthenticatedNoPassword value)? authenticatedNoPassword,
     TResult Function(Authenticated value)? authenticated,
-    TResult Function(Authenticating value)? loading,
     required TResult orElse(),
   }) {
     if (authenticatedNoPassword != null) {
@@ -869,7 +847,6 @@ class _$Authenticated implements Authenticated {
     required TResult Function() unauthenticated,
     required TResult Function(String walletAddress) authenticatedNoPassword,
     required TResult Function(Wallet wallet) authenticated,
-    required TResult Function() loading,
   }) {
     return authenticated(wallet);
   }
@@ -880,7 +857,6 @@ class _$Authenticated implements Authenticated {
     TResult Function()? unauthenticated,
     TResult Function(String walletAddress)? authenticatedNoPassword,
     TResult Function(Wallet wallet)? authenticated,
-    TResult Function()? loading,
   }) {
     return authenticated?.call(wallet);
   }
@@ -891,7 +867,6 @@ class _$Authenticated implements Authenticated {
     TResult Function()? unauthenticated,
     TResult Function(String walletAddress)? authenticatedNoPassword,
     TResult Function(Wallet wallet)? authenticated,
-    TResult Function()? loading,
     required TResult orElse(),
   }) {
     if (authenticated != null) {
@@ -907,7 +882,6 @@ class _$Authenticated implements Authenticated {
     required TResult Function(AuthenticatedNoPassword value)
         authenticatedNoPassword,
     required TResult Function(Authenticated value) authenticated,
-    required TResult Function(Authenticating value) loading,
   }) {
     return authenticated(this);
   }
@@ -918,7 +892,6 @@ class _$Authenticated implements Authenticated {
     TResult Function(UnAuthenticated value)? unauthenticated,
     TResult Function(AuthenticatedNoPassword value)? authenticatedNoPassword,
     TResult Function(Authenticated value)? authenticated,
-    TResult Function(Authenticating value)? loading,
   }) {
     return authenticated?.call(this);
   }
@@ -929,7 +902,6 @@ class _$Authenticated implements Authenticated {
     TResult Function(UnAuthenticated value)? unauthenticated,
     TResult Function(AuthenticatedNoPassword value)? authenticatedNoPassword,
     TResult Function(Authenticated value)? authenticated,
-    TResult Function(Authenticating value)? loading,
     required TResult orElse(),
   }) {
     if (authenticated != null) {
@@ -946,121 +918,4 @@ abstract class Authenticated implements AuthState {
   @JsonKey(ignore: true)
   $AuthenticatedCopyWith<Authenticated> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $AuthenticatingCopyWith<$Res> {
-  factory $AuthenticatingCopyWith(
-          Authenticating value, $Res Function(Authenticating) then) =
-      _$AuthenticatingCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class _$AuthenticatingCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
-    implements $AuthenticatingCopyWith<$Res> {
-  _$AuthenticatingCopyWithImpl(
-      Authenticating _value, $Res Function(Authenticating) _then)
-      : super(_value, (v) => _then(v as Authenticating));
-
-  @override
-  Authenticating get _value => super._value as Authenticating;
-}
-
-/// @nodoc
-
-class _$Authenticating implements Authenticating {
-  const _$Authenticating();
-
-  @override
-  String toString() {
-    return 'AuthState.loading()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is Authenticating);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() unauthenticated,
-    required TResult Function(String walletAddress) authenticatedNoPassword,
-    required TResult Function(Wallet wallet) authenticated,
-    required TResult Function() loading,
-  }) {
-    return loading();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? unauthenticated,
-    TResult Function(String walletAddress)? authenticatedNoPassword,
-    TResult Function(Wallet wallet)? authenticated,
-    TResult Function()? loading,
-  }) {
-    return loading?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? unauthenticated,
-    TResult Function(String walletAddress)? authenticatedNoPassword,
-    TResult Function(Wallet wallet)? authenticated,
-    TResult Function()? loading,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(UnAuthenticated value) unauthenticated,
-    required TResult Function(AuthenticatedNoPassword value)
-        authenticatedNoPassword,
-    required TResult Function(Authenticated value) authenticated,
-    required TResult Function(Authenticating value) loading,
-  }) {
-    return loading(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(UnAuthenticated value)? unauthenticated,
-    TResult Function(AuthenticatedNoPassword value)? authenticatedNoPassword,
-    TResult Function(Authenticated value)? authenticated,
-    TResult Function(Authenticating value)? loading,
-  }) {
-    return loading?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(UnAuthenticated value)? unauthenticated,
-    TResult Function(AuthenticatedNoPassword value)? authenticatedNoPassword,
-    TResult Function(Authenticated value)? authenticated,
-    TResult Function(Authenticating value)? loading,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class Authenticating implements AuthState {
-  const factory Authenticating() = _$Authenticating;
 }

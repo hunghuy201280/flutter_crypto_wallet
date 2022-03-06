@@ -7,5 +7,4 @@ class AuthState with _$AuthState {
       {required String walletAddress}) = AuthenticatedNoPassword;
   const factory AuthState.authenticated({required Wallet wallet}) =
       Authenticated;
-  const factory AuthState.loading() = Authenticating;
 }

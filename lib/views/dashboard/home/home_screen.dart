@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ntf_marketplace/view_models/auth_bloc/auth_bloc.dart';
 import 'package:flutter_ntf_marketplace/views/login/login_screen.dart';
 
-import '../passcode/passcode_screen.dart';
+import '../../passcode/passcode_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String id = "/home";
