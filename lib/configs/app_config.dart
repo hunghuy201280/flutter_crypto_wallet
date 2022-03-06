@@ -7,21 +7,33 @@ import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 
 import '../constants/hive_configs.dart';
+import '../models/configs/configs.dart';
+import '../models/wallet/wallet.dart';
 
 class AppConfigs {
   static const kServerUri = "http://localhost:3000";
 
-  static Future<void> initializeApp({
-    required RemoteRepository remoteRepo,
-    required LocalRepository localRepository,
-    required AppPref appPref,
-  }) async {
+  static Future<void> initializeApp() async {
+    //#region initialize AppPref
+    final appPref = AppPref(
+      config: Configs(
+        box: Hive.box(HiveConfigs.kConfig),
+      ),
+      wallet: Wallet(
+        box: Hive.box(HiveConfigs.kWallet),
+      ),
+    );
     Get.put(appPref);
-    localRepository.appPref = appPref
-      ..config.box = Hive.box(HiveConfigs.kConfig)
-      ..wallet.box = Hive.box(HiveConfigs.kWallet);
+    //#endregion initialize AppPref
 
-    Get.put(LocalProvider()..repo = localRepository);
-    Get.put(RemoteProvider()..repo = remoteRepo);
+    //#region init local repo,provider
+    final localRepository = LocalRepository(appPref: appPref);
+    Get.put(LocalProvider(repo: localRepository));
+    //#endregion
+
+    //#region init remote repo,provider
+    final remoteRepository = RemoteRepository();
+    Get.put(RemoteProvider(repo: remoteRepository));
+    //#endregion
   }
 }
