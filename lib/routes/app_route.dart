@@ -1,11 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_ntf_marketplace/view_models/dashboard_bloc/dashboard_bloc.dart';
 import 'package:flutter_ntf_marketplace/view_models/login_bloc/login_bloc.dart';
 import 'package:flutter_ntf_marketplace/view_models/passcode_bloc/passcode_bloc.dart';
-import 'package:flutter_ntf_marketplace/view_models/splash_bloc/splash/splash_bloc.dart';
-import 'package:flutter_ntf_marketplace/views/dashboard/dashboard_screen.dart';
 import 'package:flutter_ntf_marketplace/views/import_wallet/import_wallet_screen.dart';
 import 'package:flutter_ntf_marketplace/views/login/login_screen.dart';
 import 'package:flutter_ntf_marketplace/views/onboarding_screen.dart';
@@ -15,6 +12,7 @@ import 'package:flutter_ntf_marketplace/views/splash_screen.dart';
 import '../view_models/import_wallet_bloc/import_wallet_bloc.dart';
 import '../views/create_wallet/create_wallet_screen.dart';
 import '../views/import_wallet/import_wallet_success_screen.dart';
+import '../views/nav_bar_view/nav_bar_view.dart';
 
 class AppRoute {
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
@@ -60,6 +58,11 @@ class AppRoute {
             create: (context) => PasscodeBloc(),
             child: const PasscodeScreen(),
           ),
+          settings: settings,
+        );
+      case NavBarView.id:
+        return CupertinoPageRoute(
+          builder: (context) => const NavBarView(),
           settings: settings,
         );
       default:

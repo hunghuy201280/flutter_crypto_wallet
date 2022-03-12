@@ -8,6 +8,7 @@ import 'package:flutter_ntf_marketplace/views/create_wallet/widgets/create_walle
 import 'package:flutter_ntf_marketplace/views/create_wallet/widgets/nstepper.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../nav_bar_view/nav_bar_view.dart';
 import '../shared_widgets/primary_button.dart';
 
 class CreateWalletScreen extends StatefulWidget {
@@ -64,12 +65,8 @@ class _CreateWalletScreenState extends State<CreateWalletScreen> {
                       duration: const Duration(milliseconds: 300),
                       curve: Curves.easeInOutQuad);
                 } else {
-                  currentStep = 1;
-                  pageController.animateToPage(0,
-                      duration: const Duration(milliseconds: 300),
-                      curve: Curves.easeInOutQuad);
+                  Navigator.pushNamed(context, NavBarView.id);
                 }
-                setState(() {});
               },
             ),
             48.verticalSpace,
