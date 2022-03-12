@@ -74,7 +74,7 @@ class __BodyScreenState extends State<_BodyScreen> {
             title: s.createWallet,
             horizontalMargin: 72.w,
             onTap: () {
-              print("Hung ngu vcl");
+          
               Navigator.pushNamed(context, CreateWalletScreen.id);
             },
           ),
