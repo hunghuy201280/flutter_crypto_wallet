@@ -27,6 +27,8 @@
   "depositCrypto" : "Nạp tiền",
   "withdrawCrypto" : "Rút tiền",
   "exchangeCrypto" : "Chuyển đổi tiền",
+  "createNewAccount" : "Tạo tài khoản mới",
+  "importAnAccount": "Thêm tài khoản",
   "signInWithBiometrics" : "Muốn đăng nhập bằng vân tay ?"
 
 }

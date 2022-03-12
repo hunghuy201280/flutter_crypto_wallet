@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:another_flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ntf_marketplace/configs/color_config.dart';
@@ -9,6 +11,11 @@ import 'package:shimmer/shimmer.dart';
 import '../configs/text_config.dart';
 
 class Utils {
+  static int getRandom(int to, {int from = 0}) {
+    if (to == 0) return 0;
+    return (Random().nextInt(to - from) + from);
+  }
+
   static Future showCompleteSnackBar(context,
       {required String message,
       FlushbarPosition position = FlushbarPosition.TOP}) async {

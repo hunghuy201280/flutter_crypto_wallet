@@ -300,6 +300,26 @@ class S {
     );
   }
 
+  /// `Create New Account`
+  String get createNewAccount {
+    return Intl.message(
+      'Create New Account',
+      name: 'createNewAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Import an Account`
+  String get importAnAccount {
+    return Intl.message(
+      'Import an Account',
+      name: 'importAnAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Sign in with Biometrics ?`
   String get signInWithBiometrics {
     return Intl.message(

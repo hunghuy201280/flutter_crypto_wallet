@@ -30,6 +30,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "appName": MessageLookupByLibrary.simpleMessage("App Name"),
         "confirmPassword":
             MessageLookupByLibrary.simpleMessage("Confirm Password"),
+        "createNewAccount":
+            MessageLookupByLibrary.simpleMessage("Create New Account"),
         "createPassword":
             MessageLookupByLibrary.simpleMessage("Create password"),
         "createWallet": MessageLookupByLibrary.simpleMessage("Create Wallet"),
@@ -45,6 +47,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "getStarted": MessageLookupByLibrary.simpleMessage("Get started"),
         "hide": MessageLookupByLibrary.simpleMessage("Hide"),
         "iUnderstandThatAppNameCannotRecoverThisPasswordForMe": m0,
+        "importAnAccount":
+            MessageLookupByLibrary.simpleMessage("Import an Account"),
         "importWallet": MessageLookupByLibrary.simpleMessage("Import Wallet"),
         "logInWithBiometrics":
             MessageLookupByLibrary.simpleMessage("Log In With Biometrics"),

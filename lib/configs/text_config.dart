@@ -60,6 +60,12 @@ class TextConfigs {
     fontWeight: FontWeight.w300,
     color: AppColors.kColor9,
   );
+  static final kBody2_1 = TextStyle(
+    fontSize: 16.sp,
+    fontFamily: kFontFamily,
+    fontWeight: FontWeight.w300,
+    color: AppColors.kColor1,
+  );
   static final kBody2_2 = TextStyle(
     fontSize: 16.sp,
     fontFamily: kFontFamily,
@@ -72,5 +78,11 @@ class TextConfigs {
     fontFamily: kFontFamily,
     fontWeight: FontWeight.w300,
     color: AppColors.kColor9,
+  );
+  static final kCaption_1 = TextStyle(
+    fontSize: 13.sp,
+    fontFamily: kFontFamily,
+    fontWeight: FontWeight.w300,
+    color: AppColors.kColor1,
   );
 }

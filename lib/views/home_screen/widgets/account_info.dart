@@ -2,13 +2,13 @@ import 'package:clipboard/clipboard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ntf_marketplace/utils/extensions.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 import '../../../configs/app_config.dart';
 import '../../../configs/color_config.dart';
 import '../../../configs/text_config.dart';
 import '../../../utils/utils.dart';
 import '../../shared_widgets/primary_avatar.dart';
+import 'account_selector.dart';
 
 class AccountInfo extends StatelessWidget {
   const AccountInfo({Key? key}) : super(key: key);
@@ -27,7 +27,11 @@ class AccountInfo extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                HomeAvatar(),
+                PrimaryAvatar(
+                  size: 64.w,
+                  imageUrl: AppConfigs.tempImage,
+                  borderColor: AppColors.kColor8,
+                ),
                 Column(
                   children: [
                     Text(
@@ -51,7 +55,7 @@ class AccountInfo extends StatelessWidget {
                               horizontal: 16.w, vertical: 4.w),
                           child: Text(
                             "0x1161642e402d07D13B243d678d6d08f476c08c0e"
-                                .shortFor(),
+                                .shortFor(shortForLength: 15),
                             style: TextConfigs.kCaption_9,
                           ),
                         ),
@@ -81,47 +85,12 @@ class AccountInfo extends StatelessWidget {
   }
 
   _onTap(BuildContext context) async {
-    showBarModalBottomSheet(
-        context: context,
-        builder: (context) => Container(
-              color: Colors.red,
-            ));
-  }
-}
-
-class HomeAvatar extends StatelessWidget {
-  const HomeAvatar({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Stack(
-      alignment: AlignmentDirectional.center,
-      children: [
-        SizedBox.fromSize(
-          child: Material(
-            shape: CircleBorder(
-              side: BorderSide(color: AppColors.kColor8, width: 2.w),
-            ),
-            color: Colors.transparent,
-          ),
-          size: Size(64.w, 64.w),
-        ),
-        SizedBox.fromSize(
-          child: Material(
-            shape: CircleBorder(
-              side: BorderSide(color: AppColors.kColor1, width: 2.w),
-            ),
-            color: Colors.transparent,
-          ),
-          size: Size(62.w, 62.w),
-        ),
-        PrimaryAvatar(
-          size: 60.w,
-          imageUrl: AppConfigs.tempImage,
-        ),
-      ],
+    showModalBottomSheet(
+      context: context,
+      shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(top: Radius.circular(40))),
+      useRootNavigator: true,
+      builder: (context) => const AccountSelector(),
     );
   }
 }

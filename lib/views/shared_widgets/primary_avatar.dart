@@ -1,14 +1,16 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ntf_marketplace/configs/color_config.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../utils/utils.dart';
 
 class PrimaryAvatar extends StatelessWidget {
-  final double? size;
+  final double size;
   final ImageProvider? image;
   final String? imageUrl;
   final Color background;
+  final Color borderColor;
   final BoxFit fit;
   const PrimaryAvatar(
       {Key? key,
@@ -16,7 +18,8 @@ class PrimaryAvatar extends StatelessWidget {
       this.imageUrl,
       required this.size,
       this.background = AppColors.kColor2,
-      this.fit = BoxFit.cover})
+      this.fit = BoxFit.cover,
+      this.borderColor = AppColors.kColor4})
       : assert((imageUrl != null) || (image != null),
             "Only specify urlImage or image"),
         super(key: key);
@@ -25,11 +28,13 @@ class PrimaryAvatar extends StatelessWidget {
   Widget build(BuildContext context) {
     late final Widget child;
     if (image != null) {
-      child = Image(
-        image: image!,
-        fit: fit,
-        width: size,
-        height: size,
+      child = ClipOval(
+        child: Image(
+          image: image!,
+          fit: fit,
+          width: size - 8.w,
+          height: size - 8.w,
+        ),
       );
     } else {
       child = CachedNetworkImage(
@@ -44,14 +49,14 @@ class PrimaryAvatar extends StatelessWidget {
           child: Image(
             fit: fit,
             image: image,
-            width: size,
-            height: size,
+            width: size - 8.w,
+            height: size - 8.w,
           ),
         ),
         errorWidget: (_, __, ___) => ClipOval(
           child: Container(
-            width: size,
-            height: size,
+            width: size - 8.w,
+            height: size - 8.w,
             color: AppColors.kColor4,
             child: const Center(
               child: Icon(
@@ -64,6 +69,20 @@ class PrimaryAvatar extends StatelessWidget {
       );
     }
 
-    return child;
+    return Stack(
+      alignment: AlignmentDirectional.center,
+      children: [
+        SizedBox.fromSize(
+          child: Material(
+            shape: CircleBorder(
+              side: BorderSide(color: borderColor, width: 2.w),
+            ),
+            color: Colors.transparent,
+          ),
+          size: Size(size, size),
+        ),
+        child,
+      ],
+    );
   }
 }

@@ -39,5 +39,7 @@
   "depositCrypto" : "Deposit Crypto",
   "withdrawCrypto" : "Withdraw Crypto",
   "exchangeCrypto" : "Exchange Crypto",
+  "createNewAccount" : "Create New Account",
+  "importAnAccount": "Import an Account",
   "signInWithBiometrics" : "Sign in with Biometrics ?"
 }

@@ -30,6 +30,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "appName": MessageLookupByLibrary.simpleMessage("App Name"),
         "confirmPassword":
             MessageLookupByLibrary.simpleMessage("Xác nhận mật khẩu"),
+        "createNewAccount":
+            MessageLookupByLibrary.simpleMessage("Tạo tài khoản mới"),
         "createPassword": MessageLookupByLibrary.simpleMessage("Tạo mật khẩu"),
         "createWallet": MessageLookupByLibrary.simpleMessage("Tạo ví"),
         "depositCrypto": MessageLookupByLibrary.simpleMessage("Nạp tiền"),
@@ -44,6 +46,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "getStarted": MessageLookupByLibrary.simpleMessage("Bắt đầu"),
         "hide": MessageLookupByLibrary.simpleMessage("Ẩn"),
         "iUnderstandThatAppNameCannotRecoverThisPasswordForMe": m0,
+        "importAnAccount":
+            MessageLookupByLibrary.simpleMessage("Thêm tài khoản"),
         "importWallet": MessageLookupByLibrary.simpleMessage("Nhập ví"),
         "logInWithBiometrics":
             MessageLookupByLibrary.simpleMessage("Đăng nhập bằng vân tay"),
