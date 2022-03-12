@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../configs/color_config.dart';
 import '../../configs/text_config.dart';
+import '../../utils/utils.dart';
 
 class PrimaryButton extends StatelessWidget {
   const PrimaryButton({
@@ -46,6 +47,7 @@ class PrimaryButton extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
+            Utils.empty,
             if (leading != null) leading!,
             Text(
               title,
@@ -56,6 +58,7 @@ class PrimaryButton extends StatelessWidget {
                 child: leading!,
                 opacity: 0,
               ),
+            Utils.empty,
           ],
         ),
       ),
