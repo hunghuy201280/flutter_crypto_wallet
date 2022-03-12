@@ -27,7 +27,7 @@ class AccountInfo extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                HomeAvatar(),
+                const HomeAvatar(),
                 Column(
                   children: [
                     Text(
@@ -108,17 +108,8 @@ class HomeAvatar extends StatelessWidget {
           ),
           size: Size(64.w, 64.w),
         ),
-        SizedBox.fromSize(
-          child: Material(
-            shape: CircleBorder(
-              side: BorderSide(color: AppColors.kColor1, width: 2.w),
-            ),
-            color: Colors.transparent,
-          ),
-          size: Size(62.w, 62.w),
-        ),
         PrimaryAvatar(
-          size: 60.w,
+          size: 56.w,
           imageUrl: AppConfigs.tempImage,
         ),
       ],
