@@ -12,7 +12,8 @@ import '../models/prefs/walletpref.dart';
 
 class AppConfigs {
   static const kServerUri = "http://localhost:3000";
-
+  static const tempImage =
+      "https://gamelandvn.com/mobile/wp-content/uploads/2021/05/noelle-social.jpg";
   static Future<void> initializeApp() async {
     //#region initialize AppPref
     final appPref = AppPref(

@@ -13,6 +13,17 @@ extension StringExt on String {
         width: width,
         height: height,
       );
+  String shortFor({int shortForLength = 20}) {
+    assert(shortForLength >= 3);
+    if (length <= shortForLength - 3) {
+      return this;
+    }
+    final cutIndex = shortForLength ~/ 2;
+    final remainingChar = shortForLength - cutIndex;
+    return substring(0, cutIndex) +
+        "..." +
+        substring(length - remainingChar + 3);
+  }
 }
 
 extension OutlineInputBorderExt on OutlineInputBorder {

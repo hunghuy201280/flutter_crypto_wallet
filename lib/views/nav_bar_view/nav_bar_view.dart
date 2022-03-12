@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ntf_marketplace/configs/color_config.dart';
+import 'package:flutter_ntf_marketplace/configs/text_config.dart';
 import 'package:flutter_ntf_marketplace/utils/extensions.dart';
 import 'package:flutter_ntf_marketplace/view_models/auth_bloc/auth_bloc.dart';
 import 'package:flutter_ntf_marketplace/views/login/login_screen.dart';
@@ -12,12 +13,13 @@ import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
 
 import '../../generated/l10n.dart';
 import '../../routes/app_route.dart';
+import '../../utils/utils.dart';
 import '../home_screen/home_screen.dart';
 import '../passcode/passcode_screen.dart';
 
 class NavBarView extends StatefulWidget {
   static const id = "NavBarView";
-  static final height = 72.w;
+  static const height = 72;
   const NavBarView({Key? key}) : super(key: key);
 
   @override
@@ -45,27 +47,31 @@ class _NavBarViewState extends State<NavBarView> {
           authenticated: (wallet) {},
         );
       },
-      child: PersistentTabView(
-        context,
-        screens: screens,
-        items: navBarItem,
-        backgroundColor: AppColors.kColor2,
-        navBarStyle: NavBarStyle.style6,
-        onItemSelected: (index) {
-          selectedIndex = index;
-          setState(() {});
-        },
-        navBarHeight: NavBarView.height,
-        padding: NavBarPadding.only(top: 24.w),
-        decoration: const NavBarDecoration(
-          borderRadius: BorderRadius.vertical(top: Radius.circular(40)),
-        ),
-        hideNavigationBarWhenKeyboardShows: true,
-        hideNavigationBar:
-            MediaQuery.of(context).viewInsets.bottom > 0 ? true : false,
-        //bottomScreenMargin: 64.w,
-        screenTransitionAnimation: const ScreenTransitionAnimation(
-          animateTabTransition: true,
+      child: Scaffold(
+        appBar: _buildMainAppBar(),
+        resizeToAvoidBottomInset: false,
+        body: PersistentTabView(
+          context,
+          screens: screens,
+          items: navBarItem,
+          backgroundColor: AppColors.kColor2,
+          navBarStyle: NavBarStyle.style6,
+          onItemSelected: (index) {
+            selectedIndex = index;
+            setState(() {});
+          },
+          navBarHeight: NavBarView.height.w,
+          padding: NavBarPadding.only(top: 24.w),
+          decoration: const NavBarDecoration(
+            borderRadius: BorderRadius.vertical(top: Radius.circular(40)),
+          ),
+          hideNavigationBarWhenKeyboardShows: true,
+          hideNavigationBar:
+              MediaQuery.of(context).viewInsets.bottom > 0 ? true : false,
+          bottomScreenMargin: 0,
+          screenTransitionAnimation: const ScreenTransitionAnimation(
+            animateTabTransition: true,
+          ),
         ),
       ),
     );
@@ -107,4 +113,36 @@ class _NavBarViewState extends State<NavBarView> {
       ),
     );
   }
+
+  _buildMainAppBar() => AppBar(
+        leading: Utils.empty,
+        title: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            SizedBox.fromSize(
+              child: const Material(
+                color: AppColors.kColor7,
+                shape: CircleBorder(),
+              ),
+              size: Size(12.w, 12.w),
+            ),
+            8.horizontalSpace,
+            Text(
+              "Main Network",
+              style: TextConfigs.kBody2_9,
+            ),
+          ],
+        ),
+        actions: [
+          IconButton(
+            icon: "scan".getIcon(),
+            onPressed: () {},
+            splashRadius: 20.w,
+          ),
+          8.horizontalSpace,
+        ],
+        centerTitle: true,
+        backgroundColor: AppColors.kColor1,
+        elevation: 0,
+      );
 }

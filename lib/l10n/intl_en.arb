@@ -36,5 +36,8 @@
   "welcomeBack" : "Welcome Back!",
   "logInWithBiometrics" : "Log In With Biometrics",
   "signIn" : "Sign In",
+  "depositCrypto" : "Deposit Crypto",
+  "withdrawCrypto" : "Withdraw Crypto",
+  "exchangeCrypto" : "Exchange Crypto",
   "signInWithBiometrics" : "Sign in with Biometrics ?"
 }

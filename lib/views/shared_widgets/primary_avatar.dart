@@ -2,57 +2,68 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ntf_marketplace/configs/color_config.dart';
 
+import '../../utils/utils.dart';
+
 class PrimaryAvatar extends StatelessWidget {
   final double? size;
-  final BoxConstraints? constraints;
   final ImageProvider? image;
   final String? imageUrl;
   final Color background;
-  final BoxFit? fit;
-  PrimaryAvatar(
+  final BoxFit fit;
+  const PrimaryAvatar(
       {Key? key,
       this.image,
       this.imageUrl,
       required this.size,
-      BoxConstraints? constraints,
-      Color? background,
+      this.background = AppColors.kColor2,
       this.fit = BoxFit.cover})
-      : assert(
-            (imageUrl == null && image == null) ||
-                (imageUrl != null) ||
-                (image != null),
+      : assert((imageUrl != null) || (image != null),
             "Only specify urlImage or image"),
-        constraints = (size != null)
-            ? constraints?.tighten(width: size, height: size) ??
-                BoxConstraints.tightFor(width: size, height: size)
-            : constraints,
-        background = background ?? AppColors.kColor2,
         super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: background,
-        borderRadius: BorderRadius.circular(size ?? 0),
-      ),
-      constraints: constraints,
-      child: imageImage(),
-    );
-  }
-
-  Widget imageImage() {
-    if ((imageUrl == null && image == null)) {
-      return Container();
+    late final Widget child;
+    if (image != null) {
+      child = Image(
+        image: image!,
+        fit: fit,
+        width: size,
+        height: size,
+      );
+    } else {
+      child = CachedNetworkImage(
+        imageUrl: imageUrl!,
+        placeholder: (__, _) => ClipOval(
+          child: Utils.getShimmer(
+            width: size,
+            height: size,
+          ),
+        ),
+        imageBuilder: (context, image) => ClipOval(
+          child: Image(
+            fit: fit,
+            image: image,
+            width: size,
+            height: size,
+          ),
+        ),
+        errorWidget: (_, __, ___) => ClipOval(
+          child: Container(
+            width: size,
+            height: size,
+            color: AppColors.kColor4,
+            child: const Center(
+              child: Icon(
+                Icons.broken_image,
+                color: AppColors.kColor3,
+              ),
+            ),
+          ),
+        ),
+      );
     }
-    return image != null
-        ? Image(
-            image: image!,
-            fit: fit,
-          )
-        : CachedNetworkImage(
-            imageUrl: imageUrl!,
-            fit: fit,
-          );
+
+    return child;
   }
 }

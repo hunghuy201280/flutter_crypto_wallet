@@ -33,12 +33,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "createPassword":
             MessageLookupByLibrary.simpleMessage("Create password"),
         "createWallet": MessageLookupByLibrary.simpleMessage("Create Wallet"),
+        "depositCrypto": MessageLookupByLibrary.simpleMessage("Deposit Crypto"),
         "dontGiveThisPrivateKeyToAnyone": MessageLookupByLibrary.simpleMessage(
             "Don’t give this privatekey to anyone!"),
         "easyWayToManageYourEWallet": MessageLookupByLibrary.simpleMessage(
             "Easy way to manage your e-wallet"),
         "enterToYourWallet":
             MessageLookupByLibrary.simpleMessage("Enter to your wallet"),
+        "exchangeCrypto":
+            MessageLookupByLibrary.simpleMessage("Exchange Crypto"),
         "getStarted": MessageLookupByLibrary.simpleMessage("Get started"),
         "hide": MessageLookupByLibrary.simpleMessage("Hide"),
         "iUnderstandThatAppNameCannotRecoverThisPasswordForMe": m0,
@@ -61,6 +64,8 @@ class MessageLookup extends MessageLookupByLibrary {
                 "This password will unlock your wallet only on this device."),
         "walletAddedSuccessfully":
             MessageLookupByLibrary.simpleMessage("Wallet added successfully"),
-        "welcomeBack": MessageLookupByLibrary.simpleMessage("Welcome Back!")
+        "welcomeBack": MessageLookupByLibrary.simpleMessage("Welcome Back!"),
+        "withdrawCrypto":
+            MessageLookupByLibrary.simpleMessage("Withdraw Crypto")
       };
 }

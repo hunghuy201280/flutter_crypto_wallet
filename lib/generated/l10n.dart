@@ -270,6 +270,36 @@ class S {
     );
   }
 
+  /// `Deposit Crypto`
+  String get depositCrypto {
+    return Intl.message(
+      'Deposit Crypto',
+      name: 'depositCrypto',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Withdraw Crypto`
+  String get withdrawCrypto {
+    return Intl.message(
+      'Withdraw Crypto',
+      name: 'withdrawCrypto',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Exchange Crypto`
+  String get exchangeCrypto {
+    return Intl.message(
+      'Exchange Crypto',
+      name: 'exchangeCrypto',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Sign in with Biometrics ?`
   String get signInWithBiometrics {
     return Intl.message(

@@ -4,6 +4,7 @@ import 'package:flutter_ntf_marketplace/configs/color_config.dart';
 import 'package:flutter_ntf_marketplace/utils/extensions.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:shimmer/shimmer.dart';
 
 import '../configs/text_config.dart';
 
@@ -51,4 +52,32 @@ class Utils {
   }
 
   static Widget get empty => const SizedBox.shrink();
+
+  static Shimmer getShimmer(
+          {double borderRadius = 0, double? width, double? height}) =>
+      Shimmer(
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(borderRadius),
+          child: SizedBox.fromSize(
+            size: Size(width ?? 1.sw, height ?? 1.sh),
+            child: const Material(
+              color: AppColors.kColor8,
+            ),
+          ),
+        ),
+        gradient: const LinearGradient(
+          colors: [
+            AppColors.kColor6,
+            AppColors.kColor6,
+            AppColors.kColor8,
+            AppColors.kColor6,
+            AppColors.kColor6,
+          ],
+          stops: <double>[0.0, 0.4, 0.5, 0.6, 1.0],
+          begin: Alignment.topLeft,
+          end: Alignment.centerRight,
+        ),
+        // baseColor: AppColors.kColor6,
+        // highlightColor: AppColors.kColor8,
+      );
 }

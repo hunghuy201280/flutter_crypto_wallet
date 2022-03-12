@@ -32,12 +32,15 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Xác nhận mật khẩu"),
         "createPassword": MessageLookupByLibrary.simpleMessage("Tạo mật khẩu"),
         "createWallet": MessageLookupByLibrary.simpleMessage("Tạo ví"),
+        "depositCrypto": MessageLookupByLibrary.simpleMessage("Nạp tiền"),
         "dontGiveThisPrivateKeyToAnyone": MessageLookupByLibrary.simpleMessage(
             "Không tiết lộ private key này cho bất cứ ai!"),
         "easyWayToManageYourEWallet": MessageLookupByLibrary.simpleMessage(
             "Dễ dàng để quản lý ví điện tử của bạn"),
         "enterToYourWallet":
             MessageLookupByLibrary.simpleMessage("Truy cập vào ví"),
+        "exchangeCrypto":
+            MessageLookupByLibrary.simpleMessage("Chuyển đổi tiền"),
         "getStarted": MessageLookupByLibrary.simpleMessage("Bắt đầu"),
         "hide": MessageLookupByLibrary.simpleMessage("Ẩn"),
         "iUnderstandThatAppNameCannotRecoverThisPasswordForMe": m0,
@@ -61,6 +64,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "walletAddedSuccessfully":
             MessageLookupByLibrary.simpleMessage("Thêm ví thành công"),
         "welcomeBack":
-            MessageLookupByLibrary.simpleMessage("Chào mừng trở lại!")
+            MessageLookupByLibrary.simpleMessage("Chào mừng trở lại!"),
+        "withdrawCrypto": MessageLookupByLibrary.simpleMessage("Rút tiền")
       };
 }

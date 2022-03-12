@@ -24,6 +24,9 @@
   "welcomeBack" : "Chào mừng trở lại!",
   "logInWithBiometrics" : "Đăng nhập bằng vân tay",
   "signIn" : "Đăng nhập",
+  "depositCrypto" : "Nạp tiền",
+  "withdrawCrypto" : "Rút tiền",
+  "exchangeCrypto" : "Chuyển đổi tiền",
   "signInWithBiometrics" : "Muốn đăng nhập bằng vân tay ?"
 
 }

@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ntf_marketplace/configs/color_config.dart';
 import 'package:flutter_ntf_marketplace/configs/text_config.dart';
 import 'package:flutter_ntf_marketplace/generated/l10n.dart';
-import 'package:flutter_ntf_marketplace/view_models/auth_bloc/auth_bloc.dart';
 import 'package:flutter_ntf_marketplace/view_models/login_bloc/login_bloc.dart';
 import 'package:flutter_ntf_marketplace/views/create_wallet/create_wallet_screen.dart';
 import 'package:flutter_ntf_marketplace/views/import_wallet/import_wallet_screen.dart';
@@ -22,11 +21,9 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  
   @override
   void initState() {
     super.initState();
-    
   }
 
   @override
@@ -75,7 +72,7 @@ class __BodyScreenState extends State<_BodyScreen> {
           60.verticalSpace,
           PrimaryButton(
             title: s.createWallet,
-            horizontalPadding: 72.w,
+            horizontalMargin: 72.w,
             onTap: () {
               print("Hung ngu vcl");
               Navigator.pushNamed(context, CreateWalletScreen.id);
@@ -84,7 +81,7 @@ class __BodyScreenState extends State<_BodyScreen> {
           20.verticalSpace,
           PrimaryButton(
             title: s.importWallet,
-            horizontalPadding: 72.w,
+            horizontalMargin: 72.w,
             backgroundColor: AppColors.kColor2,
             onTap: () {
               Navigator.pushNamed(context, ImportWalletScreen.id);
