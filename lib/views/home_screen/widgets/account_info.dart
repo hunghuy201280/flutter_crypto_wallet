@@ -102,7 +102,7 @@ class HomeAvatar extends StatelessWidget {
         SizedBox.fromSize(
           child: Material(
             shape: CircleBorder(
-              side: BorderSide(color: AppColors.kColor8, width: 2.w),
+              side: BorderSide(color: AppColors.kColor9, width: 2.w),
             ),
             color: Colors.transparent,
           ),
