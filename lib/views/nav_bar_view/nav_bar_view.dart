@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ntf_marketplace/configs/color_config.dart';
@@ -19,7 +21,7 @@ import '../passcode/passcode_screen.dart';
 
 class NavBarView extends StatefulWidget {
   static const id = "NavBarView";
-  static const height = 72;
+  static final height = Platform.isAndroid ? 100 : 72;
   const NavBarView({Key? key}) : super(key: key);
 
   @override
