@@ -1,17 +1,17 @@
 {
   "@@locale": "en",
-  "appName" : "App Name",
-  "easyWayToManageYourEWallet" : "Easy way to manage your e-wallet",
+  "appName": "App Name",
+  "easyWayToManageYourEWallet": "Easy way to manage your e-wallet",
   "manageYourEveryPennyAndTransactionWithEase": "Manage your every penny and transaction with ease",
-  "enterToYourWallet" : "Enter to your wallet",
-  "importWallet" : "Import Wallet",
-  "createWallet" : "Create Wallet",
-  "newPassword" : "New Password",
-  "show" : "Show",
-  "hide" : "Hide",
-  "confirmPassword" : "Confirm Password",
-  "password" : "Password",
-  "mustBeAtLeastCharacters" : "Must be at least {num} characters",
+  "enterToYourWallet": "Enter to your wallet",
+  "importWallet": "Import Wallet",
+  "createWallet": "Create Wallet",
+  "newPassword": "New Password",
+  "show": "Show",
+  "hide": "Hide",
+  "confirmPassword": "Confirm Password",
+  "password": "Password",
+  "mustBeAtLeastCharacters": "Must be at least {num} characters",
   "@mustBeAtLeastCharacters": {
     "placeholders": {
       "num": {
@@ -19,7 +19,7 @@
       }
     }
   },
-  "iUnderstandThatAppNameCannotRecoverThisPasswordForMe" : "I understand that {appName} cannot recover this password for me.",
+  "iUnderstandThatAppNameCannotRecoverThisPasswordForMe": "I understand that {appName} cannot recover this password for me.",
   "@iUnderstandThatAppNameCannotRecoverThisPasswordForMe": {
     "placeholders": {
       "appName": {
@@ -33,13 +33,15 @@
   "privateKey": "Private key",
   "walletAddedSuccessfully": "Wallet added successfully",
   "thisPasswordWillUnlockYourWalletOnlyOnThisDevice": "This password will unlock your wallet only on this device.",
-  "welcomeBack" : "Welcome Back!",
-  "logInWithBiometrics" : "Log In With Biometrics",
-  "signIn" : "Sign In",
-  "depositCrypto" : "Deposit Crypto",
-  "withdrawCrypto" : "Withdraw Crypto",
-  "exchangeCrypto" : "Exchange Crypto",
-  "createNewAccount" : "Create New Account",
+  "welcomeBack": "Welcome Back!",
+  "logInWithBiometrics": "Log In With Biometrics",
+  "signIn": "Sign In",
+  "depositCrypto": "Deposit Crypto",
+  "withdrawCrypto": "Withdraw Crypto",
+  "exchangeCrypto": "Exchange Crypto",
+  "createNewAccount": "Create New Account",
   "importAnAccount": "Import an Account",
-  "signInWithBiometrics" : "Sign in with Biometrics ?"
+  "signInWithBiometrics": "Sign in with Biometrics ?",
+  "tokens": "TOKENS",
+  "nfts": "NFTs"
 }

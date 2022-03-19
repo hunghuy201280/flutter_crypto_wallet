@@ -56,6 +56,7 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Quản lý từng xu và giao dịch của bạn một cách dễ dàng"),
         "mustBeAtLeastCharacters": m1,
         "newPassword": MessageLookupByLibrary.simpleMessage("Mật khẩu mới"),
+        "nfts": MessageLookupByLibrary.simpleMessage("NFTs"),
         "password": MessageLookupByLibrary.simpleMessage("Mật khẩu"),
         "privateKey": MessageLookupByLibrary.simpleMessage("Private key"),
         "show": MessageLookupByLibrary.simpleMessage("Hiện"),
@@ -65,6 +66,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "thisPasswordWillUnlockYourWalletOnlyOnThisDevice":
             MessageLookupByLibrary.simpleMessage(
                 "Mật khẩu này chỉ mở khóa ví của bạn trên thiết bị này."),
+        "tokens": MessageLookupByLibrary.simpleMessage("TOKENS"),
         "walletAddedSuccessfully":
             MessageLookupByLibrary.simpleMessage("Thêm ví thành công"),
         "welcomeBack":

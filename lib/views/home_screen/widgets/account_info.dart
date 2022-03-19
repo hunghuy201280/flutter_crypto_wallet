@@ -30,7 +30,7 @@ class AccountInfo extends StatelessWidget {
                 PrimaryAvatar(
                   size: 64.w,
                   imageUrl: AppConfigs.tempImage,
-                  borderColor: AppColors.kColor8,
+                  borderColor: AppColors.kColor9,
                 ),
                 Column(
                   children: [

@@ -329,6 +329,26 @@ class S {
       args: [],
     );
   }
+
+  /// `TOKENS`
+  String get tokens {
+    return Intl.message(
+      'TOKENS',
+      name: 'tokens',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `NFTs`
+  String get nfts {
+    return Intl.message(
+      'NFTs',
+      name: 'nfts',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

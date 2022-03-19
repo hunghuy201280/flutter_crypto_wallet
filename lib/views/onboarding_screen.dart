@@ -100,7 +100,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                               child: Padding(
                                 padding: EdgeInsets.all(13.w),
                                 child: SvgPicture.asset(
-                                  'assets/icons/icon_arrow_right.svg',
+                                  'assets/icons/ic_arrow_right.svg',
                                   width: 24.w,
                                   height: 24.w,
                                 ),
