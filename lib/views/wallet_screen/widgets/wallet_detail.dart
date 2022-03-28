@@ -107,6 +107,7 @@ class _NFTTab extends StatelessWidget {
           itemBuilder: (context, index) => const WalletNFTGroup(),
           itemCount: 3,
         ),
+        16.verticalSpace,
         Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
