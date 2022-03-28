@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ntf_marketplace/configs/app_config.dart';
+import 'package:flutter_ntf_marketplace/configs/color_config.dart';
 
 class SettingsScreen extends StatelessWidget {
   static const id = "SettingsScreen";
@@ -11,7 +13,12 @@ class SettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.purple,
+      backgroundColor: AppColors.kColor1,
+      body: _bodyScreen(),
     );
+  }
+
+  Widget _bodyScreen() {
+    return Container();
   }
 }

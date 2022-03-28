@@ -37,6 +37,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "depositCrypto": MessageLookupByLibrary.simpleMessage("Nạp tiền"),
         "dontGiveThisPrivateKeyToAnyone": MessageLookupByLibrary.simpleMessage(
             "Không tiết lộ private key này cho bất cứ ai!"),
+        "dontSeeYourNFT":
+            MessageLookupByLibrary.simpleMessage("Không thấy nft của bạn?"),
+        "dontSeeYourToken":
+            MessageLookupByLibrary.simpleMessage("Không thấy token của bạn?"),
         "easyWayToManageYourEWallet": MessageLookupByLibrary.simpleMessage(
             "Dễ dàng để quản lý ví điện tử của bạn"),
         "enterToYourWallet":
@@ -48,6 +52,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "iUnderstandThatAppNameCannotRecoverThisPasswordForMe": m0,
         "importAnAccount":
             MessageLookupByLibrary.simpleMessage("Thêm tài khoản"),
+        "importNFTs": MessageLookupByLibrary.simpleMessage("Thêm nfts"),
+        "importTokens": MessageLookupByLibrary.simpleMessage("Thêm tokens"),
         "importWallet": MessageLookupByLibrary.simpleMessage("Nhập ví"),
         "logInWithBiometrics":
             MessageLookupByLibrary.simpleMessage("Đăng nhập bằng vân tay"),

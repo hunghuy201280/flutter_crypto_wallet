@@ -8,7 +8,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../generated/l10n.dart';
 
 class WalletDetail extends StatefulWidget {
-  const WalletDetail({Key? key}) : super(key: key);
+  final TabController tabController;
+  const WalletDetail({Key? key, required this.tabController}) : super(key: key);
 
   @override
   State<WalletDetail> createState() => _WalletDetailState();
@@ -18,34 +19,32 @@ class _WalletDetailState extends State<WalletDetail> {
   @override
   Widget build(BuildContext context) {
     final s = S.of(context);
-    return DefaultTabController(
-      length: 2,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          TabBar(
-            tabs: [
-              Tab(
-                text: s.tokens,
-              ),
-              Tab(
-                text: s.nfts,
-              )
-            ],
-            labelStyle: TextConfigs.kLabel_9,
-            indicatorColor: AppColors.kColor2,
-            indicatorWeight: 2.w,
-          ),
-          const Expanded(
-            child: TabBarView(
-              children: [
-                _TokenTab(),
-                _NFTTab(),
-              ],
+    return Column(
+      children: [
+        TabBar(
+          controller: widget.tabController,
+          tabs: [
+            Tab(
+              text: s.tokens,
             ),
-          )
-        ],
-      ),
+            Tab(
+              text: s.nfts,
+            )
+          ],
+          labelStyle: TextConfigs.kLabel_9,
+          indicatorColor: AppColors.kColor2,
+          indicatorWeight: 2.w,
+        ),
+        Expanded(
+          child: TabBarView(
+            controller: widget.tabController,
+            children: const [
+              _TokenTab(),
+              _NFTTab(),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }
@@ -55,10 +54,38 @@ class _TokenTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      physics: const BouncingScrollPhysics(),
-      itemBuilder: (context, index) => const WalletCoinItem(),
-      itemCount: 5,
+    final s = S.of(context);
+    return ListView(
+      physics:
+          const NeverScrollableScrollPhysics(parent: BouncingScrollPhysics()),
+      shrinkWrap: true,
+      children: [
+        ListView.builder(
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          itemBuilder: (context, index) => const WalletCoinItem(),
+          itemCount: 3,
+        ),
+        16.verticalSpace,
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              s.dontSeeYourToken,
+              style: TextConfigs.kBody2_9,
+            ),
+            2.verticalSpace,
+            GestureDetector(
+              onTap: () {},
+              child: Text(
+                s.importTokens,
+                style: TextConfigs.kCaption_4,
+              ),
+            ),
+          ],
+        )
+      ],
     );
   }
 }
@@ -68,10 +95,37 @@ class _NFTTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      physics: const BouncingScrollPhysics(),
-      itemBuilder: (context, index) => const WalletNFTGroup(),
-      itemCount: 5,
+    final s = S.of(context);
+    return ListView(
+      physics:
+          const NeverScrollableScrollPhysics(parent: BouncingScrollPhysics()),
+      shrinkWrap: true,
+      children: [
+        ListView.builder(
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          itemBuilder: (context, index) => const WalletNFTGroup(),
+          itemCount: 3,
+        ),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              s.dontSeeYourNFT,
+              style: TextConfigs.kBody2_9,
+            ),
+            2.verticalSpace,
+            GestureDetector(
+              onTap: () {},
+              child: Text(
+                s.importNFTs,
+                style: TextConfigs.kCaption_4,
+              ),
+            ),
+          ],
+        )
+      ],
     );
     ;
   }

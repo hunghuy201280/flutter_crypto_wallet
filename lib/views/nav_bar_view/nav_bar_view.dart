@@ -21,7 +21,7 @@ import '../passcode/passcode_screen.dart';
 
 class NavBarView extends StatefulWidget {
   static const id = "NavBarView";
-  static final height = Platform.isAndroid ? 100 : 72;
+  static final height = Platform.isAndroid ? 80 : 72;
   const NavBarView({Key? key}) : super(key: key);
 
   @override
@@ -63,7 +63,6 @@ class _NavBarViewState extends State<NavBarView> {
             setState(() {});
           },
           navBarHeight: NavBarView.height.w,
-          padding: NavBarPadding.only(top: 24.w),
           decoration: const NavBarDecoration(
             borderRadius: BorderRadius.vertical(top: Radius.circular(40)),
           ),

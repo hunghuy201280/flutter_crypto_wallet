@@ -43,5 +43,9 @@
   "importAnAccount": "Import an Account",
   "signInWithBiometrics": "Sign in with Biometrics ?",
   "tokens": "TOKENS",
-  "nfts": "NFTs"
+  "nfts": "NFTs",
+  "dontSeeYourToken": "Don't see your token?",
+  "importTokens": "Import tokens",
+  "dontSeeYourNFT": "Don't see your nft?",
+  "importNFTs": "Import nfts"
 }

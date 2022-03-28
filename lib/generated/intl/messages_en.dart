@@ -38,6 +38,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "depositCrypto": MessageLookupByLibrary.simpleMessage("Deposit Crypto"),
         "dontGiveThisPrivateKeyToAnyone": MessageLookupByLibrary.simpleMessage(
             "Don’t give this privatekey to anyone!"),
+        "dontSeeYourNFT":
+            MessageLookupByLibrary.simpleMessage("Don\'t see your nft?"),
+        "dontSeeYourToken":
+            MessageLookupByLibrary.simpleMessage("Don\'t see your token?"),
         "easyWayToManageYourEWallet": MessageLookupByLibrary.simpleMessage(
             "Easy way to manage your e-wallet"),
         "enterToYourWallet":
@@ -49,6 +53,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "iUnderstandThatAppNameCannotRecoverThisPasswordForMe": m0,
         "importAnAccount":
             MessageLookupByLibrary.simpleMessage("Import an Account"),
+        "importNFTs": MessageLookupByLibrary.simpleMessage("Import nfts"),
+        "importTokens": MessageLookupByLibrary.simpleMessage("Import tokens"),
         "importWallet": MessageLookupByLibrary.simpleMessage("Import Wallet"),
         "logInWithBiometrics":
             MessageLookupByLibrary.simpleMessage("Log In With Biometrics"),

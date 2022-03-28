@@ -29,5 +29,9 @@
   "importAnAccount": "Thêm tài khoản",
   "signInWithBiometrics": "Muốn đăng nhập bằng vân tay ?",
   "tokens": "TOKENS",
-  "nfts": "NFTs"
+  "nfts": "NFTs",
+  "dontSeeYourToken": "Không thấy token của bạn?",
+  "importTokens": "Thêm tokens",
+  "dontSeeYourNFT": "Không thấy nft của bạn?",
+  "importNFTs": "Thêm nfts"
 }
