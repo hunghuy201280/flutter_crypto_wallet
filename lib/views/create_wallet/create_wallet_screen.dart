@@ -61,9 +61,8 @@ class _CreateWalletScreenState extends State<CreateWalletScreen> {
               onTap: () {
                 if (currentStep == 1) {
                   currentStep = 2;
-                  pageController.animateToPage(1,
-                      duration: const Duration(milliseconds: 300),
-                      curve: Curves.easeInOutQuad);
+                  _animateToPage(2);
+                  setState(() {});
                 } else {
                   Navigator.pushNamed(context, NavBarView.id);
                 }
