@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ntf_marketplace/configs/color_config.dart';
 import 'package:flutter_ntf_marketplace/configs/text_config.dart';
+import 'package:flutter_ntf_marketplace/views/nav_bar_view/nav_bar_view.dart';
 import 'package:flutter_ntf_marketplace/views/wallet_screen/widgets/wallet_coin_item.dart';
 import 'package:flutter_ntf_marketplace/views/wallet_screen/widgets/wallet_nft_group.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -44,6 +45,9 @@ class _WalletDetailState extends State<WalletDetail> {
             ],
           ),
         ),
+        SizedBox(
+          height: NavBarView.height.w,
+        ),
       ],
     );
   }
@@ -64,7 +68,7 @@ class _TokenTab extends StatelessWidget {
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
           itemBuilder: (context, index) => const WalletCoinItem(),
-          itemCount: 3,
+          itemCount: 20,
         ),
         16.verticalSpace,
         Column(
