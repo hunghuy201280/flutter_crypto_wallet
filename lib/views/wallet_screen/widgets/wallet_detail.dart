@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ntf_marketplace/configs/color_config.dart';
 import 'package:flutter_ntf_marketplace/configs/text_config.dart';
-import 'package:flutter_ntf_marketplace/views/nav_bar_view/nav_bar_view.dart';
 import 'package:flutter_ntf_marketplace/views/wallet_screen/widgets/wallet_coin_item.dart';
 import 'package:flutter_ntf_marketplace/views/wallet_screen/widgets/wallet_nft_group.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -44,9 +43,6 @@ class _WalletDetailState extends State<WalletDetail> {
               _NFTTab(),
             ],
           ),
-        ),
-        SizedBox(
-          height: NavBarView.height.w,
         ),
       ],
     );

@@ -63,13 +63,14 @@ class _NavBarViewState extends State<NavBarView> {
             setState(() {});
           },
           navBarHeight: NavBarView.height.w,
-          decoration: const NavBarDecoration(
-            borderRadius: BorderRadius.vertical(top: Radius.circular(40)),
-          ),
+          // decoration: const NavBarDecoration(
+          //   borderRadius: BorderRadius.vertical(top: Radius.circular(40)),
+          //   colorBehindNavBar: Colors.transparent,
+          // ),
           hideNavigationBarWhenKeyboardShows: true,
           hideNavigationBar:
               MediaQuery.of(context).viewInsets.bottom > 0 ? true : false,
-          bottomScreenMargin: 0,
+          bottomScreenMargin: NavBarView.height.w,
           screenTransitionAnimation: const ScreenTransitionAnimation(
             animateTabTransition: true,
           ),
