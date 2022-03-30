@@ -34,7 +34,7 @@ class _AccountSelectorState extends State<AccountSelector> {
     final s = S.of(context);
     return SafeArea(
       child: SizedBox(
-        height: 0.5.sh,
+        height: 0.7.sh,
         child: Column(
           children: [
             8.verticalSpace,
@@ -49,6 +49,7 @@ class _AccountSelectorState extends State<AccountSelector> {
             divider,
             Expanded(
               child: ListView.separated(
+                physics: const BouncingScrollPhysics(),
                 itemBuilder: (context, index) {
                   final rnd = Utils.getRandom(100);
                   return AccountItem(

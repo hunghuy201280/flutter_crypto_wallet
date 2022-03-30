@@ -329,6 +329,66 @@ class S {
       args: [],
     );
   }
+
+  /// `TOKENS`
+  String get tokens {
+    return Intl.message(
+      'TOKENS',
+      name: 'tokens',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `NFTs`
+  String get nfts {
+    return Intl.message(
+      'NFTs',
+      name: 'nfts',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Don't see your token?`
+  String get dontSeeYourToken {
+    return Intl.message(
+      'Don\'t see your token?',
+      name: 'dontSeeYourToken',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Import tokens`
+  String get importTokens {
+    return Intl.message(
+      'Import tokens',
+      name: 'importTokens',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Don't see your nft?`
+  String get dontSeeYourNFT {
+    return Intl.message(
+      'Don\'t see your nft?',
+      name: 'dontSeeYourNFT',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Import nfts`
+  String get importNFTs {
+    return Intl.message(
+      'Import nfts',
+      name: 'importNFTs',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

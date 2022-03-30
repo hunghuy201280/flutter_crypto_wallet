@@ -38,6 +38,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "depositCrypto": MessageLookupByLibrary.simpleMessage("Deposit Crypto"),
         "dontGiveThisPrivateKeyToAnyone": MessageLookupByLibrary.simpleMessage(
             "Don’t give this privatekey to anyone!"),
+        "dontSeeYourNFT":
+            MessageLookupByLibrary.simpleMessage("Don\'t see your nft?"),
+        "dontSeeYourToken":
+            MessageLookupByLibrary.simpleMessage("Don\'t see your token?"),
         "easyWayToManageYourEWallet": MessageLookupByLibrary.simpleMessage(
             "Easy way to manage your e-wallet"),
         "enterToYourWallet":
@@ -49,6 +53,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "iUnderstandThatAppNameCannotRecoverThisPasswordForMe": m0,
         "importAnAccount":
             MessageLookupByLibrary.simpleMessage("Import an Account"),
+        "importNFTs": MessageLookupByLibrary.simpleMessage("Import nfts"),
+        "importTokens": MessageLookupByLibrary.simpleMessage("Import tokens"),
         "importWallet": MessageLookupByLibrary.simpleMessage("Import Wallet"),
         "logInWithBiometrics":
             MessageLookupByLibrary.simpleMessage("Log In With Biometrics"),
@@ -57,6 +63,7 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Manage your every penny and transaction with ease"),
         "mustBeAtLeastCharacters": m1,
         "newPassword": MessageLookupByLibrary.simpleMessage("New Password"),
+        "nfts": MessageLookupByLibrary.simpleMessage("NFTs"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "privateKey": MessageLookupByLibrary.simpleMessage("Private key"),
         "show": MessageLookupByLibrary.simpleMessage("Show"),
@@ -66,6 +73,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "thisPasswordWillUnlockYourWalletOnlyOnThisDevice":
             MessageLookupByLibrary.simpleMessage(
                 "This password will unlock your wallet only on this device."),
+        "tokens": MessageLookupByLibrary.simpleMessage("TOKENS"),
         "walletAddedSuccessfully":
             MessageLookupByLibrary.simpleMessage("Wallet added successfully"),
         "welcomeBack": MessageLookupByLibrary.simpleMessage("Welcome Back!"),
