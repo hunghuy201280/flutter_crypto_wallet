@@ -64,7 +64,7 @@ class _TokenTab extends StatelessWidget {
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
           itemBuilder: (context, index) => const WalletCoinItem(),
-          itemCount: 3,
+          itemCount: 20,
         ),
         16.verticalSpace,
         Column(

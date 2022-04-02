@@ -18,7 +18,8 @@ class Utils {
 
   static Future showCompleteSnackBar(context,
       {required String message,
-      FlushbarPosition position = FlushbarPosition.TOP}) async {
+      FlushbarPosition position = FlushbarPosition.TOP,
+      bool isError = false}) async {
     await Flushbar(
       messageText: Text(
         message,
