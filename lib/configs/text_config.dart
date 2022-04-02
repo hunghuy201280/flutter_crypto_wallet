@@ -86,6 +86,13 @@ class TextConfigs {
     fontWeight: FontWeight.w300,
     color: AppColors.kColor9,
   );
+
+  static final kCaption_2 = TextStyle(
+    fontSize: 13.sp,
+    fontFamily: kFontFamily,
+    fontWeight: FontWeight.w300,
+    color: AppColors.kColor2,
+  );
   static final kCaption_1 = TextStyle(
     fontSize: 13.sp,
     fontFamily: kFontFamily,

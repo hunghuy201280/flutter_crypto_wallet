@@ -33,5 +33,17 @@
   "dontSeeYourToken": "Không thấy token của bạn?",
   "importTokens": "Thêm tokens",
   "dontSeeYourNFT": "Không thấy nft của bạn?",
-  "importNFTs": "Thêm nfts"
+  "importNFTs": "Thêm nfts",
+  "general": "Chung",
+  "currencyConversion": "Chuyển đổi tiền tệ",
+  "currentLanguage": "Ngôn ngữ mặc định",
+  "protectYourWallet": "Protect your wallet",
+  "protectYourWalletDesription": "Protect your wallet by saving your Secret Recovery Phrase in various places like on a piece of paper, password manager and/or the cloud",
+  "recoverySecretRecoveryPhrase": "Recovery Secret Recovery Phrase",
+  "passwordDescription": "Choose a strong password to unclock Metamask app on your device. If you lose this password, you will need your Secret Recovery Phrase to re-import your wallet.",
+  "changePassword": "Đổi mật khẩu",
+  "securityAndPrivacy": "Chính sách và bảo mật",
+  "networks": "Mạng lưới",
+  "otherNetworks": "Mạng khác",
+  "about" : "About"
 }

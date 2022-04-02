@@ -27,7 +27,10 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "about": MessageLookupByLibrary.simpleMessage("About"),
         "appName": MessageLookupByLibrary.simpleMessage("App Name"),
+        "changePassword":
+            MessageLookupByLibrary.simpleMessage("Change password"),
         "confirmPassword":
             MessageLookupByLibrary.simpleMessage("Confirm Password"),
         "createNewAccount":
@@ -35,6 +38,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "createPassword":
             MessageLookupByLibrary.simpleMessage("Create password"),
         "createWallet": MessageLookupByLibrary.simpleMessage("Create Wallet"),
+        "currencyConversion":
+            MessageLookupByLibrary.simpleMessage("Currency Conversion"),
+        "currentLanguage":
+            MessageLookupByLibrary.simpleMessage("Current Language"),
         "depositCrypto": MessageLookupByLibrary.simpleMessage("Deposit Crypto"),
         "dontGiveThisPrivateKeyToAnyone": MessageLookupByLibrary.simpleMessage(
             "Don’t give this privatekey to anyone!"),
@@ -48,6 +55,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Enter to your wallet"),
         "exchangeCrypto":
             MessageLookupByLibrary.simpleMessage("Exchange Crypto"),
+        "general": MessageLookupByLibrary.simpleMessage("General"),
         "getStarted": MessageLookupByLibrary.simpleMessage("Get started"),
         "hide": MessageLookupByLibrary.simpleMessage("Hide"),
         "iUnderstandThatAppNameCannotRecoverThisPasswordForMe": m0,
@@ -62,10 +70,22 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Manage your every penny and transaction with ease"),
         "mustBeAtLeastCharacters": m1,
+        "networks": MessageLookupByLibrary.simpleMessage("Networks"),
         "newPassword": MessageLookupByLibrary.simpleMessage("New Password"),
         "nfts": MessageLookupByLibrary.simpleMessage("NFTs"),
+        "otherNetworks": MessageLookupByLibrary.simpleMessage("Other Networks"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
+        "passwordDescription": MessageLookupByLibrary.simpleMessage(
+            "Choose a strong password to unclock Metamask app on your device. If you lose this password, you will need your Secret Recovery Phrase to re-import your wallet."),
         "privateKey": MessageLookupByLibrary.simpleMessage("Private key"),
+        "protectYourWallet":
+            MessageLookupByLibrary.simpleMessage("Protect your wallet"),
+        "protectYourWalletDesription": MessageLookupByLibrary.simpleMessage(
+            "Protect your wallet by saving your Secret Recovery Phrase in various places like on a piece of paper, password manager and/or the cloud"),
+        "recoverySecretRecoveryPhrase": MessageLookupByLibrary.simpleMessage(
+            "Recovery Secret Recovery Phrase"),
+        "securityAndPrivacy":
+            MessageLookupByLibrary.simpleMessage("Security & Privacy"),
         "show": MessageLookupByLibrary.simpleMessage("Show"),
         "signIn": MessageLookupByLibrary.simpleMessage("Sign In"),
         "signInWithBiometrics":

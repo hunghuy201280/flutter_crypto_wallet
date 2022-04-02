@@ -38,8 +38,11 @@ class Utils {
   }
 
   static AppBar buildAppBar(BuildContext context,
-      {required String title, GestureTapCallback? onTap}) {
+      {required String title,
+      GestureTapCallback? onTap,
+      bool centerTitle = false}) {
     return AppBar(
+      centerTitle: centerTitle,
       title: Text(
         title,
         style: TextConfigs.kHeader4_9,

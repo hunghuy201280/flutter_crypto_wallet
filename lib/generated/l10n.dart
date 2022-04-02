@@ -389,6 +389,126 @@ class S {
       args: [],
     );
   }
+
+  /// `General`
+  String get general {
+    return Intl.message(
+      'General',
+      name: 'general',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Currency Conversion`
+  String get currencyConversion {
+    return Intl.message(
+      'Currency Conversion',
+      name: 'currencyConversion',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Current Language`
+  String get currentLanguage {
+    return Intl.message(
+      'Current Language',
+      name: 'currentLanguage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Protect your wallet`
+  String get protectYourWallet {
+    return Intl.message(
+      'Protect your wallet',
+      name: 'protectYourWallet',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Protect your wallet by saving your Secret Recovery Phrase in various places like on a piece of paper, password manager and/or the cloud`
+  String get protectYourWalletDesription {
+    return Intl.message(
+      'Protect your wallet by saving your Secret Recovery Phrase in various places like on a piece of paper, password manager and/or the cloud',
+      name: 'protectYourWalletDesription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Recovery Secret Recovery Phrase`
+  String get recoverySecretRecoveryPhrase {
+    return Intl.message(
+      'Recovery Secret Recovery Phrase',
+      name: 'recoverySecretRecoveryPhrase',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Choose a strong password to unclock Metamask app on your device. If you lose this password, you will need your Secret Recovery Phrase to re-import your wallet.`
+  String get passwordDescription {
+    return Intl.message(
+      'Choose a strong password to unclock Metamask app on your device. If you lose this password, you will need your Secret Recovery Phrase to re-import your wallet.',
+      name: 'passwordDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change password`
+  String get changePassword {
+    return Intl.message(
+      'Change password',
+      name: 'changePassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Security & Privacy`
+  String get securityAndPrivacy {
+    return Intl.message(
+      'Security & Privacy',
+      name: 'securityAndPrivacy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Networks`
+  String get networks {
+    return Intl.message(
+      'Networks',
+      name: 'networks',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Other Networks`
+  String get otherNetworks {
+    return Intl.message(
+      'Other Networks',
+      name: 'otherNetworks',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `About`
+  String get about {
+    return Intl.message(
+      'About',
+      name: 'about',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

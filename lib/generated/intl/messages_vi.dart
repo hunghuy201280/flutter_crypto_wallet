@@ -27,13 +27,19 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "about": MessageLookupByLibrary.simpleMessage("About"),
         "appName": MessageLookupByLibrary.simpleMessage("App Name"),
+        "changePassword": MessageLookupByLibrary.simpleMessage("Đổi mật khẩu"),
         "confirmPassword":
             MessageLookupByLibrary.simpleMessage("Xác nhận mật khẩu"),
         "createNewAccount":
             MessageLookupByLibrary.simpleMessage("Tạo tài khoản mới"),
         "createPassword": MessageLookupByLibrary.simpleMessage("Tạo mật khẩu"),
         "createWallet": MessageLookupByLibrary.simpleMessage("Tạo ví"),
+        "currencyConversion":
+            MessageLookupByLibrary.simpleMessage("Chuyển đổi tiền tệ"),
+        "currentLanguage":
+            MessageLookupByLibrary.simpleMessage("Ngôn ngữ mặc định"),
         "depositCrypto": MessageLookupByLibrary.simpleMessage("Nạp tiền"),
         "dontGiveThisPrivateKeyToAnyone": MessageLookupByLibrary.simpleMessage(
             "Không tiết lộ private key này cho bất cứ ai!"),
@@ -47,6 +53,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Truy cập vào ví"),
         "exchangeCrypto":
             MessageLookupByLibrary.simpleMessage("Chuyển đổi tiền"),
+        "general": MessageLookupByLibrary.simpleMessage("Chung"),
         "getStarted": MessageLookupByLibrary.simpleMessage("Bắt đầu"),
         "hide": MessageLookupByLibrary.simpleMessage("Ẩn"),
         "iUnderstandThatAppNameCannotRecoverThisPasswordForMe": m0,
@@ -61,10 +68,22 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Quản lý từng xu và giao dịch của bạn một cách dễ dàng"),
         "mustBeAtLeastCharacters": m1,
+        "networks": MessageLookupByLibrary.simpleMessage("Mạng lưới"),
         "newPassword": MessageLookupByLibrary.simpleMessage("Mật khẩu mới"),
         "nfts": MessageLookupByLibrary.simpleMessage("NFTs"),
+        "otherNetworks": MessageLookupByLibrary.simpleMessage("Mạng khác"),
         "password": MessageLookupByLibrary.simpleMessage("Mật khẩu"),
+        "passwordDescription": MessageLookupByLibrary.simpleMessage(
+            "Choose a strong password to unclock Metamask app on your device. If you lose this password, you will need your Secret Recovery Phrase to re-import your wallet."),
         "privateKey": MessageLookupByLibrary.simpleMessage("Private key"),
+        "protectYourWallet":
+            MessageLookupByLibrary.simpleMessage("Protect your wallet"),
+        "protectYourWalletDesription": MessageLookupByLibrary.simpleMessage(
+            "Protect your wallet by saving your Secret Recovery Phrase in various places like on a piece of paper, password manager and/or the cloud"),
+        "recoverySecretRecoveryPhrase": MessageLookupByLibrary.simpleMessage(
+            "Recovery Secret Recovery Phrase"),
+        "securityAndPrivacy":
+            MessageLookupByLibrary.simpleMessage("Chính sách và bảo mật"),
         "show": MessageLookupByLibrary.simpleMessage("Hiện"),
         "signIn": MessageLookupByLibrary.simpleMessage("Đăng nhập"),
         "signInWithBiometrics": MessageLookupByLibrary.simpleMessage(
