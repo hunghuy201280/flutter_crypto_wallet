@@ -1,8 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_ntf_marketplace/configs/app_config.dart';
 import 'package:flutter_ntf_marketplace/constants/endpoints.dart';
+import 'package:injectable/injectable.dart';
 
-/// Example Repository
+@singleton
 class RemoteRepository {
   static const baseUrl = AppConfigs.kServerUri;
   Future<Response> test() async {

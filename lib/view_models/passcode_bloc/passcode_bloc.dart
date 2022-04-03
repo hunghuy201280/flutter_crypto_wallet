@@ -1,18 +1,18 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_ntf_marketplace/configs/app_config.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:get/get.dart';
+import 'package:injectable/injectable.dart';
 
 import '../../constants/app_prefs.dart';
 
-part 'passcode_state.dart';
-part 'passcode_event.dart';
 part 'passcode_bloc.freezed.dart';
+part 'passcode_event.dart';
+part 'passcode_state.dart';
 
+@injectable
 class PasscodeBloc extends Bloc<PasscodeEvent, PasscodeState> {
-  final _appPref = Get.find<AppPref>();
-  PasscodeBloc() : super(PasscodeState.initial()) {
+  final AppPref _appPref;
+  PasscodeBloc(this._appPref) : super(PasscodeState.initial()) {
     on<PasscodeStateSignInWithBiometricsChanged>((event, emit) async {
       await _appPref.wallet.setIsLoginWithBiometrics(event.isBiometrics);
       emit(state.copyWith(isSignInBiotremics: event.isBiometrics));

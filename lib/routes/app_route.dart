@@ -12,7 +12,9 @@ import 'package:flutter_ntf_marketplace/views/settings_screen/networks/networks_
 import 'package:flutter_ntf_marketplace/views/settings_screen/security/security_privacy_screen.dart';
 import 'package:flutter_ntf_marketplace/views/splash_screen.dart';
 
+import '../di/dependency_injection.dart';
 import '../view_models/import_wallet_bloc/import_wallet_bloc.dart';
+import '../view_models/splash_bloc/splash/splash_bloc.dart';
 import '../views/create_wallet/create_wallet_screen.dart';
 import '../views/import_wallet/import_wallet_success_screen.dart';
 import '../views/nav_bar_view/nav_bar_view.dart';
@@ -23,7 +25,10 @@ class AppRoute {
     switch (settings.name) {
       case SplashScreen.id:
         return CupertinoPageRoute(
-          builder: (_) => const SplashScreen(),
+          builder: (_) => BlocProvider(
+            create: (_) => getIt<SplashBloc>(),
+            child: const SplashScreen(),
+          ),
           settings: settings,
         );
       case OnboardingScreen.id:
@@ -39,7 +44,7 @@ class AppRoute {
       case ImportWalletScreen.id:
         return CupertinoPageRoute(
           builder: (_) => BlocProvider(
-            create: (context) => ImportWalletBloc(),
+            create: (context) => getIt<ImportWalletBloc>(),
             child: const ImportWalletScreen(),
           ),
           settings: settings,
@@ -52,14 +57,14 @@ class AppRoute {
       case LoginScreen.id:
         return CupertinoPageRoute(
           builder: (context) => BlocProvider(
-            create: (context) => LoginBloc(),
+            create: (context) => getIt<LoginBloc>(),
             child: const LoginScreen(),
           ),
         );
       case PasscodeScreen.id:
         return CupertinoPageRoute(
           builder: (context) => BlocProvider(
-            create: (context) => PasscodeBloc(),
+            create: (context) => getIt<PasscodeBloc>(),
             child: const PasscodeScreen(),
           ),
           settings: settings,

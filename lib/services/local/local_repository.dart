@@ -1,6 +1,8 @@
 import 'package:flutter_ntf_marketplace/configs/app_config.dart';
 import 'package:flutter_ntf_marketplace/constants/app_prefs.dart';
+import 'package:injectable/injectable.dart';
 
+@singleton
 class LocalRepository {
   static const baseUrl = AppConfigs.kServerUri;
 

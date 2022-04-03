@@ -2,18 +2,18 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter_ntf_marketplace/services/local/local_provider.dart';
 import 'package:flutter_ntf_marketplace/view_models/auth_bloc/auth_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:get/get.dart';
-
-import '../../../constants/app_prefs.dart';
+import 'package:injectable/injectable.dart';
 
 part 'splash_bloc.freezed.dart';
 part 'splash_event.dart';
 part 'splash_state.dart';
 
+@injectable
 class SplashBloc extends Bloc<SplashEvent, SplashState> {
-  final _localProvider = Get.find<LocalProvider>();
+  final LocalProvider _localProvider;
   final AuthBloc _authBloc;
-  SplashBloc(this._authBloc) : super(const SplashState.initial()) {
+  SplashBloc(this._authBloc, this._localProvider)
+      : super(const SplashState.initial()) {
     on<_Init>((event, emit) async {
       final passCode = _localProvider.getPasscode();
 

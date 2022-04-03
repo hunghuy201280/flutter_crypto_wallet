@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ntf_marketplace/configs/app_config.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ntf_marketplace/configs/color_config.dart';
 import 'package:flutter_ntf_marketplace/generated/l10n.dart';
 import 'package:flutter_ntf_marketplace/utils/utils.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../view_models/app_bloc/app_bloc.dart';
 import 'general_item_dropdown.dart';
 import 'widgets/general_item.dart';
 
@@ -17,9 +18,18 @@ class GeneralScreen extends StatefulWidget {
 }
 
 class _GeneralScreenState extends State<GeneralScreen> {
+  late AppBloc appBloc;
+
+  @override
+  void initState() {
+    super.initState();
+    appBloc = context.read<AppBloc>();
+  }
+
   @override
   Widget build(BuildContext context) {
     final s = S.of(context);
+
     return Scaffold(
       backgroundColor: AppColors.kColor1,
       appBar: Utils.buildAppBar(
@@ -58,7 +68,7 @@ class _GeneralScreenState extends State<GeneralScreen> {
             GeneralItemDropdown('Vietnamese', 'vi')
           ],
           onSelected: (value) {
-            print(value);
+            appBloc.add(AppLocaleChanged(Locale(value)));
           },
         ),
       ],

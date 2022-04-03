@@ -1,5 +1,8 @@
+import 'package:injectable/injectable.dart';
+
 import 'local_repository.dart';
 
+@singleton
 class LocalProvider {
   const LocalProvider({
     required LocalRepository repo,

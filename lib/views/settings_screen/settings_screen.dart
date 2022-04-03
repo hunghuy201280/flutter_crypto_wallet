@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ntf_marketplace/configs/app_config.dart';
 import 'package:flutter_ntf_marketplace/configs/color_config.dart';
 import 'package:flutter_ntf_marketplace/views/settings_screen/about_screen.dart';
 import 'package:flutter_ntf_marketplace/views/settings_screen/networks/networks_screen.dart';
 import 'package:flutter_ntf_marketplace/views/settings_screen/security/security_privacy_screen.dart';
 import 'package:flutter_ntf_marketplace/views/settings_screen/widgets/setting_item.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 
 import '../../generated/l10n.dart';
 import 'general/general_screen.dart';

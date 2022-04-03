@@ -1,19 +1,17 @@
 import 'package:bloc/bloc.dart';
-import 'package:flutter_ntf_marketplace/constants/app_prefs.dart';
 import 'package:flutter_ntf_marketplace/models/wallet/wallet.dart';
 import 'package:flutter_ntf_marketplace/services/local/local_provider.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:get/get.dart';
-
-import '../../models/prefs/walletpref.dart';
+import 'package:injectable/injectable.dart';
 
 part 'auth_bloc.freezed.dart';
 part 'auth_event.dart';
 part 'auth_state.dart';
 
+@singleton
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
-  final _localProvider = Get.find<LocalProvider>();
-  AuthBloc() : super(const AuthState.unauthenticated()) {
+  final LocalProvider _localProvider;
+  AuthBloc(this._localProvider) : super(const AuthState.unauthenticated()) {
     on<_AuthInitial>((event, emit) async {
       emit(await _authStart());
     });

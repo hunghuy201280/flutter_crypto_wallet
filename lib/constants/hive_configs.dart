@@ -1,8 +1,6 @@
 import 'dart:convert';
 
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:get/get.dart';
-import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 class HiveConfigs {
@@ -36,7 +34,6 @@ class HiveConfigs {
     } else {
       key = base64Url.decode(encryptionKey);
     }
-    printInfo(info: key.toString());
     return key;
   }
 

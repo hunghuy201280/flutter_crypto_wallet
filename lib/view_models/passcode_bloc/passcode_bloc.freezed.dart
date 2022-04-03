@@ -15,214 +15,6 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-class _$PasscodeStateTearOff {
-  const _$PasscodeStateTearOff();
-
-  _PasscodeState call(
-      {ImageProvider<Object>? avatar,
-      required String password,
-      required bool isShowPassword,
-      required bool isSignInBiotremics}) {
-    return _PasscodeState(
-      avatar: avatar,
-      password: password,
-      isShowPassword: isShowPassword,
-      isSignInBiotremics: isSignInBiotremics,
-    );
-  }
-}
-
-/// @nodoc
-const $PasscodeState = _$PasscodeStateTearOff();
-
-/// @nodoc
-mixin _$PasscodeState {
-  ImageProvider<Object>? get avatar => throw _privateConstructorUsedError;
-  String get password => throw _privateConstructorUsedError;
-  bool get isShowPassword => throw _privateConstructorUsedError;
-  bool get isSignInBiotremics => throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $PasscodeStateCopyWith<PasscodeState> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $PasscodeStateCopyWith<$Res> {
-  factory $PasscodeStateCopyWith(
-          PasscodeState value, $Res Function(PasscodeState) then) =
-      _$PasscodeStateCopyWithImpl<$Res>;
-  $Res call(
-      {ImageProvider<Object>? avatar,
-      String password,
-      bool isShowPassword,
-      bool isSignInBiotremics});
-}
-
-/// @nodoc
-class _$PasscodeStateCopyWithImpl<$Res>
-    implements $PasscodeStateCopyWith<$Res> {
-  _$PasscodeStateCopyWithImpl(this._value, this._then);
-
-  final PasscodeState _value;
-  // ignore: unused_field
-  final $Res Function(PasscodeState) _then;
-
-  @override
-  $Res call({
-    Object? avatar = freezed,
-    Object? password = freezed,
-    Object? isShowPassword = freezed,
-    Object? isSignInBiotremics = freezed,
-  }) {
-    return _then(_value.copyWith(
-      avatar: avatar == freezed
-          ? _value.avatar
-          : avatar // ignore: cast_nullable_to_non_nullable
-              as ImageProvider<Object>?,
-      password: password == freezed
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String,
-      isShowPassword: isShowPassword == freezed
-          ? _value.isShowPassword
-          : isShowPassword // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isSignInBiotremics: isSignInBiotremics == freezed
-          ? _value.isSignInBiotremics
-          : isSignInBiotremics // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
-  }
-}
-
-/// @nodoc
-abstract class _$PasscodeStateCopyWith<$Res>
-    implements $PasscodeStateCopyWith<$Res> {
-  factory _$PasscodeStateCopyWith(
-          _PasscodeState value, $Res Function(_PasscodeState) then) =
-      __$PasscodeStateCopyWithImpl<$Res>;
-  @override
-  $Res call(
-      {ImageProvider<Object>? avatar,
-      String password,
-      bool isShowPassword,
-      bool isSignInBiotremics});
-}
-
-/// @nodoc
-class __$PasscodeStateCopyWithImpl<$Res>
-    extends _$PasscodeStateCopyWithImpl<$Res>
-    implements _$PasscodeStateCopyWith<$Res> {
-  __$PasscodeStateCopyWithImpl(
-      _PasscodeState _value, $Res Function(_PasscodeState) _then)
-      : super(_value, (v) => _then(v as _PasscodeState));
-
-  @override
-  _PasscodeState get _value => super._value as _PasscodeState;
-
-  @override
-  $Res call({
-    Object? avatar = freezed,
-    Object? password = freezed,
-    Object? isShowPassword = freezed,
-    Object? isSignInBiotremics = freezed,
-  }) {
-    return _then(_PasscodeState(
-      avatar: avatar == freezed
-          ? _value.avatar
-          : avatar // ignore: cast_nullable_to_non_nullable
-              as ImageProvider<Object>?,
-      password: password == freezed
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String,
-      isShowPassword: isShowPassword == freezed
-          ? _value.isShowPassword
-          : isShowPassword // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isSignInBiotremics: isSignInBiotremics == freezed
-          ? _value.isSignInBiotremics
-          : isSignInBiotremics // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_PasscodeState extends _PasscodeState {
-  const _$_PasscodeState(
-      {this.avatar,
-      required this.password,
-      required this.isShowPassword,
-      required this.isSignInBiotremics})
-      : super._();
-
-  @override
-  final ImageProvider<Object>? avatar;
-  @override
-  final String password;
-  @override
-  final bool isShowPassword;
-  @override
-  final bool isSignInBiotremics;
-
-  @override
-  String toString() {
-    return 'PasscodeState(avatar: $avatar, password: $password, isShowPassword: $isShowPassword, isSignInBiotremics: $isSignInBiotremics)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _PasscodeState &&
-            const DeepCollectionEquality().equals(other.avatar, avatar) &&
-            const DeepCollectionEquality().equals(other.password, password) &&
-            const DeepCollectionEquality()
-                .equals(other.isShowPassword, isShowPassword) &&
-            const DeepCollectionEquality()
-                .equals(other.isSignInBiotremics, isSignInBiotremics));
-  }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(avatar),
-      const DeepCollectionEquality().hash(password),
-      const DeepCollectionEquality().hash(isShowPassword),
-      const DeepCollectionEquality().hash(isSignInBiotremics));
-
-  @JsonKey(ignore: true)
-  @override
-  _$PasscodeStateCopyWith<_PasscodeState> get copyWith =>
-      __$PasscodeStateCopyWithImpl<_PasscodeState>(this, _$identity);
-}
-
-abstract class _PasscodeState extends PasscodeState {
-  const factory _PasscodeState(
-      {ImageProvider<Object>? avatar,
-      required String password,
-      required bool isShowPassword,
-      required bool isSignInBiotremics}) = _$_PasscodeState;
-  const _PasscodeState._() : super._();
-
-  @override
-  ImageProvider<Object>? get avatar;
-  @override
-  String get password;
-  @override
-  bool get isShowPassword;
-  @override
-  bool get isSignInBiotremics;
-  @override
-  @JsonKey(ignore: true)
-  _$PasscodeStateCopyWith<_PasscodeState> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
 class _$PasscodeEventTearOff {
   const _$PasscodeEventTearOff();
 
@@ -728,4 +520,212 @@ class _$PasscodeInitialLoaded implements PasscodeInitialLoaded {
 
 abstract class PasscodeInitialLoaded implements PasscodeEvent {
   const factory PasscodeInitialLoaded() = _$PasscodeInitialLoaded;
+}
+
+/// @nodoc
+class _$PasscodeStateTearOff {
+  const _$PasscodeStateTearOff();
+
+  _PasscodeState call(
+      {ImageProvider<Object>? avatar,
+      required String password,
+      required bool isShowPassword,
+      required bool isSignInBiotremics}) {
+    return _PasscodeState(
+      avatar: avatar,
+      password: password,
+      isShowPassword: isShowPassword,
+      isSignInBiotremics: isSignInBiotremics,
+    );
+  }
+}
+
+/// @nodoc
+const $PasscodeState = _$PasscodeStateTearOff();
+
+/// @nodoc
+mixin _$PasscodeState {
+  ImageProvider<Object>? get avatar => throw _privateConstructorUsedError;
+  String get password => throw _privateConstructorUsedError;
+  bool get isShowPassword => throw _privateConstructorUsedError;
+  bool get isSignInBiotremics => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $PasscodeStateCopyWith<PasscodeState> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $PasscodeStateCopyWith<$Res> {
+  factory $PasscodeStateCopyWith(
+          PasscodeState value, $Res Function(PasscodeState) then) =
+      _$PasscodeStateCopyWithImpl<$Res>;
+  $Res call(
+      {ImageProvider<Object>? avatar,
+      String password,
+      bool isShowPassword,
+      bool isSignInBiotremics});
+}
+
+/// @nodoc
+class _$PasscodeStateCopyWithImpl<$Res>
+    implements $PasscodeStateCopyWith<$Res> {
+  _$PasscodeStateCopyWithImpl(this._value, this._then);
+
+  final PasscodeState _value;
+  // ignore: unused_field
+  final $Res Function(PasscodeState) _then;
+
+  @override
+  $Res call({
+    Object? avatar = freezed,
+    Object? password = freezed,
+    Object? isShowPassword = freezed,
+    Object? isSignInBiotremics = freezed,
+  }) {
+    return _then(_value.copyWith(
+      avatar: avatar == freezed
+          ? _value.avatar
+          : avatar // ignore: cast_nullable_to_non_nullable
+              as ImageProvider<Object>?,
+      password: password == freezed
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
+      isShowPassword: isShowPassword == freezed
+          ? _value.isShowPassword
+          : isShowPassword // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isSignInBiotremics: isSignInBiotremics == freezed
+          ? _value.isSignInBiotremics
+          : isSignInBiotremics // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$PasscodeStateCopyWith<$Res>
+    implements $PasscodeStateCopyWith<$Res> {
+  factory _$PasscodeStateCopyWith(
+          _PasscodeState value, $Res Function(_PasscodeState) then) =
+      __$PasscodeStateCopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {ImageProvider<Object>? avatar,
+      String password,
+      bool isShowPassword,
+      bool isSignInBiotremics});
+}
+
+/// @nodoc
+class __$PasscodeStateCopyWithImpl<$Res>
+    extends _$PasscodeStateCopyWithImpl<$Res>
+    implements _$PasscodeStateCopyWith<$Res> {
+  __$PasscodeStateCopyWithImpl(
+      _PasscodeState _value, $Res Function(_PasscodeState) _then)
+      : super(_value, (v) => _then(v as _PasscodeState));
+
+  @override
+  _PasscodeState get _value => super._value as _PasscodeState;
+
+  @override
+  $Res call({
+    Object? avatar = freezed,
+    Object? password = freezed,
+    Object? isShowPassword = freezed,
+    Object? isSignInBiotremics = freezed,
+  }) {
+    return _then(_PasscodeState(
+      avatar: avatar == freezed
+          ? _value.avatar
+          : avatar // ignore: cast_nullable_to_non_nullable
+              as ImageProvider<Object>?,
+      password: password == freezed
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
+      isShowPassword: isShowPassword == freezed
+          ? _value.isShowPassword
+          : isShowPassword // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isSignInBiotremics: isSignInBiotremics == freezed
+          ? _value.isSignInBiotremics
+          : isSignInBiotremics // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_PasscodeState extends _PasscodeState {
+  const _$_PasscodeState(
+      {this.avatar,
+      required this.password,
+      required this.isShowPassword,
+      required this.isSignInBiotremics})
+      : super._();
+
+  @override
+  final ImageProvider<Object>? avatar;
+  @override
+  final String password;
+  @override
+  final bool isShowPassword;
+  @override
+  final bool isSignInBiotremics;
+
+  @override
+  String toString() {
+    return 'PasscodeState(avatar: $avatar, password: $password, isShowPassword: $isShowPassword, isSignInBiotremics: $isSignInBiotremics)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _PasscodeState &&
+            const DeepCollectionEquality().equals(other.avatar, avatar) &&
+            const DeepCollectionEquality().equals(other.password, password) &&
+            const DeepCollectionEquality()
+                .equals(other.isShowPassword, isShowPassword) &&
+            const DeepCollectionEquality()
+                .equals(other.isSignInBiotremics, isSignInBiotremics));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(avatar),
+      const DeepCollectionEquality().hash(password),
+      const DeepCollectionEquality().hash(isShowPassword),
+      const DeepCollectionEquality().hash(isSignInBiotremics));
+
+  @JsonKey(ignore: true)
+  @override
+  _$PasscodeStateCopyWith<_PasscodeState> get copyWith =>
+      __$PasscodeStateCopyWithImpl<_PasscodeState>(this, _$identity);
+}
+
+abstract class _PasscodeState extends PasscodeState {
+  const factory _PasscodeState(
+      {ImageProvider<Object>? avatar,
+      required String password,
+      required bool isShowPassword,
+      required bool isSignInBiotremics}) = _$_PasscodeState;
+  const _PasscodeState._() : super._();
+
+  @override
+  ImageProvider<Object>? get avatar;
+  @override
+  String get password;
+  @override
+  bool get isShowPassword;
+  @override
+  bool get isSignInBiotremics;
+  @override
+  @JsonKey(ignore: true)
+  _$PasscodeStateCopyWith<_PasscodeState> get copyWith =>
+      throw _privateConstructorUsedError;
 }

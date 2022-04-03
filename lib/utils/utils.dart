@@ -9,6 +9,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:shimmer/shimmer.dart';
 
 import '../configs/text_config.dart';
+import '../constants/constants.dart';
 
 class Utils {
   static int getRandom(int to, {int from = 0}) {
@@ -91,4 +92,19 @@ class Utils {
         // baseColor: AppColors.kColor6,
         // highlightColor: AppColors.kColor8,
       );
+}
+
+void printLog(Object parent,
+    {required dynamic message, StackTrace? trace, dynamic error}) {
+  assert((error != null && trace != null) || (trace == null && error == null),
+      "Error and stack trace must be provided if an error happened");
+  final mes = "[Booking][${parent.runtimeType}] $message";
+  if (error != null) {
+    return logger.e(
+      mes,
+      error,
+      trace,
+    );
+  }
+  logger.i(mes);
 }
