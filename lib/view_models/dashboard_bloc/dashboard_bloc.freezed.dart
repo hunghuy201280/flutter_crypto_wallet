@@ -15,6 +15,170 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
+class _$DashboardEventTearOff {
+  const _$DashboardEventTearOff();
+
+  DashboardInitial initial() {
+    return const DashboardInitial();
+  }
+}
+
+/// @nodoc
+const $DashboardEvent = _$DashboardEventTearOff();
+
+/// @nodoc
+mixin _$DashboardEvent {
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(DashboardInitial value) initial,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(DashboardInitial value)? initial,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(DashboardInitial value)? initial,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $DashboardEventCopyWith<$Res> {
+  factory $DashboardEventCopyWith(
+          DashboardEvent value, $Res Function(DashboardEvent) then) =
+      _$DashboardEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$DashboardEventCopyWithImpl<$Res>
+    implements $DashboardEventCopyWith<$Res> {
+  _$DashboardEventCopyWithImpl(this._value, this._then);
+
+  final DashboardEvent _value;
+  // ignore: unused_field
+  final $Res Function(DashboardEvent) _then;
+}
+
+/// @nodoc
+abstract class $DashboardInitialCopyWith<$Res> {
+  factory $DashboardInitialCopyWith(
+          DashboardInitial value, $Res Function(DashboardInitial) then) =
+      _$DashboardInitialCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$DashboardInitialCopyWithImpl<$Res>
+    extends _$DashboardEventCopyWithImpl<$Res>
+    implements $DashboardInitialCopyWith<$Res> {
+  _$DashboardInitialCopyWithImpl(
+      DashboardInitial _value, $Res Function(DashboardInitial) _then)
+      : super(_value, (v) => _then(v as DashboardInitial));
+
+  @override
+  DashboardInitial get _value => super._value as DashboardInitial;
+}
+
+/// @nodoc
+
+class _$DashboardInitial implements DashboardInitial {
+  const _$DashboardInitial();
+
+  @override
+  String toString() {
+    return 'DashboardEvent.initial()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is DashboardInitial);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+  }) {
+    return initial();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+  }) {
+    return initial?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    required TResult orElse(),
+  }) {
+    if (initial != null) {
+      return initial();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(DashboardInitial value) initial,
+  }) {
+    return initial(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(DashboardInitial value)? initial,
+  }) {
+    return initial?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(DashboardInitial value)? initial,
+    required TResult orElse(),
+  }) {
+    if (initial != null) {
+      return initial(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class DashboardInitial implements DashboardEvent {
+  const factory DashboardInitial() = _$DashboardInitial;
+}
+
+/// @nodoc
 class _$DashboardStateTearOff {
   const _$DashboardStateTearOff();
 
@@ -294,168 +458,4 @@ class _$_LoadInProgress implements _LoadInProgress {
 
 abstract class _LoadInProgress implements DashboardState {
   const factory _LoadInProgress() = _$_LoadInProgress;
-}
-
-/// @nodoc
-class _$DashboardEventTearOff {
-  const _$DashboardEventTearOff();
-
-  DashboardInitial initial() {
-    return const DashboardInitial();
-  }
-}
-
-/// @nodoc
-const $DashboardEvent = _$DashboardEventTearOff();
-
-/// @nodoc
-mixin _$DashboardEvent {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(DashboardInitial value) initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(DashboardInitial value)? initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(DashboardInitial value)? initial,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $DashboardEventCopyWith<$Res> {
-  factory $DashboardEventCopyWith(
-          DashboardEvent value, $Res Function(DashboardEvent) then) =
-      _$DashboardEventCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class _$DashboardEventCopyWithImpl<$Res>
-    implements $DashboardEventCopyWith<$Res> {
-  _$DashboardEventCopyWithImpl(this._value, this._then);
-
-  final DashboardEvent _value;
-  // ignore: unused_field
-  final $Res Function(DashboardEvent) _then;
-}
-
-/// @nodoc
-abstract class $DashboardInitialCopyWith<$Res> {
-  factory $DashboardInitialCopyWith(
-          DashboardInitial value, $Res Function(DashboardInitial) then) =
-      _$DashboardInitialCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class _$DashboardInitialCopyWithImpl<$Res>
-    extends _$DashboardEventCopyWithImpl<$Res>
-    implements $DashboardInitialCopyWith<$Res> {
-  _$DashboardInitialCopyWithImpl(
-      DashboardInitial _value, $Res Function(DashboardInitial) _then)
-      : super(_value, (v) => _then(v as DashboardInitial));
-
-  @override
-  DashboardInitial get _value => super._value as DashboardInitial;
-}
-
-/// @nodoc
-
-class _$DashboardInitial implements DashboardInitial {
-  const _$DashboardInitial();
-
-  @override
-  String toString() {
-    return 'DashboardEvent.initial()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is DashboardInitial);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-  }) {
-    return initial();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-  }) {
-    return initial?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(DashboardInitial value) initial,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(DashboardInitial value)? initial,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(DashboardInitial value)? initial,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class DashboardInitial implements DashboardEvent {
-  const factory DashboardInitial() = _$DashboardInitial;
 }

@@ -1,8 +1,12 @@
 import 'package:hive/hive.dart';
+import 'package:injectable/injectable.dart';
 
+import '../../constants/hive_configs.dart';
+
+@singleton
 class WalletPref {
   const WalletPref({
-    required this.box,
+    @Named(HiveConfigs.kWallet) required this.box,
   });
   final Box box;
 

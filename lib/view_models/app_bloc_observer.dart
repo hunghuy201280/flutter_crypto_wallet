@@ -1,39 +1,40 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_ntf_marketplace/utils/utils.dart';
 
 class AppBlocObserver extends BlocObserver {
   @override
   void onChange(BlocBase bloc, Change change) {
-    print(change);
+    printLog(this, message: change);
     super.onChange(bloc, change);
   }
 
   @override
   void onClose(BlocBase bloc) {
-    print(bloc);
+    printLog(this, message: bloc);
     super.onClose(bloc);
   }
 
   @override
   void onCreate(BlocBase bloc) {
-    print(bloc);
+    printLog(this, message: bloc);
     super.onCreate(bloc);
   }
 
   @override
   void onError(BlocBase bloc, Object error, StackTrace stackTrace) {
-    print(stackTrace);
+    printLog(this, message: "Error", error: error, trace: stackTrace);
     super.onError(bloc, error, stackTrace);
   }
 
   @override
   void onEvent(Bloc bloc, Object? event) {
-    print(event);
+    printLog(this, message: event);
     super.onEvent(bloc, event);
   }
 
   @override
   void onTransition(Bloc bloc, Transition transition) {
-    // TODO: implement onTransition
+    printLog(this, message: transition);
     super.onTransition(bloc, transition);
   }
 }

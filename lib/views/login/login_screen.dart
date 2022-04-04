@@ -1,10 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ntf_marketplace/configs/color_config.dart';
 import 'package:flutter_ntf_marketplace/configs/text_config.dart';
 import 'package:flutter_ntf_marketplace/generated/l10n.dart';
-import 'package:flutter_ntf_marketplace/view_models/login_bloc/login_bloc.dart';
 import 'package:flutter_ntf_marketplace/views/create_wallet/create_wallet_screen.dart';
 import 'package:flutter_ntf_marketplace/views/import_wallet/import_wallet_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -28,12 +26,9 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => LoginBloc(),
-      child: const Scaffold(
-        backgroundColor: AppColors.kColor1,
-        body: _BodyScreen(),
-      ),
+    return const Scaffold(
+      backgroundColor: AppColors.kColor1,
+      body: _BodyScreen(),
     );
   }
 }
@@ -74,7 +69,6 @@ class __BodyScreenState extends State<_BodyScreen> {
             title: s.createWallet,
             horizontalMargin: 72.w,
             onTap: () {
-          
               Navigator.pushNamed(context, CreateWalletScreen.id);
             },
           ),

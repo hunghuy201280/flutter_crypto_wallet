@@ -1,8 +1,11 @@
+import 'package:flutter_ntf_marketplace/constants/hive_configs.dart';
 import 'package:hive/hive.dart';
+import 'package:injectable/injectable.dart';
 
+@singleton
 class ConfigsPref {
   const ConfigsPref({
-    required this.box,
+    @Named(HiveConfigs.kConfig) required this.box,
   });
 
   final Box box;

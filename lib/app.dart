@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_ntf_marketplace/routes/app_route.dart';
-import 'package:flutter_ntf_marketplace/view_models/app_provider.dart';
+import 'package:flutter_ntf_marketplace/view_models/app_bloc/app_bloc.dart';
 import 'package:flutter_ntf_marketplace/view_models/auth_bloc/auth_bloc.dart';
 import 'package:flutter_ntf_marketplace/views/splash_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive/hive.dart';
 import 'package:provider/provider.dart';
 
+import 'di/dependency_injection.dart';
 import 'generated/l10n.dart';
 
 class NFTApp extends StatefulWidget {
@@ -34,7 +35,7 @@ class _NFTAppState extends State<NFTApp> {
       child: MultiProvider(
         providers: [
           BlocProvider<AuthBloc>(
-            create: (context) => AuthBloc(),
+            create: (context) => getIt<AuthBloc>(),
           ),
         ],
         child: ScreenUtilInit(
@@ -49,7 +50,7 @@ class _NFTAppState extends State<NFTApp> {
                 GlobalCupertinoLocalizations.delegate,
               ],
               supportedLocales: S.delegate.supportedLocales,
-              locale: context.watch<AppProvider>().locale,
+              locale: context.watch<AppBloc>().state.locale,
               debugShowCheckedModeBanner: false,
               initialRoute: SplashScreen.id,
               onGenerateRoute: AppRoute.onGenerateRoute,

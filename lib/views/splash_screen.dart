@@ -29,13 +29,9 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final _authBloc = context.read<AuthBloc>();
-    return BlocProvider(
-      create: (context) => SplashBloc(_authBloc),
-      child: const Scaffold(
-        backgroundColor: AppColors.kColor1,
-        body: _BodyScreen(),
-      ),
+    return const Scaffold(
+      backgroundColor: AppColors.kColor1,
+      body: _BodyScreen(),
     );
   }
 }

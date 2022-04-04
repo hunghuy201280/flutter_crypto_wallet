@@ -1,5 +1,8 @@
+import 'package:injectable/injectable.dart';
+
 import 'remote_repository.dart';
 
+@singleton
 class RemoteProvider {
   const RemoteProvider({
     required RemoteRepository repo,
