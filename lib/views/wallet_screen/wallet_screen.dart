@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ntf_marketplace/configs/color_config.dart';
-import 'package:flutter_ntf_marketplace/configs/text_config.dart';
+import 'package:flutter_ntf_marketplace/utils/extensions.dart';
 import 'package:flutter_ntf_marketplace/views/wallet_screen/widgets/wallet_detail.dart';
 import 'package:flutter_ntf_marketplace/views/wallet_screen/widgets/wallet_info.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -52,12 +52,10 @@ class _WalletScreenState extends State<WalletScreen>
       child: NestedScrollView(
         controller: _scrollController,
         headerSliverBuilder: (context, innerBoxIsScrolled) => [
-          SliverToBoxAdapter(
-            child: SizedBox(
-              height: 0.4.sh,
-              child: const WalletInfo(),
-            ),
-          ),
+          SizedBox(
+            height: 0.4.sh,
+            child: const WalletInfo(),
+          ).toSliver,
         ],
         physics: const BouncingScrollPhysics(),
         body: WalletDetail(

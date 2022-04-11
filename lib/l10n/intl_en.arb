@@ -59,5 +59,12 @@
   "securityAndPrivacy" : "Security & Privacy",
   "networks" : "Networks",
   "otherNetworks" : "Other Networks",
+  "statistic" : "Statistic",
+  "transactionHistory" : "Transaction History",
+  "thisWeek" : "This Week",
+  "thisMonth" : "This Month",
+  "thisYear" : "This Year",
+  "seeAll" : "See all",
+
   "about" : "About"
 }

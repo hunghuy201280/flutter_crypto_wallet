@@ -41,3 +41,22 @@ extension DioErrorExt on DioError {
     return data["error"];
   }
 }
+
+extension InputDecorationExt on InputDecoration {
+  InputDecoration allBorder(InputBorder side) {
+    return copyWith(
+      border: side,
+      focusedBorder: side,
+      enabledBorder: side,
+      disabledBorder: side,
+      errorBorder: side,
+      focusedErrorBorder: side,
+    );
+  }
+}
+
+extension WidgetExt on Widget {
+  SliverToBoxAdapter get toSliver => SliverToBoxAdapter(
+        child: this,
+      );
+}
