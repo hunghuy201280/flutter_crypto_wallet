@@ -21,19 +21,22 @@ class _WalletDetailState extends State<WalletDetail> {
     final s = S.of(context);
     return Column(
       children: [
-        TabBar(
-          controller: widget.tabController,
-          tabs: [
-            Tab(
-              text: s.tokens,
-            ),
-            Tab(
-              text: s.nfts,
-            )
-          ],
-          labelStyle: TextConfigs.kLabel_9,
-          indicatorColor: AppColors.kColor2,
-          indicatorWeight: 2.w,
+        Material(
+          color: AppColors.kColor1,
+          child: TabBar(
+            controller: widget.tabController,
+            tabs: [
+              Tab(
+                text: s.tokens,
+              ),
+              Tab(
+                text: s.nfts,
+              )
+            ],
+            labelStyle: TextConfigs.kLabel_9,
+            indicatorColor: AppColors.kColor2,
+            indicatorWeight: 2.w,
+          ),
         ),
         Expanded(
           child: TabBarView(
