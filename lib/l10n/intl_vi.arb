@@ -45,5 +45,12 @@
   "securityAndPrivacy": "Chính sách và bảo mật",
   "networks": "Mạng lưới",
   "otherNetworks": "Mạng khác",
+  "statistic" : "Thống kê",
+  "transactionHistory" : "Lịch sử giao dịch",
+  "thisWeek" : "Tuần này",
+  "thisMonth" : "Tháng này",
+  "thisYear" : "Năm này",
+  "seeAll" : "Xem tất cả",
+
   "about" : "About"
 }

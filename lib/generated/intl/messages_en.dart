@@ -86,14 +86,21 @@ class MessageLookup extends MessageLookupByLibrary {
             "Recovery Secret Recovery Phrase"),
         "securityAndPrivacy":
             MessageLookupByLibrary.simpleMessage("Security & Privacy"),
+        "seeAll": MessageLookupByLibrary.simpleMessage("See all"),
         "show": MessageLookupByLibrary.simpleMessage("Show"),
         "signIn": MessageLookupByLibrary.simpleMessage("Sign In"),
         "signInWithBiometrics":
             MessageLookupByLibrary.simpleMessage("Sign in with Biometrics ?"),
+        "statistic": MessageLookupByLibrary.simpleMessage("Statistic"),
+        "thisMonth": MessageLookupByLibrary.simpleMessage("This Month"),
         "thisPasswordWillUnlockYourWalletOnlyOnThisDevice":
             MessageLookupByLibrary.simpleMessage(
                 "This password will unlock your wallet only on this device."),
+        "thisWeek": MessageLookupByLibrary.simpleMessage("This Week"),
+        "thisYear": MessageLookupByLibrary.simpleMessage("This Year"),
         "tokens": MessageLookupByLibrary.simpleMessage("TOKENS"),
+        "transactionHistory":
+            MessageLookupByLibrary.simpleMessage("Transaction History"),
         "walletAddedSuccessfully":
             MessageLookupByLibrary.simpleMessage("Wallet added successfully"),
         "welcomeBack": MessageLookupByLibrary.simpleMessage("Welcome Back!"),

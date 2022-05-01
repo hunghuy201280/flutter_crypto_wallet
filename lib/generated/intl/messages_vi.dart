@@ -84,14 +84,21 @@ class MessageLookup extends MessageLookupByLibrary {
             "Recovery Secret Recovery Phrase"),
         "securityAndPrivacy":
             MessageLookupByLibrary.simpleMessage("Chính sách và bảo mật"),
+        "seeAll": MessageLookupByLibrary.simpleMessage("Xem tất cả"),
         "show": MessageLookupByLibrary.simpleMessage("Hiện"),
         "signIn": MessageLookupByLibrary.simpleMessage("Đăng nhập"),
         "signInWithBiometrics": MessageLookupByLibrary.simpleMessage(
             "Muốn đăng nhập bằng vân tay ?"),
+        "statistic": MessageLookupByLibrary.simpleMessage("Thống kê"),
+        "thisMonth": MessageLookupByLibrary.simpleMessage("Tháng này"),
         "thisPasswordWillUnlockYourWalletOnlyOnThisDevice":
             MessageLookupByLibrary.simpleMessage(
                 "Mật khẩu này chỉ mở khóa ví của bạn trên thiết bị này."),
+        "thisWeek": MessageLookupByLibrary.simpleMessage("Tuần này"),
+        "thisYear": MessageLookupByLibrary.simpleMessage("Năm này"),
         "tokens": MessageLookupByLibrary.simpleMessage("TOKENS"),
+        "transactionHistory":
+            MessageLookupByLibrary.simpleMessage("Lịch sử giao dịch"),
         "walletAddedSuccessfully":
             MessageLookupByLibrary.simpleMessage("Thêm ví thành công"),
         "welcomeBack":
