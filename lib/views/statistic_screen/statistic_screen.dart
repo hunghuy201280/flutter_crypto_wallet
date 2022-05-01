@@ -29,6 +29,7 @@ class StatisticScreen extends StatelessWidget {
         ],
         physics: const BouncingScrollPhysics(),
         body: CustomScrollView(
+          physics: const BouncingScrollPhysics(),
           slivers: [
             SliverPinnedHeader(
               child: Material(
