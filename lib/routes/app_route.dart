@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ntf_marketplace/view_models/login_bloc/login_bloc.dart';
+import 'package:flutter_ntf_marketplace/view_models/onboard_cubit/onboard_cubit.dart';
 import 'package:flutter_ntf_marketplace/view_models/passcode_bloc/passcode_bloc.dart';
 import 'package:flutter_ntf_marketplace/views/import_wallet/import_wallet_screen.dart';
 import 'package:flutter_ntf_marketplace/views/login/login_screen.dart';
@@ -13,8 +14,9 @@ import 'package:flutter_ntf_marketplace/views/settings_screen/security/security_
 import 'package:flutter_ntf_marketplace/views/splash_screen.dart';
 
 import '../di/dependency_injection.dart';
+import '../view_models/create_wallet_bloc/create_wallet_bloc.dart';
 import '../view_models/import_wallet_bloc/import_wallet_bloc.dart';
-import '../view_models/splash_bloc/splash/splash_bloc.dart';
+import '../view_models/splash_bloc/splash_bloc.dart';
 import '../views/create_wallet/create_wallet_screen.dart';
 import '../views/import_wallet/import_wallet_success_screen.dart';
 import '../views/nav_bar_view/nav_bar_view.dart';
@@ -33,12 +35,18 @@ class AppRoute {
         );
       case OnboardingScreen.id:
         return CupertinoPageRoute(
-          builder: (context) => const OnboardingScreen(),
+          builder: (context) => BlocProvider(
+            create: (context) => getIt<OnboardCubit>(),
+            child: const OnboardingScreen(),
+          ),
           settings: settings,
         );
       case CreateWalletScreen.id:
         return CupertinoPageRoute(
-          builder: (_) => const CreateWalletScreen(),
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<CreateWalletBloc>(),
+            child: const CreateWalletScreen(),
+          ),
           settings: settings,
         );
       case ImportWalletScreen.id:

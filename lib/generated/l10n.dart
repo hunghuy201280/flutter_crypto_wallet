@@ -569,6 +569,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Password not match`
+  String get passwordNotMatch {
+    return Intl.message(
+      'Password not match',
+      name: 'passwordNotMatch',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

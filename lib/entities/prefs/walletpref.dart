@@ -25,7 +25,7 @@ class WalletPref {
       box.put(kWalletSelectedKey, value);
 
   List<String> get walletsImported =>
-      box.get(kWalletsImportedKey, defaultValue: []) as List<String>;
+      box.get(kWalletsImportedKey, defaultValue: <String>[]) as List<String>;
   Future<void> setWalletsImported(List<String> value) =>
       box.put(kWalletsImportedKey, value);
 

@@ -53,7 +53,7 @@ class LocalRepository {
 
   Future<void> deleteAllPrivateKey() async {
     final wallet = _appPref.wallet;
-    await wallet.setWalletsImported([]);
+    await wallet.setWalletsImported(<String>[]);
   }
 
   String getWalletSeleted() {
@@ -86,4 +86,20 @@ class LocalRepository {
     final wallet = _appPref.wallet;
     await wallet.setPasscode(passCode);
   }
+
+  Future<void> deletePasscode() async {
+    final wallet = _appPref.wallet;
+    await wallet.setPasscode('');
+  }
+
+  bool isLoginWithBiometrics() {
+    final wallet = _appPref.wallet;
+    return wallet.isLoginWithBiometrics;
+  }
+
+  Future<void> setLoginWithBiometrics({required bool isBiometrics}) async {
+    final wallet = _appPref.wallet;
+    await wallet.setIsLoginWithBiometrics(isBiometrics);
+  }
+
 }

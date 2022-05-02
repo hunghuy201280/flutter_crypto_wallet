@@ -21,7 +21,7 @@ import '../passcode/passcode_screen.dart';
 
 class NavBarView extends StatefulWidget {
   static const id = "NavBarView";
-  static final height = Platform.isAndroid ? 80 : 72;
+  static final height = Platform.isAndroid ? 70 : 72;
   const NavBarView({Key? key}) : super(key: key);
 
   @override
@@ -34,7 +34,6 @@ class _NavBarViewState extends State<NavBarView> {
   @override
   Widget build(BuildContext context) {
     s = S.of(context);
-
     return BlocListener<AuthBloc, AuthState>(
       listener: (context, state) {
         state.when(

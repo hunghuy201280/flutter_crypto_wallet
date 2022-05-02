@@ -65,4 +65,16 @@ class LocalProvider {
   Future<void> savePasscode({required String passCode}) async {
     await _repo.savePasscode(passCode: passCode);
   }
+
+  Future<void> deletePasscode() async {
+    await _repo.deletePasscode();
+  }
+
+  bool isLoginWithBoimetrics() {
+    return _repo.isLoginWithBiometrics();
+  }
+
+  Future<void> setLoginWithBiometrics({required bool isBiometrics}) async {
+    await _repo.setLoginWithBiometrics(isBiometrics: isBiometrics);
+  }
 }

@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ntf_marketplace/configs/color_config.dart';
 import 'package:flutter_ntf_marketplace/configs/text_config.dart';
 import 'package:flutter_ntf_marketplace/generated/l10n.dart';
-import 'package:flutter_ntf_marketplace/view_models/splash_bloc/splash/splash_bloc.dart';
+import 'package:flutter_ntf_marketplace/view_models/splash_bloc/splash_bloc.dart';
 import 'package:flutter_ntf_marketplace/views/login/login_screen.dart';
 import 'package:flutter_ntf_marketplace/views/onboarding_screen.dart';
 import 'package:flutter_ntf_marketplace/views/passcode/passcode_screen.dart';
@@ -75,13 +75,19 @@ class __BodyScreenState extends State<_BodyScreen> {
         ),
         BlocListener<AuthBloc, AuthState>(
           listener: (context, state) {
-            if (state is AuthenticatedNoPassword) {
-              Navigator.pushNamedAndRemoveUntil(
-                context,
-                PasscodeScreen.id,
-                (route) => false,
-              );
-            }
+            state.when(
+                unauthenticated: () {
+                   Navigator.pushNamedAndRemoveUntil(
+                    context, LoginScreen.id, (route) => false);
+                },
+                authenticatedNoPassword: (value) {
+                  Navigator.pushNamedAndRemoveUntil(
+                    context,
+                    PasscodeScreen.id,
+                    (route) => false,
+                  );
+                },
+                authenticated: (wallet) {});
           },
         )
       ],

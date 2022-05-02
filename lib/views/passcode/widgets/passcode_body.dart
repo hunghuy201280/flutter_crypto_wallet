@@ -36,6 +36,7 @@ class _PasscodeBodyState extends State<PasscodeBody> {
           children: [
             PrimaryAvatar(
               size: 96.w,
+              imageUrl: '',
             ),
             24.verticalSpace,
             Text(
@@ -47,9 +48,9 @@ class _PasscodeBodyState extends State<PasscodeBody> {
               title: s.password,
               obscureText: true,
               hint: s.password,
-              isHidden: state.isShowPassword,
+              isHidden: !state.isShowPassword,
               onChanged: (value) {
-                _bloc.add(PasscodeChanged(passCode: value));
+                _bloc.add(PasscodeEvent.passCodeChanged(passCode: value));
               },
             ),
             16.verticalSpace,
@@ -67,7 +68,7 @@ class _PasscodeBodyState extends State<PasscodeBody> {
                   inactiveThumbColor: AppColors.kColor9,
                   value: state.isSignInBiotremics,
                   onChanged: (value) {
-                    _bloc.add(PasscodeStateSignInWithBiometricsChanged(value));
+                    _bloc.add(PasscodeEvent.stateSignInWithBiometricsChanged(value));
                   },
                 )
               ],

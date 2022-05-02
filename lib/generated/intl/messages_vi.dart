@@ -75,6 +75,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "password": MessageLookupByLibrary.simpleMessage("Mật khẩu"),
         "passwordDescription": MessageLookupByLibrary.simpleMessage(
             "Choose a strong password to unclock Metamask app on your device. If you lose this password, you will need your Secret Recovery Phrase to re-import your wallet."),
+        "passwordNotMatch":
+            MessageLookupByLibrary.simpleMessage("Mật khẩu không khớp"),
         "privateKey": MessageLookupByLibrary.simpleMessage("Private key"),
         "protectYourWallet":
             MessageLookupByLibrary.simpleMessage("Protect your wallet"),

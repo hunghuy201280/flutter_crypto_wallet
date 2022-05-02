@@ -22,4 +22,12 @@ class RemoteRepository {
     );
     return response;
   }
+
+  Future<Response> createWallet() async {
+    Dio _dio = Dio();
+    Response response = await _dio.post(
+      "$baseUrl${AppEndpoint.createWallet}",
+    );
+    return response;
+  }
 }

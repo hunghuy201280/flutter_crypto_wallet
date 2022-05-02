@@ -65,6 +65,6 @@
   "thisMonth" : "This Month",
   "thisYear" : "This Year",
   "seeAll" : "See all",
-
-  "about" : "About"
+  "about" : "About",
+  "passwordNotMatch" : "Password not match"
 }

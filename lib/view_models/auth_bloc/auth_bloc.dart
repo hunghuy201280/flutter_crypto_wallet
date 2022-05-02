@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:flutter_ntf_marketplace/models/wallet/wallet.dart';
+import 'package:flutter_ntf_marketplace/entities/wallet/wallet.dart';
 import 'package:flutter_ntf_marketplace/services/local/local_provider.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -42,6 +42,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         _localProvider.deleteAllPrivateKey(),
         _localProvider.saveMnemonicPhrase(mnemonicPhrase: ""),
         _localProvider.saveStateFirstRunApp(isFirstRun: false),
+        _localProvider.deletePasscode(),
       ]);
     }
   }

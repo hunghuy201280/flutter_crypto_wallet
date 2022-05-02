@@ -54,7 +54,9 @@ class _PasscodeBottomState extends State<PasscodeBottom> {
         PrimaryButton(
           title: s.signIn,
           backgroundColor: AppColors.kColor6,
-          onTap: () {},
+          onTap: () {
+            _bloc.add(const PasscodeEvent.signInWithPasscode());
+          },
         ),
         44.verticalSpace
       ],
