@@ -16,40 +16,41 @@ class CreateWalletBody2 extends StatelessWidget {
   Widget build(BuildContext context) {
     final s = S.of(context);
 
-    return BlocBuilder<CreateWalletBloc, CreateWalletState>(
-        builder: (context, state) {
-      return Column(
-        children: [
-          48.verticalSpace,
-          Text(
-            s.dontGiveThisPrivateKeyToAnyone,
-            style: TextConfigs.kLabel_9,
-          ),
-          48.verticalSpace,
-          GestureDetector(
-            onTap: () async {
-              await FlutterClipboard.copy(state.mnemonic ?? '');
-              Utils.showToast(context, message: "Copied");
-            },
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                8.verticalSpace,
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 8.w),
-                  child: Text(
-                    state.mnemonic ?? '',
-                    style: TextConfigs.kSubtitle_9,
-                    textAlign: TextAlign.center,
-                  ),
+    return BlocSelector<CreateWalletBloc, CreateWalletState, String?>(
+        selector: (state) => state.mnemonic,
+        builder: (context, mnemonic) {
+          return Column(
+            children: [
+              48.verticalSpace,
+              Text(
+                s.dontGiveThisPrivateKeyToAnyone,
+                style: TextConfigs.kLabel_9,
+              ),
+              48.verticalSpace,
+              GestureDetector(
+                onTap: () async {
+                  await FlutterClipboard.copy(mnemonic ?? '');
+                  Utils.showToast(context, message: "Copied");
+                },
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    8.verticalSpace,
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 8.w),
+                      child: Text(
+                        mnemonic ?? '',
+                        style: TextConfigs.kSubtitle_9,
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                    "paper".getIcon(width: 24.w, height: 24.w),
+                    8.verticalSpace,
+                  ],
                 ),
-                "paper".getIcon(width: 24.w, height: 24.w),
-                8.verticalSpace,
-              ],
-            ),
-          ),
-        ],
-      );
-    });
+              ),
+            ],
+          );
+        });
   }
 }

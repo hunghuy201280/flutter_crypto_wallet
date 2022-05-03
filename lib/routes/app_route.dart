@@ -14,6 +14,7 @@ import 'package:flutter_ntf_marketplace/views/settings_screen/security/security_
 import 'package:flutter_ntf_marketplace/views/splash_screen.dart';
 
 import '../di/dependency_injection.dart';
+import '../view_models/auth_bloc/auth_bloc.dart';
 import '../view_models/create_wallet_bloc/create_wallet_bloc.dart';
 import '../view_models/import_wallet_bloc/import_wallet_bloc.dart';
 import '../view_models/splash_bloc/splash_bloc.dart';
@@ -27,8 +28,8 @@ class AppRoute {
     switch (settings.name) {
       case SplashScreen.id:
         return CupertinoPageRoute(
-          builder: (_) => BlocProvider(
-            create: (_) => getIt<SplashBloc>(),
+          builder: (context) => BlocProvider(
+            create: (_) => getIt<SplashBloc>(param1: context.read<AuthBloc>()),
             child: const SplashScreen(),
           ),
           settings: settings,

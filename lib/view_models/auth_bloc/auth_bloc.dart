@@ -8,7 +8,7 @@ part 'auth_bloc.freezed.dart';
 part 'auth_event.dart';
 part 'auth_state.dart';
 
-@singleton
+@injectable
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final LocalProvider _localProvider;
   AuthBloc(this._localProvider) : super(const AuthState.unauthenticated()) {

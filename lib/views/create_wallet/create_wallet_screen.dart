@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ntf_marketplace/configs/color_config.dart';
 import 'package:flutter_ntf_marketplace/generated/l10n.dart';
+import 'package:flutter_ntf_marketplace/utils/shared_widgets/loading/global_loading.dart';
 import 'package:flutter_ntf_marketplace/utils/utils.dart';
 import 'package:flutter_ntf_marketplace/view_models/create_wallet_bloc/create_wallet_bloc.dart';
 import 'package:flutter_ntf_marketplace/views/create_wallet/widgets/create_wallet_body1.dart';
@@ -23,7 +24,6 @@ class CreateWalletScreen extends StatefulWidget {
 }
 
 class _CreateWalletScreenState extends State<CreateWalletScreen> {
-  
   final pageController = PageController();
   Future _animateToPage(int index) async {
     await pageController.animateToPage(index,
@@ -38,14 +38,19 @@ class _CreateWalletScreenState extends State<CreateWalletScreen> {
       listener: (context, state) {
         switch (state.status) {
           case CreateWalletStatus.apiError:
+            hideLoadingDialog();
+
             break;
           case CreateWalletStatus.passwordError:
+            hideLoadingDialog();
+
             break;
           case CreateWalletStatus.submissionInProgress:
-          //TODO : Show loading
+            showLoadingDialog();
             break;
           case CreateWalletStatus.pure:
-            _animateToPage(state.currentPage-1);
+            hideLoadingDialog();
+            _animateToPage(state.currentPage - 1);
             break;
         }
       },

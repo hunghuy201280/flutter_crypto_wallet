@@ -10,13 +10,13 @@ class AppBlocObserver extends BlocObserver {
 
   @override
   void onClose(BlocBase bloc) {
-    printLog(this, message: bloc);
+    printLog(this, message: "Close $bloc");
     super.onClose(bloc);
   }
 
   @override
   void onCreate(BlocBase bloc) {
-    printLog(this, message: bloc);
+    printLog(this, message: "Create $bloc");
     super.onCreate(bloc);
   }
 

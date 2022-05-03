@@ -890,13 +890,13 @@ class _$PasscodeStateTearOff {
       required String password,
       PasscodeSignInStatus status = PasscodeSignInStatus.pure,
       bool isShowPassword = false,
-      bool isSignInBiotremics = false}) {
+      bool isSignInBiometric = false}) {
     return _PasscodeState(
       avatar: avatar,
       password: password,
       status: status,
       isShowPassword: isShowPassword,
-      isSignInBiotremics: isSignInBiotremics,
+      isSignInBiometric: isSignInBiometric,
     );
   }
 }
@@ -910,7 +910,7 @@ mixin _$PasscodeState {
   String get password => throw _privateConstructorUsedError;
   PasscodeSignInStatus get status => throw _privateConstructorUsedError;
   bool get isShowPassword => throw _privateConstructorUsedError;
-  bool get isSignInBiotremics => throw _privateConstructorUsedError;
+  bool get isSignInBiometric => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PasscodeStateCopyWith<PasscodeState> get copyWith =>
@@ -927,7 +927,7 @@ abstract class $PasscodeStateCopyWith<$Res> {
       String password,
       PasscodeSignInStatus status,
       bool isShowPassword,
-      bool isSignInBiotremics});
+      bool isSignInBiometric});
 }
 
 /// @nodoc
@@ -945,7 +945,7 @@ class _$PasscodeStateCopyWithImpl<$Res>
     Object? password = freezed,
     Object? status = freezed,
     Object? isShowPassword = freezed,
-    Object? isSignInBiotremics = freezed,
+    Object? isSignInBiometric = freezed,
   }) {
     return _then(_value.copyWith(
       avatar: avatar == freezed
@@ -964,9 +964,9 @@ class _$PasscodeStateCopyWithImpl<$Res>
           ? _value.isShowPassword
           : isShowPassword // ignore: cast_nullable_to_non_nullable
               as bool,
-      isSignInBiotremics: isSignInBiotremics == freezed
-          ? _value.isSignInBiotremics
-          : isSignInBiotremics // ignore: cast_nullable_to_non_nullable
+      isSignInBiometric: isSignInBiometric == freezed
+          ? _value.isSignInBiometric
+          : isSignInBiometric // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
   }
@@ -984,7 +984,7 @@ abstract class _$PasscodeStateCopyWith<$Res>
       String password,
       PasscodeSignInStatus status,
       bool isShowPassword,
-      bool isSignInBiotremics});
+      bool isSignInBiometric});
 }
 
 /// @nodoc
@@ -1004,7 +1004,7 @@ class __$PasscodeStateCopyWithImpl<$Res>
     Object? password = freezed,
     Object? status = freezed,
     Object? isShowPassword = freezed,
-    Object? isSignInBiotremics = freezed,
+    Object? isSignInBiometric = freezed,
   }) {
     return _then(_PasscodeState(
       avatar: avatar == freezed
@@ -1023,9 +1023,9 @@ class __$PasscodeStateCopyWithImpl<$Res>
           ? _value.isShowPassword
           : isShowPassword // ignore: cast_nullable_to_non_nullable
               as bool,
-      isSignInBiotremics: isSignInBiotremics == freezed
-          ? _value.isSignInBiotremics
-          : isSignInBiotremics // ignore: cast_nullable_to_non_nullable
+      isSignInBiometric: isSignInBiometric == freezed
+          ? _value.isSignInBiometric
+          : isSignInBiometric // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
   }
@@ -1039,7 +1039,7 @@ class _$_PasscodeState implements _PasscodeState {
       required this.password,
       this.status = PasscodeSignInStatus.pure,
       this.isShowPassword = false,
-      this.isSignInBiotremics = false});
+      this.isSignInBiometric = false});
 
   @override
   final ImageProvider<Object>? avatar;
@@ -1053,11 +1053,11 @@ class _$_PasscodeState implements _PasscodeState {
   final bool isShowPassword;
   @JsonKey()
   @override
-  final bool isSignInBiotremics;
+  final bool isSignInBiometric;
 
   @override
   String toString() {
-    return 'PasscodeState(avatar: $avatar, password: $password, status: $status, isShowPassword: $isShowPassword, isSignInBiotremics: $isSignInBiotremics)';
+    return 'PasscodeState(avatar: $avatar, password: $password, status: $status, isShowPassword: $isShowPassword, isSignInBiometric: $isSignInBiometric)';
   }
 
   @override
@@ -1071,7 +1071,7 @@ class _$_PasscodeState implements _PasscodeState {
             const DeepCollectionEquality()
                 .equals(other.isShowPassword, isShowPassword) &&
             const DeepCollectionEquality()
-                .equals(other.isSignInBiotremics, isSignInBiotremics));
+                .equals(other.isSignInBiometric, isSignInBiometric));
   }
 
   @override
@@ -1081,7 +1081,7 @@ class _$_PasscodeState implements _PasscodeState {
       const DeepCollectionEquality().hash(password),
       const DeepCollectionEquality().hash(status),
       const DeepCollectionEquality().hash(isShowPassword),
-      const DeepCollectionEquality().hash(isSignInBiotremics));
+      const DeepCollectionEquality().hash(isSignInBiometric));
 
   @JsonKey(ignore: true)
   @override
@@ -1095,7 +1095,7 @@ abstract class _PasscodeState implements PasscodeState {
       required String password,
       PasscodeSignInStatus status,
       bool isShowPassword,
-      bool isSignInBiotremics}) = _$_PasscodeState;
+      bool isSignInBiometric}) = _$_PasscodeState;
 
   @override
   ImageProvider<Object>? get avatar;
@@ -1106,7 +1106,7 @@ abstract class _PasscodeState implements PasscodeState {
   @override
   bool get isShowPassword;
   @override
-  bool get isSignInBiotremics;
+  bool get isSignInBiometric;
   @override
   @JsonKey(ignore: true)
   _$PasscodeStateCopyWith<_PasscodeState> get copyWith =>

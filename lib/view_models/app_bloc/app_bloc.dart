@@ -10,7 +10,7 @@ part 'app_bloc.freezed.dart';
 part 'app_event.dart';
 part 'app_state.dart';
 
-@singleton
+@injectable
 class AppBloc extends Bloc<AppEvent, AppState> {
   AppBloc() : super(const AppState()) {
     _mapEventToState();

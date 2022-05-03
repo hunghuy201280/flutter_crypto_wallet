@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../configs/color_config.dart';
 import '../../configs/text_config.dart';
-import '../../utils/utils.dart';
 
 class PrimaryButton extends StatelessWidget {
   const PrimaryButton({
@@ -45,20 +44,22 @@ class PrimaryButton extends StatelessWidget {
         ),
         onPressed: onTap,
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Utils.empty,
-            if (leading != null) leading!,
+            if (leading != null)
+              Expanded(
+                child: Row(
+                  children: [
+                    leading!,
+                    const Spacer(),
+                  ],
+                ),
+              ),
             Text(
               title,
               style: style ?? TextConfigs.kHeader4_9,
             ),
-            if (leading != null)
-              Opacity(
-                child: leading!,
-                opacity: 0,
-              ),
-            Utils.empty,
+            if (leading != null) const Spacer(),
           ],
         ),
       ),
