@@ -28,8 +28,7 @@ class CreateWalletBloc extends Bloc<CreateWalletEvent, CreateWalletState> {
     on<_CreateWalletEventRequest>((event, emit) async {
       emit(state.copyWith(status: CreateWalletStatus.submissionInProgress));
       if (state.password.trim().length < 8 ||
-          state.password != state.repeatPassword ||
-          state.password.isEmpty) {
+          state.password != state.repeatPassword) {
         return emit(
           state.copyWith(
             status: CreateWalletStatus.passwordError,
