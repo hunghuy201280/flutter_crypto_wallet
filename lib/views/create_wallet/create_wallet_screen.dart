@@ -24,11 +24,18 @@ class CreateWalletScreen extends StatefulWidget {
 }
 
 class _CreateWalletScreenState extends State<CreateWalletScreen> {
+  late CreateWalletBloc _bloc;
   final pageController = PageController();
   Future _animateToPage(int index) async {
     await pageController.animateToPage(index,
         duration: const Duration(milliseconds: 300),
         curve: Curves.easeInOutQuad);
+  }
+
+  @override
+  void initState() {
+    _bloc = context.read<CreateWalletBloc>();
+    super.initState();
   }
 
   @override
@@ -39,11 +46,9 @@ class _CreateWalletScreenState extends State<CreateWalletScreen> {
         switch (state.status) {
           case CreateWalletStatus.apiError:
             hideLoadingDialog();
-
             break;
           case CreateWalletStatus.passwordError:
             hideLoadingDialog();
-
             break;
           case CreateWalletStatus.submissionInProgress:
             showLoadingDialog();
@@ -83,9 +88,7 @@ class _CreateWalletScreenState extends State<CreateWalletScreen> {
                 title: state.currentPage == 1 ? s.createPassword : s.getStarted,
                 onTap: () {
                   if (state.currentPage == 1) {
-                    context
-                        .read<CreateWalletBloc>()
-                        .add(const CreateWalletEvent.requestCreateWallet());
+                    _bloc.add(const CreateWalletEvent.requestCreateWallet());
                   } else {
                     Navigator.pushNamed(context, NavBarView.id);
                   }
