@@ -7,7 +7,7 @@ class PasscodeState with _$PasscodeState {
     required String password,
     @Default(PasscodeSignInStatus.pure) PasscodeSignInStatus status,
     @Default(false) bool isShowPassword,
-    @Default(false) bool isSignInBiotremics,
+    @Default(false) bool isSignInBiometric,
   }) = _PasscodeState;
-   factory PasscodeState.initial() => const PasscodeState(password: "");
+  factory PasscodeState.initial() => const PasscodeState(password: "");
 }

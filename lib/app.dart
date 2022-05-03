@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_ntf_marketplace/routes/app_route.dart';
+import 'package:flutter_ntf_marketplace/utils/shared_widgets/loading/global_loading.dart';
+import 'package:flutter_ntf_marketplace/utils/shared_widgets/loading/load.dart';
+import 'package:flutter_ntf_marketplace/utils/utils.dart';
 import 'package:flutter_ntf_marketplace/view_models/app_bloc/app_bloc.dart';
 import 'package:flutter_ntf_marketplace/view_models/auth_bloc/auth_bloc.dart';
 import 'package:flutter_ntf_marketplace/views/splash_screen.dart';
@@ -32,14 +35,13 @@ class _NFTAppState extends State<NFTApp> {
       onTap: () {
         FocusManager.instance.primaryFocus?.unfocus();
       },
-      child: MultiProvider(
+      child: MultiBlocProvider(
         providers: [
           BlocProvider<AuthBloc>(
             create: (context) => getIt<AuthBloc>(),
           ),
         ],
         child: ScreenUtilInit(
-          //Put Figma size here
           designSize: const Size(390, 844),
           builder: () {
             return MaterialApp(
@@ -57,10 +59,15 @@ class _NFTAppState extends State<NFTApp> {
               builder: (context, widget) {
                 if (widget == null) {
                   debugPrint("Material builder: widget is null");
-                  return const SizedBox();
+                  return Utils.empty;
                 }
                 ScreenUtil.setContext(context);
-                return widget;
+                return GlobalLoading(
+                  themeData: LoadingThemeData(
+                    tapDismiss: false,
+                  ),
+                  child: widget,
+                );
               },
             );
           },

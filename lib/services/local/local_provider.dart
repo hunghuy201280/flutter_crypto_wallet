@@ -70,7 +70,7 @@ class LocalProvider {
     await _repo.deletePasscode();
   }
 
-  bool isLoginWithBoimetrics() {
+  bool isLoginWithBiometrics() {
     return _repo.isLoginWithBiometrics();
   }
 

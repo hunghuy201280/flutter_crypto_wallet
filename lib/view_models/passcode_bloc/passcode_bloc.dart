@@ -5,8 +5,6 @@ import 'package:flutter_ntf_marketplace/utils/enums.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../constants/app_prefs.dart';
-
 part 'passcode_bloc.freezed.dart';
 part 'passcode_event.dart';
 part 'passcode_state.dart';
@@ -19,12 +17,12 @@ class PasscodeBloc extends Bloc<PasscodeEvent, PasscodeState> {
     on<_PasscodeStateSignInWithBiometricsChanged>((event, emit) async {
       await _localProvider.setLoginWithBiometrics(
           isBiometrics: event.isBiometrics);
-      emit(state.copyWith(isSignInBiotremics: event.isBiometrics));
+      emit(state.copyWith(isSignInBiometric: event.isBiometrics));
     });
     on<_PasscodeInitialLoaded>((event, emit) {
       emit(
         state.copyWith(
-            isSignInBiotremics: _localProvider.isLoginWithBoimetrics()),
+            isSignInBiometric: _localProvider.isLoginWithBiometrics()),
       );
     });
     on<_PasscodeChanged>(

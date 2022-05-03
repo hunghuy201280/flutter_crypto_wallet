@@ -15,260 +15,6 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-class _$CreateWalletStateTearOff {
-  const _$CreateWalletStateTearOff();
-
-  _CreateWalletState call(
-      {required String password,
-      required String repeatPassword,
-      required bool checkBox,
-      int currentPage = 1,
-      CreateWalletStatus status = CreateWalletStatus.pure,
-      String? mnemonic}) {
-    return _CreateWalletState(
-      password: password,
-      repeatPassword: repeatPassword,
-      checkBox: checkBox,
-      currentPage: currentPage,
-      status: status,
-      mnemonic: mnemonic,
-    );
-  }
-}
-
-/// @nodoc
-const $CreateWalletState = _$CreateWalletStateTearOff();
-
-/// @nodoc
-mixin _$CreateWalletState {
-  String get password => throw _privateConstructorUsedError;
-  String get repeatPassword => throw _privateConstructorUsedError;
-  bool get checkBox => throw _privateConstructorUsedError;
-  int get currentPage => throw _privateConstructorUsedError;
-  CreateWalletStatus get status => throw _privateConstructorUsedError;
-  String? get mnemonic => throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $CreateWalletStateCopyWith<CreateWalletState> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $CreateWalletStateCopyWith<$Res> {
-  factory $CreateWalletStateCopyWith(
-          CreateWalletState value, $Res Function(CreateWalletState) then) =
-      _$CreateWalletStateCopyWithImpl<$Res>;
-  $Res call(
-      {String password,
-      String repeatPassword,
-      bool checkBox,
-      int currentPage,
-      CreateWalletStatus status,
-      String? mnemonic});
-}
-
-/// @nodoc
-class _$CreateWalletStateCopyWithImpl<$Res>
-    implements $CreateWalletStateCopyWith<$Res> {
-  _$CreateWalletStateCopyWithImpl(this._value, this._then);
-
-  final CreateWalletState _value;
-  // ignore: unused_field
-  final $Res Function(CreateWalletState) _then;
-
-  @override
-  $Res call({
-    Object? password = freezed,
-    Object? repeatPassword = freezed,
-    Object? checkBox = freezed,
-    Object? currentPage = freezed,
-    Object? status = freezed,
-    Object? mnemonic = freezed,
-  }) {
-    return _then(_value.copyWith(
-      password: password == freezed
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String,
-      repeatPassword: repeatPassword == freezed
-          ? _value.repeatPassword
-          : repeatPassword // ignore: cast_nullable_to_non_nullable
-              as String,
-      checkBox: checkBox == freezed
-          ? _value.checkBox
-          : checkBox // ignore: cast_nullable_to_non_nullable
-              as bool,
-      currentPage: currentPage == freezed
-          ? _value.currentPage
-          : currentPage // ignore: cast_nullable_to_non_nullable
-              as int,
-      status: status == freezed
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as CreateWalletStatus,
-      mnemonic: mnemonic == freezed
-          ? _value.mnemonic
-          : mnemonic // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
-  }
-}
-
-/// @nodoc
-abstract class _$CreateWalletStateCopyWith<$Res>
-    implements $CreateWalletStateCopyWith<$Res> {
-  factory _$CreateWalletStateCopyWith(
-          _CreateWalletState value, $Res Function(_CreateWalletState) then) =
-      __$CreateWalletStateCopyWithImpl<$Res>;
-  @override
-  $Res call(
-      {String password,
-      String repeatPassword,
-      bool checkBox,
-      int currentPage,
-      CreateWalletStatus status,
-      String? mnemonic});
-}
-
-/// @nodoc
-class __$CreateWalletStateCopyWithImpl<$Res>
-    extends _$CreateWalletStateCopyWithImpl<$Res>
-    implements _$CreateWalletStateCopyWith<$Res> {
-  __$CreateWalletStateCopyWithImpl(
-      _CreateWalletState _value, $Res Function(_CreateWalletState) _then)
-      : super(_value, (v) => _then(v as _CreateWalletState));
-
-  @override
-  _CreateWalletState get _value => super._value as _CreateWalletState;
-
-  @override
-  $Res call({
-    Object? password = freezed,
-    Object? repeatPassword = freezed,
-    Object? checkBox = freezed,
-    Object? currentPage = freezed,
-    Object? status = freezed,
-    Object? mnemonic = freezed,
-  }) {
-    return _then(_CreateWalletState(
-      password: password == freezed
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String,
-      repeatPassword: repeatPassword == freezed
-          ? _value.repeatPassword
-          : repeatPassword // ignore: cast_nullable_to_non_nullable
-              as String,
-      checkBox: checkBox == freezed
-          ? _value.checkBox
-          : checkBox // ignore: cast_nullable_to_non_nullable
-              as bool,
-      currentPage: currentPage == freezed
-          ? _value.currentPage
-          : currentPage // ignore: cast_nullable_to_non_nullable
-              as int,
-      status: status == freezed
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as CreateWalletStatus,
-      mnemonic: mnemonic == freezed
-          ? _value.mnemonic
-          : mnemonic // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_CreateWalletState implements _CreateWalletState {
-  const _$_CreateWalletState(
-      {required this.password,
-      required this.repeatPassword,
-      required this.checkBox,
-      this.currentPage = 1,
-      this.status = CreateWalletStatus.pure,
-      this.mnemonic});
-
-  @override
-  final String password;
-  @override
-  final String repeatPassword;
-  @override
-  final bool checkBox;
-  @JsonKey()
-  @override
-  final int currentPage;
-  @JsonKey()
-  @override
-  final CreateWalletStatus status;
-  @override
-  final String? mnemonic;
-
-  @override
-  String toString() {
-    return 'CreateWalletState(password: $password, repeatPassword: $repeatPassword, checkBox: $checkBox, currentPage: $currentPage, status: $status, mnemonic: $mnemonic)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _CreateWalletState &&
-            const DeepCollectionEquality().equals(other.password, password) &&
-            const DeepCollectionEquality()
-                .equals(other.repeatPassword, repeatPassword) &&
-            const DeepCollectionEquality().equals(other.checkBox, checkBox) &&
-            const DeepCollectionEquality()
-                .equals(other.currentPage, currentPage) &&
-            const DeepCollectionEquality().equals(other.status, status) &&
-            const DeepCollectionEquality().equals(other.mnemonic, mnemonic));
-  }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(password),
-      const DeepCollectionEquality().hash(repeatPassword),
-      const DeepCollectionEquality().hash(checkBox),
-      const DeepCollectionEquality().hash(currentPage),
-      const DeepCollectionEquality().hash(status),
-      const DeepCollectionEquality().hash(mnemonic));
-
-  @JsonKey(ignore: true)
-  @override
-  _$CreateWalletStateCopyWith<_CreateWalletState> get copyWith =>
-      __$CreateWalletStateCopyWithImpl<_CreateWalletState>(this, _$identity);
-}
-
-abstract class _CreateWalletState implements CreateWalletState {
-  const factory _CreateWalletState(
-      {required String password,
-      required String repeatPassword,
-      required bool checkBox,
-      int currentPage,
-      CreateWalletStatus status,
-      String? mnemonic}) = _$_CreateWalletState;
-
-  @override
-  String get password;
-  @override
-  String get repeatPassword;
-  @override
-  bool get checkBox;
-  @override
-  int get currentPage;
-  @override
-  CreateWalletStatus get status;
-  @override
-  String? get mnemonic;
-  @override
-  @JsonKey(ignore: true)
-  _$CreateWalletStateCopyWith<_CreateWalletState> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
 class _$CreateWalletEventTearOff {
   const _$CreateWalletEventTearOff();
 
@@ -971,4 +717,258 @@ class _$_CreateWalletEventRequest implements _CreateWalletEventRequest {
 
 abstract class _CreateWalletEventRequest implements CreateWalletEvent {
   const factory _CreateWalletEventRequest() = _$_CreateWalletEventRequest;
+}
+
+/// @nodoc
+class _$CreateWalletStateTearOff {
+  const _$CreateWalletStateTearOff();
+
+  _CreateWalletState call(
+      {required String password,
+      required String repeatPassword,
+      required bool checkBox,
+      int currentPage = 1,
+      CreateWalletStatus status = CreateWalletStatus.pure,
+      String? mnemonic}) {
+    return _CreateWalletState(
+      password: password,
+      repeatPassword: repeatPassword,
+      checkBox: checkBox,
+      currentPage: currentPage,
+      status: status,
+      mnemonic: mnemonic,
+    );
+  }
+}
+
+/// @nodoc
+const $CreateWalletState = _$CreateWalletStateTearOff();
+
+/// @nodoc
+mixin _$CreateWalletState {
+  String get password => throw _privateConstructorUsedError;
+  String get repeatPassword => throw _privateConstructorUsedError;
+  bool get checkBox => throw _privateConstructorUsedError;
+  int get currentPage => throw _privateConstructorUsedError;
+  CreateWalletStatus get status => throw _privateConstructorUsedError;
+  String? get mnemonic => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $CreateWalletStateCopyWith<CreateWalletState> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $CreateWalletStateCopyWith<$Res> {
+  factory $CreateWalletStateCopyWith(
+          CreateWalletState value, $Res Function(CreateWalletState) then) =
+      _$CreateWalletStateCopyWithImpl<$Res>;
+  $Res call(
+      {String password,
+      String repeatPassword,
+      bool checkBox,
+      int currentPage,
+      CreateWalletStatus status,
+      String? mnemonic});
+}
+
+/// @nodoc
+class _$CreateWalletStateCopyWithImpl<$Res>
+    implements $CreateWalletStateCopyWith<$Res> {
+  _$CreateWalletStateCopyWithImpl(this._value, this._then);
+
+  final CreateWalletState _value;
+  // ignore: unused_field
+  final $Res Function(CreateWalletState) _then;
+
+  @override
+  $Res call({
+    Object? password = freezed,
+    Object? repeatPassword = freezed,
+    Object? checkBox = freezed,
+    Object? currentPage = freezed,
+    Object? status = freezed,
+    Object? mnemonic = freezed,
+  }) {
+    return _then(_value.copyWith(
+      password: password == freezed
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
+      repeatPassword: repeatPassword == freezed
+          ? _value.repeatPassword
+          : repeatPassword // ignore: cast_nullable_to_non_nullable
+              as String,
+      checkBox: checkBox == freezed
+          ? _value.checkBox
+          : checkBox // ignore: cast_nullable_to_non_nullable
+              as bool,
+      currentPage: currentPage == freezed
+          ? _value.currentPage
+          : currentPage // ignore: cast_nullable_to_non_nullable
+              as int,
+      status: status == freezed
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as CreateWalletStatus,
+      mnemonic: mnemonic == freezed
+          ? _value.mnemonic
+          : mnemonic // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$CreateWalletStateCopyWith<$Res>
+    implements $CreateWalletStateCopyWith<$Res> {
+  factory _$CreateWalletStateCopyWith(
+          _CreateWalletState value, $Res Function(_CreateWalletState) then) =
+      __$CreateWalletStateCopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {String password,
+      String repeatPassword,
+      bool checkBox,
+      int currentPage,
+      CreateWalletStatus status,
+      String? mnemonic});
+}
+
+/// @nodoc
+class __$CreateWalletStateCopyWithImpl<$Res>
+    extends _$CreateWalletStateCopyWithImpl<$Res>
+    implements _$CreateWalletStateCopyWith<$Res> {
+  __$CreateWalletStateCopyWithImpl(
+      _CreateWalletState _value, $Res Function(_CreateWalletState) _then)
+      : super(_value, (v) => _then(v as _CreateWalletState));
+
+  @override
+  _CreateWalletState get _value => super._value as _CreateWalletState;
+
+  @override
+  $Res call({
+    Object? password = freezed,
+    Object? repeatPassword = freezed,
+    Object? checkBox = freezed,
+    Object? currentPage = freezed,
+    Object? status = freezed,
+    Object? mnemonic = freezed,
+  }) {
+    return _then(_CreateWalletState(
+      password: password == freezed
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
+      repeatPassword: repeatPassword == freezed
+          ? _value.repeatPassword
+          : repeatPassword // ignore: cast_nullable_to_non_nullable
+              as String,
+      checkBox: checkBox == freezed
+          ? _value.checkBox
+          : checkBox // ignore: cast_nullable_to_non_nullable
+              as bool,
+      currentPage: currentPage == freezed
+          ? _value.currentPage
+          : currentPage // ignore: cast_nullable_to_non_nullable
+              as int,
+      status: status == freezed
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as CreateWalletStatus,
+      mnemonic: mnemonic == freezed
+          ? _value.mnemonic
+          : mnemonic // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_CreateWalletState implements _CreateWalletState {
+  const _$_CreateWalletState(
+      {required this.password,
+      required this.repeatPassword,
+      required this.checkBox,
+      this.currentPage = 1,
+      this.status = CreateWalletStatus.pure,
+      this.mnemonic});
+
+  @override
+  final String password;
+  @override
+  final String repeatPassword;
+  @override
+  final bool checkBox;
+  @JsonKey()
+  @override
+  final int currentPage;
+  @JsonKey()
+  @override
+  final CreateWalletStatus status;
+  @override
+  final String? mnemonic;
+
+  @override
+  String toString() {
+    return 'CreateWalletState(password: $password, repeatPassword: $repeatPassword, checkBox: $checkBox, currentPage: $currentPage, status: $status, mnemonic: $mnemonic)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _CreateWalletState &&
+            const DeepCollectionEquality().equals(other.password, password) &&
+            const DeepCollectionEquality()
+                .equals(other.repeatPassword, repeatPassword) &&
+            const DeepCollectionEquality().equals(other.checkBox, checkBox) &&
+            const DeepCollectionEquality()
+                .equals(other.currentPage, currentPage) &&
+            const DeepCollectionEquality().equals(other.status, status) &&
+            const DeepCollectionEquality().equals(other.mnemonic, mnemonic));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(password),
+      const DeepCollectionEquality().hash(repeatPassword),
+      const DeepCollectionEquality().hash(checkBox),
+      const DeepCollectionEquality().hash(currentPage),
+      const DeepCollectionEquality().hash(status),
+      const DeepCollectionEquality().hash(mnemonic));
+
+  @JsonKey(ignore: true)
+  @override
+  _$CreateWalletStateCopyWith<_CreateWalletState> get copyWith =>
+      __$CreateWalletStateCopyWithImpl<_CreateWalletState>(this, _$identity);
+}
+
+abstract class _CreateWalletState implements CreateWalletState {
+  const factory _CreateWalletState(
+      {required String password,
+      required String repeatPassword,
+      required bool checkBox,
+      int currentPage,
+      CreateWalletStatus status,
+      String? mnemonic}) = _$_CreateWalletState;
+
+  @override
+  String get password;
+  @override
+  String get repeatPassword;
+  @override
+  bool get checkBox;
+  @override
+  int get currentPage;
+  @override
+  CreateWalletStatus get status;
+  @override
+  String? get mnemonic;
+  @override
+  @JsonKey(ignore: true)
+  _$CreateWalletStateCopyWith<_CreateWalletState> get copyWith =>
+      throw _privateConstructorUsedError;
 }

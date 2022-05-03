@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_ntf_marketplace/configs/app_config.dart';
 import 'package:flutter_ntf_marketplace/configs/color_config.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -18,6 +19,7 @@ class PasscodeBody extends StatefulWidget {
 
 class _PasscodeBodyState extends State<PasscodeBody> {
   late PasscodeBloc _bloc;
+
   @override
   void initState() {
     super.initState();
@@ -27,55 +29,62 @@ class _PasscodeBodyState extends State<PasscodeBody> {
   @override
   Widget build(BuildContext context) {
     final s = S.of(context);
-    return BlocBuilder<PasscodeBloc, PasscodeState>(
-      builder: (context, state) {
-        return Column(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            PrimaryAvatar(
-              size: 96.w,
-              imageUrl: '',
-            ),
-            24.verticalSpace,
-            Text(
-              s.welcomeBack,
-              style: TextConfigs.kHeader3_9,
-            ),
-            94.verticalSpace,
-            PrimaryTextField(
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        PrimaryAvatar(
+          size: 96.w,
+          imageUrl: AppConfigs.tempImage,
+        ),
+        24.verticalSpace,
+        Text(
+          s.welcomeBack,
+          style: TextConfigs.kHeader3_9,
+        ),
+        94.verticalSpace,
+        BlocSelector<PasscodeBloc, PasscodeState, bool>(
+          selector: (state) => state.isShowPassword,
+          builder: (context, isShowPassword) {
+            return PrimaryTextField(
               title: s.password,
               obscureText: true,
               hint: s.password,
-              isHidden: !state.isShowPassword,
+              isHidden: isShowPassword,
               onChanged: (value) {
                 _bloc.add(PasscodeEvent.passCodeChanged(passCode: value));
               },
+            );
+          },
+        ),
+        16.verticalSpace,
+        Row(
+          children: [
+            Text(
+              s.signInWithBiometrics,
+              style: TextConfigs.kBody2_9,
             ),
-            16.verticalSpace,
-            Row(
-              children: [
-                Text(
-                  s.signInWithBiometrics,
-                  style: TextConfigs.kBody2_9,
-                ),
-                const Expanded(child: SizedBox()),
-                Switch(
+            const Expanded(child: SizedBox()),
+            BlocSelector<PasscodeBloc, PasscodeState, bool>(
+              selector: (state) => state.isSignInBiometric,
+              builder: (context, isSignInBiometric) {
+                return Switch(
                   materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                   hoverColor: AppColors.kColor6,
                   activeColor: AppColors.kColor6,
                   inactiveThumbColor: AppColors.kColor9,
-                  value: state.isSignInBiotremics,
+                  value: isSignInBiometric,
                   onChanged: (value) {
-                    _bloc.add(PasscodeEvent.stateSignInWithBiometricsChanged(value));
+                    _bloc.add(
+                        PasscodeEvent.stateSignInWithBiometricsChanged(value));
                   },
-                )
-              ],
+                );
+              },
             )
           ],
-        );
-      },
+        )
+      ],
     );
   }
 }

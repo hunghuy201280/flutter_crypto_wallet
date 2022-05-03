@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ntf_marketplace/configs/color_config.dart';
+import 'package:flutter_ntf_marketplace/views/onboarding_screen.dart';
 import 'package:flutter_ntf_marketplace/views/settings_screen/about_screen.dart';
 import 'package:flutter_ntf_marketplace/views/settings_screen/networks/networks_screen.dart';
 import 'package:flutter_ntf_marketplace/views/settings_screen/security/security_privacy_screen.dart';
@@ -77,6 +78,15 @@ class _SettingsScreenState extends State<SettingsScreen> {
           action: () {
             Navigator.of(context, rootNavigator: true)
                 .pushNamed(AboutAppScreen.id);
+          },
+        ),
+        divider,
+        SettingItem(
+          title: 'Logout',
+          description: '',
+          action: () {
+            Navigator.of(context, rootNavigator: true)
+                .pushNamed(OnboardingScreen.id);
           },
         ),
       ],

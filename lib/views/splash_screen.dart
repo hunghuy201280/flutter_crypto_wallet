@@ -9,7 +9,6 @@ import 'package:flutter_ntf_marketplace/views/onboarding_screen.dart';
 import 'package:flutter_ntf_marketplace/views/passcode/passcode_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:provider/src/provider.dart';
 
 import '../view_models/auth_bloc/auth_bloc.dart';
 
@@ -46,10 +45,6 @@ class _BodyScreen extends StatefulWidget {
 class __BodyScreenState extends State<_BodyScreen> {
   @override
   void initState() {
-    WidgetsBinding.instance?.addPostFrameCallback((timeStamp) async {
-      await Future.delayed(const Duration(milliseconds: 2000));
-      context.read<SplashBloc>().add(const SplashEvent.splashInit());
-    });
     super.initState();
   }
 
@@ -77,8 +72,8 @@ class __BodyScreenState extends State<_BodyScreen> {
           listener: (context, state) {
             state.when(
                 unauthenticated: () {
-                   Navigator.pushNamedAndRemoveUntil(
-                    context, LoginScreen.id, (route) => false);
+                  Navigator.pushNamedAndRemoveUntil(
+                      context, LoginScreen.id, (route) => false);
                 },
                 authenticatedNoPassword: (value) {
                   Navigator.pushNamedAndRemoveUntil(
