@@ -40,12 +40,11 @@ class CreateWalletBloc extends Bloc<CreateWalletEvent, CreateWalletState> {
         final walletDetail = await _remoteProvider.createWallet();
         await _localProvider.savePasscode(passCode: state.password);
         await _localProvider.saveMnemonicPhrase(
-            mnemonicPhrase: walletDetail.mnemonic ?? '');
-        await _localProvider.savePrivateKey(
-            privateKey: walletDetail.wallet?.privateKey ?? '');
+            mnemonicPhrase: walletDetail.mnemonic);
+        await _localProvider.addWallet(wallet: walletDetail.wallet);
         return emit(
           state.copyWith(
-            mnemonic: walletDetail.mnemonic ?? '',
+            mnemonic: walletDetail.mnemonic,
             //mnemonic: '',
             currentPage: 2,
             status: CreateWalletStatus.pure,

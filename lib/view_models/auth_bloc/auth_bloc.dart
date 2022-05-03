@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
 import 'package:flutter_ntf_marketplace/entities/wallet/wallet.dart';
 import 'package:flutter_ntf_marketplace/services/local/local_provider.dart';
@@ -12,38 +14,54 @@ part 'auth_state.dart';
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final LocalProvider _localProvider;
   AuthBloc(this._localProvider) : super(const AuthState.unauthenticated()) {
-    on<_AuthInitial>((event, emit) async {
-      emit(await _authStart());
-    });
-    on<_AuthLoggedIn>((event, emit) => {});
-    on<_AuthLoggedOut>((event, emit) => {});
+    on<AuthInitial>(_initialToState);
+    on<AuthLoggedIn>(_loggedInToState);
+    on<AuthLoggedOut>(_loggedOutToState);
   }
 
-  Future<AuthState> _authStart() async {
-    await _clearIfFirstRunAfterUninstall();
+  //#region mapEventToState
 
-    String walletSelected = _localProvider.getWalletSeleted();
-    List<String> wallets = _localProvider.getWalletsImported();
+  FutureOr<void> _initialToState(
+      AuthInitial event, Emitter<AuthState> emit) async {
+    if (_localProvider.isFirstRunApp()) {
+      await clearLocalDB();
+    }
+
+    var selectedWallet = _localProvider.getSelectedWallet();
+    List<Wallet> wallets = _localProvider.getSavedWallets();
     // return AuthenticatedNoPassword(walletAddress: walletSelected);
     if (wallets.isNotEmpty) {
-      if (walletSelected.isEmpty) {
-        await _localProvider.saveWalletSelected(walletSelected: wallets.first);
+      if (selectedWallet == null) {
+        await _localProvider.saveSelectedWallet(selectedWallet: wallets.first);
+        emit(AuthenticatedNoPassword(
+            walletAddress: _localProvider.getSelectedWallet()!));
+      } else {
+        emit(AuthenticatedNoPassword(walletAddress: selectedWallet));
       }
-      return AuthenticatedNoPassword(walletAddress: walletSelected);
     } else {
-      return const UnAuthenticated();
+      emit(const UnAuthenticated());
     }
   }
 
-  Future<void> _clearIfFirstRunAfterUninstall() async {
-    if (_localProvider.isFirstRunApp()) {
-      await Future.wait([
-        _localProvider.saveWalletSelected(walletSelected: ""),
-        _localProvider.deleteAllPrivateKey(),
-        _localProvider.saveMnemonicPhrase(mnemonicPhrase: ""),
-        _localProvider.saveStateFirstRunApp(isFirstRun: false),
-        _localProvider.deletePasscode(),
-      ]);
-    }
+  FutureOr<void> _loggedOutToState(
+      AuthLoggedOut event, Emitter<AuthState> emit) async {
+    await clearLocalDB();
+    emit(const UnAuthenticated());
+  }
+
+  FutureOr<void> _loggedInToState(AuthLoggedIn event, Emitter<AuthState> emit) {
+    emit(Authenticated(wallet: event.selectedWallet));
+  }
+
+  //#endregion mapEventToState
+
+  Future<void> clearLocalDB() async {
+    await Future.wait([
+      _localProvider.clearSelectedWallet(),
+      _localProvider.removeAllWallets(),
+      _localProvider.saveMnemonicPhrase(mnemonicPhrase: ""),
+      _localProvider.saveStateFirstRunApp(isFirstRun: false),
+      _localProvider.deletePasscode(),
+    ]);
   }
 }

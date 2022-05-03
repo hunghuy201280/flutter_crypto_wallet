@@ -22,9 +22,14 @@ Wallet _$WalletFromJson(Map<String, dynamic> json) {
 class _$WalletTearOff {
   const _$WalletTearOff();
 
-  _Wallet call({required String privateKey}) {
+  _Wallet call(
+      {@HiveField(0) required String address,
+      @HiveField(1) required String privateKey,
+      @HiveField(2) bool isImportedWallet = false}) {
     return _Wallet(
+      address: address,
       privateKey: privateKey,
+      isImportedWallet: isImportedWallet,
     );
   }
 
@@ -38,7 +43,12 @@ const $Wallet = _$WalletTearOff();
 
 /// @nodoc
 mixin _$Wallet {
+  @HiveField(0)
+  String get address => throw _privateConstructorUsedError;
+  @HiveField(1)
   String get privateKey => throw _privateConstructorUsedError;
+  @HiveField(2)
+  bool get isImportedWallet => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -49,7 +59,10 @@ mixin _$Wallet {
 abstract class $WalletCopyWith<$Res> {
   factory $WalletCopyWith(Wallet value, $Res Function(Wallet) then) =
       _$WalletCopyWithImpl<$Res>;
-  $Res call({String privateKey});
+  $Res call(
+      {@HiveField(0) String address,
+      @HiveField(1) String privateKey,
+      @HiveField(2) bool isImportedWallet});
 }
 
 /// @nodoc
@@ -62,13 +75,23 @@ class _$WalletCopyWithImpl<$Res> implements $WalletCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? address = freezed,
     Object? privateKey = freezed,
+    Object? isImportedWallet = freezed,
   }) {
     return _then(_value.copyWith(
+      address: address == freezed
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as String,
       privateKey: privateKey == freezed
           ? _value.privateKey
           : privateKey // ignore: cast_nullable_to_non_nullable
               as String,
+      isImportedWallet: isImportedWallet == freezed
+          ? _value.isImportedWallet
+          : isImportedWallet // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -78,7 +101,10 @@ abstract class _$WalletCopyWith<$Res> implements $WalletCopyWith<$Res> {
   factory _$WalletCopyWith(_Wallet value, $Res Function(_Wallet) then) =
       __$WalletCopyWithImpl<$Res>;
   @override
-  $Res call({String privateKey});
+  $Res call(
+      {@HiveField(0) String address,
+      @HiveField(1) String privateKey,
+      @HiveField(2) bool isImportedWallet});
 }
 
 /// @nodoc
@@ -92,31 +118,53 @@ class __$WalletCopyWithImpl<$Res> extends _$WalletCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? address = freezed,
     Object? privateKey = freezed,
+    Object? isImportedWallet = freezed,
   }) {
     return _then(_Wallet(
+      address: address == freezed
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as String,
       privateKey: privateKey == freezed
           ? _value.privateKey
           : privateKey // ignore: cast_nullable_to_non_nullable
               as String,
+      isImportedWallet: isImportedWallet == freezed
+          ? _value.isImportedWallet
+          : isImportedWallet // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
+@HiveType(typeId: HiveConfigs.kWalletTypeId, adapterName: "WalletAdapter")
 class _$_Wallet implements _Wallet {
-  _$_Wallet({required this.privateKey});
+  _$_Wallet(
+      {@HiveField(0) required this.address,
+      @HiveField(1) required this.privateKey,
+      @HiveField(2) this.isImportedWallet = false});
 
   factory _$_Wallet.fromJson(Map<String, dynamic> json) =>
       _$$_WalletFromJson(json);
 
   @override
+  @HiveField(0)
+  final String address;
+  @override
+  @HiveField(1)
   final String privateKey;
+  @JsonKey()
+  @override
+  @HiveField(2)
+  final bool isImportedWallet;
 
   @override
   String toString() {
-    return 'Wallet(privateKey: $privateKey)';
+    return 'Wallet(address: $address, privateKey: $privateKey, isImportedWallet: $isImportedWallet)';
   }
 
   @override
@@ -124,13 +172,19 @@ class _$_Wallet implements _Wallet {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Wallet &&
+            const DeepCollectionEquality().equals(other.address, address) &&
             const DeepCollectionEquality()
-                .equals(other.privateKey, privateKey));
+                .equals(other.privateKey, privateKey) &&
+            const DeepCollectionEquality()
+                .equals(other.isImportedWallet, isImportedWallet));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(privateKey));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(address),
+      const DeepCollectionEquality().hash(privateKey),
+      const DeepCollectionEquality().hash(isImportedWallet));
 
   @JsonKey(ignore: true)
   @override
@@ -144,12 +198,22 @@ class _$_Wallet implements _Wallet {
 }
 
 abstract class _Wallet implements Wallet {
-  factory _Wallet({required String privateKey}) = _$_Wallet;
+  factory _Wallet(
+      {@HiveField(0) required String address,
+      @HiveField(1) required String privateKey,
+      @HiveField(2) bool isImportedWallet}) = _$_Wallet;
 
   factory _Wallet.fromJson(Map<String, dynamic> json) = _$_Wallet.fromJson;
 
   @override
+  @HiveField(0)
+  String get address;
+  @override
+  @HiveField(1)
   String get privateKey;
+  @override
+  @HiveField(2)
+  bool get isImportedWallet;
   @override
   @JsonKey(ignore: true)
   _$WalletCopyWith<_Wallet> get copyWith => throw _privateConstructorUsedError;

@@ -1,14 +1,1 @@
-enum CreateWalletStatus {
-  apiError,
-  passwordError,
-  submissionInProgress,
-  pure
-}
-
-enum PasscodeSignInStatus {
-  signInFailure,
-  signInSuccess,
-  pure,
-}
-
-
+enum CreateWalletStatus { apiError, passwordError, submissionInProgress, pure }

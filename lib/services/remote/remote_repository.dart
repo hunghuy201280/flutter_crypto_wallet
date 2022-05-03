@@ -6,16 +6,13 @@ import 'package:injectable/injectable.dart';
 @singleton
 class RemoteRepository {
   static const baseUrl = AppConfigs.kServerUri;
-  Future<Response> test() async {
-    Dio _dio = Dio();
-    Response response = await _dio.get("$baseUrl${AppEndpoint.test}");
-    return response;
-  }
+  final Dio _dio;
+
+  RemoteRepository(this._dio);
 
   Future<Response> verifyWallet({required String privateKey}) async {
-    Dio _dio = Dio();
     Response response = await _dio.post(
-      "$baseUrl${AppEndpoint.verifyWallet}",
+      AppEndpoint.verifyWallet,
       data: {
         "privateKey": privateKey,
       },
@@ -24,9 +21,15 @@ class RemoteRepository {
   }
 
   Future<Response> createWallet() async {
-    Dio _dio = Dio();
     Response response = await _dio.post(
-      "$baseUrl${AppEndpoint.createWallet}",
+      AppEndpoint.createWallet,
+    );
+    return response;
+  }
+
+  Future<Response> getTokens(String address) async {
+    Response response = await _dio.get(
+      AppEndpoint.getTokens(address),
     );
     return response;
   }

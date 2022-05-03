@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ntf_marketplace/configs/color_config.dart';
+import 'package:flutter_ntf_marketplace/view_models/auth_bloc/auth_bloc.dart';
 import 'package:flutter_ntf_marketplace/views/onboarding_screen.dart';
 import 'package:flutter_ntf_marketplace/views/settings_screen/about_screen.dart';
 import 'package:flutter_ntf_marketplace/views/settings_screen/networks/networks_screen.dart';
@@ -23,6 +25,14 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
+  late AuthBloc authBloc;
+
+  @override
+  void initState() {
+    super.initState();
+    authBloc = context.read<AuthBloc>();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -85,6 +95,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           title: 'Logout',
           description: '',
           action: () {
+            authBloc.add(const AuthLoggedOut());
             Navigator.of(context, rootNavigator: true)
                 .pushNamed(OnboardingScreen.id);
           },

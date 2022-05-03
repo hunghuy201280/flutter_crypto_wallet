@@ -2,6 +2,8 @@ import 'package:flutter_ntf_marketplace/configs/app_config.dart';
 import 'package:flutter_ntf_marketplace/constants/app_prefs.dart';
 import 'package:injectable/injectable.dart';
 
+import '../../entities/wallet/wallet.dart';
+
 @singleton
 class LocalRepository {
   static const baseUrl = AppConfigs.kServerUri;
@@ -32,38 +34,43 @@ class LocalRepository {
     await wallet.setMnemonicPhrase(mnemonicPhrase);
   }
 
-  List<String> getWalletsImported() {
+  List<Wallet> getSavedWallets() {
     final wallet = _appPref.wallet;
-    return wallet.walletsImported;
+    return wallet.savedWallets;
   }
 
-  Future<void> deletePrivateKey({required String privateKey}) async {
+  Future<void> removeWallet({required String address}) async {
     final wallet = _appPref.wallet;
-    final walletsImported = wallet.walletsImported;
-    walletsImported.remove(privateKey);
-    await wallet.setWalletsImported([...walletsImported]);
+    final savedWallets = wallet.savedWallets;
+    savedWallets.removeWhere((element) => element.address == address);
+    await wallet.setSavedWallets([...savedWallets]);
   }
 
-  Future<void> savePrivateKey({required String privateKey}) async {
+  Future<void> addWallet({required Wallet value}) async {
     final wallet = _appPref.wallet;
-    final walletsImported = wallet.walletsImported;
-    walletsImported.add(privateKey);
-    await wallet.setWalletsImported([...walletsImported]);
+    final walletsImported = wallet.savedWallets;
+    walletsImported.add(value);
+    await wallet.setSavedWallets([...walletsImported]);
   }
 
-  Future<void> deleteAllPrivateKey() async {
+  Future<void> removeAllWallets() async {
     final wallet = _appPref.wallet;
-    await wallet.setWalletsImported(<String>[]);
+    await wallet.setSavedWallets([]);
   }
 
-  String getWalletSeleted() {
+  Wallet? getSelectedWallet() {
     final wallet = _appPref.wallet;
-    return wallet.walletSelected;
+    return wallet.selectedWallet;
   }
 
-  Future<void> saveWalletSelected({required String walletSelected}) async {
+  Future<void> saveSelectedWallet({required Wallet selectedWallet}) async {
     final wallet = _appPref.wallet;
-    await wallet.setWalletSelected(walletSelected);
+    await wallet.setSelectedWallet(selectedWallet);
+  }
+
+  Future<void> clearSelectedWallet() async {
+    final wallet = _appPref.wallet;
+    await wallet.clearSelectedWallet();
   }
 
   bool getStateLogInWithBiometrics() {
@@ -101,5 +108,4 @@ class LocalRepository {
     final wallet = _appPref.wallet;
     await wallet.setIsLoginWithBiometrics(isBiometrics);
   }
-
 }

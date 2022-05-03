@@ -34,7 +34,7 @@ class LoadingWidget extends StatefulWidget {
             borderRadius: data.borderRadius,
           ),
           padding: data.loadingPadding,
-          child: CircularProgressIndicator(),
+          child: const CircularProgressIndicator(),
           // child: CupertinoActivityIndicator(),
         ),
       ),

@@ -73,7 +73,8 @@ class AppRoute {
       case PasscodeScreen.id:
         return CupertinoPageRoute(
           builder: (context) => BlocProvider(
-            create: (context) => getIt<PasscodeBloc>(),
+            create: (context) =>
+                getIt<PasscodeBloc>(param1: context.read<AuthBloc>()),
             child: const PasscodeScreen(),
           ),
           settings: settings,

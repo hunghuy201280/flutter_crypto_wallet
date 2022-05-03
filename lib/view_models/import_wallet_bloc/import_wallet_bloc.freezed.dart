@@ -957,12 +957,14 @@ class _$ImportWalletStateTearOff {
       {required String privateKey,
       required String password,
       required String repeatPassword,
-      required bool boxChecked}) {
+      required bool boxChecked,
+      required Status<dynamic> status}) {
     return _ImportWalletState(
       privateKey: privateKey,
       password: password,
       repeatPassword: repeatPassword,
       boxChecked: boxChecked,
+      status: status,
     );
   }
 }
@@ -976,6 +978,7 @@ mixin _$ImportWalletState {
   String get password => throw _privateConstructorUsedError;
   String get repeatPassword => throw _privateConstructorUsedError;
   bool get boxChecked => throw _privateConstructorUsedError;
+  Status<dynamic> get status => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ImportWalletStateCopyWith<ImportWalletState> get copyWith =>
@@ -991,7 +994,8 @@ abstract class $ImportWalletStateCopyWith<$Res> {
       {String privateKey,
       String password,
       String repeatPassword,
-      bool boxChecked});
+      bool boxChecked,
+      Status<dynamic> status});
 }
 
 /// @nodoc
@@ -1009,6 +1013,7 @@ class _$ImportWalletStateCopyWithImpl<$Res>
     Object? password = freezed,
     Object? repeatPassword = freezed,
     Object? boxChecked = freezed,
+    Object? status = freezed,
   }) {
     return _then(_value.copyWith(
       privateKey: privateKey == freezed
@@ -1027,6 +1032,10 @@ class _$ImportWalletStateCopyWithImpl<$Res>
           ? _value.boxChecked
           : boxChecked // ignore: cast_nullable_to_non_nullable
               as bool,
+      status: status == freezed
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as Status<dynamic>,
     ));
   }
 }
@@ -1042,7 +1051,8 @@ abstract class _$ImportWalletStateCopyWith<$Res>
       {String privateKey,
       String password,
       String repeatPassword,
-      bool boxChecked});
+      bool boxChecked,
+      Status<dynamic> status});
 }
 
 /// @nodoc
@@ -1062,6 +1072,7 @@ class __$ImportWalletStateCopyWithImpl<$Res>
     Object? password = freezed,
     Object? repeatPassword = freezed,
     Object? boxChecked = freezed,
+    Object? status = freezed,
   }) {
     return _then(_ImportWalletState(
       privateKey: privateKey == freezed
@@ -1080,6 +1091,10 @@ class __$ImportWalletStateCopyWithImpl<$Res>
           ? _value.boxChecked
           : boxChecked // ignore: cast_nullable_to_non_nullable
               as bool,
+      status: status == freezed
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as Status<dynamic>,
     ));
   }
 }
@@ -1092,7 +1107,8 @@ class _$_ImportWalletState extends _ImportWalletState
       {required this.privateKey,
       required this.password,
       required this.repeatPassword,
-      required this.boxChecked})
+      required this.boxChecked,
+      required this.status})
       : super._();
 
   @override
@@ -1103,10 +1119,12 @@ class _$_ImportWalletState extends _ImportWalletState
   final String repeatPassword;
   @override
   final bool boxChecked;
+  @override
+  final Status<dynamic> status;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'ImportWalletState(privateKey: $privateKey, password: $password, repeatPassword: $repeatPassword, boxChecked: $boxChecked)';
+    return 'ImportWalletState(privateKey: $privateKey, password: $password, repeatPassword: $repeatPassword, boxChecked: $boxChecked, status: $status)';
   }
 
   @override
@@ -1117,7 +1135,8 @@ class _$_ImportWalletState extends _ImportWalletState
       ..add(DiagnosticsProperty('privateKey', privateKey))
       ..add(DiagnosticsProperty('password', password))
       ..add(DiagnosticsProperty('repeatPassword', repeatPassword))
-      ..add(DiagnosticsProperty('boxChecked', boxChecked));
+      ..add(DiagnosticsProperty('boxChecked', boxChecked))
+      ..add(DiagnosticsProperty('status', status));
   }
 
   @override
@@ -1131,7 +1150,8 @@ class _$_ImportWalletState extends _ImportWalletState
             const DeepCollectionEquality()
                 .equals(other.repeatPassword, repeatPassword) &&
             const DeepCollectionEquality()
-                .equals(other.boxChecked, boxChecked));
+                .equals(other.boxChecked, boxChecked) &&
+            const DeepCollectionEquality().equals(other.status, status));
   }
 
   @override
@@ -1140,7 +1160,8 @@ class _$_ImportWalletState extends _ImportWalletState
       const DeepCollectionEquality().hash(privateKey),
       const DeepCollectionEquality().hash(password),
       const DeepCollectionEquality().hash(repeatPassword),
-      const DeepCollectionEquality().hash(boxChecked));
+      const DeepCollectionEquality().hash(boxChecked),
+      const DeepCollectionEquality().hash(status));
 
   @JsonKey(ignore: true)
   @override
@@ -1153,7 +1174,8 @@ abstract class _ImportWalletState extends ImportWalletState {
       {required String privateKey,
       required String password,
       required String repeatPassword,
-      required bool boxChecked}) = _$_ImportWalletState;
+      required bool boxChecked,
+      required Status<dynamic> status}) = _$_ImportWalletState;
   const _ImportWalletState._() : super._();
 
   @override
@@ -1164,6 +1186,8 @@ abstract class _ImportWalletState extends ImportWalletState {
   String get repeatPassword;
   @override
   bool get boxChecked;
+  @override
+  Status<dynamic> get status;
   @override
   @JsonKey(ignore: true)
   _$ImportWalletStateCopyWith<_ImportWalletState> get copyWith =>

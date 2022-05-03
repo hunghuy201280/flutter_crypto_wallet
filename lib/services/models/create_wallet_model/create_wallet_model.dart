@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'wallet.dart';
+import '../../../entities/wallet/wallet.dart';
 
 part 'create_wallet_model.freezed.dart';
 part 'create_wallet_model.g.dart';
@@ -8,8 +8,8 @@ part 'create_wallet_model.g.dart';
 @freezed
 class CreateWalletModel with _$CreateWalletModel {
   factory CreateWalletModel({
-    String? mnemonic,
-    Wallet? wallet,
+    required String mnemonic,
+    required Wallet wallet,
   }) = _CreateWalletModel;
 
   factory CreateWalletModel.fromJson(Map<String, dynamic> json) =>

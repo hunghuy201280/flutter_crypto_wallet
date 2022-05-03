@@ -42,7 +42,6 @@ dependencies:
   fl_chart: ^0.50.1
   sliver_tools: ^0.2.5
   json_annotation: ^4.5.0
-
 dev_dependencies:
   freezed: ^1.1.1
   build_runner: ^2.1.8

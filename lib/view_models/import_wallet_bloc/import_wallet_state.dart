@@ -8,8 +8,14 @@ class ImportWalletState with _$ImportWalletState {
     required String password,
     required String repeatPassword,
     required bool boxChecked,
+    required Status status,
   }) = _ImportWalletState;
 
   factory ImportWalletState.initial() => const ImportWalletState(
-      privateKey: "", password: "", repeatPassword: "", boxChecked: false);
+        privateKey: "",
+        password: "",
+        repeatPassword: "",
+        boxChecked: false,
+        status: Idle(),
+      );
 }

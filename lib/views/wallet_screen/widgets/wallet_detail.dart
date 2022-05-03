@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ntf_marketplace/configs/color_config.dart';
 import 'package:flutter_ntf_marketplace/configs/text_config.dart';
+import 'package:flutter_ntf_marketplace/entities/token/token.dart';
+import 'package:flutter_ntf_marketplace/utils/helpers/status.dart';
 import 'package:flutter_ntf_marketplace/views/wallet_screen/widgets/wallet_coin_item.dart';
 import 'package:flutter_ntf_marketplace/views/wallet_screen/widgets/wallet_nft_group.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:tuple/tuple.dart';
 
 import '../../../generated/l10n.dart';
+import '../../../view_models/wallet_detail_bloc/wallet_detail_bloc.dart';
 
 class WalletDetail extends StatefulWidget {
   final TabController tabController;
+
   const WalletDetail({Key? key, required this.tabController}) : super(key: key);
 
   @override
@@ -63,11 +69,27 @@ class _TokenTab extends StatelessWidget {
           const NeverScrollableScrollPhysics(parent: BouncingScrollPhysics()),
       shrinkWrap: true,
       children: [
-        ListView.builder(
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          itemBuilder: (context, index) => const WalletCoinItem(),
-          itemCount: 20,
+        BlocSelector<WalletDetailBloc, WalletDetailState,
+            Tuple2<List<Token>, Status>>(
+          selector: (state) => Tuple2(state.tokens, state.status),
+          builder: (context, tuple2) {
+            final tokens = tuple2.item1;
+            final status = tuple2.item2;
+            if (status is Loading) {
+              return const Center(child: CircularProgressIndicator());
+            } else if (status is Success || status is Idle) {
+              return ListView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemBuilder: (context, index) => WalletCoinItem(
+                  token: tokens[index],
+                ),
+                itemCount: tokens.length,
+              );
+            } else {
+              return const Text("Failed");
+            }
+          },
         ),
         16.verticalSpace,
         Column(

@@ -8,10 +8,8 @@ part of 'create_wallet_model.dart';
 
 _$_CreateWalletModel _$$_CreateWalletModelFromJson(Map<String, dynamic> json) =>
     _$_CreateWalletModel(
-      mnemonic: json['mnemonic'] as String?,
-      wallet: json['wallet'] == null
-          ? null
-          : Wallet.fromJson(json['wallet'] as Map<String, dynamic>),
+      mnemonic: json['mnemonic'] as String,
+      wallet: Wallet.fromJson(json['wallet'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_CreateWalletModelToJson(

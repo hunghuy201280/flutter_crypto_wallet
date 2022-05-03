@@ -1,20 +1,12 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ntf_marketplace/configs/color_config.dart';
-import 'package:flutter_ntf_marketplace/configs/text_config.dart';
-import 'package:flutter_ntf_marketplace/utils/extensions.dart';
 import 'package:flutter_ntf_marketplace/utils/utils.dart';
 import 'package:flutter_ntf_marketplace/views/nav_bar_view/nav_bar_view.dart';
 import 'package:flutter_ntf_marketplace/views/passcode/widgets/passcode_bottom.dart';
-import 'package:flutter_ntf_marketplace/views/shared_widgets/primary_avatar.dart';
-import 'package:flutter_ntf_marketplace/views/shared_widgets/primary_button.dart';
-import 'package:flutter_ntf_marketplace/views/shared_widgets/primary_text_field.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../generated/l10n.dart';
-import '../../utils/enums.dart';
 import '../../view_models/passcode_bloc/passcode_bloc.dart';
 import 'widgets/passcode_body.dart';
 
@@ -40,15 +32,13 @@ class _PasscodeScreenState extends State<PasscodeScreen> {
     final s = S.of(context);
     return BlocListener<PasscodeBloc, PasscodeState>(
       listener: (context, state) {
-        switch (state.status) {
-          case PasscodeSignInStatus.signInFailure:
-            break;
-          case PasscodeSignInStatus.signInSuccess:
-            Navigator.pushNamedAndRemoveUntil(
-                context, NavBarView.id, (route) => false);
-            break;
-          default:
-            break;
+        final status = state.status;
+        if (status is SignedInSuccess) {
+          Navigator.pushNamedAndRemoveUntil(
+              context, NavBarView.id, (route) => false);
+        } else if (status is SignedInFailed) {
+          //TODO: handle error
+          printLog(this, message: "$state");
         }
       },
       child: Scaffold(

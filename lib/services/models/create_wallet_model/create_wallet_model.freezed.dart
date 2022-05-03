@@ -22,7 +22,7 @@ CreateWalletModel _$CreateWalletModelFromJson(Map<String, dynamic> json) {
 class _$CreateWalletModelTearOff {
   const _$CreateWalletModelTearOff();
 
-  _CreateWalletModel call({String? mnemonic, Wallet? wallet}) {
+  _CreateWalletModel call({required String mnemonic, required Wallet wallet}) {
     return _CreateWalletModel(
       mnemonic: mnemonic,
       wallet: wallet,
@@ -39,8 +39,8 @@ const $CreateWalletModel = _$CreateWalletModelTearOff();
 
 /// @nodoc
 mixin _$CreateWalletModel {
-  String? get mnemonic => throw _privateConstructorUsedError;
-  Wallet? get wallet => throw _privateConstructorUsedError;
+  String get mnemonic => throw _privateConstructorUsedError;
+  Wallet get wallet => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -53,9 +53,9 @@ abstract class $CreateWalletModelCopyWith<$Res> {
   factory $CreateWalletModelCopyWith(
           CreateWalletModel value, $Res Function(CreateWalletModel) then) =
       _$CreateWalletModelCopyWithImpl<$Res>;
-  $Res call({String? mnemonic, Wallet? wallet});
+  $Res call({String mnemonic, Wallet wallet});
 
-  $WalletCopyWith<$Res>? get wallet;
+  $WalletCopyWith<$Res> get wallet;
 }
 
 /// @nodoc
@@ -76,21 +76,17 @@ class _$CreateWalletModelCopyWithImpl<$Res>
       mnemonic: mnemonic == freezed
           ? _value.mnemonic
           : mnemonic // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       wallet: wallet == freezed
           ? _value.wallet
           : wallet // ignore: cast_nullable_to_non_nullable
-              as Wallet?,
+              as Wallet,
     ));
   }
 
   @override
-  $WalletCopyWith<$Res>? get wallet {
-    if (_value.wallet == null) {
-      return null;
-    }
-
-    return $WalletCopyWith<$Res>(_value.wallet!, (value) {
+  $WalletCopyWith<$Res> get wallet {
+    return $WalletCopyWith<$Res>(_value.wallet, (value) {
       return _then(_value.copyWith(wallet: value));
     });
   }
@@ -103,10 +99,10 @@ abstract class _$CreateWalletModelCopyWith<$Res>
           _CreateWalletModel value, $Res Function(_CreateWalletModel) then) =
       __$CreateWalletModelCopyWithImpl<$Res>;
   @override
-  $Res call({String? mnemonic, Wallet? wallet});
+  $Res call({String mnemonic, Wallet wallet});
 
   @override
-  $WalletCopyWith<$Res>? get wallet;
+  $WalletCopyWith<$Res> get wallet;
 }
 
 /// @nodoc
@@ -129,11 +125,11 @@ class __$CreateWalletModelCopyWithImpl<$Res>
       mnemonic: mnemonic == freezed
           ? _value.mnemonic
           : mnemonic // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       wallet: wallet == freezed
           ? _value.wallet
           : wallet // ignore: cast_nullable_to_non_nullable
-              as Wallet?,
+              as Wallet,
     ));
   }
 }
@@ -141,15 +137,15 @@ class __$CreateWalletModelCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_CreateWalletModel implements _CreateWalletModel {
-  _$_CreateWalletModel({this.mnemonic, this.wallet});
+  _$_CreateWalletModel({required this.mnemonic, required this.wallet});
 
   factory _$_CreateWalletModel.fromJson(Map<String, dynamic> json) =>
       _$$_CreateWalletModelFromJson(json);
 
   @override
-  final String? mnemonic;
+  final String mnemonic;
   @override
-  final Wallet? wallet;
+  final Wallet wallet;
 
   @override
   String toString() {
@@ -183,16 +179,17 @@ class _$_CreateWalletModel implements _CreateWalletModel {
 }
 
 abstract class _CreateWalletModel implements CreateWalletModel {
-  factory _CreateWalletModel({String? mnemonic, Wallet? wallet}) =
-      _$_CreateWalletModel;
+  factory _CreateWalletModel(
+      {required String mnemonic,
+      required Wallet wallet}) = _$_CreateWalletModel;
 
   factory _CreateWalletModel.fromJson(Map<String, dynamic> json) =
       _$_CreateWalletModel.fromJson;
 
   @override
-  String? get mnemonic;
+  String get mnemonic;
   @override
-  Wallet? get wallet;
+  Wallet get wallet;
   @override
   @JsonKey(ignore: true)
   _$CreateWalletModelCopyWith<_CreateWalletModel> get copyWith =>

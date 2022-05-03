@@ -5,9 +5,10 @@ class PasscodeState with _$PasscodeState {
   const factory PasscodeState({
     ImageProvider? avatar,
     required String password,
-    @Default(PasscodeSignInStatus.pure) PasscodeSignInStatus status,
+    required Status status,
     @Default(false) bool isShowPassword,
     @Default(false) bool isSignInBiometric,
   }) = _PasscodeState;
-  factory PasscodeState.initial() => const PasscodeState(password: "");
+  factory PasscodeState.initial() =>
+      const PasscodeState(password: "", status: Idle());
 }

@@ -1,5 +1,3 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-
 class BaseResponse<T> {
   final int statusCode;
   final String message;
@@ -8,7 +6,7 @@ class BaseResponse<T> {
       {required this.statusCode, required this.message, required this.result});
 
   factory BaseResponse.fromJson(
-      Map<String, dynamic> json, Function(Map<String, dynamic>) create) {
+      Map<String, dynamic> json, Function(dynamic) create) {
     return BaseResponse<T>(
       statusCode: json["statusCode"],
       message: json["message"],

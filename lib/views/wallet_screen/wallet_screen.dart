@@ -1,17 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ntf_marketplace/configs/color_config.dart';
+import 'package:flutter_ntf_marketplace/di/dependency_injection.dart';
 import 'package:flutter_ntf_marketplace/utils/extensions.dart';
 import 'package:flutter_ntf_marketplace/views/wallet_screen/widgets/wallet_detail.dart';
 import 'package:flutter_ntf_marketplace/views/wallet_screen/widgets/wallet_info.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../generated/l10n.dart';
+import '../../view_models/auth_bloc/auth_bloc.dart';
+import '../../view_models/wallet_detail_bloc/wallet_detail_bloc.dart';
 
 class WalletScreen extends StatefulWidget {
   static const id = "WalletScreen";
-  WalletScreen({Key? key}) : super(key: key);
-  static WalletScreen get instance {
-    return WalletScreen();
+
+  const WalletScreen({Key? key}) : super(key: key);
+
+  static BlocProvider get instance {
+    return BlocProvider<WalletDetailBloc>(
+      create: (context) =>
+          getIt<WalletDetailBloc>(param1: context.read<AuthBloc>()),
+      child: const WalletScreen(),
+    );
   }
 
   @override

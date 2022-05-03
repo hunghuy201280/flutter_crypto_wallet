@@ -3,6 +3,8 @@ import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_ntf_marketplace/services/local/local_provider.dart';
 import 'package:flutter_ntf_marketplace/services/remote/remote_provider.dart';
+import 'package:flutter_ntf_marketplace/utils/helpers/status.dart';
+import 'package:flutter_ntf_marketplace/utils/utils.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
@@ -21,12 +23,22 @@ class ImportWalletBloc extends Bloc<ImportWalletEvent, ImportWalletState> {
   final LocalProvider _localProvider;
   void _mapEventToState() {
     on<ImportWalletImported>((event, emit) async {
+      emit(state.copyWith(status: const Loading()));
       try {
         final privateKey = state.privateKey;
         final result =
             await _remoteProvider.verifyWallet(privateKey: privateKey);
-        await _localProvider.savePrivateKey(privateKey: privateKey);
-      } on DioError catch (e) {}
+        await _localProvider.addWallet(wallet: result);
+        await _localProvider.savePasscode(passCode: state.password);
+        emit(state.copyWith(status: const Success()));
+      } on DioError catch (e, trace) {
+        printLog(this, message: "Error", error: e, trace: trace);
+        emit(state.copyWith(status: Error(e)));
+      } finally {
+        emit(
+          state.copyWith(status: const Idle()),
+        );
+      }
     });
     on<ImportWalletPrivateKeyChanged>((event, emit) {
       emit(state.copyWith(privateKey: event.privateKey));

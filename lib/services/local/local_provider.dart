@@ -1,5 +1,6 @@
 import 'package:injectable/injectable.dart';
 
+import '../../entities/wallet/wallet.dart';
 import 'local_repository.dart';
 
 @singleton
@@ -25,28 +26,32 @@ class LocalProvider {
     await _repo.saveMnemonicPhrase(mnemonicPhrase: mnemonicPhrase);
   }
 
-  List<String> getWalletsImported() {
-    return _repo.getWalletsImported();
+  List<Wallet> getSavedWallets() {
+    return _repo.getSavedWallets();
   }
 
-  Future<void> deletePrivateKey({required String privateKey}) async {
-    await _repo.deletePrivateKey(privateKey: privateKey);
+  Future<void> removeWallet({required String address}) async {
+    await _repo.removeWallet(address: address);
   }
 
-  Future<void> savePrivateKey({required String privateKey}) async {
-    await _repo.savePrivateKey(privateKey: privateKey);
+  Future<void> addWallet({required Wallet wallet}) async {
+    await _repo.addWallet(value: wallet);
   }
 
-  Future<void> deleteAllPrivateKey() async {
-    await _repo.deleteAllPrivateKey();
+  Future<void> removeAllWallets() async {
+    await _repo.removeAllWallets();
   }
 
-  String getWalletSeleted() {
-    return _repo.getWalletSeleted();
+  Wallet? getSelectedWallet() {
+    return _repo.getSelectedWallet();
   }
 
-  Future<void> saveWalletSelected({required String walletSelected}) async {
-    await _repo.saveWalletSelected(walletSelected: walletSelected);
+  Future<void> saveSelectedWallet({required Wallet selectedWallet}) async {
+    await _repo.saveSelectedWallet(selectedWallet: selectedWallet);
+  }
+
+  Future<void> clearSelectedWallet() async {
+    await _repo.clearSelectedWallet();
   }
 
   bool getStateLogInWithBiometrics() {

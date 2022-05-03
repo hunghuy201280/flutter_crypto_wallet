@@ -888,7 +888,7 @@ class _$PasscodeStateTearOff {
   _PasscodeState call(
       {ImageProvider<Object>? avatar,
       required String password,
-      PasscodeSignInStatus status = PasscodeSignInStatus.pure,
+      required Status<dynamic> status,
       bool isShowPassword = false,
       bool isSignInBiometric = false}) {
     return _PasscodeState(
@@ -908,7 +908,7 @@ const $PasscodeState = _$PasscodeStateTearOff();
 mixin _$PasscodeState {
   ImageProvider<Object>? get avatar => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
-  PasscodeSignInStatus get status => throw _privateConstructorUsedError;
+  Status<dynamic> get status => throw _privateConstructorUsedError;
   bool get isShowPassword => throw _privateConstructorUsedError;
   bool get isSignInBiometric => throw _privateConstructorUsedError;
 
@@ -925,7 +925,7 @@ abstract class $PasscodeStateCopyWith<$Res> {
   $Res call(
       {ImageProvider<Object>? avatar,
       String password,
-      PasscodeSignInStatus status,
+      Status<dynamic> status,
       bool isShowPassword,
       bool isSignInBiometric});
 }
@@ -959,7 +959,7 @@ class _$PasscodeStateCopyWithImpl<$Res>
       status: status == freezed
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as PasscodeSignInStatus,
+              as Status<dynamic>,
       isShowPassword: isShowPassword == freezed
           ? _value.isShowPassword
           : isShowPassword // ignore: cast_nullable_to_non_nullable
@@ -982,7 +982,7 @@ abstract class _$PasscodeStateCopyWith<$Res>
   $Res call(
       {ImageProvider<Object>? avatar,
       String password,
-      PasscodeSignInStatus status,
+      Status<dynamic> status,
       bool isShowPassword,
       bool isSignInBiometric});
 }
@@ -1018,7 +1018,7 @@ class __$PasscodeStateCopyWithImpl<$Res>
       status: status == freezed
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as PasscodeSignInStatus,
+              as Status<dynamic>,
       isShowPassword: isShowPassword == freezed
           ? _value.isShowPassword
           : isShowPassword // ignore: cast_nullable_to_non_nullable
@@ -1037,7 +1037,7 @@ class _$_PasscodeState implements _PasscodeState {
   const _$_PasscodeState(
       {this.avatar,
       required this.password,
-      this.status = PasscodeSignInStatus.pure,
+      required this.status,
       this.isShowPassword = false,
       this.isSignInBiometric = false});
 
@@ -1045,9 +1045,8 @@ class _$_PasscodeState implements _PasscodeState {
   final ImageProvider<Object>? avatar;
   @override
   final String password;
-  @JsonKey()
   @override
-  final PasscodeSignInStatus status;
+  final Status<dynamic> status;
   @JsonKey()
   @override
   final bool isShowPassword;
@@ -1093,7 +1092,7 @@ abstract class _PasscodeState implements PasscodeState {
   const factory _PasscodeState(
       {ImageProvider<Object>? avatar,
       required String password,
-      PasscodeSignInStatus status,
+      required Status<dynamic> status,
       bool isShowPassword,
       bool isSignInBiometric}) = _$_PasscodeState;
 
@@ -1102,7 +1101,7 @@ abstract class _PasscodeState implements PasscodeState {
   @override
   String get password;
   @override
-  PasscodeSignInStatus get status;
+  Status<dynamic> get status;
   @override
   bool get isShowPassword;
   @override

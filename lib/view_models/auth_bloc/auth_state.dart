@@ -4,7 +4,7 @@ part of 'auth_bloc.dart';
 class AuthState with _$AuthState {
   const factory AuthState.unauthenticated() = UnAuthenticated;
   const factory AuthState.authenticatedNoPassword(
-      {required String walletAddress}) = AuthenticatedNoPassword;
+      {required Wallet walletAddress}) = AuthenticatedNoPassword;
   const factory AuthState.authenticated({required Wallet wallet}) =
       Authenticated;
 }

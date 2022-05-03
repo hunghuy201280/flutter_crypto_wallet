@@ -18,16 +18,18 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$AuthEventTearOff {
   const _$AuthEventTearOff();
 
-  _AuthInitial initial() {
-    return const _AuthInitial();
+  AuthInitial initial() {
+    return const AuthInitial();
   }
 
-  _AuthLoggedIn loggedIn() {
-    return const _AuthLoggedIn();
+  AuthLoggedIn loggedIn(Wallet selectedWallet) {
+    return AuthLoggedIn(
+      selectedWallet,
+    );
   }
 
-  _AuthLoggedOut loggedOut() {
-    return const _AuthLoggedOut();
+  AuthLoggedOut loggedOut() {
+    return const AuthLoggedOut();
   }
 }
 
@@ -39,44 +41,44 @@ mixin _$AuthEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loggedIn,
+    required TResult Function(Wallet selectedWallet) loggedIn,
     required TResult Function() loggedOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loggedIn,
+    TResult Function(Wallet selectedWallet)? loggedIn,
     TResult Function()? loggedOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loggedIn,
+    TResult Function(Wallet selectedWallet)? loggedIn,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_AuthInitial value) initial,
-    required TResult Function(_AuthLoggedIn value) loggedIn,
-    required TResult Function(_AuthLoggedOut value) loggedOut,
+    required TResult Function(AuthInitial value) initial,
+    required TResult Function(AuthLoggedIn value) loggedIn,
+    required TResult Function(AuthLoggedOut value) loggedOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_AuthInitial value)? initial,
-    TResult Function(_AuthLoggedIn value)? loggedIn,
-    TResult Function(_AuthLoggedOut value)? loggedOut,
+    TResult Function(AuthInitial value)? initial,
+    TResult Function(AuthLoggedIn value)? loggedIn,
+    TResult Function(AuthLoggedOut value)? loggedOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_AuthInitial value)? initial,
-    TResult Function(_AuthLoggedIn value)? loggedIn,
-    TResult Function(_AuthLoggedOut value)? loggedOut,
+    TResult Function(AuthInitial value)? initial,
+    TResult Function(AuthLoggedIn value)? loggedIn,
+    TResult Function(AuthLoggedOut value)? loggedOut,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -98,27 +100,27 @@ class _$AuthEventCopyWithImpl<$Res> implements $AuthEventCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$AuthInitialCopyWith<$Res> {
-  factory _$AuthInitialCopyWith(
-          _AuthInitial value, $Res Function(_AuthInitial) then) =
-      __$AuthInitialCopyWithImpl<$Res>;
+abstract class $AuthInitialCopyWith<$Res> {
+  factory $AuthInitialCopyWith(
+          AuthInitial value, $Res Function(AuthInitial) then) =
+      _$AuthInitialCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$AuthInitialCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
-    implements _$AuthInitialCopyWith<$Res> {
-  __$AuthInitialCopyWithImpl(
-      _AuthInitial _value, $Res Function(_AuthInitial) _then)
-      : super(_value, (v) => _then(v as _AuthInitial));
+class _$AuthInitialCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
+    implements $AuthInitialCopyWith<$Res> {
+  _$AuthInitialCopyWithImpl(
+      AuthInitial _value, $Res Function(AuthInitial) _then)
+      : super(_value, (v) => _then(v as AuthInitial));
 
   @override
-  _AuthInitial get _value => super._value as _AuthInitial;
+  AuthInitial get _value => super._value as AuthInitial;
 }
 
 /// @nodoc
 
-class _$_AuthInitial implements _AuthInitial {
-  const _$_AuthInitial();
+class _$AuthInitial implements AuthInitial {
+  const _$AuthInitial();
 
   @override
   String toString() {
@@ -128,7 +130,7 @@ class _$_AuthInitial implements _AuthInitial {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _AuthInitial);
+        (other.runtimeType == runtimeType && other is AuthInitial);
   }
 
   @override
@@ -138,7 +140,7 @@ class _$_AuthInitial implements _AuthInitial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loggedIn,
+    required TResult Function(Wallet selectedWallet) loggedIn,
     required TResult Function() loggedOut,
   }) {
     return initial();
@@ -148,7 +150,7 @@ class _$_AuthInitial implements _AuthInitial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loggedIn,
+    TResult Function(Wallet selectedWallet)? loggedIn,
     TResult Function()? loggedOut,
   }) {
     return initial?.call();
@@ -158,7 +160,7 @@ class _$_AuthInitial implements _AuthInitial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loggedIn,
+    TResult Function(Wallet selectedWallet)? loggedIn,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
@@ -171,9 +173,9 @@ class _$_AuthInitial implements _AuthInitial {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_AuthInitial value) initial,
-    required TResult Function(_AuthLoggedIn value) loggedIn,
-    required TResult Function(_AuthLoggedOut value) loggedOut,
+    required TResult Function(AuthInitial value) initial,
+    required TResult Function(AuthLoggedIn value) loggedIn,
+    required TResult Function(AuthLoggedOut value) loggedOut,
   }) {
     return initial(this);
   }
@@ -181,9 +183,9 @@ class _$_AuthInitial implements _AuthInitial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_AuthInitial value)? initial,
-    TResult Function(_AuthLoggedIn value)? loggedIn,
-    TResult Function(_AuthLoggedOut value)? loggedOut,
+    TResult Function(AuthInitial value)? initial,
+    TResult Function(AuthLoggedIn value)? loggedIn,
+    TResult Function(AuthLoggedOut value)? loggedOut,
   }) {
     return initial?.call(this);
   }
@@ -191,9 +193,9 @@ class _$_AuthInitial implements _AuthInitial {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_AuthInitial value)? initial,
-    TResult Function(_AuthLoggedIn value)? loggedIn,
-    TResult Function(_AuthLoggedOut value)? loggedOut,
+    TResult Function(AuthInitial value)? initial,
+    TResult Function(AuthLoggedIn value)? loggedIn,
+    TResult Function(AuthLoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -203,77 +205,111 @@ class _$_AuthInitial implements _AuthInitial {
   }
 }
 
-abstract class _AuthInitial implements AuthEvent {
-  const factory _AuthInitial() = _$_AuthInitial;
+abstract class AuthInitial implements AuthEvent {
+  const factory AuthInitial() = _$AuthInitial;
 }
 
 /// @nodoc
-abstract class _$AuthLoggedInCopyWith<$Res> {
-  factory _$AuthLoggedInCopyWith(
-          _AuthLoggedIn value, $Res Function(_AuthLoggedIn) then) =
-      __$AuthLoggedInCopyWithImpl<$Res>;
+abstract class $AuthLoggedInCopyWith<$Res> {
+  factory $AuthLoggedInCopyWith(
+          AuthLoggedIn value, $Res Function(AuthLoggedIn) then) =
+      _$AuthLoggedInCopyWithImpl<$Res>;
+  $Res call({Wallet selectedWallet});
+
+  $WalletCopyWith<$Res> get selectedWallet;
 }
 
 /// @nodoc
-class __$AuthLoggedInCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
-    implements _$AuthLoggedInCopyWith<$Res> {
-  __$AuthLoggedInCopyWithImpl(
-      _AuthLoggedIn _value, $Res Function(_AuthLoggedIn) _then)
-      : super(_value, (v) => _then(v as _AuthLoggedIn));
+class _$AuthLoggedInCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
+    implements $AuthLoggedInCopyWith<$Res> {
+  _$AuthLoggedInCopyWithImpl(
+      AuthLoggedIn _value, $Res Function(AuthLoggedIn) _then)
+      : super(_value, (v) => _then(v as AuthLoggedIn));
 
   @override
-  _AuthLoggedIn get _value => super._value as _AuthLoggedIn;
+  AuthLoggedIn get _value => super._value as AuthLoggedIn;
+
+  @override
+  $Res call({
+    Object? selectedWallet = freezed,
+  }) {
+    return _then(AuthLoggedIn(
+      selectedWallet == freezed
+          ? _value.selectedWallet
+          : selectedWallet // ignore: cast_nullable_to_non_nullable
+              as Wallet,
+    ));
+  }
+
+  @override
+  $WalletCopyWith<$Res> get selectedWallet {
+    return $WalletCopyWith<$Res>(_value.selectedWallet, (value) {
+      return _then(_value.copyWith(selectedWallet: value));
+    });
+  }
 }
 
 /// @nodoc
 
-class _$_AuthLoggedIn implements _AuthLoggedIn {
-  const _$_AuthLoggedIn();
+class _$AuthLoggedIn implements AuthLoggedIn {
+  const _$AuthLoggedIn(this.selectedWallet);
+
+  @override
+  final Wallet selectedWallet;
 
   @override
   String toString() {
-    return 'AuthEvent.loggedIn()';
+    return 'AuthEvent.loggedIn(selectedWallet: $selectedWallet)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _AuthLoggedIn);
+        (other.runtimeType == runtimeType &&
+            other is AuthLoggedIn &&
+            const DeepCollectionEquality()
+                .equals(other.selectedWallet, selectedWallet));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(selectedWallet));
+
+  @JsonKey(ignore: true)
+  @override
+  $AuthLoggedInCopyWith<AuthLoggedIn> get copyWith =>
+      _$AuthLoggedInCopyWithImpl<AuthLoggedIn>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loggedIn,
+    required TResult Function(Wallet selectedWallet) loggedIn,
     required TResult Function() loggedOut,
   }) {
-    return loggedIn();
+    return loggedIn(selectedWallet);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loggedIn,
+    TResult Function(Wallet selectedWallet)? loggedIn,
     TResult Function()? loggedOut,
   }) {
-    return loggedIn?.call();
+    return loggedIn?.call(selectedWallet);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loggedIn,
+    TResult Function(Wallet selectedWallet)? loggedIn,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
     if (loggedIn != null) {
-      return loggedIn();
+      return loggedIn(selectedWallet);
     }
     return orElse();
   }
@@ -281,9 +317,9 @@ class _$_AuthLoggedIn implements _AuthLoggedIn {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_AuthInitial value) initial,
-    required TResult Function(_AuthLoggedIn value) loggedIn,
-    required TResult Function(_AuthLoggedOut value) loggedOut,
+    required TResult Function(AuthInitial value) initial,
+    required TResult Function(AuthLoggedIn value) loggedIn,
+    required TResult Function(AuthLoggedOut value) loggedOut,
   }) {
     return loggedIn(this);
   }
@@ -291,9 +327,9 @@ class _$_AuthLoggedIn implements _AuthLoggedIn {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_AuthInitial value)? initial,
-    TResult Function(_AuthLoggedIn value)? loggedIn,
-    TResult Function(_AuthLoggedOut value)? loggedOut,
+    TResult Function(AuthInitial value)? initial,
+    TResult Function(AuthLoggedIn value)? loggedIn,
+    TResult Function(AuthLoggedOut value)? loggedOut,
   }) {
     return loggedIn?.call(this);
   }
@@ -301,9 +337,9 @@ class _$_AuthLoggedIn implements _AuthLoggedIn {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_AuthInitial value)? initial,
-    TResult Function(_AuthLoggedIn value)? loggedIn,
-    TResult Function(_AuthLoggedOut value)? loggedOut,
+    TResult Function(AuthInitial value)? initial,
+    TResult Function(AuthLoggedIn value)? loggedIn,
+    TResult Function(AuthLoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
     if (loggedIn != null) {
@@ -313,32 +349,37 @@ class _$_AuthLoggedIn implements _AuthLoggedIn {
   }
 }
 
-abstract class _AuthLoggedIn implements AuthEvent {
-  const factory _AuthLoggedIn() = _$_AuthLoggedIn;
+abstract class AuthLoggedIn implements AuthEvent {
+  const factory AuthLoggedIn(Wallet selectedWallet) = _$AuthLoggedIn;
+
+  Wallet get selectedWallet;
+  @JsonKey(ignore: true)
+  $AuthLoggedInCopyWith<AuthLoggedIn> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$AuthLoggedOutCopyWith<$Res> {
-  factory _$AuthLoggedOutCopyWith(
-          _AuthLoggedOut value, $Res Function(_AuthLoggedOut) then) =
-      __$AuthLoggedOutCopyWithImpl<$Res>;
+abstract class $AuthLoggedOutCopyWith<$Res> {
+  factory $AuthLoggedOutCopyWith(
+          AuthLoggedOut value, $Res Function(AuthLoggedOut) then) =
+      _$AuthLoggedOutCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$AuthLoggedOutCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
-    implements _$AuthLoggedOutCopyWith<$Res> {
-  __$AuthLoggedOutCopyWithImpl(
-      _AuthLoggedOut _value, $Res Function(_AuthLoggedOut) _then)
-      : super(_value, (v) => _then(v as _AuthLoggedOut));
+class _$AuthLoggedOutCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
+    implements $AuthLoggedOutCopyWith<$Res> {
+  _$AuthLoggedOutCopyWithImpl(
+      AuthLoggedOut _value, $Res Function(AuthLoggedOut) _then)
+      : super(_value, (v) => _then(v as AuthLoggedOut));
 
   @override
-  _AuthLoggedOut get _value => super._value as _AuthLoggedOut;
+  AuthLoggedOut get _value => super._value as AuthLoggedOut;
 }
 
 /// @nodoc
 
-class _$_AuthLoggedOut implements _AuthLoggedOut {
-  const _$_AuthLoggedOut();
+class _$AuthLoggedOut implements AuthLoggedOut {
+  const _$AuthLoggedOut();
 
   @override
   String toString() {
@@ -348,7 +389,7 @@ class _$_AuthLoggedOut implements _AuthLoggedOut {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _AuthLoggedOut);
+        (other.runtimeType == runtimeType && other is AuthLoggedOut);
   }
 
   @override
@@ -358,7 +399,7 @@ class _$_AuthLoggedOut implements _AuthLoggedOut {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loggedIn,
+    required TResult Function(Wallet selectedWallet) loggedIn,
     required TResult Function() loggedOut,
   }) {
     return loggedOut();
@@ -368,7 +409,7 @@ class _$_AuthLoggedOut implements _AuthLoggedOut {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loggedIn,
+    TResult Function(Wallet selectedWallet)? loggedIn,
     TResult Function()? loggedOut,
   }) {
     return loggedOut?.call();
@@ -378,7 +419,7 @@ class _$_AuthLoggedOut implements _AuthLoggedOut {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loggedIn,
+    TResult Function(Wallet selectedWallet)? loggedIn,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
@@ -391,9 +432,9 @@ class _$_AuthLoggedOut implements _AuthLoggedOut {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_AuthInitial value) initial,
-    required TResult Function(_AuthLoggedIn value) loggedIn,
-    required TResult Function(_AuthLoggedOut value) loggedOut,
+    required TResult Function(AuthInitial value) initial,
+    required TResult Function(AuthLoggedIn value) loggedIn,
+    required TResult Function(AuthLoggedOut value) loggedOut,
   }) {
     return loggedOut(this);
   }
@@ -401,9 +442,9 @@ class _$_AuthLoggedOut implements _AuthLoggedOut {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_AuthInitial value)? initial,
-    TResult Function(_AuthLoggedIn value)? loggedIn,
-    TResult Function(_AuthLoggedOut value)? loggedOut,
+    TResult Function(AuthInitial value)? initial,
+    TResult Function(AuthLoggedIn value)? loggedIn,
+    TResult Function(AuthLoggedOut value)? loggedOut,
   }) {
     return loggedOut?.call(this);
   }
@@ -411,9 +452,9 @@ class _$_AuthLoggedOut implements _AuthLoggedOut {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_AuthInitial value)? initial,
-    TResult Function(_AuthLoggedIn value)? loggedIn,
-    TResult Function(_AuthLoggedOut value)? loggedOut,
+    TResult Function(AuthInitial value)? initial,
+    TResult Function(AuthLoggedIn value)? loggedIn,
+    TResult Function(AuthLoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
     if (loggedOut != null) {
@@ -423,8 +464,8 @@ class _$_AuthLoggedOut implements _AuthLoggedOut {
   }
 }
 
-abstract class _AuthLoggedOut implements AuthEvent {
-  const factory _AuthLoggedOut() = _$_AuthLoggedOut;
+abstract class AuthLoggedOut implements AuthEvent {
+  const factory AuthLoggedOut() = _$AuthLoggedOut;
 }
 
 /// @nodoc
@@ -436,7 +477,7 @@ class _$AuthStateTearOff {
   }
 
   AuthenticatedNoPassword authenticatedNoPassword(
-      {required String walletAddress}) {
+      {required Wallet walletAddress}) {
     return AuthenticatedNoPassword(
       walletAddress: walletAddress,
     );
@@ -457,21 +498,21 @@ mixin _$AuthState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() unauthenticated,
-    required TResult Function(String walletAddress) authenticatedNoPassword,
+    required TResult Function(Wallet walletAddress) authenticatedNoPassword,
     required TResult Function(Wallet wallet) authenticated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? unauthenticated,
-    TResult Function(String walletAddress)? authenticatedNoPassword,
+    TResult Function(Wallet walletAddress)? authenticatedNoPassword,
     TResult Function(Wallet wallet)? authenticated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? unauthenticated,
-    TResult Function(String walletAddress)? authenticatedNoPassword,
+    TResult Function(Wallet walletAddress)? authenticatedNoPassword,
     TResult Function(Wallet wallet)? authenticated,
     required TResult orElse(),
   }) =>
@@ -557,7 +598,7 @@ class _$UnAuthenticated implements UnAuthenticated {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() unauthenticated,
-    required TResult Function(String walletAddress) authenticatedNoPassword,
+    required TResult Function(Wallet walletAddress) authenticatedNoPassword,
     required TResult Function(Wallet wallet) authenticated,
   }) {
     return unauthenticated();
@@ -567,7 +608,7 @@ class _$UnAuthenticated implements UnAuthenticated {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? unauthenticated,
-    TResult Function(String walletAddress)? authenticatedNoPassword,
+    TResult Function(Wallet walletAddress)? authenticatedNoPassword,
     TResult Function(Wallet wallet)? authenticated,
   }) {
     return unauthenticated?.call();
@@ -577,7 +618,7 @@ class _$UnAuthenticated implements UnAuthenticated {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? unauthenticated,
-    TResult Function(String walletAddress)? authenticatedNoPassword,
+    TResult Function(Wallet walletAddress)? authenticatedNoPassword,
     TResult Function(Wallet wallet)? authenticated,
     required TResult orElse(),
   }) {
@@ -632,7 +673,9 @@ abstract class $AuthenticatedNoPasswordCopyWith<$Res> {
   factory $AuthenticatedNoPasswordCopyWith(AuthenticatedNoPassword value,
           $Res Function(AuthenticatedNoPassword) then) =
       _$AuthenticatedNoPasswordCopyWithImpl<$Res>;
-  $Res call({String walletAddress});
+  $Res call({Wallet walletAddress});
+
+  $WalletCopyWith<$Res> get walletAddress;
 }
 
 /// @nodoc
@@ -654,8 +697,15 @@ class _$AuthenticatedNoPasswordCopyWithImpl<$Res>
       walletAddress: walletAddress == freezed
           ? _value.walletAddress
           : walletAddress // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Wallet,
     ));
+  }
+
+  @override
+  $WalletCopyWith<$Res> get walletAddress {
+    return $WalletCopyWith<$Res>(_value.walletAddress, (value) {
+      return _then(_value.copyWith(walletAddress: value));
+    });
   }
 }
 
@@ -665,7 +715,7 @@ class _$AuthenticatedNoPassword implements AuthenticatedNoPassword {
   const _$AuthenticatedNoPassword({required this.walletAddress});
 
   @override
-  final String walletAddress;
+  final Wallet walletAddress;
 
   @override
   String toString() {
@@ -695,7 +745,7 @@ class _$AuthenticatedNoPassword implements AuthenticatedNoPassword {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() unauthenticated,
-    required TResult Function(String walletAddress) authenticatedNoPassword,
+    required TResult Function(Wallet walletAddress) authenticatedNoPassword,
     required TResult Function(Wallet wallet) authenticated,
   }) {
     return authenticatedNoPassword(walletAddress);
@@ -705,7 +755,7 @@ class _$AuthenticatedNoPassword implements AuthenticatedNoPassword {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? unauthenticated,
-    TResult Function(String walletAddress)? authenticatedNoPassword,
+    TResult Function(Wallet walletAddress)? authenticatedNoPassword,
     TResult Function(Wallet wallet)? authenticated,
   }) {
     return authenticatedNoPassword?.call(walletAddress);
@@ -715,7 +765,7 @@ class _$AuthenticatedNoPassword implements AuthenticatedNoPassword {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? unauthenticated,
-    TResult Function(String walletAddress)? authenticatedNoPassword,
+    TResult Function(Wallet walletAddress)? authenticatedNoPassword,
     TResult Function(Wallet wallet)? authenticated,
     required TResult orElse(),
   }) {
@@ -762,10 +812,10 @@ class _$AuthenticatedNoPassword implements AuthenticatedNoPassword {
 }
 
 abstract class AuthenticatedNoPassword implements AuthState {
-  const factory AuthenticatedNoPassword({required String walletAddress}) =
+  const factory AuthenticatedNoPassword({required Wallet walletAddress}) =
       _$AuthenticatedNoPassword;
 
-  String get walletAddress;
+  Wallet get walletAddress;
   @JsonKey(ignore: true)
   $AuthenticatedNoPasswordCopyWith<AuthenticatedNoPassword> get copyWith =>
       throw _privateConstructorUsedError;
@@ -845,7 +895,7 @@ class _$Authenticated implements Authenticated {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() unauthenticated,
-    required TResult Function(String walletAddress) authenticatedNoPassword,
+    required TResult Function(Wallet walletAddress) authenticatedNoPassword,
     required TResult Function(Wallet wallet) authenticated,
   }) {
     return authenticated(wallet);
@@ -855,7 +905,7 @@ class _$Authenticated implements Authenticated {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? unauthenticated,
-    TResult Function(String walletAddress)? authenticatedNoPassword,
+    TResult Function(Wallet walletAddress)? authenticatedNoPassword,
     TResult Function(Wallet wallet)? authenticated,
   }) {
     return authenticated?.call(wallet);
@@ -865,7 +915,7 @@ class _$Authenticated implements Authenticated {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? unauthenticated,
-    TResult Function(String walletAddress)? authenticatedNoPassword,
+    TResult Function(Wallet walletAddress)? authenticatedNoPassword,
     TResult Function(Wallet wallet)? authenticated,
     required TResult orElse(),
   }) {
