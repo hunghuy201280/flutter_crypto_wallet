@@ -66,5 +66,6 @@
   "thisYear" : "This Year",
   "seeAll" : "See all",
   "about" : "About",
-  "passwordNotMatch" : "Password not match"
+  "passwordNotMatch" : "Password not match",
+  "secretRecoveryPhrase" : "Secret Recovery Phrase"
 }

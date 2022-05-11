@@ -22,9 +22,9 @@ class _$ImportWalletEventTearOff {
     return const ImportWalletImported();
   }
 
-  ImportWalletPrivateKeyChanged privateKeyChanged(String privateKey) {
-    return ImportWalletPrivateKeyChanged(
-      privateKey,
+  ImportWalletMnemonicChanged mnemonicChanged(String mnemonic) {
+    return ImportWalletMnemonicChanged(
+      mnemonic,
     );
   }
 
@@ -55,7 +55,7 @@ mixin _$ImportWalletEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() imported,
-    required TResult Function(String privateKey) privateKeyChanged,
+    required TResult Function(String mnemonic) mnemonicChanged,
     required TResult Function(String password) passwordChanged,
     required TResult Function(String password) rePasswordChanged,
     required TResult Function(bool value) checkBoxChanged,
@@ -64,7 +64,7 @@ mixin _$ImportWalletEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? imported,
-    TResult Function(String privateKey)? privateKeyChanged,
+    TResult Function(String mnemonic)? mnemonicChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function(String password)? rePasswordChanged,
     TResult Function(bool value)? checkBoxChanged,
@@ -73,7 +73,7 @@ mixin _$ImportWalletEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? imported,
-    TResult Function(String privateKey)? privateKeyChanged,
+    TResult Function(String mnemonic)? mnemonicChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function(String password)? rePasswordChanged,
     TResult Function(bool value)? checkBoxChanged,
@@ -83,8 +83,8 @@ mixin _$ImportWalletEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ImportWalletImported value) imported,
-    required TResult Function(ImportWalletPrivateKeyChanged value)
-        privateKeyChanged,
+    required TResult Function(ImportWalletMnemonicChanged value)
+        mnemonicChanged,
     required TResult Function(ImportWalletPasswordChanged value)
         passwordChanged,
     required TResult Function(ImportWalletRePasswordChanged value)
@@ -96,7 +96,7 @@ mixin _$ImportWalletEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(ImportWalletImported value)? imported,
-    TResult Function(ImportWalletPrivateKeyChanged value)? privateKeyChanged,
+    TResult Function(ImportWalletMnemonicChanged value)? mnemonicChanged,
     TResult Function(ImportWalletPasswordChanged value)? passwordChanged,
     TResult Function(ImportWalletRePasswordChanged value)? rePasswordChanged,
     TResult Function(ImportWalletCheckBoxChanged value)? checkBoxChanged,
@@ -105,7 +105,7 @@ mixin _$ImportWalletEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ImportWalletImported value)? imported,
-    TResult Function(ImportWalletPrivateKeyChanged value)? privateKeyChanged,
+    TResult Function(ImportWalletMnemonicChanged value)? mnemonicChanged,
     TResult Function(ImportWalletPasswordChanged value)? passwordChanged,
     TResult Function(ImportWalletRePasswordChanged value)? rePasswordChanged,
     TResult Function(ImportWalletCheckBoxChanged value)? checkBoxChanged,
@@ -181,7 +181,7 @@ class _$ImportWalletImported
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() imported,
-    required TResult Function(String privateKey) privateKeyChanged,
+    required TResult Function(String mnemonic) mnemonicChanged,
     required TResult Function(String password) passwordChanged,
     required TResult Function(String password) rePasswordChanged,
     required TResult Function(bool value) checkBoxChanged,
@@ -193,7 +193,7 @@ class _$ImportWalletImported
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? imported,
-    TResult Function(String privateKey)? privateKeyChanged,
+    TResult Function(String mnemonic)? mnemonicChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function(String password)? rePasswordChanged,
     TResult Function(bool value)? checkBoxChanged,
@@ -205,7 +205,7 @@ class _$ImportWalletImported
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? imported,
-    TResult Function(String privateKey)? privateKeyChanged,
+    TResult Function(String mnemonic)? mnemonicChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function(String password)? rePasswordChanged,
     TResult Function(bool value)? checkBoxChanged,
@@ -221,8 +221,8 @@ class _$ImportWalletImported
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ImportWalletImported value) imported,
-    required TResult Function(ImportWalletPrivateKeyChanged value)
-        privateKeyChanged,
+    required TResult Function(ImportWalletMnemonicChanged value)
+        mnemonicChanged,
     required TResult Function(ImportWalletPasswordChanged value)
         passwordChanged,
     required TResult Function(ImportWalletRePasswordChanged value)
@@ -237,7 +237,7 @@ class _$ImportWalletImported
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(ImportWalletImported value)? imported,
-    TResult Function(ImportWalletPrivateKeyChanged value)? privateKeyChanged,
+    TResult Function(ImportWalletMnemonicChanged value)? mnemonicChanged,
     TResult Function(ImportWalletPasswordChanged value)? passwordChanged,
     TResult Function(ImportWalletRePasswordChanged value)? rePasswordChanged,
     TResult Function(ImportWalletCheckBoxChanged value)? checkBoxChanged,
@@ -249,7 +249,7 @@ class _$ImportWalletImported
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ImportWalletImported value)? imported,
-    TResult Function(ImportWalletPrivateKeyChanged value)? privateKeyChanged,
+    TResult Function(ImportWalletMnemonicChanged value)? mnemonicChanged,
     TResult Function(ImportWalletPasswordChanged value)? passwordChanged,
     TResult Function(ImportWalletRePasswordChanged value)? rePasswordChanged,
     TResult Function(ImportWalletCheckBoxChanged value)? checkBoxChanged,
@@ -267,35 +267,34 @@ abstract class ImportWalletImported implements ImportWalletEvent {
 }
 
 /// @nodoc
-abstract class $ImportWalletPrivateKeyChangedCopyWith<$Res> {
-  factory $ImportWalletPrivateKeyChangedCopyWith(
-          ImportWalletPrivateKeyChanged value,
-          $Res Function(ImportWalletPrivateKeyChanged) then) =
-      _$ImportWalletPrivateKeyChangedCopyWithImpl<$Res>;
-  $Res call({String privateKey});
+abstract class $ImportWalletMnemonicChangedCopyWith<$Res> {
+  factory $ImportWalletMnemonicChangedCopyWith(
+          ImportWalletMnemonicChanged value,
+          $Res Function(ImportWalletMnemonicChanged) then) =
+      _$ImportWalletMnemonicChangedCopyWithImpl<$Res>;
+  $Res call({String mnemonic});
 }
 
 /// @nodoc
-class _$ImportWalletPrivateKeyChangedCopyWithImpl<$Res>
+class _$ImportWalletMnemonicChangedCopyWithImpl<$Res>
     extends _$ImportWalletEventCopyWithImpl<$Res>
-    implements $ImportWalletPrivateKeyChangedCopyWith<$Res> {
-  _$ImportWalletPrivateKeyChangedCopyWithImpl(
-      ImportWalletPrivateKeyChanged _value,
-      $Res Function(ImportWalletPrivateKeyChanged) _then)
-      : super(_value, (v) => _then(v as ImportWalletPrivateKeyChanged));
+    implements $ImportWalletMnemonicChangedCopyWith<$Res> {
+  _$ImportWalletMnemonicChangedCopyWithImpl(ImportWalletMnemonicChanged _value,
+      $Res Function(ImportWalletMnemonicChanged) _then)
+      : super(_value, (v) => _then(v as ImportWalletMnemonicChanged));
 
   @override
-  ImportWalletPrivateKeyChanged get _value =>
-      super._value as ImportWalletPrivateKeyChanged;
+  ImportWalletMnemonicChanged get _value =>
+      super._value as ImportWalletMnemonicChanged;
 
   @override
   $Res call({
-    Object? privateKey = freezed,
+    Object? mnemonic = freezed,
   }) {
-    return _then(ImportWalletPrivateKeyChanged(
-      privateKey == freezed
-          ? _value.privateKey
-          : privateKey // ignore: cast_nullable_to_non_nullable
+    return _then(ImportWalletMnemonicChanged(
+      mnemonic == freezed
+          ? _value.mnemonic
+          : mnemonic // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -303,82 +302,81 @@ class _$ImportWalletPrivateKeyChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ImportWalletPrivateKeyChanged
+class _$ImportWalletMnemonicChanged
     with DiagnosticableTreeMixin
-    implements ImportWalletPrivateKeyChanged {
-  const _$ImportWalletPrivateKeyChanged(this.privateKey);
+    implements ImportWalletMnemonicChanged {
+  const _$ImportWalletMnemonicChanged(this.mnemonic);
 
   @override
-  final String privateKey;
+  final String mnemonic;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'ImportWalletEvent.privateKeyChanged(privateKey: $privateKey)';
+    return 'ImportWalletEvent.mnemonicChanged(mnemonic: $mnemonic)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'ImportWalletEvent.privateKeyChanged'))
-      ..add(DiagnosticsProperty('privateKey', privateKey));
+      ..add(DiagnosticsProperty('type', 'ImportWalletEvent.mnemonicChanged'))
+      ..add(DiagnosticsProperty('mnemonic', mnemonic));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is ImportWalletPrivateKeyChanged &&
-            const DeepCollectionEquality()
-                .equals(other.privateKey, privateKey));
+            other is ImportWalletMnemonicChanged &&
+            const DeepCollectionEquality().equals(other.mnemonic, mnemonic));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(privateKey));
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(mnemonic));
 
   @JsonKey(ignore: true)
   @override
-  $ImportWalletPrivateKeyChangedCopyWith<ImportWalletPrivateKeyChanged>
-      get copyWith => _$ImportWalletPrivateKeyChangedCopyWithImpl<
-          ImportWalletPrivateKeyChanged>(this, _$identity);
+  $ImportWalletMnemonicChangedCopyWith<ImportWalletMnemonicChanged>
+      get copyWith => _$ImportWalletMnemonicChangedCopyWithImpl<
+          ImportWalletMnemonicChanged>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() imported,
-    required TResult Function(String privateKey) privateKeyChanged,
+    required TResult Function(String mnemonic) mnemonicChanged,
     required TResult Function(String password) passwordChanged,
     required TResult Function(String password) rePasswordChanged,
     required TResult Function(bool value) checkBoxChanged,
   }) {
-    return privateKeyChanged(privateKey);
+    return mnemonicChanged(mnemonic);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? imported,
-    TResult Function(String privateKey)? privateKeyChanged,
+    TResult Function(String mnemonic)? mnemonicChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function(String password)? rePasswordChanged,
     TResult Function(bool value)? checkBoxChanged,
   }) {
-    return privateKeyChanged?.call(privateKey);
+    return mnemonicChanged?.call(mnemonic);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? imported,
-    TResult Function(String privateKey)? privateKeyChanged,
+    TResult Function(String mnemonic)? mnemonicChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function(String password)? rePasswordChanged,
     TResult Function(bool value)? checkBoxChanged,
     required TResult orElse(),
   }) {
-    if (privateKeyChanged != null) {
-      return privateKeyChanged(privateKey);
+    if (mnemonicChanged != null) {
+      return mnemonicChanged(mnemonic);
     }
     return orElse();
   }
@@ -387,8 +385,8 @@ class _$ImportWalletPrivateKeyChanged
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ImportWalletImported value) imported,
-    required TResult Function(ImportWalletPrivateKeyChanged value)
-        privateKeyChanged,
+    required TResult Function(ImportWalletMnemonicChanged value)
+        mnemonicChanged,
     required TResult Function(ImportWalletPasswordChanged value)
         passwordChanged,
     required TResult Function(ImportWalletRePasswordChanged value)
@@ -396,45 +394,45 @@ class _$ImportWalletPrivateKeyChanged
     required TResult Function(ImportWalletCheckBoxChanged value)
         checkBoxChanged,
   }) {
-    return privateKeyChanged(this);
+    return mnemonicChanged(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(ImportWalletImported value)? imported,
-    TResult Function(ImportWalletPrivateKeyChanged value)? privateKeyChanged,
+    TResult Function(ImportWalletMnemonicChanged value)? mnemonicChanged,
     TResult Function(ImportWalletPasswordChanged value)? passwordChanged,
     TResult Function(ImportWalletRePasswordChanged value)? rePasswordChanged,
     TResult Function(ImportWalletCheckBoxChanged value)? checkBoxChanged,
   }) {
-    return privateKeyChanged?.call(this);
+    return mnemonicChanged?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ImportWalletImported value)? imported,
-    TResult Function(ImportWalletPrivateKeyChanged value)? privateKeyChanged,
+    TResult Function(ImportWalletMnemonicChanged value)? mnemonicChanged,
     TResult Function(ImportWalletPasswordChanged value)? passwordChanged,
     TResult Function(ImportWalletRePasswordChanged value)? rePasswordChanged,
     TResult Function(ImportWalletCheckBoxChanged value)? checkBoxChanged,
     required TResult orElse(),
   }) {
-    if (privateKeyChanged != null) {
-      return privateKeyChanged(this);
+    if (mnemonicChanged != null) {
+      return mnemonicChanged(this);
     }
     return orElse();
   }
 }
 
-abstract class ImportWalletPrivateKeyChanged implements ImportWalletEvent {
-  const factory ImportWalletPrivateKeyChanged(String privateKey) =
-      _$ImportWalletPrivateKeyChanged;
+abstract class ImportWalletMnemonicChanged implements ImportWalletEvent {
+  const factory ImportWalletMnemonicChanged(String mnemonic) =
+      _$ImportWalletMnemonicChanged;
 
-  String get privateKey;
+  String get mnemonic;
   @JsonKey(ignore: true)
-  $ImportWalletPrivateKeyChangedCopyWith<ImportWalletPrivateKeyChanged>
+  $ImportWalletMnemonicChangedCopyWith<ImportWalletMnemonicChanged>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -517,7 +515,7 @@ class _$ImportWalletPasswordChanged
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() imported,
-    required TResult Function(String privateKey) privateKeyChanged,
+    required TResult Function(String mnemonic) mnemonicChanged,
     required TResult Function(String password) passwordChanged,
     required TResult Function(String password) rePasswordChanged,
     required TResult Function(bool value) checkBoxChanged,
@@ -529,7 +527,7 @@ class _$ImportWalletPasswordChanged
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? imported,
-    TResult Function(String privateKey)? privateKeyChanged,
+    TResult Function(String mnemonic)? mnemonicChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function(String password)? rePasswordChanged,
     TResult Function(bool value)? checkBoxChanged,
@@ -541,7 +539,7 @@ class _$ImportWalletPasswordChanged
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? imported,
-    TResult Function(String privateKey)? privateKeyChanged,
+    TResult Function(String mnemonic)? mnemonicChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function(String password)? rePasswordChanged,
     TResult Function(bool value)? checkBoxChanged,
@@ -557,8 +555,8 @@ class _$ImportWalletPasswordChanged
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ImportWalletImported value) imported,
-    required TResult Function(ImportWalletPrivateKeyChanged value)
-        privateKeyChanged,
+    required TResult Function(ImportWalletMnemonicChanged value)
+        mnemonicChanged,
     required TResult Function(ImportWalletPasswordChanged value)
         passwordChanged,
     required TResult Function(ImportWalletRePasswordChanged value)
@@ -573,7 +571,7 @@ class _$ImportWalletPasswordChanged
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(ImportWalletImported value)? imported,
-    TResult Function(ImportWalletPrivateKeyChanged value)? privateKeyChanged,
+    TResult Function(ImportWalletMnemonicChanged value)? mnemonicChanged,
     TResult Function(ImportWalletPasswordChanged value)? passwordChanged,
     TResult Function(ImportWalletRePasswordChanged value)? rePasswordChanged,
     TResult Function(ImportWalletCheckBoxChanged value)? checkBoxChanged,
@@ -585,7 +583,7 @@ class _$ImportWalletPasswordChanged
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ImportWalletImported value)? imported,
-    TResult Function(ImportWalletPrivateKeyChanged value)? privateKeyChanged,
+    TResult Function(ImportWalletMnemonicChanged value)? mnemonicChanged,
     TResult Function(ImportWalletPasswordChanged value)? passwordChanged,
     TResult Function(ImportWalletRePasswordChanged value)? rePasswordChanged,
     TResult Function(ImportWalletCheckBoxChanged value)? checkBoxChanged,
@@ -688,7 +686,7 @@ class _$ImportWalletRePasswordChanged
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() imported,
-    required TResult Function(String privateKey) privateKeyChanged,
+    required TResult Function(String mnemonic) mnemonicChanged,
     required TResult Function(String password) passwordChanged,
     required TResult Function(String password) rePasswordChanged,
     required TResult Function(bool value) checkBoxChanged,
@@ -700,7 +698,7 @@ class _$ImportWalletRePasswordChanged
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? imported,
-    TResult Function(String privateKey)? privateKeyChanged,
+    TResult Function(String mnemonic)? mnemonicChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function(String password)? rePasswordChanged,
     TResult Function(bool value)? checkBoxChanged,
@@ -712,7 +710,7 @@ class _$ImportWalletRePasswordChanged
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? imported,
-    TResult Function(String privateKey)? privateKeyChanged,
+    TResult Function(String mnemonic)? mnemonicChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function(String password)? rePasswordChanged,
     TResult Function(bool value)? checkBoxChanged,
@@ -728,8 +726,8 @@ class _$ImportWalletRePasswordChanged
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ImportWalletImported value) imported,
-    required TResult Function(ImportWalletPrivateKeyChanged value)
-        privateKeyChanged,
+    required TResult Function(ImportWalletMnemonicChanged value)
+        mnemonicChanged,
     required TResult Function(ImportWalletPasswordChanged value)
         passwordChanged,
     required TResult Function(ImportWalletRePasswordChanged value)
@@ -744,7 +742,7 @@ class _$ImportWalletRePasswordChanged
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(ImportWalletImported value)? imported,
-    TResult Function(ImportWalletPrivateKeyChanged value)? privateKeyChanged,
+    TResult Function(ImportWalletMnemonicChanged value)? mnemonicChanged,
     TResult Function(ImportWalletPasswordChanged value)? passwordChanged,
     TResult Function(ImportWalletRePasswordChanged value)? rePasswordChanged,
     TResult Function(ImportWalletCheckBoxChanged value)? checkBoxChanged,
@@ -756,7 +754,7 @@ class _$ImportWalletRePasswordChanged
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ImportWalletImported value)? imported,
-    TResult Function(ImportWalletPrivateKeyChanged value)? privateKeyChanged,
+    TResult Function(ImportWalletMnemonicChanged value)? mnemonicChanged,
     TResult Function(ImportWalletPasswordChanged value)? passwordChanged,
     TResult Function(ImportWalletRePasswordChanged value)? rePasswordChanged,
     TResult Function(ImportWalletCheckBoxChanged value)? checkBoxChanged,
@@ -858,7 +856,7 @@ class _$ImportWalletCheckBoxChanged
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() imported,
-    required TResult Function(String privateKey) privateKeyChanged,
+    required TResult Function(String mnemonic) mnemonicChanged,
     required TResult Function(String password) passwordChanged,
     required TResult Function(String password) rePasswordChanged,
     required TResult Function(bool value) checkBoxChanged,
@@ -870,7 +868,7 @@ class _$ImportWalletCheckBoxChanged
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? imported,
-    TResult Function(String privateKey)? privateKeyChanged,
+    TResult Function(String mnemonic)? mnemonicChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function(String password)? rePasswordChanged,
     TResult Function(bool value)? checkBoxChanged,
@@ -882,7 +880,7 @@ class _$ImportWalletCheckBoxChanged
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? imported,
-    TResult Function(String privateKey)? privateKeyChanged,
+    TResult Function(String mnemonic)? mnemonicChanged,
     TResult Function(String password)? passwordChanged,
     TResult Function(String password)? rePasswordChanged,
     TResult Function(bool value)? checkBoxChanged,
@@ -898,8 +896,8 @@ class _$ImportWalletCheckBoxChanged
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ImportWalletImported value) imported,
-    required TResult Function(ImportWalletPrivateKeyChanged value)
-        privateKeyChanged,
+    required TResult Function(ImportWalletMnemonicChanged value)
+        mnemonicChanged,
     required TResult Function(ImportWalletPasswordChanged value)
         passwordChanged,
     required TResult Function(ImportWalletRePasswordChanged value)
@@ -914,7 +912,7 @@ class _$ImportWalletCheckBoxChanged
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(ImportWalletImported value)? imported,
-    TResult Function(ImportWalletPrivateKeyChanged value)? privateKeyChanged,
+    TResult Function(ImportWalletMnemonicChanged value)? mnemonicChanged,
     TResult Function(ImportWalletPasswordChanged value)? passwordChanged,
     TResult Function(ImportWalletRePasswordChanged value)? rePasswordChanged,
     TResult Function(ImportWalletCheckBoxChanged value)? checkBoxChanged,
@@ -926,7 +924,7 @@ class _$ImportWalletCheckBoxChanged
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ImportWalletImported value)? imported,
-    TResult Function(ImportWalletPrivateKeyChanged value)? privateKeyChanged,
+    TResult Function(ImportWalletMnemonicChanged value)? mnemonicChanged,
     TResult Function(ImportWalletPasswordChanged value)? passwordChanged,
     TResult Function(ImportWalletRePasswordChanged value)? rePasswordChanged,
     TResult Function(ImportWalletCheckBoxChanged value)? checkBoxChanged,
@@ -954,13 +952,13 @@ class _$ImportWalletStateTearOff {
   const _$ImportWalletStateTearOff();
 
   _ImportWalletState call(
-      {required String privateKey,
+      {required String mnemonic,
       required String password,
       required String repeatPassword,
-      required bool boxChecked,
-      required Status<dynamic> status}) {
+      bool boxChecked = false,
+      Status<dynamic> status = const Idle()}) {
     return _ImportWalletState(
-      privateKey: privateKey,
+      mnemonic: mnemonic,
       password: password,
       repeatPassword: repeatPassword,
       boxChecked: boxChecked,
@@ -974,7 +972,7 @@ const $ImportWalletState = _$ImportWalletStateTearOff();
 
 /// @nodoc
 mixin _$ImportWalletState {
-  String get privateKey => throw _privateConstructorUsedError;
+  String get mnemonic => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
   String get repeatPassword => throw _privateConstructorUsedError;
   bool get boxChecked => throw _privateConstructorUsedError;
@@ -991,7 +989,7 @@ abstract class $ImportWalletStateCopyWith<$Res> {
           ImportWalletState value, $Res Function(ImportWalletState) then) =
       _$ImportWalletStateCopyWithImpl<$Res>;
   $Res call(
-      {String privateKey,
+      {String mnemonic,
       String password,
       String repeatPassword,
       bool boxChecked,
@@ -1009,16 +1007,16 @@ class _$ImportWalletStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? privateKey = freezed,
+    Object? mnemonic = freezed,
     Object? password = freezed,
     Object? repeatPassword = freezed,
     Object? boxChecked = freezed,
     Object? status = freezed,
   }) {
     return _then(_value.copyWith(
-      privateKey: privateKey == freezed
-          ? _value.privateKey
-          : privateKey // ignore: cast_nullable_to_non_nullable
+      mnemonic: mnemonic == freezed
+          ? _value.mnemonic
+          : mnemonic // ignore: cast_nullable_to_non_nullable
               as String,
       password: password == freezed
           ? _value.password
@@ -1048,7 +1046,7 @@ abstract class _$ImportWalletStateCopyWith<$Res>
       __$ImportWalletStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String privateKey,
+      {String mnemonic,
       String password,
       String repeatPassword,
       bool boxChecked,
@@ -1068,16 +1066,16 @@ class __$ImportWalletStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? privateKey = freezed,
+    Object? mnemonic = freezed,
     Object? password = freezed,
     Object? repeatPassword = freezed,
     Object? boxChecked = freezed,
     Object? status = freezed,
   }) {
     return _then(_ImportWalletState(
-      privateKey: privateKey == freezed
-          ? _value.privateKey
-          : privateKey // ignore: cast_nullable_to_non_nullable
+      mnemonic: mnemonic == freezed
+          ? _value.mnemonic
+          : mnemonic // ignore: cast_nullable_to_non_nullable
               as String,
       password: password == freezed
           ? _value.password
@@ -1104,27 +1102,29 @@ class __$ImportWalletStateCopyWithImpl<$Res>
 class _$_ImportWalletState extends _ImportWalletState
     with DiagnosticableTreeMixin {
   const _$_ImportWalletState(
-      {required this.privateKey,
+      {required this.mnemonic,
       required this.password,
       required this.repeatPassword,
-      required this.boxChecked,
-      required this.status})
+      this.boxChecked = false,
+      this.status = const Idle()})
       : super._();
 
   @override
-  final String privateKey;
+  final String mnemonic;
   @override
   final String password;
   @override
   final String repeatPassword;
+  @JsonKey()
   @override
   final bool boxChecked;
+  @JsonKey()
   @override
   final Status<dynamic> status;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'ImportWalletState(privateKey: $privateKey, password: $password, repeatPassword: $repeatPassword, boxChecked: $boxChecked, status: $status)';
+    return 'ImportWalletState(mnemonic: $mnemonic, password: $password, repeatPassword: $repeatPassword, boxChecked: $boxChecked, status: $status)';
   }
 
   @override
@@ -1132,7 +1132,7 @@ class _$_ImportWalletState extends _ImportWalletState
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'ImportWalletState'))
-      ..add(DiagnosticsProperty('privateKey', privateKey))
+      ..add(DiagnosticsProperty('mnemonic', mnemonic))
       ..add(DiagnosticsProperty('password', password))
       ..add(DiagnosticsProperty('repeatPassword', repeatPassword))
       ..add(DiagnosticsProperty('boxChecked', boxChecked))
@@ -1144,8 +1144,7 @@ class _$_ImportWalletState extends _ImportWalletState
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _ImportWalletState &&
-            const DeepCollectionEquality()
-                .equals(other.privateKey, privateKey) &&
+            const DeepCollectionEquality().equals(other.mnemonic, mnemonic) &&
             const DeepCollectionEquality().equals(other.password, password) &&
             const DeepCollectionEquality()
                 .equals(other.repeatPassword, repeatPassword) &&
@@ -1157,7 +1156,7 @@ class _$_ImportWalletState extends _ImportWalletState
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(privateKey),
+      const DeepCollectionEquality().hash(mnemonic),
       const DeepCollectionEquality().hash(password),
       const DeepCollectionEquality().hash(repeatPassword),
       const DeepCollectionEquality().hash(boxChecked),
@@ -1171,15 +1170,15 @@ class _$_ImportWalletState extends _ImportWalletState
 
 abstract class _ImportWalletState extends ImportWalletState {
   const factory _ImportWalletState(
-      {required String privateKey,
+      {required String mnemonic,
       required String password,
       required String repeatPassword,
-      required bool boxChecked,
-      required Status<dynamic> status}) = _$_ImportWalletState;
+      bool boxChecked,
+      Status<dynamic> status}) = _$_ImportWalletState;
   const _ImportWalletState._() : super._();
 
   @override
-  String get privateKey;
+  String get mnemonic;
   @override
   String get password;
   @override

@@ -579,6 +579,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Secret Recovery Phrase`
+  String get secretRecoveryPhrase {
+    return Intl.message(
+      'Secret Recovery Phrase',
+      name: 'secretRecoveryPhrase',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

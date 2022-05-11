@@ -1,10 +1,11 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:flutter_ntf_marketplace/entities/wallet/wallet.dart';
 import 'package:flutter_ntf_marketplace/services/local/local_provider.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+
+import '../../models/wallet/wallet.dart';
 
 part 'auth_bloc.freezed.dart';
 part 'auth_event.dart';

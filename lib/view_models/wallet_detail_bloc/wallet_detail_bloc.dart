@@ -8,7 +8,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
 
-import '../../entities/token/token.dart';
+import '../../models/token/token.dart';
 import '../../utils/helpers/status.dart';
 
 part 'wallet_detail_bloc.freezed.dart';

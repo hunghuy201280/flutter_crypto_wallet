@@ -4,8 +4,8 @@ part of 'import_wallet_bloc.dart';
 class ImportWalletEvent with _$ImportWalletEvent {
   const factory ImportWalletEvent.imported() = ImportWalletImported;
 
-  const factory ImportWalletEvent.privateKeyChanged(String privateKey) =
-      ImportWalletPrivateKeyChanged;
+  const factory ImportWalletEvent.mnemonicChanged(String mnemonic) =
+      ImportWalletMnemonicChanged;
   const factory ImportWalletEvent.passwordChanged(String password) =
       ImportWalletPasswordChanged;
   const factory ImportWalletEvent.rePasswordChanged(String password) =

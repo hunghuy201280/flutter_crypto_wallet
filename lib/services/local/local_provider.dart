@@ -1,6 +1,6 @@
 import 'package:injectable/injectable.dart';
 
-import '../../entities/wallet/wallet.dart';
+import '../../models/wallet/wallet.dart';
 import 'local_repository.dart';
 
 @singleton

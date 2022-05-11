@@ -5,7 +5,7 @@ import 'package:flutter_ntf_marketplace/utils/extensions.dart';
 import 'package:flutter_ntf_marketplace/views/shared_widgets/secondary_avatar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../entities/token/token.dart';
+import '../../../models/token/token.dart';
 
 class WalletCoinItem extends StatefulWidget {
   const WalletCoinItem({Key? key, required this.token}) : super(key: key);

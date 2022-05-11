@@ -7,9 +7,9 @@ class CreateWalletState with _$CreateWalletState {
     required String repeatPassword,
     required bool checkBox,
     @Default(1) int currentPage,
-    @Default(CreateWalletStatus.pure) CreateWalletStatus status,
+    @Default(Idle()) Status status,
     String? mnemonic,
-  })  = _CreateWalletState;
-   factory CreateWalletState.initial() =>
-      const CreateWalletState(password: '', repeatPassword: '', checkBox: false);
+  }) = _CreateWalletState;
+  factory CreateWalletState.initial() => const CreateWalletState(
+      password: '', repeatPassword: '', checkBox: false);
 }

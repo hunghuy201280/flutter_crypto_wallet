@@ -64,11 +64,11 @@ class _ImportWalletScreenState extends State<ImportWalletScreen> {
               children: [
                 16.verticalSpace,
                 PrimaryTextField(
-                  title: s.privateKey,
-                  hint: s.privateKey,
+                  title: s.secretRecoveryPhrase,
+                  hint: s.secretRecoveryPhrase,
                   maxLines: 5,
                   onChanged: (value) {
-                    _bloc.add(ImportWalletPrivateKeyChanged(value));
+                    _bloc.add(ImportWalletMnemonicChanged(value));
                   },
                   suffixIcon: Padding(
                     padding: EdgeInsets.only(right: 8.w),
@@ -79,6 +79,7 @@ class _ImportWalletScreenState extends State<ImportWalletScreen> {
                 PrimaryTextField(
                   title: s.newPassword,
                   obscureText: true,
+                  isHidden: true,
                   onChanged: (value) {
                     _bloc.add(ImportWalletPasswordChanged(value));
                   },
@@ -86,6 +87,7 @@ class _ImportWalletScreenState extends State<ImportWalletScreen> {
                 ),
                 24.verticalSpace,
                 PrimaryTextField(
+                  isHidden: true,
                   title: s.confirmPassword,
                   obscureText: true,
                   hint: s.password,

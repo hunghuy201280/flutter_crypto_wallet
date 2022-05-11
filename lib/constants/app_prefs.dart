@@ -1,7 +1,7 @@
-import 'package:flutter_ntf_marketplace/entities/prefs/configspref.dart';
 import 'package:injectable/injectable.dart';
 
-import '../entities/prefs/walletpref.dart';
+import '../models/prefs/configspref.dart';
+import '../models/prefs/walletpref.dart';
 
 @singleton
 class AppPref {

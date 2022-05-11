@@ -10,8 +10,8 @@ import 'package:hive_flutter/hive_flutter.dart' as _i4;
 import 'package:injectable/injectable.dart' as _i2;
 
 import '../constants/app_prefs.dart' as _i11;
-import '../entities/prefs/configspref.dart' as _i5;
-import '../entities/prefs/walletpref.dart' as _i10;
+import '../models/prefs/configspref.dart' as _i5;
+import '../models/prefs/walletpref.dart' as _i10;
 import '../services/local/local_provider.dart' as _i16;
 import '../services/local/local_repository.dart' as _i12;
 import '../services/remote/remote_provider.dart' as _i13;

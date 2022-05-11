@@ -38,9 +38,9 @@
   "currencyConversion": "Chuyển đổi tiền tệ",
   "currentLanguage": "Ngôn ngữ mặc định",
   "protectYourWallet": "Protect your wallet",
-  "protectYourWalletDesription": "Protect your wallet by saving your Secret Recovery Phrase in various places like on a piece of paper, password manager and/or the cloud",
-  "recoverySecretRecoveryPhrase": "Recovery Secret Recovery Phrase",
-  "passwordDescription": "Choose a strong password to unclock Metamask app on your device. If you lose this password, you will need your Secret Recovery Phrase to re-import your wallet.",
+  "protectYourWalletDesription": "Bảo vệ ví của bạn bằng cách lưu Cụm từ khôi phục bí mật của bạn ở nhiều nơi khác nhau như trên một mảnh giấy, trình quản lý mật khẩu và / hoặc đám mây",
+  "recoverySecretRecoveryPhrase": "Khôi phục cụm từ khôi phục bí mật",
+  "passwordDescription": "Chọn một mật khẩu mạnh để mở khóa ứng dụng Metamask trên thiết bị của bạn. Nếu bạn mất mật khẩu này, bạn sẽ cần Cụm từ khôi phục bí mật để nhập lại ví của mình.",
   "changePassword": "Đổi mật khẩu",
   "securityAndPrivacy": "Chính sách và bảo mật",
   "networks": "Mạng lưới",
@@ -52,5 +52,6 @@
   "thisYear" : "Năm này",
   "seeAll" : "Xem tất cả",
   "about" : "About",
-  "passwordNotMatch" : "Mật khẩu không khớp"
+  "passwordNotMatch" : "Mật khẩu không khớp",
+  "secretRecoveryPhrase" : "Cụm từ khôi phục bí mật"
 }

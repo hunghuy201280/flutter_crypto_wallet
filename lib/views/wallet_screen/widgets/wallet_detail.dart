@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ntf_marketplace/configs/color_config.dart';
 import 'package:flutter_ntf_marketplace/configs/text_config.dart';
-import 'package:flutter_ntf_marketplace/entities/token/token.dart';
+import 'package:flutter_ntf_marketplace/models/token/token.dart';
 import 'package:flutter_ntf_marketplace/utils/helpers/status.dart';
 import 'package:flutter_ntf_marketplace/views/wallet_screen/widgets/wallet_coin_item.dart';
 import 'package:flutter_ntf_marketplace/views/wallet_screen/widgets/wallet_nft_group.dart';

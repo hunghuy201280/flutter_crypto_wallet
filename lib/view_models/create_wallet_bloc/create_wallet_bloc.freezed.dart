@@ -728,7 +728,7 @@ class _$CreateWalletStateTearOff {
       required String repeatPassword,
       required bool checkBox,
       int currentPage = 1,
-      CreateWalletStatus status = CreateWalletStatus.pure,
+      Status<dynamic> status = const Idle(),
       String? mnemonic}) {
     return _CreateWalletState(
       password: password,
@@ -750,7 +750,7 @@ mixin _$CreateWalletState {
   String get repeatPassword => throw _privateConstructorUsedError;
   bool get checkBox => throw _privateConstructorUsedError;
   int get currentPage => throw _privateConstructorUsedError;
-  CreateWalletStatus get status => throw _privateConstructorUsedError;
+  Status<dynamic> get status => throw _privateConstructorUsedError;
   String? get mnemonic => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -768,7 +768,7 @@ abstract class $CreateWalletStateCopyWith<$Res> {
       String repeatPassword,
       bool checkBox,
       int currentPage,
-      CreateWalletStatus status,
+      Status<dynamic> status,
       String? mnemonic});
 }
 
@@ -810,7 +810,7 @@ class _$CreateWalletStateCopyWithImpl<$Res>
       status: status == freezed
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as CreateWalletStatus,
+              as Status<dynamic>,
       mnemonic: mnemonic == freezed
           ? _value.mnemonic
           : mnemonic // ignore: cast_nullable_to_non_nullable
@@ -831,7 +831,7 @@ abstract class _$CreateWalletStateCopyWith<$Res>
       String repeatPassword,
       bool checkBox,
       int currentPage,
-      CreateWalletStatus status,
+      Status<dynamic> status,
       String? mnemonic});
 }
 
@@ -875,7 +875,7 @@ class __$CreateWalletStateCopyWithImpl<$Res>
       status: status == freezed
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as CreateWalletStatus,
+              as Status<dynamic>,
       mnemonic: mnemonic == freezed
           ? _value.mnemonic
           : mnemonic // ignore: cast_nullable_to_non_nullable
@@ -892,7 +892,7 @@ class _$_CreateWalletState implements _CreateWalletState {
       required this.repeatPassword,
       required this.checkBox,
       this.currentPage = 1,
-      this.status = CreateWalletStatus.pure,
+      this.status = const Idle(),
       this.mnemonic});
 
   @override
@@ -906,7 +906,7 @@ class _$_CreateWalletState implements _CreateWalletState {
   final int currentPage;
   @JsonKey()
   @override
-  final CreateWalletStatus status;
+  final Status<dynamic> status;
   @override
   final String? mnemonic;
 
@@ -952,7 +952,7 @@ abstract class _CreateWalletState implements CreateWalletState {
       required String repeatPassword,
       required bool checkBox,
       int currentPage,
-      CreateWalletStatus status,
+      Status<dynamic> status,
       String? mnemonic}) = _$_CreateWalletState;
 
   @override
@@ -964,7 +964,7 @@ abstract class _CreateWalletState implements CreateWalletState {
   @override
   int get currentPage;
   @override
-  CreateWalletStatus get status;
+  Status<dynamic> get status;
   @override
   String? get mnemonic;
   @override

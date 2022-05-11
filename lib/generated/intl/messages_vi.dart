@@ -74,16 +74,18 @@ class MessageLookup extends MessageLookupByLibrary {
         "otherNetworks": MessageLookupByLibrary.simpleMessage("Mạng khác"),
         "password": MessageLookupByLibrary.simpleMessage("Mật khẩu"),
         "passwordDescription": MessageLookupByLibrary.simpleMessage(
-            "Choose a strong password to unclock Metamask app on your device. If you lose this password, you will need your Secret Recovery Phrase to re-import your wallet."),
+            "Chọn một mật khẩu mạnh để mở khóa ứng dụng Metamask trên thiết bị của bạn. Nếu bạn mất mật khẩu này, bạn sẽ cần Cụm từ khôi phục bí mật để nhập lại ví của mình."),
         "passwordNotMatch":
             MessageLookupByLibrary.simpleMessage("Mật khẩu không khớp"),
         "privateKey": MessageLookupByLibrary.simpleMessage("Private key"),
         "protectYourWallet":
             MessageLookupByLibrary.simpleMessage("Protect your wallet"),
         "protectYourWalletDesription": MessageLookupByLibrary.simpleMessage(
-            "Protect your wallet by saving your Secret Recovery Phrase in various places like on a piece of paper, password manager and/or the cloud"),
+            "Bảo vệ ví của bạn bằng cách lưu Cụm từ khôi phục bí mật của bạn ở nhiều nơi khác nhau như trên một mảnh giấy, trình quản lý mật khẩu và / hoặc đám mây"),
         "recoverySecretRecoveryPhrase": MessageLookupByLibrary.simpleMessage(
-            "Recovery Secret Recovery Phrase"),
+            "Khôi phục cụm từ khôi phục bí mật"),
+        "secretRecoveryPhrase":
+            MessageLookupByLibrary.simpleMessage("Cụm từ khôi phục bí mật"),
         "securityAndPrivacy":
             MessageLookupByLibrary.simpleMessage("Chính sách và bảo mật"),
         "seeAll": MessageLookupByLibrary.simpleMessage("Xem tất cả"),

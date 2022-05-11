@@ -1,10 +1,11 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter_ntf_marketplace/services/local/local_provider.dart';
 import 'package:flutter_ntf_marketplace/services/remote/remote_provider.dart';
-import 'package:flutter_ntf_marketplace/utils/enums.dart';
 import 'package:flutter_ntf_marketplace/utils/utils.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+
+import '../../utils/helpers/status.dart';
 
 part 'create_wallet_bloc.freezed.dart';
 part 'create_wallet_event.dart';
@@ -26,12 +27,12 @@ class CreateWalletBloc extends Bloc<CreateWalletEvent, CreateWalletState> {
       emit(state.copyWith(checkBox: event.isCheck));
     });
     on<_CreateWalletEventRequest>((event, emit) async {
-      emit(state.copyWith(status: CreateWalletStatus.submissionInProgress));
+      emit(state.copyWith(status: const Loading()));
       if (state.password.trim().length < 8 ||
           state.password != state.repeatPassword) {
         return emit(
           state.copyWith(
-            status: CreateWalletStatus.passwordError,
+            status:  const Error("Password not match"),
           ),
         );
       }
@@ -45,14 +46,15 @@ class CreateWalletBloc extends Bloc<CreateWalletEvent, CreateWalletState> {
         return emit(
           state.copyWith(
             mnemonic: walletDetail.mnemonic,
-            //mnemonic: '',
             currentPage: 2,
-            status: CreateWalletStatus.pure,
+            status: const Idle() ,
           ),
         );
       } catch (e, trace) {
         printLog(this, message: e.toString(), error: e, trace: trace);
-        emit(state.copyWith(status: CreateWalletStatus.apiError));
+        emit(state.copyWith(status: Error(e)));
+      } finally {
+           emit(state.copyWith(status: const Idle()));
       }
     });
   }

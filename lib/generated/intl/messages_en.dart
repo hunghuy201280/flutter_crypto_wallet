@@ -86,6 +86,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Protect your wallet by saving your Secret Recovery Phrase in various places like on a piece of paper, password manager and/or the cloud"),
         "recoverySecretRecoveryPhrase": MessageLookupByLibrary.simpleMessage(
             "Recovery Secret Recovery Phrase"),
+        "secretRecoveryPhrase":
+            MessageLookupByLibrary.simpleMessage("Secret Recovery Phrase"),
         "securityAndPrivacy":
             MessageLookupByLibrary.simpleMessage("Security & Privacy"),
         "seeAll": MessageLookupByLibrary.simpleMessage("See all"),

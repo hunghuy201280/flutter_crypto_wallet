@@ -1,8 +1,8 @@
-import 'package:flutter_ntf_marketplace/entities/wallet/wallet.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../constants/hive_configs.dart';
+import '../wallet/wallet.dart';
 
 @singleton
 class WalletPref {

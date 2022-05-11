@@ -25,10 +25,12 @@ class ImportWalletBloc extends Bloc<ImportWalletEvent, ImportWalletState> {
     on<ImportWalletImported>((event, emit) async {
       emit(state.copyWith(status: const Loading()));
       try {
-        final privateKey = state.privateKey;
+        final mnemonic = state.mnemonic;
         final result =
-            await _remoteProvider.verifyWallet(privateKey: privateKey);
-        await _localProvider.addWallet(wallet: result);
+            await _remoteProvider.verifyWalletMnemonic(mnemonic: mnemonic);
+
+        await _localProvider.saveMnemonicPhrase(mnemonicPhrase: mnemonic);
+        await _localProvider.addWallet(wallet: result.wallet!);
         await _localProvider.savePasscode(passCode: state.password);
         emit(state.copyWith(status: const Success()));
       } on DioError catch (e, trace) {
@@ -40,8 +42,8 @@ class ImportWalletBloc extends Bloc<ImportWalletEvent, ImportWalletState> {
         );
       }
     });
-    on<ImportWalletPrivateKeyChanged>((event, emit) {
-      emit(state.copyWith(privateKey: event.privateKey));
+    on<ImportWalletMnemonicChanged>((event, emit) {
+      emit(state.copyWith(mnemonic: event.mnemonic));
     });
     on<ImportWalletPasswordChanged>((event, emit) {
       emit(state.copyWith(password: event.password));

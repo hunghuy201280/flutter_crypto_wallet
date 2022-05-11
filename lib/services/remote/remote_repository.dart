@@ -10,12 +10,20 @@ class RemoteRepository {
 
   RemoteRepository(this._dio);
 
-  Future<Response> verifyWallet({required String privateKey}) async {
+  Future<Response> verifyWalletPrivateKey({required String privateKey}) async {
     Response response = await _dio.post(
-      AppEndpoint.verifyWallet,
+      AppEndpoint.verifyWalletPrivateKey,
       data: {
         "privateKey": privateKey,
       },
+    );
+    return response;
+  }
+
+  Future<Response> verifyWalletMnemonic({required String mnemonic}) async {
+    Response response = await _dio.post(
+      AppEndpoint.verifyWalletMnemonic,
+      data: {'mnemonic': mnemonic},
     );
     return response;
   }

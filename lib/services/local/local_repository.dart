@@ -2,7 +2,7 @@ import 'package:flutter_ntf_marketplace/configs/app_config.dart';
 import 'package:flutter_ntf_marketplace/constants/app_prefs.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../entities/wallet/wallet.dart';
+import '../../models/wallet/wallet.dart';
 
 @singleton
 class LocalRepository {
