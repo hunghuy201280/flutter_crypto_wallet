@@ -55,8 +55,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
       children: [
         divider,
         SettingItem(
-          title: 'General',
-          description: 'Currency conversion, language',
+          title: s.general,
+          description: s.generalDescription,
           action: () {
             Navigator.of(context, rootNavigator: true)
                 .pushNamed(GeneralScreen.id);
@@ -64,9 +64,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
         ),
         divider,
         SettingItem(
-          title: 'Security & Privacy',
-          description:
-              'Privacy settings, private key and wallet Secret Recovery Phrase',
+          title: s.securityAndPrivacy,
+          description: s.securityAndPrivacyDescription,
           action: () {
             Navigator.of(context, rootNavigator: true)
                 .pushNamed(SecurityPrivacyScreen.id);
@@ -74,8 +73,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
         ),
         divider,
         SettingItem(
-          title: 'Networks',
-          description: 'Add and edit custom RPC networks',
+          title: s.networks,
+          description: s.networksDescription,
           action: () {
             Navigator.of(context, rootNavigator: true)
                 .pushNamed(NetworksScreen.id);
@@ -83,7 +82,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         ),
         divider,
         SettingItem(
-          title: 'About App Name',
+          title: s.aboutAppName,
           description: '',
           action: () {
             Navigator.of(context, rootNavigator: true)
@@ -92,7 +91,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         ),
         divider,
         SettingItem(
-          title: 'Logout',
+          title: s.logout,
           description: '',
           action: () {
             authBloc.add(const AuthLoggedOut());

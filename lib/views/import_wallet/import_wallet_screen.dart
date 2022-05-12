@@ -41,13 +41,21 @@ class _ImportWalletScreenState extends State<ImportWalletScreen> {
     return BlocListener<ImportWalletBloc, ImportWalletState>(
       listener: (context, state) {
         final status = state.status;
-        if (status is Loading) {
-          showLoadingDialog();
-        } else if (status is Success) {
-          Navigator.pushNamed(context, NavBarView.id);
-          hideLoadingDialog();
-        } else if (status is Error) {
-          hideLoadingDialog();
+        switch (status.runtimeType) {
+          case Error:
+            hideLoadingDialog();
+            showInfoDialog(context, message: status.data);
+            break;
+          case Loading:
+            showLoadingDialog();
+            break;
+          case Success:
+            Navigator.pushNamed(context, NavBarView.id);
+            hideLoadingDialog();
+            break;
+          case Idle:
+            hideLoadingDialog();
+            break;
         }
       },
       child: Scaffold(

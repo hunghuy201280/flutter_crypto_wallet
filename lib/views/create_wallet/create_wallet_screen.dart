@@ -46,6 +46,7 @@ class _CreateWalletScreenState extends State<CreateWalletScreen> {
         switch (state.status.runtimeType) {
           case Error:
             hideLoadingDialog();
+            showInfoDialog(context, message: state.status.data);
             break;
           case Loading:
             showLoadingDialog();

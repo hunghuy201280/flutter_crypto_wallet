@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter_ntf_marketplace/services/dto/base_dto.dart';
 import 'package:flutter_ntf_marketplace/services/local/local_provider.dart';
 import 'package:flutter_ntf_marketplace/services/remote/remote_provider.dart';
 import 'package:flutter_ntf_marketplace/utils/helpers/status.dart';
@@ -24,16 +25,23 @@ class ImportWalletBloc extends Bloc<ImportWalletEvent, ImportWalletState> {
   void _mapEventToState() {
     on<ImportWalletImported>((event, emit) async {
       emit(state.copyWith(status: const Loading()));
+
       try {
+        if (state.password.trim().length < 8 ||
+            state.password != state.repeatPassword) {
+          throw "Password not match";
+        }
+
         final mnemonic = state.mnemonic;
         final result =
             await _remoteProvider.verifyWalletMnemonic(mnemonic: mnemonic);
-
+        if (result.error) throw result.message;
+        final walletDetail = result.result!;
         await _localProvider.saveMnemonicPhrase(mnemonicPhrase: mnemonic);
-        await _localProvider.addWallet(wallet: result.wallet!);
+        await _localProvider.addWallet(wallet: walletDetail.wallet!);
         await _localProvider.savePasscode(passCode: state.password);
         emit(state.copyWith(status: const Success()));
-      } on DioError catch (e, trace) {
+      } catch (e, trace) {
         printLog(this, message: "Error", error: e, trace: trace);
         emit(state.copyWith(status: Error(e)));
       } finally {

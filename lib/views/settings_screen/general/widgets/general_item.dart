@@ -9,15 +9,17 @@ import '../general_item_dropdown.dart';
 
 class GeneralItem<T> extends StatefulWidget {
   final String title;
-  final String description;
+  final String? description;
+  final T? itemSelected;
   final List<GeneralItemDropdown<T>> items;
   final void Function(T value)? onSelected;
-  GeneralItem({
+  const GeneralItem({
     Key? key,
     required this.title,
     required this.description,
     required this.items,
     this.onSelected,
+    this.itemSelected,
   }) : super(key: key);
 
   @override
@@ -25,7 +27,7 @@ class GeneralItem<T> extends StatefulWidget {
 }
 
 class _GeneralItemState<T> extends State<GeneralItem<T>> {
-  late T itemSelected = widget.items.first.value;
+  late T itemSelected = widget.itemSelected ?? widget.items.first.value;
 
   @override
   Widget build(BuildContext context) {
@@ -39,11 +41,17 @@ class _GeneralItemState<T> extends State<GeneralItem<T>> {
             widget.title,
             style: TextConfigs.kLabel_9,
           ),
-          2.verticalSpace,
-          Text(
-            widget.description,
-            style: TextConfigs.kCaption_2,
-          ),
+          widget.description != null
+              ? Column(
+                  children: [
+                    2.verticalSpace,
+                    Text(
+                      widget.description ?? '',
+                      style: TextConfigs.kCaption_2,
+                    )
+                  ],
+                )
+              : Container(),
           12.verticalSpace,
           Container(
             padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 13.h),

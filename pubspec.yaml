@@ -43,6 +43,7 @@ dependencies:
   sliver_tools: ^0.2.5
   json_annotation: ^4.5.0
   flutter_animated_dialog: ^2.0.1
+  local_auth: ^2.0.2
 
 
 

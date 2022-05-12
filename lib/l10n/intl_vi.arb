@@ -35,6 +35,7 @@
   "dontSeeYourNFT": "Không thấy nft của bạn?",
   "importNFTs": "Thêm nfts",
   "general": "Chung",
+  "generalDescription" : "Chuyển đổi tiền tệ, ngôn ngữ",
   "currencyConversion": "Chuyển đổi tiền tệ",
   "currentLanguage": "Ngôn ngữ mặc định",
   "protectYourWallet": "Protect your wallet",
@@ -43,7 +44,9 @@
   "passwordDescription": "Chọn một mật khẩu mạnh để mở khóa ứng dụng Metamask trên thiết bị của bạn. Nếu bạn mất mật khẩu này, bạn sẽ cần Cụm từ khôi phục bí mật để nhập lại ví của mình.",
   "changePassword": "Đổi mật khẩu",
   "securityAndPrivacy": "Chính sách và bảo mật",
+  "securityAndPrivacyDescription" : "Cài đặt quyền riêng tư, khóa cá nhân và ví cụm từ khôi phục bí mật",
   "networks": "Mạng lưới",
+  "networksDescription" : "Thêm và chỉnh sửa mạng RPC tùy chỉnh",
   "otherNetworks": "Mạng khác",
   "statistic" : "Thống kê",
   "transactionHistory" : "Lịch sử giao dịch",
@@ -51,7 +54,11 @@
   "thisMonth" : "Tháng này",
   "thisYear" : "Năm này",
   "seeAll" : "Xem tất cả",
-  "about" : "About",
+  "about" : "Thông tin",
+  "aboutAppName" : "Thông tin về App Name",
   "passwordNotMatch" : "Mật khẩu không khớp",
-  "secretRecoveryPhrase" : "Cụm từ khôi phục bí mật"
+  "secretRecoveryPhrase" : "Cụm từ khôi phục bí mật",
+  "logout" : "Đăng xuất",
+  "english" : "Tiếng Anh",
+  "vietnamese" : "Tiếng Việt"
 }

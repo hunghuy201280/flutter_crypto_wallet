@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter_ntf_marketplace/services/local/local_provider.dart';
 import 'package:flutter_ntf_marketplace/services/remote/remote_provider.dart';
 import 'package:flutter_ntf_marketplace/utils/utils.dart';
+import 'package:flutter_ntf_marketplace/views/wallet_screen/widgets/wallet_detail.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
@@ -28,17 +29,14 @@ class CreateWalletBloc extends Bloc<CreateWalletEvent, CreateWalletState> {
     });
     on<_CreateWalletEventRequest>((event, emit) async {
       emit(state.copyWith(status: const Loading()));
-      if (state.password.trim().length < 8 ||
-          state.password != state.repeatPassword) {
-        return emit(
-          state.copyWith(
-            status:  const Error("Password not match"),
-          ),
-        );
-      }
       try {
-        //await Future.delayed(const Duration(seconds: 10));
-        final walletDetail = await _remoteProvider.createWallet();
+        if (state.password.trim().length < 8 ||
+            state.password != state.repeatPassword) {
+          throw "Password not match";
+        }
+        final result = await _remoteProvider.createWallet();
+        if (result.error) throw result.message;
+        final walletDetail = result.result!;
         await _localProvider.savePasscode(passCode: state.password);
         await _localProvider.saveMnemonicPhrase(
             mnemonicPhrase: walletDetail.mnemonic);
@@ -47,14 +45,14 @@ class CreateWalletBloc extends Bloc<CreateWalletEvent, CreateWalletState> {
           state.copyWith(
             mnemonic: walletDetail.mnemonic,
             currentPage: 2,
-            status: const Idle() ,
+            status: const Idle(),
           ),
         );
       } catch (e, trace) {
-        printLog(this, message: e.toString(), error: e, trace: trace);
+        printLog(this, message: e, error: e, trace: trace);
         emit(state.copyWith(status: Error(e)));
       } finally {
-           emit(state.copyWith(status: const Idle()));
+        emit(state.copyWith(status: const Idle()));
       }
     });
   }

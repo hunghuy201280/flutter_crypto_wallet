@@ -37,7 +37,7 @@ class _PasscodeScreenState extends State<PasscodeScreen> {
           Navigator.pushNamedAndRemoveUntil(
               context, NavBarView.id, (route) => false);
         } else if (status is SignedInFailed) {
-          //TODO: handle error
+          showInfoDialog(context, message: status.error);
           printLog(this, message: "$state");
         }
       },

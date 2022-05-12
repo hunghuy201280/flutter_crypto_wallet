@@ -28,6 +28,7 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "about": MessageLookupByLibrary.simpleMessage("About"),
+        "aboutAppName": MessageLookupByLibrary.simpleMessage("About App Name"),
         "appName": MessageLookupByLibrary.simpleMessage("App Name"),
         "changePassword":
             MessageLookupByLibrary.simpleMessage("Change password"),
@@ -51,11 +52,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Don\'t see your token?"),
         "easyWayToManageYourEWallet": MessageLookupByLibrary.simpleMessage(
             "Easy way to manage your e-wallet"),
+        "english": MessageLookupByLibrary.simpleMessage("English"),
         "enterToYourWallet":
             MessageLookupByLibrary.simpleMessage("Enter to your wallet"),
         "exchangeCrypto":
             MessageLookupByLibrary.simpleMessage("Exchange Crypto"),
         "general": MessageLookupByLibrary.simpleMessage("General"),
+        "generalDescription": MessageLookupByLibrary.simpleMessage(
+            "Currency conversion, language"),
         "getStarted": MessageLookupByLibrary.simpleMessage("Get started"),
         "hide": MessageLookupByLibrary.simpleMessage("Hide"),
         "iUnderstandThatAppNameCannotRecoverThisPasswordForMe": m0,
@@ -66,11 +70,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "importWallet": MessageLookupByLibrary.simpleMessage("Import Wallet"),
         "logInWithBiometrics":
             MessageLookupByLibrary.simpleMessage("Log In With Biometrics"),
+        "logout": MessageLookupByLibrary.simpleMessage("Logout"),
         "manageYourEveryPennyAndTransactionWithEase":
             MessageLookupByLibrary.simpleMessage(
                 "Manage your every penny and transaction with ease"),
         "mustBeAtLeastCharacters": m1,
         "networks": MessageLookupByLibrary.simpleMessage("Networks"),
+        "networksDescription": MessageLookupByLibrary.simpleMessage(
+            "Add and edit custom RPC networks"),
         "newPassword": MessageLookupByLibrary.simpleMessage("New Password"),
         "nfts": MessageLookupByLibrary.simpleMessage("NFTs"),
         "otherNetworks": MessageLookupByLibrary.simpleMessage("Other Networks"),
@@ -90,6 +97,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Secret Recovery Phrase"),
         "securityAndPrivacy":
             MessageLookupByLibrary.simpleMessage("Security & Privacy"),
+        "securityAndPrivacyDescription": MessageLookupByLibrary.simpleMessage(
+            "Privacy settings, private key and wallet Secret Recovery Phrase"),
         "seeAll": MessageLookupByLibrary.simpleMessage("See all"),
         "show": MessageLookupByLibrary.simpleMessage("Show"),
         "signIn": MessageLookupByLibrary.simpleMessage("Sign In"),
@@ -105,6 +114,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "tokens": MessageLookupByLibrary.simpleMessage("TOKENS"),
         "transactionHistory":
             MessageLookupByLibrary.simpleMessage("Transaction History"),
+        "vietnamese": MessageLookupByLibrary.simpleMessage("Vietnamese"),
         "walletAddedSuccessfully":
             MessageLookupByLibrary.simpleMessage("Wallet added successfully"),
         "welcomeBack": MessageLookupByLibrary.simpleMessage("Welcome Back!"),

@@ -56,20 +56,24 @@ class _GeneralScreenState extends State<GeneralScreen> {
             GeneralItemDropdown('VND - Viet Nam Dong', 'vnd')
           ],
           onSelected: (value) {
-            print(value);
+            printLog(this, message: value);
           },
         ),
         32.verticalSpace,
-        GeneralItem<String>(
-          title: s.currentLanguage,
-          description: 'English',
-          items: [
-            GeneralItemDropdown('English', 'en'),
-            GeneralItemDropdown('Vietnamese', 'vi')
-          ],
-          onSelected: (value) {
-            appBloc.add(AppLocaleChanged(Locale(value)));
-          },
+        BlocSelector<AppBloc, AppState, Locale>(
+          selector: (state) => state.locale,
+          builder: (context, locale) => GeneralItem<String>(
+            title: s.currentLanguage,
+            description: locale.countryCode ?? '',
+            itemSelected: locale.languageCode,
+            items: [
+              GeneralItemDropdown(s.english, 'en'),
+              GeneralItemDropdown(s.vietnamese, 'vi')
+            ],
+            onSelected: (value) {
+              appBloc.add(AppLocaleChanged(Locale(value)));
+            },
+          ),
         ),
       ],
     );

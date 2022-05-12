@@ -35,16 +35,16 @@ class WalletDetailBloc extends Bloc<WalletDetailEvent, WalletDetailState> {
 
   void _mapEventToState() {
     on<WalletDetailTokensLoaded>((event, emit) async {
-      try {
-        emit(state.copyWith(status: const Loading()));
-        final tokens = await _remoteProvider.getTokens(address);
-        emit(state.copyWith(tokens: tokens));
-      } on DioError catch (e, trace) {
-        printLog(this, message: "Error", error: e, trace: trace);
-        emit(state.copyWith(status: Error(e)));
-      } finally {
-        emit(state.copyWith(status: const Idle()));
-      }
+      // try {
+      //   emit(state.copyWith(status: const Loading()));
+      //   final tokens = await _remoteProvider.getTokens(address);
+      //   emit(state.copyWith(tokens: tokens));
+      // } on DioError catch (e, trace) {
+      //   printLog(this, message: "Error", error: e, trace: trace);
+      //   emit(state.copyWith(status: Error(e)));
+      // } finally {
+      //   emit(state.copyWith(status: const Idle()));
+      // }
     });
   }
 }

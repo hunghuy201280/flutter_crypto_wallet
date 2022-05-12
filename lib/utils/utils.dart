@@ -127,12 +127,12 @@ Future<bool> showConfirmDialog(BuildContext context,
       false;
 }
 
-Future showInfoDialog(BuildContext context, {required String message}) async {
+Future showInfoDialog(BuildContext context, {required dynamic message}) async {
   return await showAnimatedDialog(
     barrierDismissible: true,
     context: context,
     builder: (context) => InfoDialog(
-      error: message,
+      error: message.toString(),
     ),
     animationType: DialogTransitionType.slideFromTop,
     duration: const Duration(milliseconds: 300),

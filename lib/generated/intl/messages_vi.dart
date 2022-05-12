@@ -27,7 +27,9 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "about": MessageLookupByLibrary.simpleMessage("About"),
+        "about": MessageLookupByLibrary.simpleMessage("Thông tin"),
+        "aboutAppName":
+            MessageLookupByLibrary.simpleMessage("Thông tin về App Name"),
         "appName": MessageLookupByLibrary.simpleMessage("App Name"),
         "changePassword": MessageLookupByLibrary.simpleMessage("Đổi mật khẩu"),
         "confirmPassword":
@@ -49,11 +51,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Không thấy token của bạn?"),
         "easyWayToManageYourEWallet": MessageLookupByLibrary.simpleMessage(
             "Dễ dàng để quản lý ví điện tử của bạn"),
+        "english": MessageLookupByLibrary.simpleMessage("Tiếng Anh"),
         "enterToYourWallet":
             MessageLookupByLibrary.simpleMessage("Truy cập vào ví"),
         "exchangeCrypto":
             MessageLookupByLibrary.simpleMessage("Chuyển đổi tiền"),
         "general": MessageLookupByLibrary.simpleMessage("Chung"),
+        "generalDescription": MessageLookupByLibrary.simpleMessage(
+            "Chuyển đổi tiền tệ, ngôn ngữ"),
         "getStarted": MessageLookupByLibrary.simpleMessage("Bắt đầu"),
         "hide": MessageLookupByLibrary.simpleMessage("Ẩn"),
         "iUnderstandThatAppNameCannotRecoverThisPasswordForMe": m0,
@@ -64,11 +69,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "importWallet": MessageLookupByLibrary.simpleMessage("Nhập ví"),
         "logInWithBiometrics":
             MessageLookupByLibrary.simpleMessage("Đăng nhập bằng vân tay"),
+        "logout": MessageLookupByLibrary.simpleMessage("Đăng xuất"),
         "manageYourEveryPennyAndTransactionWithEase":
             MessageLookupByLibrary.simpleMessage(
                 "Quản lý từng xu và giao dịch của bạn một cách dễ dàng"),
         "mustBeAtLeastCharacters": m1,
         "networks": MessageLookupByLibrary.simpleMessage("Mạng lưới"),
+        "networksDescription": MessageLookupByLibrary.simpleMessage(
+            "Thêm và chỉnh sửa mạng RPC tùy chỉnh"),
         "newPassword": MessageLookupByLibrary.simpleMessage("Mật khẩu mới"),
         "nfts": MessageLookupByLibrary.simpleMessage("NFTs"),
         "otherNetworks": MessageLookupByLibrary.simpleMessage("Mạng khác"),
@@ -88,6 +96,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Cụm từ khôi phục bí mật"),
         "securityAndPrivacy":
             MessageLookupByLibrary.simpleMessage("Chính sách và bảo mật"),
+        "securityAndPrivacyDescription": MessageLookupByLibrary.simpleMessage(
+            "Cài đặt quyền riêng tư, khóa cá nhân và ví cụm từ khôi phục bí mật"),
         "seeAll": MessageLookupByLibrary.simpleMessage("Xem tất cả"),
         "show": MessageLookupByLibrary.simpleMessage("Hiện"),
         "signIn": MessageLookupByLibrary.simpleMessage("Đăng nhập"),
@@ -103,6 +113,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "tokens": MessageLookupByLibrary.simpleMessage("TOKENS"),
         "transactionHistory":
             MessageLookupByLibrary.simpleMessage("Lịch sử giao dịch"),
+        "vietnamese": MessageLookupByLibrary.simpleMessage("Tiếng Việt"),
         "walletAddedSuccessfully":
             MessageLookupByLibrary.simpleMessage("Thêm ví thành công"),
         "welcomeBack":

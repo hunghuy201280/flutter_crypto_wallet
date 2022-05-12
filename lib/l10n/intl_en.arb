@@ -49,6 +49,7 @@
   "dontSeeYourNFT": "Don't see your nft?",
   "importNFTs": "Import nfts",
   "general": "General",
+  "generalDescription" : "Currency conversion, language",
   "currencyConversion": "Currency Conversion",
   "currentLanguage": "Current Language",
   "protectYourWallet": "Protect your wallet",
@@ -57,7 +58,9 @@
   "passwordDescription" : "Choose a strong password to unclock Metamask app on your device. If you lose this password, you will need your Secret Recovery Phrase to re-import your wallet.",
   "changePassword" : "Change password",
   "securityAndPrivacy" : "Security & Privacy",
+  "securityAndPrivacyDescription" : "Privacy settings, private key and wallet Secret Recovery Phrase",
   "networks" : "Networks",
+  "networksDescription" : "Add and edit custom RPC networks",
   "otherNetworks" : "Other Networks",
   "statistic" : "Statistic",
   "transactionHistory" : "Transaction History",
@@ -66,6 +69,10 @@
   "thisYear" : "This Year",
   "seeAll" : "See all",
   "about" : "About",
+  "aboutAppName" : "About App Name",
   "passwordNotMatch" : "Password not match",
-  "secretRecoveryPhrase" : "Secret Recovery Phrase"
+  "secretRecoveryPhrase" : "Secret Recovery Phrase",
+  "logout" : "Logout",
+  "english" : "English",
+  "vietnamese" : "Vietnamese"
 }

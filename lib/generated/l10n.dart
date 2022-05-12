@@ -400,6 +400,16 @@ class S {
     );
   }
 
+  /// `Currency conversion, language`
+  String get generalDescription {
+    return Intl.message(
+      'Currency conversion, language',
+      name: 'generalDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Currency Conversion`
   String get currencyConversion {
     return Intl.message(
@@ -480,11 +490,31 @@ class S {
     );
   }
 
+  /// `Privacy settings, private key and wallet Secret Recovery Phrase`
+  String get securityAndPrivacyDescription {
+    return Intl.message(
+      'Privacy settings, private key and wallet Secret Recovery Phrase',
+      name: 'securityAndPrivacyDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Networks`
   String get networks {
     return Intl.message(
       'Networks',
       name: 'networks',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add and edit custom RPC networks`
+  String get networksDescription {
+    return Intl.message(
+      'Add and edit custom RPC networks',
+      name: 'networksDescription',
       desc: '',
       args: [],
     );
@@ -570,6 +600,16 @@ class S {
     );
   }
 
+  /// `About App Name`
+  String get aboutAppName {
+    return Intl.message(
+      'About App Name',
+      name: 'aboutAppName',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Password not match`
   String get passwordNotMatch {
     return Intl.message(
@@ -585,6 +625,36 @@ class S {
     return Intl.message(
       'Secret Recovery Phrase',
       name: 'secretRecoveryPhrase',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Logout`
+  String get logout {
+    return Intl.message(
+      'Logout',
+      name: 'logout',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `English`
+  String get english {
+    return Intl.message(
+      'English',
+      name: 'english',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Vietnamese`
+  String get vietnamese {
+    return Intl.message(
+      'Vietnamese',
+      name: 'vietnamese',
       desc: '',
       args: [],
     );
