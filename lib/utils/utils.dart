@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:another_flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animated_dialog/flutter_animated_dialog.dart';
 import 'package:flutter_ntf_marketplace/configs/color_config.dart';
 import 'package:flutter_ntf_marketplace/utils/extensions.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -10,6 +11,8 @@ import 'package:shimmer/shimmer.dart';
 
 import '../configs/text_config.dart';
 import '../constants/constants.dart';
+import '../views/shared_widgets/confirm_dialog.dart';
+import '../views/shared_widgets/info_dialog.dart';
 
 class Utils {
   static int getRandom(int to, {int from = 0}) {
@@ -107,4 +110,32 @@ void printLog(Object parent,
     );
   }
   logger.i(mes);
+}
+
+Future<bool> showConfirmDialog(BuildContext context,
+    {required String title}) async {
+  return await showAnimatedDialog<bool?>(
+        barrierDismissible: true,
+        context: context,
+        builder: (context) => ConfirmDialog(
+          title: title,
+        ),
+        animationType: DialogTransitionType.slideFromTop,
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeOut,
+      ) ??
+      false;
+}
+
+Future showInfoDialog(BuildContext context, {required String message}) async {
+  return await showAnimatedDialog(
+    barrierDismissible: true,
+    context: context,
+    builder: (context) => InfoDialog(
+      error: message,
+    ),
+    animationType: DialogTransitionType.slideFromTop,
+    duration: const Duration(milliseconds: 300),
+    curve: Curves.easeOut,
+  );
 }
