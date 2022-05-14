@@ -84,8 +84,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "passwordDescription": MessageLookupByLibrary.simpleMessage(
             "Choose a strong password to unclock Metamask app on your device. If you lose this password, you will need your Secret Recovery Phrase to re-import your wallet."),
+        "passwordIsNotEmpty":
+            MessageLookupByLibrary.simpleMessage("Password is not empty"),
         "passwordNotMatch":
             MessageLookupByLibrary.simpleMessage("Password not match"),
+        "passwordNotMeetCondition": MessageLookupByLibrary.simpleMessage(
+            "Password does not meet the conditions, character string is greater than 8"),
+        "pleaseAcceptPolicy":
+            MessageLookupByLibrary.simpleMessage("Please accept policy"),
         "privateKey": MessageLookupByLibrary.simpleMessage("Private key"),
         "protectYourWallet":
             MessageLookupByLibrary.simpleMessage("Protect your wallet"),
@@ -104,6 +110,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "signIn": MessageLookupByLibrary.simpleMessage("Sign In"),
         "signInWithBiometrics":
             MessageLookupByLibrary.simpleMessage("Sign in with Biometrics ?"),
+        "somethingHappenedWrong":
+            MessageLookupByLibrary.simpleMessage("Something happened wrong"),
         "statistic": MessageLookupByLibrary.simpleMessage("Statistic"),
         "thisMonth": MessageLookupByLibrary.simpleMessage("This Month"),
         "thisPasswordWillUnlockYourWalletOnlyOnThisDevice":

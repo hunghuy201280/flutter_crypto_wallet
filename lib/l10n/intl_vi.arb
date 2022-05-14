@@ -57,8 +57,12 @@
   "about" : "Thông tin",
   "aboutAppName" : "Thông tin về App Name",
   "passwordNotMatch" : "Mật khẩu không khớp",
+  "passwordIsNotEmpty" : "Mật khẩu không được trống", 
   "secretRecoveryPhrase" : "Cụm từ khôi phục bí mật",
   "logout" : "Đăng xuất",
   "english" : "Tiếng Anh",
-  "vietnamese" : "Tiếng Việt"
+  "vietnamese" : "Tiếng Việt",
+  "pleaseAcceptPolicy" : "Vui lòng chấp nhận chính sách",
+  "somethingHappenedWrong" : "Có điều gì đó đã xảy ra sai",
+  "passwordNotMeetCondition" : "Mật khẩu không thoả điều kiện, chuỗi ký tự lớn hơn 8"
 }

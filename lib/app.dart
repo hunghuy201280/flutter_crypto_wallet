@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_ntf_marketplace/routes/app_route.dart';
-import 'package:flutter_ntf_marketplace/utils/shared_widgets/loading/global_loading.dart';
 import 'package:flutter_ntf_marketplace/utils/shared_widgets/loading/load.dart';
 import 'package:flutter_ntf_marketplace/utils/utils.dart';
 import 'package:flutter_ntf_marketplace/view_models/app_bloc/app_bloc.dart';
@@ -10,7 +9,6 @@ import 'package:flutter_ntf_marketplace/view_models/auth_bloc/auth_bloc.dart';
 import 'package:flutter_ntf_marketplace/views/splash_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive/hive.dart';
-import 'package:provider/provider.dart';
 
 import 'di/dependency_injection.dart';
 import 'generated/l10n.dart';

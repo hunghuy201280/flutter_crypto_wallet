@@ -41,6 +41,10 @@ class _$CreateWalletEventTearOff {
   _CreateWalletEventRequest requestCreateWallet() {
     return const _CreateWalletEventRequest();
   }
+
+  _CreateWalletEventStart startApp() {
+    return const _CreateWalletEventStart();
+  }
 }
 
 /// @nodoc
@@ -54,6 +58,7 @@ mixin _$CreateWalletEvent {
     required TResult Function(String rePassword) rePasswordChanged,
     required TResult Function(bool isCheck) checkBox,
     required TResult Function() requestCreateWallet,
+    required TResult Function() startApp,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -62,6 +67,7 @@ mixin _$CreateWalletEvent {
     TResult Function(String rePassword)? rePasswordChanged,
     TResult Function(bool isCheck)? checkBox,
     TResult Function()? requestCreateWallet,
+    TResult Function()? startApp,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -70,6 +76,7 @@ mixin _$CreateWalletEvent {
     TResult Function(String rePassword)? rePasswordChanged,
     TResult Function(bool isCheck)? checkBox,
     TResult Function()? requestCreateWallet,
+    TResult Function()? startApp,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -82,6 +89,7 @@ mixin _$CreateWalletEvent {
     required TResult Function(_CreateWalletEventCheckBox value) checkBox,
     required TResult Function(_CreateWalletEventRequest value)
         requestCreateWallet,
+    required TResult Function(_CreateWalletEventStart value) startApp,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -91,6 +99,7 @@ mixin _$CreateWalletEvent {
         rePasswordChanged,
     TResult Function(_CreateWalletEventCheckBox value)? checkBox,
     TResult Function(_CreateWalletEventRequest value)? requestCreateWallet,
+    TResult Function(_CreateWalletEventStart value)? startApp,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -100,6 +109,7 @@ mixin _$CreateWalletEvent {
         rePasswordChanged,
     TResult Function(_CreateWalletEventCheckBox value)? checkBox,
     TResult Function(_CreateWalletEventRequest value)? requestCreateWallet,
+    TResult Function(_CreateWalletEventStart value)? startApp,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -196,6 +206,7 @@ class _$_CreateWalletEventPasswordChanged
     required TResult Function(String rePassword) rePasswordChanged,
     required TResult Function(bool isCheck) checkBox,
     required TResult Function() requestCreateWallet,
+    required TResult Function() startApp,
   }) {
     return passwordChanged(password);
   }
@@ -207,6 +218,7 @@ class _$_CreateWalletEventPasswordChanged
     TResult Function(String rePassword)? rePasswordChanged,
     TResult Function(bool isCheck)? checkBox,
     TResult Function()? requestCreateWallet,
+    TResult Function()? startApp,
   }) {
     return passwordChanged?.call(password);
   }
@@ -218,6 +230,7 @@ class _$_CreateWalletEventPasswordChanged
     TResult Function(String rePassword)? rePasswordChanged,
     TResult Function(bool isCheck)? checkBox,
     TResult Function()? requestCreateWallet,
+    TResult Function()? startApp,
     required TResult orElse(),
   }) {
     if (passwordChanged != null) {
@@ -236,6 +249,7 @@ class _$_CreateWalletEventPasswordChanged
     required TResult Function(_CreateWalletEventCheckBox value) checkBox,
     required TResult Function(_CreateWalletEventRequest value)
         requestCreateWallet,
+    required TResult Function(_CreateWalletEventStart value) startApp,
   }) {
     return passwordChanged(this);
   }
@@ -248,6 +262,7 @@ class _$_CreateWalletEventPasswordChanged
         rePasswordChanged,
     TResult Function(_CreateWalletEventCheckBox value)? checkBox,
     TResult Function(_CreateWalletEventRequest value)? requestCreateWallet,
+    TResult Function(_CreateWalletEventStart value)? startApp,
   }) {
     return passwordChanged?.call(this);
   }
@@ -260,6 +275,7 @@ class _$_CreateWalletEventPasswordChanged
         rePasswordChanged,
     TResult Function(_CreateWalletEventCheckBox value)? checkBox,
     TResult Function(_CreateWalletEventRequest value)? requestCreateWallet,
+    TResult Function(_CreateWalletEventStart value)? startApp,
     required TResult orElse(),
   }) {
     if (passwordChanged != null) {
@@ -355,6 +371,7 @@ class _$_CreateWalletEventRePasswordChanged
     required TResult Function(String rePassword) rePasswordChanged,
     required TResult Function(bool isCheck) checkBox,
     required TResult Function() requestCreateWallet,
+    required TResult Function() startApp,
   }) {
     return rePasswordChanged(rePassword);
   }
@@ -366,6 +383,7 @@ class _$_CreateWalletEventRePasswordChanged
     TResult Function(String rePassword)? rePasswordChanged,
     TResult Function(bool isCheck)? checkBox,
     TResult Function()? requestCreateWallet,
+    TResult Function()? startApp,
   }) {
     return rePasswordChanged?.call(rePassword);
   }
@@ -377,6 +395,7 @@ class _$_CreateWalletEventRePasswordChanged
     TResult Function(String rePassword)? rePasswordChanged,
     TResult Function(bool isCheck)? checkBox,
     TResult Function()? requestCreateWallet,
+    TResult Function()? startApp,
     required TResult orElse(),
   }) {
     if (rePasswordChanged != null) {
@@ -395,6 +414,7 @@ class _$_CreateWalletEventRePasswordChanged
     required TResult Function(_CreateWalletEventCheckBox value) checkBox,
     required TResult Function(_CreateWalletEventRequest value)
         requestCreateWallet,
+    required TResult Function(_CreateWalletEventStart value) startApp,
   }) {
     return rePasswordChanged(this);
   }
@@ -407,6 +427,7 @@ class _$_CreateWalletEventRePasswordChanged
         rePasswordChanged,
     TResult Function(_CreateWalletEventCheckBox value)? checkBox,
     TResult Function(_CreateWalletEventRequest value)? requestCreateWallet,
+    TResult Function(_CreateWalletEventStart value)? startApp,
   }) {
     return rePasswordChanged?.call(this);
   }
@@ -419,6 +440,7 @@ class _$_CreateWalletEventRePasswordChanged
         rePasswordChanged,
     TResult Function(_CreateWalletEventCheckBox value)? checkBox,
     TResult Function(_CreateWalletEventRequest value)? requestCreateWallet,
+    TResult Function(_CreateWalletEventStart value)? startApp,
     required TResult orElse(),
   }) {
     if (rePasswordChanged != null) {
@@ -512,6 +534,7 @@ class _$_CreateWalletEventCheckBox implements _CreateWalletEventCheckBox {
     required TResult Function(String rePassword) rePasswordChanged,
     required TResult Function(bool isCheck) checkBox,
     required TResult Function() requestCreateWallet,
+    required TResult Function() startApp,
   }) {
     return checkBox(isCheck);
   }
@@ -523,6 +546,7 @@ class _$_CreateWalletEventCheckBox implements _CreateWalletEventCheckBox {
     TResult Function(String rePassword)? rePasswordChanged,
     TResult Function(bool isCheck)? checkBox,
     TResult Function()? requestCreateWallet,
+    TResult Function()? startApp,
   }) {
     return checkBox?.call(isCheck);
   }
@@ -534,6 +558,7 @@ class _$_CreateWalletEventCheckBox implements _CreateWalletEventCheckBox {
     TResult Function(String rePassword)? rePasswordChanged,
     TResult Function(bool isCheck)? checkBox,
     TResult Function()? requestCreateWallet,
+    TResult Function()? startApp,
     required TResult orElse(),
   }) {
     if (checkBox != null) {
@@ -552,6 +577,7 @@ class _$_CreateWalletEventCheckBox implements _CreateWalletEventCheckBox {
     required TResult Function(_CreateWalletEventCheckBox value) checkBox,
     required TResult Function(_CreateWalletEventRequest value)
         requestCreateWallet,
+    required TResult Function(_CreateWalletEventStart value) startApp,
   }) {
     return checkBox(this);
   }
@@ -564,6 +590,7 @@ class _$_CreateWalletEventCheckBox implements _CreateWalletEventCheckBox {
         rePasswordChanged,
     TResult Function(_CreateWalletEventCheckBox value)? checkBox,
     TResult Function(_CreateWalletEventRequest value)? requestCreateWallet,
+    TResult Function(_CreateWalletEventStart value)? startApp,
   }) {
     return checkBox?.call(this);
   }
@@ -576,6 +603,7 @@ class _$_CreateWalletEventCheckBox implements _CreateWalletEventCheckBox {
         rePasswordChanged,
     TResult Function(_CreateWalletEventCheckBox value)? checkBox,
     TResult Function(_CreateWalletEventRequest value)? requestCreateWallet,
+    TResult Function(_CreateWalletEventStart value)? startApp,
     required TResult orElse(),
   }) {
     if (checkBox != null) {
@@ -642,6 +670,7 @@ class _$_CreateWalletEventRequest implements _CreateWalletEventRequest {
     required TResult Function(String rePassword) rePasswordChanged,
     required TResult Function(bool isCheck) checkBox,
     required TResult Function() requestCreateWallet,
+    required TResult Function() startApp,
   }) {
     return requestCreateWallet();
   }
@@ -653,6 +682,7 @@ class _$_CreateWalletEventRequest implements _CreateWalletEventRequest {
     TResult Function(String rePassword)? rePasswordChanged,
     TResult Function(bool isCheck)? checkBox,
     TResult Function()? requestCreateWallet,
+    TResult Function()? startApp,
   }) {
     return requestCreateWallet?.call();
   }
@@ -664,6 +694,7 @@ class _$_CreateWalletEventRequest implements _CreateWalletEventRequest {
     TResult Function(String rePassword)? rePasswordChanged,
     TResult Function(bool isCheck)? checkBox,
     TResult Function()? requestCreateWallet,
+    TResult Function()? startApp,
     required TResult orElse(),
   }) {
     if (requestCreateWallet != null) {
@@ -682,6 +713,7 @@ class _$_CreateWalletEventRequest implements _CreateWalletEventRequest {
     required TResult Function(_CreateWalletEventCheckBox value) checkBox,
     required TResult Function(_CreateWalletEventRequest value)
         requestCreateWallet,
+    required TResult Function(_CreateWalletEventStart value) startApp,
   }) {
     return requestCreateWallet(this);
   }
@@ -694,6 +726,7 @@ class _$_CreateWalletEventRequest implements _CreateWalletEventRequest {
         rePasswordChanged,
     TResult Function(_CreateWalletEventCheckBox value)? checkBox,
     TResult Function(_CreateWalletEventRequest value)? requestCreateWallet,
+    TResult Function(_CreateWalletEventStart value)? startApp,
   }) {
     return requestCreateWallet?.call(this);
   }
@@ -706,6 +739,7 @@ class _$_CreateWalletEventRequest implements _CreateWalletEventRequest {
         rePasswordChanged,
     TResult Function(_CreateWalletEventCheckBox value)? checkBox,
     TResult Function(_CreateWalletEventRequest value)? requestCreateWallet,
+    TResult Function(_CreateWalletEventStart value)? startApp,
     required TResult orElse(),
   }) {
     if (requestCreateWallet != null) {
@@ -720,6 +754,134 @@ abstract class _CreateWalletEventRequest implements CreateWalletEvent {
 }
 
 /// @nodoc
+abstract class _$CreateWalletEventStartCopyWith<$Res> {
+  factory _$CreateWalletEventStartCopyWith(_CreateWalletEventStart value,
+          $Res Function(_CreateWalletEventStart) then) =
+      __$CreateWalletEventStartCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$CreateWalletEventStartCopyWithImpl<$Res>
+    extends _$CreateWalletEventCopyWithImpl<$Res>
+    implements _$CreateWalletEventStartCopyWith<$Res> {
+  __$CreateWalletEventStartCopyWithImpl(_CreateWalletEventStart _value,
+      $Res Function(_CreateWalletEventStart) _then)
+      : super(_value, (v) => _then(v as _CreateWalletEventStart));
+
+  @override
+  _CreateWalletEventStart get _value => super._value as _CreateWalletEventStart;
+}
+
+/// @nodoc
+
+class _$_CreateWalletEventStart implements _CreateWalletEventStart {
+  const _$_CreateWalletEventStart();
+
+  @override
+  String toString() {
+    return 'CreateWalletEvent.startApp()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _CreateWalletEventStart);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String password) passwordChanged,
+    required TResult Function(String rePassword) rePasswordChanged,
+    required TResult Function(bool isCheck) checkBox,
+    required TResult Function() requestCreateWallet,
+    required TResult Function() startApp,
+  }) {
+    return startApp();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String password)? passwordChanged,
+    TResult Function(String rePassword)? rePasswordChanged,
+    TResult Function(bool isCheck)? checkBox,
+    TResult Function()? requestCreateWallet,
+    TResult Function()? startApp,
+  }) {
+    return startApp?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String password)? passwordChanged,
+    TResult Function(String rePassword)? rePasswordChanged,
+    TResult Function(bool isCheck)? checkBox,
+    TResult Function()? requestCreateWallet,
+    TResult Function()? startApp,
+    required TResult orElse(),
+  }) {
+    if (startApp != null) {
+      return startApp();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_CreateWalletEventPasswordChanged value)
+        passwordChanged,
+    required TResult Function(_CreateWalletEventRePasswordChanged value)
+        rePasswordChanged,
+    required TResult Function(_CreateWalletEventCheckBox value) checkBox,
+    required TResult Function(_CreateWalletEventRequest value)
+        requestCreateWallet,
+    required TResult Function(_CreateWalletEventStart value) startApp,
+  }) {
+    return startApp(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_CreateWalletEventPasswordChanged value)? passwordChanged,
+    TResult Function(_CreateWalletEventRePasswordChanged value)?
+        rePasswordChanged,
+    TResult Function(_CreateWalletEventCheckBox value)? checkBox,
+    TResult Function(_CreateWalletEventRequest value)? requestCreateWallet,
+    TResult Function(_CreateWalletEventStart value)? startApp,
+  }) {
+    return startApp?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CreateWalletEventPasswordChanged value)? passwordChanged,
+    TResult Function(_CreateWalletEventRePasswordChanged value)?
+        rePasswordChanged,
+    TResult Function(_CreateWalletEventCheckBox value)? checkBox,
+    TResult Function(_CreateWalletEventRequest value)? requestCreateWallet,
+    TResult Function(_CreateWalletEventStart value)? startApp,
+    required TResult orElse(),
+  }) {
+    if (startApp != null) {
+      return startApp(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CreateWalletEventStart implements CreateWalletEvent {
+  const factory _CreateWalletEventStart() = _$_CreateWalletEventStart;
+}
+
+/// @nodoc
 class _$CreateWalletStateTearOff {
   const _$CreateWalletStateTearOff();
 
@@ -729,7 +891,8 @@ class _$CreateWalletStateTearOff {
       required bool checkBox,
       int currentPage = 1,
       Status<dynamic> status = const Idle(),
-      String? mnemonic}) {
+      String? mnemonic,
+      Wallet? wallet}) {
     return _CreateWalletState(
       password: password,
       repeatPassword: repeatPassword,
@@ -737,6 +900,7 @@ class _$CreateWalletStateTearOff {
       currentPage: currentPage,
       status: status,
       mnemonic: mnemonic,
+      wallet: wallet,
     );
   }
 }
@@ -752,6 +916,7 @@ mixin _$CreateWalletState {
   int get currentPage => throw _privateConstructorUsedError;
   Status<dynamic> get status => throw _privateConstructorUsedError;
   String? get mnemonic => throw _privateConstructorUsedError;
+  Wallet? get wallet => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CreateWalletStateCopyWith<CreateWalletState> get copyWith =>
@@ -769,7 +934,10 @@ abstract class $CreateWalletStateCopyWith<$Res> {
       bool checkBox,
       int currentPage,
       Status<dynamic> status,
-      String? mnemonic});
+      String? mnemonic,
+      Wallet? wallet});
+
+  $WalletCopyWith<$Res>? get wallet;
 }
 
 /// @nodoc
@@ -789,6 +957,7 @@ class _$CreateWalletStateCopyWithImpl<$Res>
     Object? currentPage = freezed,
     Object? status = freezed,
     Object? mnemonic = freezed,
+    Object? wallet = freezed,
   }) {
     return _then(_value.copyWith(
       password: password == freezed
@@ -815,7 +984,22 @@ class _$CreateWalletStateCopyWithImpl<$Res>
           ? _value.mnemonic
           : mnemonic // ignore: cast_nullable_to_non_nullable
               as String?,
+      wallet: wallet == freezed
+          ? _value.wallet
+          : wallet // ignore: cast_nullable_to_non_nullable
+              as Wallet?,
     ));
+  }
+
+  @override
+  $WalletCopyWith<$Res>? get wallet {
+    if (_value.wallet == null) {
+      return null;
+    }
+
+    return $WalletCopyWith<$Res>(_value.wallet!, (value) {
+      return _then(_value.copyWith(wallet: value));
+    });
   }
 }
 
@@ -832,7 +1016,11 @@ abstract class _$CreateWalletStateCopyWith<$Res>
       bool checkBox,
       int currentPage,
       Status<dynamic> status,
-      String? mnemonic});
+      String? mnemonic,
+      Wallet? wallet});
+
+  @override
+  $WalletCopyWith<$Res>? get wallet;
 }
 
 /// @nodoc
@@ -854,6 +1042,7 @@ class __$CreateWalletStateCopyWithImpl<$Res>
     Object? currentPage = freezed,
     Object? status = freezed,
     Object? mnemonic = freezed,
+    Object? wallet = freezed,
   }) {
     return _then(_CreateWalletState(
       password: password == freezed
@@ -880,6 +1069,10 @@ class __$CreateWalletStateCopyWithImpl<$Res>
           ? _value.mnemonic
           : mnemonic // ignore: cast_nullable_to_non_nullable
               as String?,
+      wallet: wallet == freezed
+          ? _value.wallet
+          : wallet // ignore: cast_nullable_to_non_nullable
+              as Wallet?,
     ));
   }
 }
@@ -893,7 +1086,8 @@ class _$_CreateWalletState implements _CreateWalletState {
       required this.checkBox,
       this.currentPage = 1,
       this.status = const Idle(),
-      this.mnemonic});
+      this.mnemonic,
+      this.wallet});
 
   @override
   final String password;
@@ -909,10 +1103,12 @@ class _$_CreateWalletState implements _CreateWalletState {
   final Status<dynamic> status;
   @override
   final String? mnemonic;
+  @override
+  final Wallet? wallet;
 
   @override
   String toString() {
-    return 'CreateWalletState(password: $password, repeatPassword: $repeatPassword, checkBox: $checkBox, currentPage: $currentPage, status: $status, mnemonic: $mnemonic)';
+    return 'CreateWalletState(password: $password, repeatPassword: $repeatPassword, checkBox: $checkBox, currentPage: $currentPage, status: $status, mnemonic: $mnemonic, wallet: $wallet)';
   }
 
   @override
@@ -927,7 +1123,8 @@ class _$_CreateWalletState implements _CreateWalletState {
             const DeepCollectionEquality()
                 .equals(other.currentPage, currentPage) &&
             const DeepCollectionEquality().equals(other.status, status) &&
-            const DeepCollectionEquality().equals(other.mnemonic, mnemonic));
+            const DeepCollectionEquality().equals(other.mnemonic, mnemonic) &&
+            const DeepCollectionEquality().equals(other.wallet, wallet));
   }
 
   @override
@@ -938,7 +1135,8 @@ class _$_CreateWalletState implements _CreateWalletState {
       const DeepCollectionEquality().hash(checkBox),
       const DeepCollectionEquality().hash(currentPage),
       const DeepCollectionEquality().hash(status),
-      const DeepCollectionEquality().hash(mnemonic));
+      const DeepCollectionEquality().hash(mnemonic),
+      const DeepCollectionEquality().hash(wallet));
 
   @JsonKey(ignore: true)
   @override
@@ -953,7 +1151,8 @@ abstract class _CreateWalletState implements CreateWalletState {
       required bool checkBox,
       int currentPage,
       Status<dynamic> status,
-      String? mnemonic}) = _$_CreateWalletState;
+      String? mnemonic,
+      Wallet? wallet}) = _$_CreateWalletState;
 
   @override
   String get password;
@@ -967,6 +1166,8 @@ abstract class _CreateWalletState implements CreateWalletState {
   Status<dynamic> get status;
   @override
   String? get mnemonic;
+  @override
+  Wallet? get wallet;
   @override
   @JsonKey(ignore: true)
   _$CreateWalletStateCopyWith<_CreateWalletState> get copyWith =>

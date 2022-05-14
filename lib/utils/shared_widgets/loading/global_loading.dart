@@ -15,6 +15,7 @@ class GlobalLoading extends StatefulWidget {
 
   final LoadingThemeData themeData;
 
+  @override
   final GlobalKey<_GlobalLoadingState> key;
 
   final LoadingWidgetBuilder loadingWidgetBuilder;

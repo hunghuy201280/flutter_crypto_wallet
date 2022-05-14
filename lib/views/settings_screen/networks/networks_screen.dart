@@ -41,7 +41,7 @@ class _NetworksScreenState extends State<NetworksScreen> {
               physics: const NeverScrollableScrollPhysics(
                   parent: BouncingScrollPhysics()),
               shrinkWrap: true,
-              itemBuilder: (context, index) => NetworkItem(
+              itemBuilder: (context, index) => const NetworkItem(
                 networkName: 'Main Test Network',
                 color: AppColors.kColor2,
               ),
@@ -58,7 +58,7 @@ class _NetworksScreenState extends State<NetworksScreen> {
               physics: const NeverScrollableScrollPhysics(
                   parent: BouncingScrollPhysics()),
               shrinkWrap: true,
-              itemBuilder: (context, index) => NetworkItem(
+              itemBuilder: (context, index) => const NetworkItem(
                 networkName: 'Main Test Network',
                 color: AppColors.kColor7,
               ),

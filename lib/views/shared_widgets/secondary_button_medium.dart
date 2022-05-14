@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ntf_marketplace/configs/color_config.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../configs/text_config.dart';

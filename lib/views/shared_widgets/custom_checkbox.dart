@@ -1,7 +1,6 @@
 library custom_check_box;
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class CustomCheckBox extends StatefulWidget {
   final bool value;

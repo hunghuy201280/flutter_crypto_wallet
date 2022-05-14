@@ -71,8 +71,12 @@
   "about" : "About",
   "aboutAppName" : "About App Name",
   "passwordNotMatch" : "Password not match",
+  "passwordIsNotEmpty" : "Password is not empty", 
   "secretRecoveryPhrase" : "Secret Recovery Phrase",
   "logout" : "Logout",
   "english" : "English",
-  "vietnamese" : "Vietnamese"
+  "vietnamese" : "Vietnamese",
+  "pleaseAcceptPolicy" : "Please accept policy",
+  "somethingHappenedWrong" : "Something happened wrong",
+  "passwordNotMeetCondition" : "Password does not meet the conditions, character string is greater than 8"
 }

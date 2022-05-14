@@ -153,6 +153,5 @@ class _NFTTab extends StatelessWidget {
         )
       ],
     );
-    ;
   }
 }

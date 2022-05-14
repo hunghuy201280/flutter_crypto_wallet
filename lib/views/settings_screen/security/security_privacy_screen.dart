@@ -8,7 +8,7 @@ import '../../../generated/l10n.dart';
 
 class SecurityPrivacyScreen extends StatefulWidget {
   static const String id = 'setting/security';
-  SecurityPrivacyScreen({Key? key}) : super(key: key);
+  const SecurityPrivacyScreen({Key? key}) : super(key: key);
 
   @override
   State<SecurityPrivacyScreen> createState() => _SecurityPrivacyScreenState();

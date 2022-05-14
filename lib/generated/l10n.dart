@@ -620,6 +620,16 @@ class S {
     );
   }
 
+  /// `Password is not empty`
+  String get passwordIsNotEmpty {
+    return Intl.message(
+      'Password is not empty',
+      name: 'passwordIsNotEmpty',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Secret Recovery Phrase`
   String get secretRecoveryPhrase {
     return Intl.message(
@@ -655,6 +665,36 @@ class S {
     return Intl.message(
       'Vietnamese',
       name: 'vietnamese',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please accept policy`
+  String get pleaseAcceptPolicy {
+    return Intl.message(
+      'Please accept policy',
+      name: 'pleaseAcceptPolicy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Something happened wrong`
+  String get somethingHappenedWrong {
+    return Intl.message(
+      'Something happened wrong',
+      name: 'somethingHappenedWrong',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password does not meet the conditions, character string is greater than 8`
+  String get passwordNotMeetCondition {
+    return Intl.message(
+      'Password does not meet the conditions, character string is greater than 8',
+      name: 'passwordNotMeetCondition',
       desc: '',
       args: [],
     );

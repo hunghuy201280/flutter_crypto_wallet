@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../generated/l10n.dart';
@@ -32,7 +30,7 @@ class InfoDialog extends StatelessWidget {
           onPressed: () {
             Navigator.pop(context, true);
           },
-          child: Text(
+          child: const Text(
             "Close",
             //  s.close,
             //style: TextConfigs.kTextH5_4,

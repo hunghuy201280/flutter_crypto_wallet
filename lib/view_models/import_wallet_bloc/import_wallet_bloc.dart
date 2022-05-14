@@ -1,14 +1,11 @@
 import 'package:bloc/bloc.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_ntf_marketplace/services/dto/base_dto.dart';
 import 'package:flutter_ntf_marketplace/services/local/local_provider.dart';
 import 'package:flutter_ntf_marketplace/services/remote/remote_provider.dart';
 import 'package:flutter_ntf_marketplace/utils/helpers/status.dart';
 import 'package:flutter_ntf_marketplace/utils/utils.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:meta/meta.dart';
 
 part 'import_wallet_bloc.freezed.dart';
 part 'import_wallet_event.dart';

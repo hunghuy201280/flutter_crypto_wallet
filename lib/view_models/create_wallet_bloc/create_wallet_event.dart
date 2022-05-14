@@ -8,7 +8,7 @@ class CreateWalletEvent with _$CreateWalletEvent {
       {required String rePassword}) = _CreateWalletEventRePasswordChanged;
   const factory CreateWalletEvent.checkBox({required bool isCheck}) =
       _CreateWalletEventCheckBox;
-
   const factory CreateWalletEvent.requestCreateWallet() =
       _CreateWalletEventRequest;
+  const factory CreateWalletEvent.startApp() = _CreateWalletEventStart;
 }

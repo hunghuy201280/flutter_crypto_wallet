@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ntf_marketplace/configs/app_config.dart';
 import 'package:flutter_ntf_marketplace/configs/color_config.dart';
 import 'package:flutter_ntf_marketplace/configs/text_config.dart';
 import 'package:flutter_ntf_marketplace/views/shared_widgets/secondary_button_medium.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../generated/l10n.dart';
 
 class SecurityPrivacyItem extends StatelessWidget {
   final String title;

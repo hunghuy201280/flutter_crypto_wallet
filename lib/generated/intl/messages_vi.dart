@@ -83,8 +83,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "password": MessageLookupByLibrary.simpleMessage("Mật khẩu"),
         "passwordDescription": MessageLookupByLibrary.simpleMessage(
             "Chọn một mật khẩu mạnh để mở khóa ứng dụng Metamask trên thiết bị của bạn. Nếu bạn mất mật khẩu này, bạn sẽ cần Cụm từ khôi phục bí mật để nhập lại ví của mình."),
+        "passwordIsNotEmpty":
+            MessageLookupByLibrary.simpleMessage("Mật khẩu không được trống"),
         "passwordNotMatch":
             MessageLookupByLibrary.simpleMessage("Mật khẩu không khớp"),
+        "passwordNotMeetCondition": MessageLookupByLibrary.simpleMessage(
+            "Mật khẩu không thoả điều kiện, chuỗi ký tự lớn hơn 8"),
+        "pleaseAcceptPolicy": MessageLookupByLibrary.simpleMessage(
+            "Vui lòng chấp nhận chính sách"),
         "privateKey": MessageLookupByLibrary.simpleMessage("Private key"),
         "protectYourWallet":
             MessageLookupByLibrary.simpleMessage("Protect your wallet"),
@@ -103,6 +109,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "signIn": MessageLookupByLibrary.simpleMessage("Đăng nhập"),
         "signInWithBiometrics": MessageLookupByLibrary.simpleMessage(
             "Muốn đăng nhập bằng vân tay ?"),
+        "somethingHappenedWrong":
+            MessageLookupByLibrary.simpleMessage("Có điều gì đó đã xảy ra sai"),
         "statistic": MessageLookupByLibrary.simpleMessage("Thống kê"),
         "thisMonth": MessageLookupByLibrary.simpleMessage("Tháng này"),
         "thisPasswordWillUnlockYourWalletOnlyOnThisDevice":

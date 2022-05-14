@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_ntf_marketplace/services/dto//import_wallet_mnemonic_dto/import_wallet_mnemonic_dto.dart';
-import 'package:flutter_ntf_marketplace/view_models/import_wallet_bloc/import_wallet_bloc.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../models/token/token.dart';

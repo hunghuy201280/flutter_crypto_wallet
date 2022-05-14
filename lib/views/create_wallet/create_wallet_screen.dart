@@ -1,8 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ntf_marketplace/configs/color_config.dart';
 import 'package:flutter_ntf_marketplace/generated/l10n.dart';
+import 'package:flutter_ntf_marketplace/utils/enums.dart';
 import 'package:flutter_ntf_marketplace/utils/helpers/status.dart';
 import 'package:flutter_ntf_marketplace/utils/shared_widgets/loading/global_loading.dart';
 import 'package:flutter_ntf_marketplace/utils/utils.dart';
@@ -46,7 +46,29 @@ class _CreateWalletScreenState extends State<CreateWalletScreen> {
         switch (state.status.runtimeType) {
           case Error:
             hideLoadingDialog();
-            showInfoDialog(context, message: state.status.data);
+            switch (state.status.data.runtimeType) {
+              case String:
+                showInfoDialog(context, message: state.status.data);
+                break;
+              case CreateWalletErrorState:
+                switch (state.status.data as CreateWalletErrorState) {
+                  case CreateWalletErrorState.passwordNotMatch:
+                    showInfoDialog(context, message: s.passwordNotMatch);
+                    break;
+                  case CreateWalletErrorState.passwordEmpty:
+                    showInfoDialog(context, message: s.passwordNotMatch);
+                    break;
+                  case CreateWalletErrorState.networkError:
+                    break;
+                  case CreateWalletErrorState.policyAccept:
+                    showInfoDialog(context, message: s.pleaseAcceptPolicy);
+                    break;
+                  case CreateWalletErrorState.passwordNotMeetCondition:
+                    showInfoDialog(context,
+                        message: s.passwordNotMeetCondition);
+                    break;
+                }
+            }
             break;
           case Loading:
             showLoadingDialog();
@@ -54,6 +76,10 @@ class _CreateWalletScreenState extends State<CreateWalletScreen> {
           case Idle:
             hideLoadingDialog();
             _animateToPage(state.currentPage - 1);
+            break;
+          case Success:
+            hideLoadingDialog();
+            Navigator.pushNamed(context, NavBarView.id);
             break;
         }
       },
@@ -88,7 +114,7 @@ class _CreateWalletScreenState extends State<CreateWalletScreen> {
                   if (state.currentPage == 1) {
                     _bloc.add(const CreateWalletEvent.requestCreateWallet());
                   } else {
-                    Navigator.pushNamed(context, NavBarView.id);
+                    _bloc.add(const CreateWalletEvent.startApp());
                   }
                 },
               ),

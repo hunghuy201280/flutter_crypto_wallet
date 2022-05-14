@@ -91,7 +91,7 @@ class AppRoute {
         );
       case SecurityPrivacyScreen.id:
         return CupertinoPageRoute(
-          builder: (context) => SecurityPrivacyScreen(),
+          builder: (context) => const SecurityPrivacyScreen(),
           settings: settings,
         );
       case NetworksScreen.id:

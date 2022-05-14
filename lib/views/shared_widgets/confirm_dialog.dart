@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -34,7 +33,7 @@ class ConfirmDialog extends StatelessWidget {
                 onPressed: () {
                   Navigator.of(context, rootNavigator: false).pop(false);
                 },
-                child: Text(
+                child: const Text(
                   'Hủy',
                   //style: TextConfigs.kTextH5_3,
                 ),
@@ -59,7 +58,7 @@ class ConfirmDialog extends StatelessWidget {
                 onPressed: () {
                   Navigator.of(context, rootNavigator: false).pop(true);
                 },
-                child: Text(
+                child: const Text(
                   'Đồng ý',
                   // style: TextConfigs.kTextH5_8,
                 ),

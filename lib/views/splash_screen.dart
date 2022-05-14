@@ -65,7 +65,9 @@ class __BodyScreenState extends State<_BodyScreen> {
               }
               return null;
             },
-            initial: () {},
+            initial: () {
+              return null;
+            },
           ),
         ),
         BlocListener<AuthBloc, AuthState>(

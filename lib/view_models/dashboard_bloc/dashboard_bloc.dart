@@ -8,5 +8,5 @@ part 'dashboard_state.dart';
 
 @injectable
 class DashboardBloc extends Bloc<DashboardEvent, DashboardState> {
-  DashboardBloc() : super(const DashboardState.initial()) {}
+  DashboardBloc() : super(const DashboardState.initial());
 }
