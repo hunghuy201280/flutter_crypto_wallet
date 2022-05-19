@@ -5,3 +5,11 @@ enum CreateWalletErrorState {
   networkError,
   policyAccept,
 }
+
+enum ImportWalletErrorState {
+  passwordNotMatch,
+  passwordNotMeetCondition,
+  passwordEmpty,
+  networkError,
+  policyAccept,
+}

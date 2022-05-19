@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ntf_marketplace/configs/color_config.dart';
 import 'package:flutter_ntf_marketplace/generated/l10n.dart';
+import 'package:flutter_ntf_marketplace/utils/enums.dart';
 import 'package:flutter_ntf_marketplace/utils/extensions.dart';
 import 'package:flutter_ntf_marketplace/utils/helpers/status.dart';
 import 'package:flutter_ntf_marketplace/utils/shared_widgets/loading/global_loading.dart';
@@ -43,7 +44,29 @@ class _ImportWalletScreenState extends State<ImportWalletScreen> {
         switch (status.runtimeType) {
           case Error:
             hideLoadingDialog();
-            showInfoDialog(context, message: status.data);
+            switch (state.status.data.runtimeType) {
+              case String:
+                showInfoDialog(context, message: state.status.data);
+                break;
+              case ImportWalletErrorState:
+                switch (state.status.data as ImportWalletErrorState) {
+                  case ImportWalletErrorState.passwordNotMatch:
+                    showInfoDialog(context, message: s.passwordNotMatch);
+                    break;
+                  case ImportWalletErrorState.passwordEmpty:
+                    showInfoDialog(context, message: s.passwordIsNotEmpty);
+                    break;
+                  case ImportWalletErrorState.networkError:
+                    break;
+                  case ImportWalletErrorState.policyAccept:
+                    showInfoDialog(context, message: s.pleaseAcceptPolicy);
+                    break;
+                  case ImportWalletErrorState.passwordNotMeetCondition:
+                    showInfoDialog(context,
+                        message: s.passwordNotMeetCondition);
+                    break;
+                }
+            }
             break;
           case Loading:
             showLoadingDialog();

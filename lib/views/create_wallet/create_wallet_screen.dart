@@ -56,7 +56,7 @@ class _CreateWalletScreenState extends State<CreateWalletScreen> {
                     showInfoDialog(context, message: s.passwordNotMatch);
                     break;
                   case CreateWalletErrorState.passwordEmpty:
-                    showInfoDialog(context, message: s.passwordNotMatch);
+                    showInfoDialog(context, message: s.passwordIsNotEmpty);
                     break;
                   case CreateWalletErrorState.networkError:
                     break;

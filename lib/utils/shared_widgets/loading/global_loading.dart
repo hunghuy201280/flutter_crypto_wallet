@@ -135,7 +135,7 @@ class _GlobalLoadingState extends State<GlobalLoading> {
 
 /// Use [LoadingDismissFuture.dismiss] can dismiss current dialog
 Future<LoadingDismissFuture?> showLoadingDialog({
-  bool? tapDismiss,
+  bool? tapDismiss = false,
 }) {
   printLog(GlobalLoading, message: "show loading dialog");
   var c = Completer<LoadingDismissFuture?>();

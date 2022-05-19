@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_ntf_marketplace/services/local/local_provider.dart';
 import 'package:flutter_ntf_marketplace/services/remote/remote_provider.dart';
+import 'package:flutter_ntf_marketplace/utils/enums.dart';
 import 'package:flutter_ntf_marketplace/utils/helpers/status.dart';
 import 'package:flutter_ntf_marketplace/utils/utils.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -22,12 +23,19 @@ class ImportWalletBloc extends Bloc<ImportWalletEvent, ImportWalletState> {
   void _mapEventToState() {
     on<ImportWalletImported>((event, emit) async {
       emit(state.copyWith(status: const Loading()));
-
       try {
-        if (state.password.trim().length < 8 ||
-            state.password != state.repeatPassword) {
-          throw "Password not match";
+        if (state.password.trim().isEmpty &&
+            state.repeatPassword.trim().isEmpty) {
+          throw ImportWalletErrorState.passwordEmpty;
         }
+        if (state.password != state.repeatPassword) {
+          throw ImportWalletErrorState.passwordNotMatch;
+        }
+        if (state.password.trim().length < 8) {
+          throw ImportWalletErrorState.passwordNotMeetCondition;
+        }
+
+        if (!state.boxChecked) throw ImportWalletErrorState.policyAccept;
 
         final mnemonic = state.mnemonic;
         final result =
