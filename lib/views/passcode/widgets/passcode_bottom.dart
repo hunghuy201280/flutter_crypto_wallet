@@ -36,7 +36,9 @@ class _PasscodeBottomState extends State<PasscodeBottom> {
           style: TextButton.styleFrom(
             primary: AppColors.kColor9,
           ),
-          onPressed: () {},
+          onPressed: () {
+            _bloc.add(const PasscodeEvent.signInWithBiometrics());
+          },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             mainAxisSize: MainAxisSize.min,

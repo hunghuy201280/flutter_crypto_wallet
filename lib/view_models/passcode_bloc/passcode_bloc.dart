@@ -1,9 +1,12 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_ntf_marketplace/services/local/local_provider.dart';
 import 'package:flutter_ntf_marketplace/utils/helpers/status.dart';
 import 'package:flutter_ntf_marketplace/view_models/auth_bloc/auth_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:local_auth/local_auth.dart';
+import 'package:local_auth/error_codes.dart' as auth_error;
 import 'package:injectable/injectable.dart';
 
 part 'passcode_bloc.freezed.dart';
@@ -41,7 +44,41 @@ class PasscodeBloc extends Bloc<PasscodeEvent, PasscodeState> {
     on<_PasscodeChanged>(
       (event, emit) => emit(state.copyWith(password: event.passCode)),
     );
-    on<_PasscodeEventSignInWithBiometrics>((event, emit) {});
+    on<_PasscodeEventSignInWithBiometrics>((event, emit) async {
+      emit(state.copyWith(status: const Loading()));
+      final auth = LocalAuthentication();
+      final bool canAuthenticateWithBiometrics = await auth.canCheckBiometrics;
+      final bool canAuthenticate =
+          canAuthenticateWithBiometrics || await auth.isDeviceSupported();
+      if (canAuthenticate) {
+        final List<BiometricType> availableBiometrics =
+            await auth.getAvailableBiometrics();
+
+        if (availableBiometrics.contains(BiometricType.strong) ||
+            availableBiometrics.contains(BiometricType.face)) {
+          // Specific types of biometrics are available.
+          // Use checks like this with caution!
+          try {
+            final bool didAuthenticate = await auth.authenticate(
+                localizedReason: 'Please authenticate to login app',
+                options: const AuthenticationOptions(useErrorDialogs: false));
+            // ···
+            if (didAuthenticate) {
+              emit(state.copyWith(status: const SignedInSuccess()));
+            }
+          } on PlatformException catch (e) {
+            if (e.code == auth_error.notAvailable) {
+              // Add handling of no hardware here.
+            } else if (e.code == auth_error.notEnrolled) {
+              // ...
+            } else {
+              // ...
+            }
+          } finally {}
+        }
+      }
+      emit(state.copyWith(status: const Idle()));
+    });
     on<_PasscodeEventSignInWithPasscode>((event, emit) {
       final passcodeSave = _localProvider.getPasscode();
       if (state.password == passcodeSave) {
