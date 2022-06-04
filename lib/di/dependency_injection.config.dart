@@ -20,14 +20,15 @@ import '../view_models/app_bloc/app_bloc.dart' as _i3;
 import '../view_models/auth_bloc/auth_bloc.dart' as _i15;
 import '../view_models/create_wallet_bloc/create_wallet_bloc.dart' as _i20;
 import '../view_models/dashboard_bloc/dashboard_bloc.dart' as _i6;
-import '../view_models/import_wallet_bloc/import_wallet_bloc.dart' as _i21;
+import '../view_models/import_token_bloc/import_token_bloc.dart' as _i21;
+import '../view_models/import_wallet_bloc/import_wallet_bloc.dart' as _i22;
 import '../view_models/login_bloc/login_bloc.dart' as _i8;
 import '../view_models/onboard_cubit/onboard_cubit.dart' as _i17;
 import '../view_models/passcode_bloc/passcode_bloc.dart' as _i18;
 import '../view_models/splash_bloc/splash_bloc.dart' as _i19;
 import '../view_models/wallet_detail_bloc/wallet_detail_bloc.dart' as _i14;
 import 'di_module/hive_module.dart'
-    as _i22; // ignore_for_file: unnecessary_lambdas
+    as _i23; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -69,9 +70,11 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
   gh.factory<_i15.AuthBloc>(() => _i15.AuthBloc(get<_i16.LocalProvider>()));
   gh.factory<_i20.CreateWalletBloc>(() => _i20.CreateWalletBloc(
       get<_i13.RemoteProvider>(), get<_i16.LocalProvider>()));
-  gh.factory<_i21.ImportWalletBloc>(() => _i21.ImportWalletBloc(
+  gh.factory<_i21.ImportTokenBloc>(() => _i21.ImportTokenBloc(
+      get<_i13.RemoteProvider>(), get<_i16.LocalProvider>()));
+  gh.factory<_i22.ImportWalletBloc>(() => _i22.ImportWalletBloc(
       get<_i13.RemoteProvider>(), get<_i16.LocalProvider>()));
   return get;
 }
 
-class _$HiveModule extends _i22.HiveModule {}
+class _$HiveModule extends _i23.HiveModule {}

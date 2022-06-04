@@ -699,6 +699,46 @@ class S {
       args: [],
     );
   }
+
+  /// `Token Contract Address`
+  String get tokenContractAddress {
+    return Intl.message(
+      'Token Contract Address',
+      name: 'tokenContractAddress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Token Symbol`
+  String get tokenSymbol {
+    return Intl.message(
+      'Token Symbol',
+      name: 'tokenSymbol',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Token of Precision`
+  String get tokenOfPrecision {
+    return Intl.message(
+      'Token of Precision',
+      name: 'tokenOfPrecision',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add Custom Token`
+  String get addCustomToken {
+    return Intl.message(
+      'Add Custom Token',
+      name: 'addCustomToken',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

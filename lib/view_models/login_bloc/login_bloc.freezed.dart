@@ -119,7 +119,7 @@ class _$_ImportWallet with DiagnosticableTreeMixin implements _ImportWallet {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties..add(DiagnosticsProperty('type', 'LoginEvent.importWaller'));
+    properties.add(DiagnosticsProperty('type', 'LoginEvent.importWaller'));
   }
 
   @override
@@ -229,7 +229,7 @@ class _$_CreateWallet with DiagnosticableTreeMixin implements _CreateWallet {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties..add(DiagnosticsProperty('type', 'LoginEvent.createWallet'));
+    properties.add(DiagnosticsProperty('type', 'LoginEvent.createWallet'));
   }
 
   @override
@@ -411,7 +411,7 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties..add(DiagnosticsProperty('type', 'LoginState.initial'));
+    properties.add(DiagnosticsProperty('type', 'LoginState.initial'));
   }
 
   @override
@@ -523,7 +523,7 @@ class _$_LoadInProgress
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties..add(DiagnosticsProperty('type', 'LoginState.loadInProgress'));
+    properties.add(DiagnosticsProperty('type', 'LoginState.loadInProgress'));
   }
 
   @override

@@ -4,8 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../configs/color_config.dart';
 import '../../configs/text_config.dart';
 
-class PrimaryButton extends StatelessWidget {
-  const PrimaryButton({
+class PrimaryButtonMedium extends StatelessWidget {
+  const PrimaryButtonMedium({
     Key? key,
     required this.title,
     this.backgroundColor = AppColors.kColor6,
@@ -23,25 +23,22 @@ class PrimaryButton extends StatelessWidget {
   final GestureTapCallback? onTap;
   final Widget? leading;
   final TextStyle? style;
-
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return Container(
+      width: double.infinity,
       padding: EdgeInsets.symmetric(horizontal: horizontalMargin ?? 0),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           primary: backgroundColor,
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(
-              Radius.circular(20),
+              Radius.circular(10),
             ),
           ),
           padding: EdgeInsets.symmetric(
             vertical: verticalPadding ?? 16.h,
-            horizontal: 24.w,
           ),
-          minimumSize: Size(1.sw, 0),
-          maximumSize: Size(1.sw, 1.sh),
         ),
         onPressed: onTap,
         child: Row(
@@ -58,7 +55,7 @@ class PrimaryButton extends StatelessWidget {
               ),
             Text(
               title,
-              style: style ?? TextConfigs.kHeader4_9,
+              style: style ?? TextConfigs.kLabel_9,
             ),
             if (leading != null) const Spacer(),
           ],

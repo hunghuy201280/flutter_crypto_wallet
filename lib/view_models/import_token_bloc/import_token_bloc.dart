@@ -1,0 +1,73 @@
+import 'package:bloc/bloc.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter_ntf_marketplace/models/token/token.dart';
+import 'package:flutter_ntf_marketplace/services/local/local_provider.dart';
+import 'package:flutter_ntf_marketplace/services/remote/remote_provider.dart';
+import 'package:flutter_ntf_marketplace/utils/helpers/status.dart';
+import 'package:flutter_ntf_marketplace/utils/utils.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
+
+part 'import_token_state.dart';
+part 'import_token_event.dart';
+part 'import_token_bloc.freezed.dart';
+
+@injectable
+class ImportTokenBloc extends Bloc<ImportTokenEvent, ImportTokenState> {
+  final RemoteProvider _remoteProvider;
+  final LocalProvider _localProvider;
+  ImportTokenBloc(this._remoteProvider, this._localProvider)
+      : super(const ImportTokenState()) {
+    on<_ImportTokenEventAdd>((event, emit) async {
+      emit(state.copyWith(status: const Loading()));
+      try {
+        if ((state.tokenAddress?.trim().length ?? 0) < 12 ||
+            state.tokenAddress?.trim().isEmpty == true ||
+            state.tokenDecimal?.trim().isEmpty == true ||
+            state.tokenSymbol?.trim().isEmpty == true) {
+          throw 'Please enter all information';
+        }
+        await _localProvider.addSaveToken(
+            token: Token(
+                address: state.tokenAddress!,
+                symbol: state.tokenSymbol!,
+                demical: int.parse(state.tokenDecimal!)));
+        emit(state.copyWith(status: const Success()));
+      } catch (e) {
+        printLog(this, message: e, error: e);
+        emit(state.copyWith(status: Error(e)));
+      } finally {
+        emit(state.copyWith(status: const Idle()));
+      }
+    });
+    on<_ImportTokenEventLoad>((event, emit) async {
+      emit(state.copyWith(status: const Loading()));
+      if (state.tokenAddress?.isEmpty == true) {
+        return emit(state.copyWith(status: const Idle()));
+      }
+      try {
+        final result =
+            await _remoteProvider.getInfoOfToken(state.tokenAddress!);
+        if (result.error) throw result.message;
+        emit(state.copyWith(
+            tokenAddress: result.result?.address,
+            tokenDecimal: result.result?.demical.toString(),
+            tokenSymbol: result.result?.symbol));
+      } catch (e) {
+        printLog(this, message: e, error: e);
+        emit(state.copyWith(status: Error(e)));
+      } finally {
+        emit(state.copyWith(status: const Idle()));
+      }
+    });
+    on<_ImportTokenEventAddressChanged>(
+      (event, emit) => emit(state.copyWith(tokenAddress: event.tokenAddress)),
+    );
+    on<_ImportTokenEventDecimalChanged>(
+      (event, emit) => emit(state.copyWith(tokenDecimal: event.tokenDecimal)),
+    );
+    on<_ImportTokenEventSymbolChanged>(
+      (event, emit) => emit(state.copyWith(tokenSymbol: event.tokenSymbol)),
+    );
+  }
+}

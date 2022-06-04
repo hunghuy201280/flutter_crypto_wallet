@@ -41,7 +41,7 @@ class _NFTAppState extends State<NFTApp> {
         ],
         child: ScreenUtilInit(
           designSize: const Size(390, 844),
-          builder: () {
+          builder: (context, widget) {
             return MaterialApp(
               localizationsDelegates: const [
                 S.delegate,
@@ -59,7 +59,6 @@ class _NFTAppState extends State<NFTApp> {
                   debugPrint("Material builder: widget is null");
                   return Utils.empty;
                 }
-                ScreenUtil.setContext(context);
                 return GlobalLoading(
                   themeData: LoadingThemeData(
                     tapDismiss: false,

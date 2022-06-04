@@ -4,6 +4,7 @@ import 'package:flutter_ntf_marketplace/configs/color_config.dart';
 import 'package:flutter_ntf_marketplace/configs/text_config.dart';
 import 'package:flutter_ntf_marketplace/models/token/token.dart';
 import 'package:flutter_ntf_marketplace/utils/helpers/status.dart';
+import 'package:flutter_ntf_marketplace/views/import_token/import_token_screen.dart';
 import 'package:flutter_ntf_marketplace/views/wallet_screen/widgets/wallet_coin_item.dart';
 import 'package:flutter_ntf_marketplace/views/wallet_screen/widgets/wallet_nft_group.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -102,7 +103,10 @@ class _TokenTab extends StatelessWidget {
             ),
             2.verticalSpace,
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context, rootNavigator: true)
+                    .pushNamed(ImportTokenScreen.id);
+              },
               child: Text(
                 s.importTokens,
                 style: TextConfigs.kCaption_4,

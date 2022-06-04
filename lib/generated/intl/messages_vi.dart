@@ -30,6 +30,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "about": MessageLookupByLibrary.simpleMessage("Thông tin"),
         "aboutAppName":
             MessageLookupByLibrary.simpleMessage("Thông tin về App Name"),
+        "addCustomToken": MessageLookupByLibrary.simpleMessage("Thêm Token"),
         "appName": MessageLookupByLibrary.simpleMessage("App Name"),
         "changePassword": MessageLookupByLibrary.simpleMessage("Đổi mật khẩu"),
         "confirmPassword":
@@ -118,6 +119,11 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Mật khẩu này chỉ mở khóa ví của bạn trên thiết bị này."),
         "thisWeek": MessageLookupByLibrary.simpleMessage("Tuần này"),
         "thisYear": MessageLookupByLibrary.simpleMessage("Năm này"),
+        "tokenContractAddress":
+            MessageLookupByLibrary.simpleMessage("Địa Chỉ Token"),
+        "tokenOfPrecision":
+            MessageLookupByLibrary.simpleMessage("Số thập phân"),
+        "tokenSymbol": MessageLookupByLibrary.simpleMessage("Biểu tượng Token"),
         "tokens": MessageLookupByLibrary.simpleMessage("TOKENS"),
         "transactionHistory":
             MessageLookupByLibrary.simpleMessage("Lịch sử giao dịch"),

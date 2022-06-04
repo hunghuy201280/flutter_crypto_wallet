@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter_ntf_marketplace/models/token/token.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
@@ -18,6 +19,7 @@ class HiveConfigs {
 
     final key = await getSecureKey();
     Hive.registerAdapter(WalletAdapter());
+    Hive.registerAdapter(TokenAdapter());
 
     await Hive.openBox(kConfig, encryptionCipher: HiveAesCipher(key));
     await Hive.openBox(kWallet, encryptionCipher: HiveAesCipher(key));
@@ -43,4 +45,5 @@ class HiveConfigs {
   static const kConfig = "CONFIG_BOX";
   static const kWallet = "WALLET_BOX";
   static const kWalletTypeId = 1;
+  static const kTokenTypeId = 2;
 }

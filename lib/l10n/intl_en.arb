@@ -78,5 +78,9 @@
   "vietnamese" : "Vietnamese",
   "pleaseAcceptPolicy" : "Please accept policy",
   "somethingHappenedWrong" : "Something happened wrong",
-  "passwordNotMeetCondition" : "Password does not meet the conditions, character string is greater than 8"
+  "passwordNotMeetCondition" : "Password does not meet the conditions, character string is greater than 8",
+  "tokenContractAddress" : "Token Contract Address",
+  "tokenSymbol" : "Token Symbol",
+  "tokenOfPrecision" : "Token of Precision",
+  "addCustomToken" : "Add Custom Token"
 }

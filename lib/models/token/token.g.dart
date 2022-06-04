@@ -3,21 +3,71 @@
 part of 'token.dart';
 
 // **************************************************************************
+// TypeAdapterGenerator
+// **************************************************************************
+
+class TokenAdapter extends TypeAdapter<_$_Token> {
+  @override
+  final int typeId = 2;
+
+  @override
+  _$_Token read(BinaryReader reader) {
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
+    return _$_Token(
+      address: fields[0] as String,
+      symbol: fields[1] as String,
+      demical: fields[2] as int,
+      imageUrl: fields[3] as String?,
+      balance: fields[4] as double,
+    );
+  }
+
+  @override
+  void write(BinaryWriter writer, _$_Token obj) {
+    writer
+      ..writeByte(5)
+      ..writeByte(0)
+      ..write(obj.address)
+      ..writeByte(1)
+      ..write(obj.symbol)
+      ..writeByte(2)
+      ..write(obj.demical)
+      ..writeByte(3)
+      ..write(obj.imageUrl)
+      ..writeByte(4)
+      ..write(obj.balance);
+  }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is TokenAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
+}
+
+// **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
 _$_Token _$$_TokenFromJson(Map<String, dynamic> json) => _$_Token(
-      id: json['id'] as int,
       address: json['address'] as String,
       symbol: json['symbol'] as String,
-      imageUrl: json['imageUrl'] as String,
-      balance: (json['balance'] as num).toDouble(),
+      demical: json['demical'] as int,
+      imageUrl: json['imageUrl'] as String?,
+      balance: (json['balance'] as num?)?.toDouble() ?? 0,
     );
 
 Map<String, dynamic> _$$_TokenToJson(_$_Token instance) => <String, dynamic>{
-      'id': instance.id,
       'address': instance.address,
       'symbol': instance.symbol,
+      'demical': instance.demical,
       'imageUrl': instance.imageUrl,
       'balance': instance.balance,
     };

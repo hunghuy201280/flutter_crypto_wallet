@@ -2,6 +2,7 @@ import 'package:flutter_ntf_marketplace/configs/app_config.dart';
 import 'package:flutter_ntf_marketplace/constants/app_prefs.dart';
 import 'package:injectable/injectable.dart';
 
+import '../../models/token/token.dart';
 import '../../models/wallet/wallet.dart';
 
 @singleton
@@ -107,5 +108,38 @@ class LocalRepository {
   Future<void> setLoginWithBiometrics({required bool isBiometrics}) async {
     final wallet = _appPref.wallet;
     await wallet.setIsLoginWithBiometrics(isBiometrics);
+  }
+
+  List<Token> getSaveTokens() {
+    final wallet = _appPref.wallet;
+    return wallet.saveTokens;
+  }
+
+  Future<void> addSaveToken({required Token token}) async {
+    final wallet = _appPref.wallet;
+    final tokens = getSaveTokens();
+    try {
+      tokens.firstWhere((element) => element.address == token.address);
+    } catch (e) {
+      tokens.add(token);
+      await wallet.setSavedTokens(tokens);
+    }
+  }
+
+  Future<void> deleteSaveToken({required Token token}) async {
+    final wallet = _appPref.wallet;
+    final tokens = getSaveTokens();
+    try {
+      tokens.firstWhere((element) => element.address == token.address);
+      tokens.removeWhere(
+        (element) => element.address == token.address,
+      );
+      await wallet.setSavedTokens(tokens);
+    } catch (e) {}
+  }
+
+  Future<void> deleteAllSaveToken() async {
+    final wallet = _appPref.wallet;
+    await wallet.setSavedTokens([]);
   }
 }

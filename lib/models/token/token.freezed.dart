@@ -23,15 +23,15 @@ class _$TokenTearOff {
   const _$TokenTearOff();
 
   _Token call(
-      {required int id,
-      required String address,
-      required String symbol,
-      required String imageUrl,
-      required double balance}) {
+      {@HiveField(0) required String address,
+      @HiveField(1) required String symbol,
+      @HiveField(2) required int demical,
+      @HiveField(3) String? imageUrl,
+      @HiveField(4) double balance = 0}) {
     return _Token(
-      id: id,
       address: address,
       symbol: symbol,
+      demical: demical,
       imageUrl: imageUrl,
       balance: balance,
     );
@@ -47,10 +47,15 @@ const $Token = _$TokenTearOff();
 
 /// @nodoc
 mixin _$Token {
-  int get id => throw _privateConstructorUsedError;
+  @HiveField(0)
   String get address => throw _privateConstructorUsedError;
+  @HiveField(1)
   String get symbol => throw _privateConstructorUsedError;
-  String get imageUrl => throw _privateConstructorUsedError;
+  @HiveField(2)
+  int get demical => throw _privateConstructorUsedError;
+  @HiveField(3)
+  String? get imageUrl => throw _privateConstructorUsedError;
+  @HiveField(4)
   double get balance => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -63,7 +68,11 @@ abstract class $TokenCopyWith<$Res> {
   factory $TokenCopyWith(Token value, $Res Function(Token) then) =
       _$TokenCopyWithImpl<$Res>;
   $Res call(
-      {int id, String address, String symbol, String imageUrl, double balance});
+      {@HiveField(0) String address,
+      @HiveField(1) String symbol,
+      @HiveField(2) int demical,
+      @HiveField(3) String? imageUrl,
+      @HiveField(4) double balance});
 }
 
 /// @nodoc
@@ -76,17 +85,13 @@ class _$TokenCopyWithImpl<$Res> implements $TokenCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? id = freezed,
     Object? address = freezed,
     Object? symbol = freezed,
+    Object? demical = freezed,
     Object? imageUrl = freezed,
     Object? balance = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
       address: address == freezed
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
@@ -95,10 +100,14 @@ class _$TokenCopyWithImpl<$Res> implements $TokenCopyWith<$Res> {
           ? _value.symbol
           : symbol // ignore: cast_nullable_to_non_nullable
               as String,
+      demical: demical == freezed
+          ? _value.demical
+          : demical // ignore: cast_nullable_to_non_nullable
+              as int,
       imageUrl: imageUrl == freezed
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       balance: balance == freezed
           ? _value.balance
           : balance // ignore: cast_nullable_to_non_nullable
@@ -113,7 +122,11 @@ abstract class _$TokenCopyWith<$Res> implements $TokenCopyWith<$Res> {
       __$TokenCopyWithImpl<$Res>;
   @override
   $Res call(
-      {int id, String address, String symbol, String imageUrl, double balance});
+      {@HiveField(0) String address,
+      @HiveField(1) String symbol,
+      @HiveField(2) int demical,
+      @HiveField(3) String? imageUrl,
+      @HiveField(4) double balance});
 }
 
 /// @nodoc
@@ -127,17 +140,13 @@ class __$TokenCopyWithImpl<$Res> extends _$TokenCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? id = freezed,
     Object? address = freezed,
     Object? symbol = freezed,
+    Object? demical = freezed,
     Object? imageUrl = freezed,
     Object? balance = freezed,
   }) {
     return _then(_Token(
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
       address: address == freezed
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
@@ -146,10 +155,14 @@ class __$TokenCopyWithImpl<$Res> extends _$TokenCopyWithImpl<$Res>
           ? _value.symbol
           : symbol // ignore: cast_nullable_to_non_nullable
               as String,
+      demical: demical == freezed
+          ? _value.demical
+          : demical // ignore: cast_nullable_to_non_nullable
+              as int,
       imageUrl: imageUrl == freezed
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       balance: balance == freezed
           ? _value.balance
           : balance // ignore: cast_nullable_to_non_nullable
@@ -161,31 +174,38 @@ class __$TokenCopyWithImpl<$Res> extends _$TokenCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
+@HiveType(typeId: HiveConfigs.kTokenTypeId, adapterName: "TokenAdapter")
 class _$_Token implements _Token {
   const _$_Token(
-      {required this.id,
-      required this.address,
-      required this.symbol,
-      required this.imageUrl,
-      required this.balance});
+      {@HiveField(0) required this.address,
+      @HiveField(1) required this.symbol,
+      @HiveField(2) required this.demical,
+      @HiveField(3) this.imageUrl,
+      @HiveField(4) this.balance = 0});
 
   factory _$_Token.fromJson(Map<String, dynamic> json) =>
       _$$_TokenFromJson(json);
 
   @override
-  final int id;
-  @override
+  @HiveField(0)
   final String address;
   @override
+  @HiveField(1)
   final String symbol;
   @override
-  final String imageUrl;
+  @HiveField(2)
+  final int demical;
   @override
+  @HiveField(3)
+  final String? imageUrl;
+  @JsonKey()
+  @override
+  @HiveField(4)
   final double balance;
 
   @override
   String toString() {
-    return 'Token(id: $id, address: $address, symbol: $symbol, imageUrl: $imageUrl, balance: $balance)';
+    return 'Token(address: $address, symbol: $symbol, demical: $demical, imageUrl: $imageUrl, balance: $balance)';
   }
 
   @override
@@ -193,9 +213,9 @@ class _$_Token implements _Token {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Token &&
-            const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.address, address) &&
             const DeepCollectionEquality().equals(other.symbol, symbol) &&
+            const DeepCollectionEquality().equals(other.demical, demical) &&
             const DeepCollectionEquality().equals(other.imageUrl, imageUrl) &&
             const DeepCollectionEquality().equals(other.balance, balance));
   }
@@ -203,9 +223,9 @@ class _$_Token implements _Token {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(address),
       const DeepCollectionEquality().hash(symbol),
+      const DeepCollectionEquality().hash(demical),
       const DeepCollectionEquality().hash(imageUrl),
       const DeepCollectionEquality().hash(balance));
 
@@ -222,23 +242,28 @@ class _$_Token implements _Token {
 
 abstract class _Token implements Token {
   const factory _Token(
-      {required int id,
-      required String address,
-      required String symbol,
-      required String imageUrl,
-      required double balance}) = _$_Token;
+      {@HiveField(0) required String address,
+      @HiveField(1) required String symbol,
+      @HiveField(2) required int demical,
+      @HiveField(3) String? imageUrl,
+      @HiveField(4) double balance}) = _$_Token;
 
   factory _Token.fromJson(Map<String, dynamic> json) = _$_Token.fromJson;
 
   @override
-  int get id;
-  @override
+  @HiveField(0)
   String get address;
   @override
+  @HiveField(1)
   String get symbol;
   @override
-  String get imageUrl;
+  @HiveField(2)
+  int get demical;
   @override
+  @HiveField(3)
+  String? get imageUrl;
+  @override
+  @HiveField(4)
   double get balance;
   @override
   @JsonKey(ignore: true)

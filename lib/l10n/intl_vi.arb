@@ -64,5 +64,9 @@
   "vietnamese" : "Tiếng Việt",
   "pleaseAcceptPolicy" : "Vui lòng chấp nhận chính sách",
   "somethingHappenedWrong" : "Có điều gì đó đã xảy ra sai",
-  "passwordNotMeetCondition" : "Mật khẩu không thoả điều kiện, chuỗi ký tự lớn hơn 8"
+  "passwordNotMeetCondition" : "Mật khẩu không thoả điều kiện, chuỗi ký tự lớn hơn 8",
+  "tokenContractAddress" : "Địa Chỉ Token",
+  "tokenSymbol" : "Biểu tượng Token",
+  "tokenOfPrecision" : "Số thập phân",
+  "addCustomToken" : "Thêm Token"
 }

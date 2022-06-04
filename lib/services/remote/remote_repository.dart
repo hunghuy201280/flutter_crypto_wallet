@@ -41,4 +41,11 @@ class RemoteRepository {
     );
     return response;
   }
+
+  Future<Response> getInfoOfToken(String tokenAddress) async {
+    Response response = await _dio.get(
+      AppEndpoint.getInfoOfToken(tokenAddress),
+    );
+    return response;
+  }
 }

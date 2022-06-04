@@ -2,6 +2,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../constants/hive_configs.dart';
+import '../token/token.dart';
 import '../wallet/wallet.dart';
 
 @singleton
@@ -15,6 +16,7 @@ class WalletPref {
   static const kSavedWalletsKey = "SAVED_WALLETS_KEY";
   static const kPasscodeKey = "PASSCODE_KEY";
   static const kIsLoginWithBiometrics = "IS_LOGIN_WITH_BIOMETRIC_KEY";
+  static const kSaveTokensKey = "SAVE_TOKENS_KEY";
 
   String get mnemonicPhrase => box.get(kMnemonicPhraseKey, defaultValue: "");
   Future<void> setMnemonicPhrase(String value) =>
@@ -40,4 +42,12 @@ class WalletPref {
       box.get(kIsLoginWithBiometrics, defaultValue: false);
   Future<void> setIsLoginWithBiometrics(bool value) =>
       box.put(kIsLoginWithBiometrics, value);
+
+  List<Token> get saveTokens =>
+      (box.get(kSaveTokensKey, defaultValue: <Token>[]) as List)
+          .map((e) => e as Token)
+          .toList();
+
+  Future<void> setSavedTokens(List<Token> value) =>
+      box.put(kSaveTokensKey, value);
 }

@@ -165,7 +165,7 @@ class _$ImportWalletImported
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties..add(DiagnosticsProperty('type', 'ImportWalletEvent.imported'));
+    properties.add(DiagnosticsProperty('type', 'ImportWalletEvent.imported'));
   }
 
   @override

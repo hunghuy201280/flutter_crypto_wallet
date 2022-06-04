@@ -65,4 +65,17 @@ class RemoteProvider {
       return BaseDto.fromJson(e.response?.data);
     }
   }
+
+  Future<BaseDto<Token>> getInfoOfToken(String tokenAddress) async {
+    try {
+      final response = await _repo.getInfoOfToken(tokenAddress);
+      final data = BaseDto<Token>.fromJson(
+        response.data,
+        create: (data) => Token.fromJson(data),
+      );
+      return data;
+    } on DioError catch (e) {
+      return BaseDto.fromJson(e.response?.data);
+    }
+  }
 }

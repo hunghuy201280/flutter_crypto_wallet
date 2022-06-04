@@ -125,7 +125,7 @@ class _$WalletDetailTokensLoaded
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'WalletDetailEvent.tokensLoaded'));
+        .add(DiagnosticsProperty('type', 'WalletDetailEvent.tokensLoaded'));
   }
 
   @override
@@ -238,8 +238,7 @@ class _$WalletDetailNFTsLoaded
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'WalletDetailEvent.NFTsLoaded'));
+    properties.add(DiagnosticsProperty('type', 'WalletDetailEvent.NFTsLoaded'));
   }
 
   @override

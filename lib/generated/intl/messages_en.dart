@@ -29,6 +29,8 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "about": MessageLookupByLibrary.simpleMessage("About"),
         "aboutAppName": MessageLookupByLibrary.simpleMessage("About App Name"),
+        "addCustomToken":
+            MessageLookupByLibrary.simpleMessage("Add Custom Token"),
         "appName": MessageLookupByLibrary.simpleMessage("App Name"),
         "changePassword":
             MessageLookupByLibrary.simpleMessage("Change password"),
@@ -119,6 +121,11 @@ class MessageLookup extends MessageLookupByLibrary {
                 "This password will unlock your wallet only on this device."),
         "thisWeek": MessageLookupByLibrary.simpleMessage("This Week"),
         "thisYear": MessageLookupByLibrary.simpleMessage("This Year"),
+        "tokenContractAddress":
+            MessageLookupByLibrary.simpleMessage("Token Contract Address"),
+        "tokenOfPrecision":
+            MessageLookupByLibrary.simpleMessage("Token of Precision"),
+        "tokenSymbol": MessageLookupByLibrary.simpleMessage("Token Symbol"),
         "tokens": MessageLookupByLibrary.simpleMessage("TOKENS"),
         "transactionHistory":
             MessageLookupByLibrary.simpleMessage("Transaction History"),

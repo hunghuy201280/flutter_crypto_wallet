@@ -20,6 +20,7 @@ class PrimaryTextField extends StatefulWidget {
     this.maxLines,
     this.suffixIcon,
     this.onChanged,
+    this.focusNode,
   }) : super(key: key);
 
   final TextEditingController? controller;
@@ -34,6 +35,7 @@ class PrimaryTextField extends StatefulWidget {
   final TextInputAction inputAction;
   final Widget? suffixIcon;
   final ValueChanged<String>? onChanged;
+  final FocusNode? focusNode;
   @override
   State<PrimaryTextField> createState() => _PrimaryTextFieldState();
 }
@@ -50,7 +52,7 @@ class _PrimaryTextFieldState extends State<PrimaryTextField> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance?.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       setState(() {
         isHidden = widget.isHidden;
       });
@@ -89,6 +91,8 @@ class _PrimaryTextFieldState extends State<PrimaryTextField> {
         ),
         if (!widget.obscureText) 8.verticalSpace,
         TextFormField(
+          controller: widget.controller,
+          focusNode: widget.focusNode,
           style: TextConfigs.kBody2_9,
           obscureText: isHidden,
           validator: widget.validator,

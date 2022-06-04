@@ -71,15 +71,15 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 .pushNamed(SecurityPrivacyScreen.id);
           },
         ),
-        divider,
-        SettingItem(
-          title: s.networks,
-          description: s.networksDescription,
-          action: () {
-            Navigator.of(context, rootNavigator: true)
-                .pushNamed(NetworksScreen.id);
-          },
-        ),
+        // divider,
+        // SettingItem(
+        //   title: s.networks,
+        //   description: s.networksDescription,
+        //   action: () {
+        //     Navigator.of(context, rootNavigator: true)
+        //         .pushNamed(NetworksScreen.id);
+        //   },
+        // ),
         divider,
         SettingItem(
           title: s.aboutAppName,

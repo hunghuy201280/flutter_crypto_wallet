@@ -1,5 +1,6 @@
 import 'package:injectable/injectable.dart';
 
+import '../../models/token/token.dart';
 import '../../models/wallet/wallet.dart';
 import 'local_repository.dart';
 
@@ -81,5 +82,21 @@ class LocalProvider {
 
   Future<void> setLoginWithBiometrics({required bool isBiometrics}) async {
     await _repo.setLoginWithBiometrics(isBiometrics: isBiometrics);
+  }
+
+  List<Token> getSaveTokens() {
+    return _repo.getSaveTokens();
+  }
+
+  Future<void> addSaveToken({required Token token}) async {
+    return _repo.addSaveToken(token: token);
+  }
+
+  Future<void> deleteSaveToken({required Token token}) async {
+    return _repo.deleteSaveToken(token: token);
+  }
+
+  Future<void> deleteAllSaveToken() async {
+    return _repo.deleteAllSaveToken();
   }
 }
