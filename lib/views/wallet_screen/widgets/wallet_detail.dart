@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ntf_marketplace/configs/color_config.dart';
 import 'package:flutter_ntf_marketplace/configs/text_config.dart';
 import 'package:flutter_ntf_marketplace/models/token/token.dart';
+import 'package:flutter_ntf_marketplace/utils/extensions.dart';
 import 'package:flutter_ntf_marketplace/utils/helpers/status.dart';
 import 'package:flutter_ntf_marketplace/views/import_token/import_token_screen.dart';
 import 'package:flutter_ntf_marketplace/views/wallet_screen/widgets/wallet_coin_item.dart';
@@ -65,56 +66,62 @@ class _TokenTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = S.of(context);
-    return ListView(
-      physics:
-          const NeverScrollableScrollPhysics(parent: BouncingScrollPhysics()),
-      shrinkWrap: true,
-      children: [
-        BlocSelector<WalletDetailBloc, WalletDetailState,
-            Tuple2<List<Token>, Status>>(
-          selector: (state) => Tuple2(state.tokens, state.status),
-          builder: (context, tuple2) {
-            final tokens = tuple2.item1;
-            final status = tuple2.item2;
-            if (status is Loading) {
-              return const Center(child: CircularProgressIndicator());
-            } else if (status is Success || status is Idle) {
-              return ListView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemBuilder: (context, index) => WalletCoinItem(
-                  token: tokens[index],
-                ),
-                itemCount: tokens.length,
-              );
-            } else {
-              return const Text("Failed");
-            }
-          },
-        ),
-        16.verticalSpace,
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              s.dontSeeYourToken,
-              style: TextConfigs.kBody2_9,
-            ),
-            2.verticalSpace,
-            GestureDetector(
-              onTap: () {
-                Navigator.of(context, rootNavigator: true)
-                    .pushNamed(ImportTokenScreen.id);
-              },
-              child: Text(
-                s.importTokens,
-                style: TextConfigs.kCaption_4,
+    return NotificationListener<OverscrollNotification>(
+      onNotification: (notification) {
+        return true;
+      },
+      child: ListView(
+        physics: const BouncingScrollPhysics(),
+        shrinkWrap: true,
+        children: [
+          BlocSelector<WalletDetailBloc, WalletDetailState,
+              Tuple2<List<Token>, Status>>(
+            selector: (state) => Tuple2(state.tokens, state.status),
+            builder: (context, tuple2) {
+              final tokens = tuple2.item1;
+              final status = tuple2.item2;
+              if ((status is Success || status is Idle) && tokens.isNotEmpty) {
+                return ListView.builder(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemBuilder: (context, index) => WalletCoinItem(
+                    token: tokens[index],
+                  ),
+                  itemCount: tokens.length,
+                );
+              } else {
+                return Container(
+                  margin: EdgeInsets.symmetric(vertical: 30.h),
+                  child: 'empty_box'.getIcon(
+                      height: 0.3.sw, width: 0.3.sw, color: AppColors.kColor9),
+                );
+              }
+            },
+          ),
+          16.verticalSpace,
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                s.dontSeeYourToken,
+                style: TextConfigs.kBody2_9,
               ),
-            ),
-          ],
-        )
-      ],
+              2.verticalSpace,
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context, rootNavigator: true)
+                      .pushNamed(ImportTokenScreen.id);
+                },
+                child: Text(
+                  s.importTokens,
+                  style: TextConfigs.kCaption_4,
+                ),
+              ),
+            ],
+          )
+        ],
+      ),
     );
   }
 }

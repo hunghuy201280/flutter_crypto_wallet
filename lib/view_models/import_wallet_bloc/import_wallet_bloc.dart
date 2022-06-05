@@ -5,6 +5,7 @@ import 'package:flutter_ntf_marketplace/services/remote/remote_provider.dart';
 import 'package:flutter_ntf_marketplace/utils/enums.dart';
 import 'package:flutter_ntf_marketplace/utils/helpers/status.dart';
 import 'package:flutter_ntf_marketplace/utils/utils.dart';
+import 'package:flutter_ntf_marketplace/view_models/auth_bloc/auth_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
@@ -14,12 +15,14 @@ part 'import_wallet_state.dart';
 
 @injectable
 class ImportWalletBloc extends Bloc<ImportWalletEvent, ImportWalletState> {
-  ImportWalletBloc(this._remoteProvider, this._localProvider)
+  ImportWalletBloc(
+      this._remoteProvider, this._localProvider, @factoryParam this._authBloc)
       : super(ImportWalletState.initial()) {
     _mapEventToState();
   }
   final RemoteProvider _remoteProvider;
   final LocalProvider _localProvider;
+  final AuthBloc _authBloc;
   void _mapEventToState() {
     on<ImportWalletImported>((event, emit) async {
       emit(state.copyWith(status: const Loading()));

@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_ntf_marketplace/services/dto//import_wallet_mnemonic_dto/import_wallet_mnemonic_dto.dart';
+import 'package:flutter_ntf_marketplace/services/dto/token_balance_dto/token_balance_dto.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../models/token/token.dart';
@@ -53,12 +54,14 @@ class RemoteProvider {
     }
   }
 
-  Future<BaseDto<List<Token>>> getTokens(String address) async {
+  Future<BaseDto<List<TokenBalanceDto>>> getBalanceTokensOfAddress(
+      String address, List<Token> tokens) async {
     try {
-      final response = await _repo.getTokens(address);
-      final data = BaseDto<List<Token>>.fromJson(
+      final response = await _repo.getBalanceTokensOfAddress(address, tokens);
+      final data = BaseDto<List<TokenBalanceDto>>.fromJson(
         response.data,
-        create: (data) => (data as List).map((e) => Token.fromJson(e)).toList(),
+        create: (data) =>
+            (data as List).map((e) => TokenBalanceDto.fromJson(e)).toList(),
       );
       return data;
     } on DioError catch (e) {

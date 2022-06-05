@@ -99,4 +99,8 @@ class LocalProvider {
   Future<void> deleteAllSaveToken() async {
     return _repo.deleteAllSaveToken();
   }
+
+  Future<void> setSaveTokens({required List<Token> tokens}) async {
+    return _repo.setSaveTokens(tokens: tokens);
+  }
 }

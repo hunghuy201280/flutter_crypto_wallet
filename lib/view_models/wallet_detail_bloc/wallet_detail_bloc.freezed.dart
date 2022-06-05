@@ -22,6 +22,10 @@ class _$WalletDetailEventTearOff {
     return const WalletDetailTokensLoaded();
   }
 
+  WalletDetailBalanceTokensLoaded balanceTokensLoaded() {
+    return const WalletDetailBalanceTokensLoaded();
+  }
+
   WalletDetailNFTsLoaded NFTsLoaded() {
     return const WalletDetailNFTsLoaded();
   }
@@ -35,18 +39,21 @@ mixin _$WalletDetailEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() tokensLoaded,
+    required TResult Function() balanceTokensLoaded,
     required TResult Function() NFTsLoaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? tokensLoaded,
+    TResult Function()? balanceTokensLoaded,
     TResult Function()? NFTsLoaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? tokensLoaded,
+    TResult Function()? balanceTokensLoaded,
     TResult Function()? NFTsLoaded,
     required TResult orElse(),
   }) =>
@@ -54,18 +61,24 @@ mixin _$WalletDetailEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(WalletDetailTokensLoaded value) tokensLoaded,
+    required TResult Function(WalletDetailBalanceTokensLoaded value)
+        balanceTokensLoaded,
     required TResult Function(WalletDetailNFTsLoaded value) NFTsLoaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(WalletDetailTokensLoaded value)? tokensLoaded,
+    TResult Function(WalletDetailBalanceTokensLoaded value)?
+        balanceTokensLoaded,
     TResult Function(WalletDetailNFTsLoaded value)? NFTsLoaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(WalletDetailTokensLoaded value)? tokensLoaded,
+    TResult Function(WalletDetailBalanceTokensLoaded value)?
+        balanceTokensLoaded,
     TResult Function(WalletDetailNFTsLoaded value)? NFTsLoaded,
     required TResult orElse(),
   }) =>
@@ -141,6 +154,7 @@ class _$WalletDetailTokensLoaded
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() tokensLoaded,
+    required TResult Function() balanceTokensLoaded,
     required TResult Function() NFTsLoaded,
   }) {
     return tokensLoaded();
@@ -150,6 +164,7 @@ class _$WalletDetailTokensLoaded
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? tokensLoaded,
+    TResult Function()? balanceTokensLoaded,
     TResult Function()? NFTsLoaded,
   }) {
     return tokensLoaded?.call();
@@ -159,6 +174,7 @@ class _$WalletDetailTokensLoaded
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? tokensLoaded,
+    TResult Function()? balanceTokensLoaded,
     TResult Function()? NFTsLoaded,
     required TResult orElse(),
   }) {
@@ -172,6 +188,8 @@ class _$WalletDetailTokensLoaded
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(WalletDetailTokensLoaded value) tokensLoaded,
+    required TResult Function(WalletDetailBalanceTokensLoaded value)
+        balanceTokensLoaded,
     required TResult Function(WalletDetailNFTsLoaded value) NFTsLoaded,
   }) {
     return tokensLoaded(this);
@@ -181,6 +199,8 @@ class _$WalletDetailTokensLoaded
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(WalletDetailTokensLoaded value)? tokensLoaded,
+    TResult Function(WalletDetailBalanceTokensLoaded value)?
+        balanceTokensLoaded,
     TResult Function(WalletDetailNFTsLoaded value)? NFTsLoaded,
   }) {
     return tokensLoaded?.call(this);
@@ -190,6 +210,8 @@ class _$WalletDetailTokensLoaded
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(WalletDetailTokensLoaded value)? tokensLoaded,
+    TResult Function(WalletDetailBalanceTokensLoaded value)?
+        balanceTokensLoaded,
     TResult Function(WalletDetailNFTsLoaded value)? NFTsLoaded,
     required TResult orElse(),
   }) {
@@ -202,6 +224,134 @@ class _$WalletDetailTokensLoaded
 
 abstract class WalletDetailTokensLoaded implements WalletDetailEvent {
   const factory WalletDetailTokensLoaded() = _$WalletDetailTokensLoaded;
+}
+
+/// @nodoc
+abstract class $WalletDetailBalanceTokensLoadedCopyWith<$Res> {
+  factory $WalletDetailBalanceTokensLoadedCopyWith(
+          WalletDetailBalanceTokensLoaded value,
+          $Res Function(WalletDetailBalanceTokensLoaded) then) =
+      _$WalletDetailBalanceTokensLoadedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$WalletDetailBalanceTokensLoadedCopyWithImpl<$Res>
+    extends _$WalletDetailEventCopyWithImpl<$Res>
+    implements $WalletDetailBalanceTokensLoadedCopyWith<$Res> {
+  _$WalletDetailBalanceTokensLoadedCopyWithImpl(
+      WalletDetailBalanceTokensLoaded _value,
+      $Res Function(WalletDetailBalanceTokensLoaded) _then)
+      : super(_value, (v) => _then(v as WalletDetailBalanceTokensLoaded));
+
+  @override
+  WalletDetailBalanceTokensLoaded get _value =>
+      super._value as WalletDetailBalanceTokensLoaded;
+}
+
+/// @nodoc
+
+class _$WalletDetailBalanceTokensLoaded
+    with DiagnosticableTreeMixin
+    implements WalletDetailBalanceTokensLoaded {
+  const _$WalletDetailBalanceTokensLoaded();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'WalletDetailEvent.balanceTokensLoaded()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(
+        DiagnosticsProperty('type', 'WalletDetailEvent.balanceTokensLoaded'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is WalletDetailBalanceTokensLoaded);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() tokensLoaded,
+    required TResult Function() balanceTokensLoaded,
+    required TResult Function() NFTsLoaded,
+  }) {
+    return balanceTokensLoaded();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? tokensLoaded,
+    TResult Function()? balanceTokensLoaded,
+    TResult Function()? NFTsLoaded,
+  }) {
+    return balanceTokensLoaded?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? tokensLoaded,
+    TResult Function()? balanceTokensLoaded,
+    TResult Function()? NFTsLoaded,
+    required TResult orElse(),
+  }) {
+    if (balanceTokensLoaded != null) {
+      return balanceTokensLoaded();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(WalletDetailTokensLoaded value) tokensLoaded,
+    required TResult Function(WalletDetailBalanceTokensLoaded value)
+        balanceTokensLoaded,
+    required TResult Function(WalletDetailNFTsLoaded value) NFTsLoaded,
+  }) {
+    return balanceTokensLoaded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(WalletDetailTokensLoaded value)? tokensLoaded,
+    TResult Function(WalletDetailBalanceTokensLoaded value)?
+        balanceTokensLoaded,
+    TResult Function(WalletDetailNFTsLoaded value)? NFTsLoaded,
+  }) {
+    return balanceTokensLoaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(WalletDetailTokensLoaded value)? tokensLoaded,
+    TResult Function(WalletDetailBalanceTokensLoaded value)?
+        balanceTokensLoaded,
+    TResult Function(WalletDetailNFTsLoaded value)? NFTsLoaded,
+    required TResult orElse(),
+  }) {
+    if (balanceTokensLoaded != null) {
+      return balanceTokensLoaded(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class WalletDetailBalanceTokensLoaded implements WalletDetailEvent {
+  const factory WalletDetailBalanceTokensLoaded() =
+      _$WalletDetailBalanceTokensLoaded;
 }
 
 /// @nodoc
@@ -254,6 +404,7 @@ class _$WalletDetailNFTsLoaded
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() tokensLoaded,
+    required TResult Function() balanceTokensLoaded,
     required TResult Function() NFTsLoaded,
   }) {
     return NFTsLoaded();
@@ -263,6 +414,7 @@ class _$WalletDetailNFTsLoaded
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? tokensLoaded,
+    TResult Function()? balanceTokensLoaded,
     TResult Function()? NFTsLoaded,
   }) {
     return NFTsLoaded?.call();
@@ -272,6 +424,7 @@ class _$WalletDetailNFTsLoaded
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? tokensLoaded,
+    TResult Function()? balanceTokensLoaded,
     TResult Function()? NFTsLoaded,
     required TResult orElse(),
   }) {
@@ -285,6 +438,8 @@ class _$WalletDetailNFTsLoaded
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(WalletDetailTokensLoaded value) tokensLoaded,
+    required TResult Function(WalletDetailBalanceTokensLoaded value)
+        balanceTokensLoaded,
     required TResult Function(WalletDetailNFTsLoaded value) NFTsLoaded,
   }) {
     return NFTsLoaded(this);
@@ -294,6 +449,8 @@ class _$WalletDetailNFTsLoaded
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(WalletDetailTokensLoaded value)? tokensLoaded,
+    TResult Function(WalletDetailBalanceTokensLoaded value)?
+        balanceTokensLoaded,
     TResult Function(WalletDetailNFTsLoaded value)? NFTsLoaded,
   }) {
     return NFTsLoaded?.call(this);
@@ -303,6 +460,8 @@ class _$WalletDetailNFTsLoaded
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(WalletDetailTokensLoaded value)? tokensLoaded,
+    TResult Function(WalletDetailBalanceTokensLoaded value)?
+        balanceTokensLoaded,
     TResult Function(WalletDetailNFTsLoaded value)? NFTsLoaded,
     required TResult orElse(),
   }) {

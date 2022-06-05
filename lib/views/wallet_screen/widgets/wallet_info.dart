@@ -20,48 +20,51 @@ class _WalletInfoState extends State<WalletInfo> {
   @override
   Widget build(BuildContext context) {
     final s = S.of(context);
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        PrimaryAvatar(
-          size: 88.w,
-          imageUrl: AppConfigs.tempImage,
-          borderColor: AppColors.kColor9,
-        ),
-        16.verticalSpace,
-        Text(
-          'Account 1',
-          style: TextConfigs.kBody2_9,
-        ),
-        10.verticalSpace,
-        Material(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10.w),
+    return Container(
+      color: AppColors.kColor1,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          PrimaryAvatar(
+            size: 88.w,
+            imageUrl: AppConfigs.tempImage,
+            borderColor: AppColors.kColor9,
           ),
-          clipBehavior: Clip.hardEdge,
-          color: AppColors.kColor5,
-          child: InkWell(
-            onTap: () {
-              FlutterClipboard.controlC("text");
-              Utils.showToast(context, message: "Copied");
-            },
-            splashFactory: InkRipple.splashFactory,
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 21.w, vertical: 5.h),
-              child: Text(
-                "0x888888848B652a2...F72",
-                style: TextConfigs.kBody2_9,
+          16.verticalSpace,
+          Text(
+            'Account 1',
+            style: TextConfigs.kBody2_9,
+          ),
+          10.verticalSpace,
+          Material(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10.w),
+            ),
+            clipBehavior: Clip.hardEdge,
+            color: AppColors.kColor5,
+            child: InkWell(
+              onTap: () {
+                FlutterClipboard.controlC("text");
+                Utils.showToast(context, message: "Copied");
+              },
+              splashFactory: InkRipple.splashFactory,
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 21.w, vertical: 5.h),
+                child: Text(
+                  "0x888888848B652a2...F72",
+                  style: TextConfigs.kBody2_9,
+                ),
               ),
             ),
           ),
-        ),
-        16.verticalSpace,
-        Text(
-          '\$ 10.000',
-          style: TextConfigs.kLabel_9,
-        )
-      ],
+          16.verticalSpace,
+          Text(
+            '\$ 10.000',
+            style: TextConfigs.kLabel_9,
+          )
+        ],
+      ),
     );
   }
 }

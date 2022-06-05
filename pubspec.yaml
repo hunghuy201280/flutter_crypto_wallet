@@ -44,6 +44,10 @@ dependencies:
   json_annotation: ^4.5.0
   flutter_animated_dialog: ^2.0.1
   local_auth: ^2.0.2
+  custom_nested_scroll_view:
+    git:
+      url: https://github.com/idootop/custom_nested_scroll_view.git
+  custom_refresh_indicator: ^1.2.0
 
 
 

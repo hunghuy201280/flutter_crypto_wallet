@@ -3,6 +3,8 @@ import 'package:flutter_ntf_marketplace/configs/app_config.dart';
 import 'package:flutter_ntf_marketplace/constants/endpoints.dart';
 import 'package:injectable/injectable.dart';
 
+import '../../models/token/token.dart';
+
 @singleton
 class RemoteRepository {
   static const baseUrl = AppConfigs.kServerUri;
@@ -35,9 +37,11 @@ class RemoteRepository {
     return response;
   }
 
-  Future<Response> getTokens(String address) async {
+  Future<Response> getBalanceTokensOfAddress(
+      String address, List<Token> tokens) async {
     Response response = await _dio.get(
-      AppEndpoint.getTokens(address),
+      AppEndpoint.getBalanceTokensOfAddress(
+          address, tokens.map((e) => e.address).toList()),
     );
     return response;
   }

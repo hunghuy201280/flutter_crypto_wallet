@@ -8,6 +8,7 @@ import 'package:injectable/injectable.dart';
 
 import '../../models/wallet/wallet.dart';
 import '../../utils/helpers/status.dart';
+import '../auth_bloc/auth_bloc.dart';
 
 part 'create_wallet_bloc.freezed.dart';
 part 'create_wallet_event.dart';
@@ -17,7 +18,9 @@ part 'create_wallet_state.dart';
 class CreateWalletBloc extends Bloc<CreateWalletEvent, CreateWalletState> {
   final RemoteProvider _remoteProvider;
   final LocalProvider _localProvider;
-  CreateWalletBloc(this._remoteProvider, this._localProvider)
+  final AuthBloc _authBloc;
+  CreateWalletBloc(
+      this._remoteProvider, this._localProvider, @factoryParam this._authBloc)
       : super(CreateWalletState.initial()) {
     on<_CreateWalletEventPasswordChanged>((event, emit) {
       emit(state.copyWith(password: event.password));
@@ -45,14 +48,15 @@ class CreateWalletBloc extends Bloc<CreateWalletEvent, CreateWalletState> {
         final result = await _remoteProvider.createWallet();
         if (result.error) throw result.message;
         final walletDetail = result.result!;
-        return emit(
+        emit(
           state.copyWith(
             mnemonic: walletDetail.mnemonic,
             wallet: walletDetail.wallet,
             currentPage: 2,
-            status: const Idle(),
+            status: const Success(),
           ),
         );
+        _authBloc.add(AuthLoggedIn(_localProvider.getSelectedWallet()!));
       } catch (e, trace) {
         printLog(this, message: e, error: e, trace: trace);
         emit(state.copyWith(status: Error(e)));

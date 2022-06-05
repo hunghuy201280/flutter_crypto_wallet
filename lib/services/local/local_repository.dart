@@ -126,6 +126,11 @@ class LocalRepository {
     }
   }
 
+  Future<void> setSaveTokens({required List<Token> tokens}) async {
+    final wallet = _appPref.wallet;
+    await wallet.setSavedTokens(tokens);
+  }
+
   Future<void> deleteSaveToken({required Token token}) async {
     final wallet = _appPref.wallet;
     final tokens = getSaveTokens();

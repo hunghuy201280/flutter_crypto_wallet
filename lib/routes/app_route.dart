@@ -47,7 +47,8 @@ class AppRoute {
       case CreateWalletScreen.id:
         return CupertinoPageRoute(
           builder: (_) => BlocProvider(
-            create: (context) => getIt<CreateWalletBloc>(),
+            create: (context) =>
+                getIt<CreateWalletBloc>(param1: context.read<AuthBloc>()),
             child: const CreateWalletScreen(),
           ),
           settings: settings,
@@ -55,7 +56,8 @@ class AppRoute {
       case ImportWalletScreen.id:
         return CupertinoPageRoute(
           builder: (_) => BlocProvider(
-            create: (context) => getIt<ImportWalletBloc>(),
+            create: (context) =>
+                getIt<ImportWalletBloc>(param1: context.read<AuthBloc>()),
             child: const ImportWalletScreen(),
           ),
           settings: settings,

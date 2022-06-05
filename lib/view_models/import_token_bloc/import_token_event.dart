@@ -9,5 +9,5 @@ class ImportTokenEvent with _$ImportTokenEvent {
   const factory ImportTokenEvent.symbolChanged(String tokenSymbol) =
       _ImportTokenEventSymbolChanged;
   const factory ImportTokenEvent.decimalChanged(String tokenDecimal) =
-      _ImportTokenEventDecimalChanged;    
+      _ImportTokenEventDecimalChanged;
 }
