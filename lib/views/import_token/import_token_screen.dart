@@ -52,7 +52,7 @@ class __BodyScreenState extends State<_BodyScreen> {
     _bloc = context.read<ImportTokenBloc>();
     _focusNode = FocusNode();
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+    WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
       _focusNode.addListener(() {
         if (!_focusNode.hasFocus) {
           _bloc.add(const ImportTokenEvent.loadInfo());

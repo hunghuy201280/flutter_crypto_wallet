@@ -115,6 +115,7 @@ class _WalletScreenState extends State<WalletScreen>
         },
         onRefresh: () async {
           _bloc.add(const WalletDetailEvent.balanceTokensLoaded());
+          await Future.delayed(const Duration(milliseconds: 1500));
         },
         child: NotificationListener<OverscrollIndicatorNotification>(
           onNotification: (notification) {
