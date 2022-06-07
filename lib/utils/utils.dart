@@ -55,13 +55,11 @@ class Utils {
       elevation: 0,
       leading: IconButton(
         icon: "arrow_left".getIcon(width: 24.w, height: 24.w),
-        splashRadius: 14.w,
-        onPressed: () {
-          if (onTap != null) {
-            return onTap();
-          }
-          Navigator.maybePop(context);
-        },
+        splashRadius: 16.w,
+        onPressed: onTap ??
+            () {
+              Navigator.maybePop(context);
+            },
       ),
     );
   }

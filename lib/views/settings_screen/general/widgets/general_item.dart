@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ntf_marketplace/configs/color_config.dart';
 import 'package:flutter_ntf_marketplace/configs/text_config.dart';
-import 'package:flutter_ntf_marketplace/generated/l10n.dart';
 import 'package:flutter_ntf_marketplace/utils/extensions.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -31,7 +30,6 @@ class _GeneralItemState<T> extends State<GeneralItem<T>> {
 
   @override
   Widget build(BuildContext context) {
-    final s = S.of(context);
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 8.h),
       child: Column(

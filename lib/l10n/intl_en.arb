@@ -82,5 +82,8 @@
   "tokenContractAddress" : "Token Contract Address",
   "tokenSymbol" : "Token Symbol",
   "tokenOfPrecision" : "Token of Precision",
+  "confirmYourPassword" : "Confirm your password",
+  "changePasswordSentence1" : "Before continuing we need you to confirm your password",
+  "confirm" : "Confirm",
   "addCustomToken" : "Add Custom Token"
 }

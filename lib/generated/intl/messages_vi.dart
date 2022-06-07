@@ -33,8 +33,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "addCustomToken": MessageLookupByLibrary.simpleMessage("Thêm Token"),
         "appName": MessageLookupByLibrary.simpleMessage("App Name"),
         "changePassword": MessageLookupByLibrary.simpleMessage("Đổi mật khẩu"),
+        "changePasswordSentence1": MessageLookupByLibrary.simpleMessage(
+            "Hãy xác nhận mật khẩu hiện tại của bạn để tiếp tục"),
+        "confirm": MessageLookupByLibrary.simpleMessage("Xác nhận"),
         "confirmPassword":
             MessageLookupByLibrary.simpleMessage("Xác nhận mật khẩu"),
+        "confirmYourPassword": MessageLookupByLibrary.simpleMessage(
+            "Xác nhận mật khẩu hiện tại của bạn"),
         "createNewAccount":
             MessageLookupByLibrary.simpleMessage("Tạo tài khoản mới"),
         "createPassword": MessageLookupByLibrary.simpleMessage("Tạo mật khẩu"),

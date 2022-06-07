@@ -4,7 +4,6 @@ import 'package:flutter_ntf_marketplace/configs/color_config.dart';
 import 'package:flutter_ntf_marketplace/view_models/auth_bloc/auth_bloc.dart';
 import 'package:flutter_ntf_marketplace/views/onboarding_screen.dart';
 import 'package:flutter_ntf_marketplace/views/settings_screen/about_screen.dart';
-import 'package:flutter_ntf_marketplace/views/settings_screen/networks/networks_screen.dart';
 import 'package:flutter_ntf_marketplace/views/settings_screen/security/security_privacy_screen.dart';
 import 'package:flutter_ntf_marketplace/views/settings_screen/widgets/setting_item.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

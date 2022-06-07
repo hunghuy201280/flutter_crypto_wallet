@@ -28,11 +28,14 @@ class _ImportWalletScreenState extends State<ImportWalletScreen> {
   int currentStep = 1;
   final pageController = PageController();
   late ImportWalletBloc _bloc;
+  final controller = TextEditingController();
 
   @override
   void initState() {
     super.initState();
     _bloc = context.read<ImportWalletBloc>();
+    controller.text =
+        "sing omit organ aunt sing guess include just wealth extend govern apart";
   }
 
   @override
@@ -96,6 +99,7 @@ class _ImportWalletScreenState extends State<ImportWalletScreen> {
                 PrimaryTextField(
                   title: s.secretRecoveryPhrase,
                   hint: s.secretRecoveryPhrase,
+                  controller: controller,
                   maxLines: 5,
                   onChanged: (value) {
                     _bloc.add(ImportWalletMnemonicChanged(value));
@@ -109,7 +113,6 @@ class _ImportWalletScreenState extends State<ImportWalletScreen> {
                 PrimaryTextField(
                   title: s.newPassword,
                   obscureText: true,
-                  isHidden: true,
                   onChanged: (value) {
                     _bloc.add(ImportWalletPasswordChanged(value));
                   },
@@ -117,7 +120,6 @@ class _ImportWalletScreenState extends State<ImportWalletScreen> {
                 ),
                 24.verticalSpace,
                 PrimaryTextField(
-                  isHidden: true,
                   title: s.confirmPassword,
                   obscureText: true,
                   hint: s.password,

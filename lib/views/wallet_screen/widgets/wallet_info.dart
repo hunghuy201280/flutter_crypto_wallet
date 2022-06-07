@@ -6,7 +6,6 @@ import 'package:flutter_ntf_marketplace/configs/text_config.dart';
 import 'package:flutter_ntf_marketplace/views/shared_widgets/primary_avatar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../generated/l10n.dart';
 import '../../../utils/utils.dart';
 
 class WalletInfo extends StatefulWidget {
@@ -19,7 +18,6 @@ class WalletInfo extends StatefulWidget {
 class _WalletInfoState extends State<WalletInfo> {
   @override
   Widget build(BuildContext context) {
-    final s = S.of(context);
     return Container(
       color: AppColors.kColor1,
       child: Column(

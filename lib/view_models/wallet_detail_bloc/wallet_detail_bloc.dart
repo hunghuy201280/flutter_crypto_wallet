@@ -8,7 +8,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../models/token/token.dart';
-import '../../services/dto/token_balance_dto/token_balance_dto.dart';
 import '../../utils/helpers/status.dart';
 import '../../utils/utils.dart';
 

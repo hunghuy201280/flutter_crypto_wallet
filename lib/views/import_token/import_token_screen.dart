@@ -5,9 +5,7 @@ import 'package:flutter_ntf_marketplace/utils/helpers/status.dart';
 import 'package:flutter_ntf_marketplace/utils/shared_widgets/loading/global_loading.dart';
 import 'package:flutter_ntf_marketplace/utils/utils.dart';
 import 'package:flutter_ntf_marketplace/views/shared_widgets/primary_button_medium.dart';
-import 'package:flutter_ntf_marketplace/views/shared_widgets/primary_button.dart';
 import 'package:flutter_ntf_marketplace/views/shared_widgets/primary_text_field.dart';
-import 'package:flutter_ntf_marketplace/views/shared_widgets/secondary_button_medium.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../generated/l10n.dart';
@@ -52,7 +50,7 @@ class __BodyScreenState extends State<_BodyScreen> {
     _bloc = context.read<ImportTokenBloc>();
     _focusNode = FocusNode();
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+    WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
       _focusNode.addListener(() {
         if (!_focusNode.hasFocus) {
           _bloc.add(const ImportTokenEvent.loadInfo());

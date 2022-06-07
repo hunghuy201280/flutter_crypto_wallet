@@ -42,7 +42,6 @@ class _CreateWalletBody1State extends State<CreateWalletBody1> {
           title: s.newPassword,
           obscureText: true,
           hint: s.password,
-          isHidden: true,
           onChanged: (value) {
             bloc.add(CreateWalletEvent.passwordChanged(password: value));
           },
@@ -55,7 +54,6 @@ class _CreateWalletBody1State extends State<CreateWalletBody1> {
           onChanged: (value) {
             bloc.add(CreateWalletEvent.rePasswordChanged(rePassword: value));
           },
-          isHidden: true,
         ),
         8.verticalSpace,
         Container(

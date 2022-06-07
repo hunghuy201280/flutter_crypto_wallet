@@ -730,6 +730,36 @@ class S {
     );
   }
 
+  /// `Confirm your password`
+  String get confirmYourPassword {
+    return Intl.message(
+      'Confirm your password',
+      name: 'confirmYourPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Before continuing we need you to confirm your password`
+  String get changePasswordSentence1 {
+    return Intl.message(
+      'Before continuing we need you to confirm your password',
+      name: 'changePasswordSentence1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm`
+  String get confirm {
+    return Intl.message(
+      'Confirm',
+      name: 'confirm',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Add Custom Token`
   String get addCustomToken {
     return Intl.message(

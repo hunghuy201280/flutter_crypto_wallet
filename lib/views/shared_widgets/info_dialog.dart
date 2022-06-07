@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../generated/l10n.dart';
-
 class InfoDialog extends StatelessWidget {
   final String error;
 
@@ -10,7 +8,6 @@ class InfoDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final s = S.of(context);
     return SimpleDialog(
       contentPadding: EdgeInsets.all(16.w),
       titlePadding:

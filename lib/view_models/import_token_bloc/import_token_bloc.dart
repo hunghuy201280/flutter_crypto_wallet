@@ -1,5 +1,4 @@
 import 'package:bloc/bloc.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter_ntf_marketplace/models/token/token.dart';
 import 'package:flutter_ntf_marketplace/services/local/local_provider.dart';
 import 'package:flutter_ntf_marketplace/services/remote/remote_provider.dart';
@@ -8,9 +7,9 @@ import 'package:flutter_ntf_marketplace/utils/utils.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
-part 'import_token_state.dart';
-part 'import_token_event.dart';
 part 'import_token_bloc.freezed.dart';
+part 'import_token_event.dart';
+part 'import_token_state.dart';
 
 @injectable
 class ImportTokenBloc extends Bloc<ImportTokenEvent, ImportTokenState> {

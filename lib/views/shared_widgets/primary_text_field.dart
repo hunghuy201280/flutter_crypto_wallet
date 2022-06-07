@@ -11,7 +11,6 @@ class PrimaryTextField extends StatefulWidget {
     this.controller,
     required this.title,
     this.obscureText = false,
-    this.isHidden = false,
     this.hint,
     this.autovalidateMode = AutovalidateMode.disabled,
     this.validator,
@@ -27,7 +26,6 @@ class PrimaryTextField extends StatefulWidget {
   final String title;
   final String? hint;
   final bool obscureText;
-  final bool isHidden;
   final AutovalidateMode autovalidateMode;
   final FormFieldValidator<String>? validator;
   final int? maxLines;
@@ -48,16 +46,7 @@ class _PrimaryTextFieldState extends State<PrimaryTextField> {
     ),
   );
 
-  bool isHidden = false;
-  @override
-  void initState() {
-    super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      setState(() {
-        isHidden = widget.isHidden;
-      });
-    });
-  }
+  bool isHidden = true;
 
   @override
   Widget build(BuildContext context) {
@@ -65,30 +54,31 @@ class _PrimaryTextFieldState extends State<PrimaryTextField> {
 
     return Column(
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              widget.title,
-              style: TextConfigs.kLabel_9,
-            ),
-            if (widget.obscureText)
-              TextButton(
-                onPressed: () {
-                  setState(() {
-                    isHidden = !isHidden;
-                  });
-                },
-                style: TextButton.styleFrom(
-                  primary: AppColors.kColor6,
-                ),
-                child: Text(
-                  isHidden ? s.show : s.hide,
-                  style: TextConfigs.kLabel_9,
-                ),
-              )
-          ],
-        ),
+        if (widget.title.isNotEmpty)
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                widget.title,
+                style: TextConfigs.kLabel_9,
+              ),
+              if (widget.obscureText)
+                TextButton(
+                  onPressed: () {
+                    setState(() {
+                      isHidden = !isHidden;
+                    });
+                  },
+                  style: TextButton.styleFrom(
+                    primary: AppColors.kColor6,
+                  ),
+                  child: Text(
+                    isHidden ? s.show : s.hide,
+                    style: TextConfigs.kLabel_9,
+                  ),
+                )
+            ],
+          ),
         if (!widget.obscureText) 8.verticalSpace,
         TextFormField(
           controller: widget.controller,

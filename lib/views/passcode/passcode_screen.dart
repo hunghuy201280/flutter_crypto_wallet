@@ -8,7 +8,6 @@ import 'package:flutter_ntf_marketplace/views/nav_bar_view/nav_bar_view.dart';
 import 'package:flutter_ntf_marketplace/views/passcode/widgets/passcode_bottom.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../generated/l10n.dart';
 import '../../view_models/passcode_bloc/passcode_bloc.dart';
 import 'widgets/passcode_body.dart';
 
@@ -31,7 +30,6 @@ class _PasscodeScreenState extends State<PasscodeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final s = S.of(context);
     return BlocListener<PasscodeBloc, PasscodeState>(
       listener: (context, state) {
         final status = state.status;

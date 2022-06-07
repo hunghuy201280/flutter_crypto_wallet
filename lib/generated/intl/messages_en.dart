@@ -34,8 +34,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "appName": MessageLookupByLibrary.simpleMessage("App Name"),
         "changePassword":
             MessageLookupByLibrary.simpleMessage("Change password"),
+        "changePasswordSentence1": MessageLookupByLibrary.simpleMessage(
+            "Before continuing we need you to confirm your password"),
+        "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
         "confirmPassword":
             MessageLookupByLibrary.simpleMessage("Confirm Password"),
+        "confirmYourPassword":
+            MessageLookupByLibrary.simpleMessage("Confirm your password"),
         "createNewAccount":
             MessageLookupByLibrary.simpleMessage("Create New Account"),
         "createPassword":

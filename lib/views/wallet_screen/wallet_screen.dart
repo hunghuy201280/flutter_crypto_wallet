@@ -1,9 +1,6 @@
-import 'dart:io';
-
 import 'package:custom_nested_scroll_view/custom_nested_scroll_view.dart';
 import 'package:custom_refresh_indicator/custom_refresh_indicator.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ntf_marketplace/configs/color_config.dart';
 import 'package:flutter_ntf_marketplace/di/dependency_injection.dart';
@@ -12,7 +9,6 @@ import 'package:flutter_ntf_marketplace/views/wallet_screen/widgets/wallet_detai
 import 'package:flutter_ntf_marketplace/views/wallet_screen/widgets/wallet_info.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../generated/l10n.dart';
 import '../../view_models/auth_bloc/auth_bloc.dart';
 import '../../view_models/wallet_detail_bloc/wallet_detail_bloc.dart';
 

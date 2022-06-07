@@ -68,5 +68,8 @@
   "tokenContractAddress" : "Địa Chỉ Token",
   "tokenSymbol" : "Biểu tượng Token",
   "tokenOfPrecision" : "Số thập phân",
+  "confirmYourPassword" : "Xác nhận mật khẩu hiện tại của bạn",
+  "changePasswordSentence1" : "Hãy xác nhận mật khẩu hiện tại của bạn để tiếp tục",
+  "confirm" : "Xác nhận",
   "addCustomToken" : "Thêm Token"
 }

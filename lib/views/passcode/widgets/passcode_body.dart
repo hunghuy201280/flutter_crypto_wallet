@@ -51,7 +51,6 @@ class _PasscodeBodyState extends State<PasscodeBody> {
               title: s.password,
               obscureText: true,
               hint: s.password,
-              isHidden: !isShowPassword,
               onChanged: (value) {
                 _bloc.add(PasscodeEvent.passCodeChanged(passCode: value));
               },
