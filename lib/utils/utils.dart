@@ -20,16 +20,18 @@ class Utils {
     return (Random().nextInt(to - from) + from);
   }
 
-  static Future showCompleteSnackBar(context,
-      {required String message,
-      FlushbarPosition position = FlushbarPosition.TOP,
-      bool isError = false}) async {
+  static Future showCompleteSnackBar(
+    context, {
+    required String message,
+    FlushbarPosition position = FlushbarPosition.TOP,
+    bool isError = false,
+  }) async {
     await Flushbar(
       messageText: Text(
         message,
         style: TextConfigs.kBody2_9,
       ),
-      backgroundColor: AppColors.kColor6,
+      backgroundColor: isError ? Colors.red : AppColors.kColor6,
       duration: const Duration(seconds: 2),
       borderRadius: BorderRadius.circular(10),
       margin: EdgeInsets.only(bottom: 24.h),

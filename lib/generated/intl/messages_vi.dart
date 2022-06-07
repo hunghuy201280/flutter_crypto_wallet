@@ -87,6 +87,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "nfts": MessageLookupByLibrary.simpleMessage("NFTs"),
         "otherNetworks": MessageLookupByLibrary.simpleMessage("Mạng khác"),
         "password": MessageLookupByLibrary.simpleMessage("Mật khẩu"),
+        "passwordChangedSuccessfully":
+            MessageLookupByLibrary.simpleMessage("Mật khẩu đã được thay đổi"),
         "passwordDescription": MessageLookupByLibrary.simpleMessage(
             "Chọn một mật khẩu mạnh để mở khóa ứng dụng Metamask trên thiết bị của bạn. Nếu bạn mất mật khẩu này, bạn sẽ cần Cụm từ khôi phục bí mật để nhập lại ví của mình."),
         "passwordIsNotEmpty":
@@ -137,6 +139,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Thêm ví thành công"),
         "welcomeBack":
             MessageLookupByLibrary.simpleMessage("Chào mừng trở lại!"),
-        "withdrawCrypto": MessageLookupByLibrary.simpleMessage("Rút tiền")
+        "withdrawCrypto": MessageLookupByLibrary.simpleMessage("Rút tiền"),
+        "wrongPassword": MessageLookupByLibrary.simpleMessage("Sai mật khẩu")
       };
 }

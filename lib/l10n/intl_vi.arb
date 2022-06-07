@@ -71,5 +71,8 @@
   "confirmYourPassword" : "Xác nhận mật khẩu hiện tại của bạn",
   "changePasswordSentence1" : "Hãy xác nhận mật khẩu hiện tại của bạn để tiếp tục",
   "confirm" : "Xác nhận",
+  "wrongPassword" : "Sai mật khẩu",
+  "passwordChangedSuccessfully" : "Mật khẩu đã được thay đổi",
+
   "addCustomToken" : "Thêm Token"
 }

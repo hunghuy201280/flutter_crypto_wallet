@@ -31,6 +31,10 @@ class _$AuthEventTearOff {
   AuthLoggedOut loggedOut() {
     return const AuthLoggedOut();
   }
+
+  AuthPasscodeChanged passcodeChanged() {
+    return const AuthPasscodeChanged();
+  }
 }
 
 /// @nodoc
@@ -43,6 +47,7 @@ mixin _$AuthEvent {
     required TResult Function() initial,
     required TResult Function(Wallet selectedWallet) loggedIn,
     required TResult Function() loggedOut,
+    required TResult Function() passcodeChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +55,7 @@ mixin _$AuthEvent {
     TResult Function()? initial,
     TResult Function(Wallet selectedWallet)? loggedIn,
     TResult Function()? loggedOut,
+    TResult Function()? passcodeChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +63,7 @@ mixin _$AuthEvent {
     TResult Function()? initial,
     TResult Function(Wallet selectedWallet)? loggedIn,
     TResult Function()? loggedOut,
+    TResult Function()? passcodeChanged,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -65,6 +72,7 @@ mixin _$AuthEvent {
     required TResult Function(AuthInitial value) initial,
     required TResult Function(AuthLoggedIn value) loggedIn,
     required TResult Function(AuthLoggedOut value) loggedOut,
+    required TResult Function(AuthPasscodeChanged value) passcodeChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -72,6 +80,7 @@ mixin _$AuthEvent {
     TResult Function(AuthInitial value)? initial,
     TResult Function(AuthLoggedIn value)? loggedIn,
     TResult Function(AuthLoggedOut value)? loggedOut,
+    TResult Function(AuthPasscodeChanged value)? passcodeChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -79,6 +88,7 @@ mixin _$AuthEvent {
     TResult Function(AuthInitial value)? initial,
     TResult Function(AuthLoggedIn value)? loggedIn,
     TResult Function(AuthLoggedOut value)? loggedOut,
+    TResult Function(AuthPasscodeChanged value)? passcodeChanged,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -142,6 +152,7 @@ class _$AuthInitial implements AuthInitial {
     required TResult Function() initial,
     required TResult Function(Wallet selectedWallet) loggedIn,
     required TResult Function() loggedOut,
+    required TResult Function() passcodeChanged,
   }) {
     return initial();
   }
@@ -152,6 +163,7 @@ class _$AuthInitial implements AuthInitial {
     TResult Function()? initial,
     TResult Function(Wallet selectedWallet)? loggedIn,
     TResult Function()? loggedOut,
+    TResult Function()? passcodeChanged,
   }) {
     return initial?.call();
   }
@@ -162,6 +174,7 @@ class _$AuthInitial implements AuthInitial {
     TResult Function()? initial,
     TResult Function(Wallet selectedWallet)? loggedIn,
     TResult Function()? loggedOut,
+    TResult Function()? passcodeChanged,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -176,6 +189,7 @@ class _$AuthInitial implements AuthInitial {
     required TResult Function(AuthInitial value) initial,
     required TResult Function(AuthLoggedIn value) loggedIn,
     required TResult Function(AuthLoggedOut value) loggedOut,
+    required TResult Function(AuthPasscodeChanged value) passcodeChanged,
   }) {
     return initial(this);
   }
@@ -186,6 +200,7 @@ class _$AuthInitial implements AuthInitial {
     TResult Function(AuthInitial value)? initial,
     TResult Function(AuthLoggedIn value)? loggedIn,
     TResult Function(AuthLoggedOut value)? loggedOut,
+    TResult Function(AuthPasscodeChanged value)? passcodeChanged,
   }) {
     return initial?.call(this);
   }
@@ -196,6 +211,7 @@ class _$AuthInitial implements AuthInitial {
     TResult Function(AuthInitial value)? initial,
     TResult Function(AuthLoggedIn value)? loggedIn,
     TResult Function(AuthLoggedOut value)? loggedOut,
+    TResult Function(AuthPasscodeChanged value)? passcodeChanged,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -286,6 +302,7 @@ class _$AuthLoggedIn implements AuthLoggedIn {
     required TResult Function() initial,
     required TResult Function(Wallet selectedWallet) loggedIn,
     required TResult Function() loggedOut,
+    required TResult Function() passcodeChanged,
   }) {
     return loggedIn(selectedWallet);
   }
@@ -296,6 +313,7 @@ class _$AuthLoggedIn implements AuthLoggedIn {
     TResult Function()? initial,
     TResult Function(Wallet selectedWallet)? loggedIn,
     TResult Function()? loggedOut,
+    TResult Function()? passcodeChanged,
   }) {
     return loggedIn?.call(selectedWallet);
   }
@@ -306,6 +324,7 @@ class _$AuthLoggedIn implements AuthLoggedIn {
     TResult Function()? initial,
     TResult Function(Wallet selectedWallet)? loggedIn,
     TResult Function()? loggedOut,
+    TResult Function()? passcodeChanged,
     required TResult orElse(),
   }) {
     if (loggedIn != null) {
@@ -320,6 +339,7 @@ class _$AuthLoggedIn implements AuthLoggedIn {
     required TResult Function(AuthInitial value) initial,
     required TResult Function(AuthLoggedIn value) loggedIn,
     required TResult Function(AuthLoggedOut value) loggedOut,
+    required TResult Function(AuthPasscodeChanged value) passcodeChanged,
   }) {
     return loggedIn(this);
   }
@@ -330,6 +350,7 @@ class _$AuthLoggedIn implements AuthLoggedIn {
     TResult Function(AuthInitial value)? initial,
     TResult Function(AuthLoggedIn value)? loggedIn,
     TResult Function(AuthLoggedOut value)? loggedOut,
+    TResult Function(AuthPasscodeChanged value)? passcodeChanged,
   }) {
     return loggedIn?.call(this);
   }
@@ -340,6 +361,7 @@ class _$AuthLoggedIn implements AuthLoggedIn {
     TResult Function(AuthInitial value)? initial,
     TResult Function(AuthLoggedIn value)? loggedIn,
     TResult Function(AuthLoggedOut value)? loggedOut,
+    TResult Function(AuthPasscodeChanged value)? passcodeChanged,
     required TResult orElse(),
   }) {
     if (loggedIn != null) {
@@ -401,6 +423,7 @@ class _$AuthLoggedOut implements AuthLoggedOut {
     required TResult Function() initial,
     required TResult Function(Wallet selectedWallet) loggedIn,
     required TResult Function() loggedOut,
+    required TResult Function() passcodeChanged,
   }) {
     return loggedOut();
   }
@@ -411,6 +434,7 @@ class _$AuthLoggedOut implements AuthLoggedOut {
     TResult Function()? initial,
     TResult Function(Wallet selectedWallet)? loggedIn,
     TResult Function()? loggedOut,
+    TResult Function()? passcodeChanged,
   }) {
     return loggedOut?.call();
   }
@@ -421,6 +445,7 @@ class _$AuthLoggedOut implements AuthLoggedOut {
     TResult Function()? initial,
     TResult Function(Wallet selectedWallet)? loggedIn,
     TResult Function()? loggedOut,
+    TResult Function()? passcodeChanged,
     required TResult orElse(),
   }) {
     if (loggedOut != null) {
@@ -435,6 +460,7 @@ class _$AuthLoggedOut implements AuthLoggedOut {
     required TResult Function(AuthInitial value) initial,
     required TResult Function(AuthLoggedIn value) loggedIn,
     required TResult Function(AuthLoggedOut value) loggedOut,
+    required TResult Function(AuthPasscodeChanged value) passcodeChanged,
   }) {
     return loggedOut(this);
   }
@@ -445,6 +471,7 @@ class _$AuthLoggedOut implements AuthLoggedOut {
     TResult Function(AuthInitial value)? initial,
     TResult Function(AuthLoggedIn value)? loggedIn,
     TResult Function(AuthLoggedOut value)? loggedOut,
+    TResult Function(AuthPasscodeChanged value)? passcodeChanged,
   }) {
     return loggedOut?.call(this);
   }
@@ -455,6 +482,7 @@ class _$AuthLoggedOut implements AuthLoggedOut {
     TResult Function(AuthInitial value)? initial,
     TResult Function(AuthLoggedIn value)? loggedIn,
     TResult Function(AuthLoggedOut value)? loggedOut,
+    TResult Function(AuthPasscodeChanged value)? passcodeChanged,
     required TResult orElse(),
   }) {
     if (loggedOut != null) {
@@ -466,6 +494,123 @@ class _$AuthLoggedOut implements AuthLoggedOut {
 
 abstract class AuthLoggedOut implements AuthEvent {
   const factory AuthLoggedOut() = _$AuthLoggedOut;
+}
+
+/// @nodoc
+abstract class $AuthPasscodeChangedCopyWith<$Res> {
+  factory $AuthPasscodeChangedCopyWith(
+          AuthPasscodeChanged value, $Res Function(AuthPasscodeChanged) then) =
+      _$AuthPasscodeChangedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$AuthPasscodeChangedCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res>
+    implements $AuthPasscodeChangedCopyWith<$Res> {
+  _$AuthPasscodeChangedCopyWithImpl(
+      AuthPasscodeChanged _value, $Res Function(AuthPasscodeChanged) _then)
+      : super(_value, (v) => _then(v as AuthPasscodeChanged));
+
+  @override
+  AuthPasscodeChanged get _value => super._value as AuthPasscodeChanged;
+}
+
+/// @nodoc
+
+class _$AuthPasscodeChanged implements AuthPasscodeChanged {
+  const _$AuthPasscodeChanged();
+
+  @override
+  String toString() {
+    return 'AuthEvent.passcodeChanged()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is AuthPasscodeChanged);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(Wallet selectedWallet) loggedIn,
+    required TResult Function() loggedOut,
+    required TResult Function() passcodeChanged,
+  }) {
+    return passcodeChanged();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(Wallet selectedWallet)? loggedIn,
+    TResult Function()? loggedOut,
+    TResult Function()? passcodeChanged,
+  }) {
+    return passcodeChanged?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(Wallet selectedWallet)? loggedIn,
+    TResult Function()? loggedOut,
+    TResult Function()? passcodeChanged,
+    required TResult orElse(),
+  }) {
+    if (passcodeChanged != null) {
+      return passcodeChanged();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AuthInitial value) initial,
+    required TResult Function(AuthLoggedIn value) loggedIn,
+    required TResult Function(AuthLoggedOut value) loggedOut,
+    required TResult Function(AuthPasscodeChanged value) passcodeChanged,
+  }) {
+    return passcodeChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(AuthInitial value)? initial,
+    TResult Function(AuthLoggedIn value)? loggedIn,
+    TResult Function(AuthLoggedOut value)? loggedOut,
+    TResult Function(AuthPasscodeChanged value)? passcodeChanged,
+  }) {
+    return passcodeChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AuthInitial value)? initial,
+    TResult Function(AuthLoggedIn value)? loggedIn,
+    TResult Function(AuthLoggedOut value)? loggedOut,
+    TResult Function(AuthPasscodeChanged value)? passcodeChanged,
+    required TResult orElse(),
+  }) {
+    if (passcodeChanged != null) {
+      return passcodeChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AuthPasscodeChanged implements AuthEvent {
+  const factory AuthPasscodeChanged() = _$AuthPasscodeChanged;
 }
 
 /// @nodoc

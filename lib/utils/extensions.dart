@@ -57,3 +57,7 @@ extension WidgetExt on Widget {
         child: this,
       );
 }
+
+extension TextEditingControllerExt on TextEditingController {
+  String get trimmed => text.trim();
+}

@@ -89,6 +89,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "nfts": MessageLookupByLibrary.simpleMessage("NFTs"),
         "otherNetworks": MessageLookupByLibrary.simpleMessage("Other Networks"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
+        "passwordChangedSuccessfully": MessageLookupByLibrary.simpleMessage(
+            "Password changed successfully"),
         "passwordDescription": MessageLookupByLibrary.simpleMessage(
             "Choose a strong password to unclock Metamask app on your device. If you lose this password, you will need your Secret Recovery Phrase to re-import your wallet."),
         "passwordIsNotEmpty":
@@ -139,6 +141,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Wallet added successfully"),
         "welcomeBack": MessageLookupByLibrary.simpleMessage("Welcome Back!"),
         "withdrawCrypto":
-            MessageLookupByLibrary.simpleMessage("Withdraw Crypto")
+            MessageLookupByLibrary.simpleMessage("Withdraw Crypto"),
+        "wrongPassword": MessageLookupByLibrary.simpleMessage("Wrong Password")
       };
 }

@@ -15,214 +15,6 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-class _$ImportTokenStateTearOff {
-  const _$ImportTokenStateTearOff();
-
-  _ImportTokenState call(
-      {String? tokenAddress,
-      String? tokenSymbol,
-      String? tokenDecimal,
-      Status<dynamic> status = const Idle()}) {
-    return _ImportTokenState(
-      tokenAddress: tokenAddress,
-      tokenSymbol: tokenSymbol,
-      tokenDecimal: tokenDecimal,
-      status: status,
-    );
-  }
-}
-
-/// @nodoc
-const $ImportTokenState = _$ImportTokenStateTearOff();
-
-/// @nodoc
-mixin _$ImportTokenState {
-  String? get tokenAddress => throw _privateConstructorUsedError;
-  String? get tokenSymbol => throw _privateConstructorUsedError;
-  String? get tokenDecimal => throw _privateConstructorUsedError;
-  Status<dynamic> get status => throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $ImportTokenStateCopyWith<ImportTokenState> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $ImportTokenStateCopyWith<$Res> {
-  factory $ImportTokenStateCopyWith(
-          ImportTokenState value, $Res Function(ImportTokenState) then) =
-      _$ImportTokenStateCopyWithImpl<$Res>;
-  $Res call(
-      {String? tokenAddress,
-      String? tokenSymbol,
-      String? tokenDecimal,
-      Status<dynamic> status});
-}
-
-/// @nodoc
-class _$ImportTokenStateCopyWithImpl<$Res>
-    implements $ImportTokenStateCopyWith<$Res> {
-  _$ImportTokenStateCopyWithImpl(this._value, this._then);
-
-  final ImportTokenState _value;
-  // ignore: unused_field
-  final $Res Function(ImportTokenState) _then;
-
-  @override
-  $Res call({
-    Object? tokenAddress = freezed,
-    Object? tokenSymbol = freezed,
-    Object? tokenDecimal = freezed,
-    Object? status = freezed,
-  }) {
-    return _then(_value.copyWith(
-      tokenAddress: tokenAddress == freezed
-          ? _value.tokenAddress
-          : tokenAddress // ignore: cast_nullable_to_non_nullable
-              as String?,
-      tokenSymbol: tokenSymbol == freezed
-          ? _value.tokenSymbol
-          : tokenSymbol // ignore: cast_nullable_to_non_nullable
-              as String?,
-      tokenDecimal: tokenDecimal == freezed
-          ? _value.tokenDecimal
-          : tokenDecimal // ignore: cast_nullable_to_non_nullable
-              as String?,
-      status: status == freezed
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as Status<dynamic>,
-    ));
-  }
-}
-
-/// @nodoc
-abstract class _$ImportTokenStateCopyWith<$Res>
-    implements $ImportTokenStateCopyWith<$Res> {
-  factory _$ImportTokenStateCopyWith(
-          _ImportTokenState value, $Res Function(_ImportTokenState) then) =
-      __$ImportTokenStateCopyWithImpl<$Res>;
-  @override
-  $Res call(
-      {String? tokenAddress,
-      String? tokenSymbol,
-      String? tokenDecimal,
-      Status<dynamic> status});
-}
-
-/// @nodoc
-class __$ImportTokenStateCopyWithImpl<$Res>
-    extends _$ImportTokenStateCopyWithImpl<$Res>
-    implements _$ImportTokenStateCopyWith<$Res> {
-  __$ImportTokenStateCopyWithImpl(
-      _ImportTokenState _value, $Res Function(_ImportTokenState) _then)
-      : super(_value, (v) => _then(v as _ImportTokenState));
-
-  @override
-  _ImportTokenState get _value => super._value as _ImportTokenState;
-
-  @override
-  $Res call({
-    Object? tokenAddress = freezed,
-    Object? tokenSymbol = freezed,
-    Object? tokenDecimal = freezed,
-    Object? status = freezed,
-  }) {
-    return _then(_ImportTokenState(
-      tokenAddress: tokenAddress == freezed
-          ? _value.tokenAddress
-          : tokenAddress // ignore: cast_nullable_to_non_nullable
-              as String?,
-      tokenSymbol: tokenSymbol == freezed
-          ? _value.tokenSymbol
-          : tokenSymbol // ignore: cast_nullable_to_non_nullable
-              as String?,
-      tokenDecimal: tokenDecimal == freezed
-          ? _value.tokenDecimal
-          : tokenDecimal // ignore: cast_nullable_to_non_nullable
-              as String?,
-      status: status == freezed
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as Status<dynamic>,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_ImportTokenState implements _ImportTokenState {
-  const _$_ImportTokenState(
-      {this.tokenAddress,
-      this.tokenSymbol,
-      this.tokenDecimal,
-      this.status = const Idle()});
-
-  @override
-  final String? tokenAddress;
-  @override
-  final String? tokenSymbol;
-  @override
-  final String? tokenDecimal;
-  @JsonKey()
-  @override
-  final Status<dynamic> status;
-
-  @override
-  String toString() {
-    return 'ImportTokenState(tokenAddress: $tokenAddress, tokenSymbol: $tokenSymbol, tokenDecimal: $tokenDecimal, status: $status)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _ImportTokenState &&
-            const DeepCollectionEquality()
-                .equals(other.tokenAddress, tokenAddress) &&
-            const DeepCollectionEquality()
-                .equals(other.tokenSymbol, tokenSymbol) &&
-            const DeepCollectionEquality()
-                .equals(other.tokenDecimal, tokenDecimal) &&
-            const DeepCollectionEquality().equals(other.status, status));
-  }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(tokenAddress),
-      const DeepCollectionEquality().hash(tokenSymbol),
-      const DeepCollectionEquality().hash(tokenDecimal),
-      const DeepCollectionEquality().hash(status));
-
-  @JsonKey(ignore: true)
-  @override
-  _$ImportTokenStateCopyWith<_ImportTokenState> get copyWith =>
-      __$ImportTokenStateCopyWithImpl<_ImportTokenState>(this, _$identity);
-}
-
-abstract class _ImportTokenState implements ImportTokenState {
-  const factory _ImportTokenState(
-      {String? tokenAddress,
-      String? tokenSymbol,
-      String? tokenDecimal,
-      Status<dynamic> status}) = _$_ImportTokenState;
-
-  @override
-  String? get tokenAddress;
-  @override
-  String? get tokenSymbol;
-  @override
-  String? get tokenDecimal;
-  @override
-  Status<dynamic> get status;
-  @override
-  @JsonKey(ignore: true)
-  _$ImportTokenStateCopyWith<_ImportTokenState> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
 class _$ImportTokenEventTearOff {
   const _$ImportTokenEventTearOff();
 
@@ -1072,4 +864,212 @@ abstract class _ImportTokenEventDecimalChanged implements ImportTokenEvent {
   @JsonKey(ignore: true)
   _$ImportTokenEventDecimalChangedCopyWith<_ImportTokenEventDecimalChanged>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+class _$ImportTokenStateTearOff {
+  const _$ImportTokenStateTearOff();
+
+  _ImportTokenState call(
+      {String? tokenAddress,
+      String? tokenSymbol,
+      String? tokenDecimal,
+      Status<dynamic> status = const Idle()}) {
+    return _ImportTokenState(
+      tokenAddress: tokenAddress,
+      tokenSymbol: tokenSymbol,
+      tokenDecimal: tokenDecimal,
+      status: status,
+    );
+  }
+}
+
+/// @nodoc
+const $ImportTokenState = _$ImportTokenStateTearOff();
+
+/// @nodoc
+mixin _$ImportTokenState {
+  String? get tokenAddress => throw _privateConstructorUsedError;
+  String? get tokenSymbol => throw _privateConstructorUsedError;
+  String? get tokenDecimal => throw _privateConstructorUsedError;
+  Status<dynamic> get status => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $ImportTokenStateCopyWith<ImportTokenState> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ImportTokenStateCopyWith<$Res> {
+  factory $ImportTokenStateCopyWith(
+          ImportTokenState value, $Res Function(ImportTokenState) then) =
+      _$ImportTokenStateCopyWithImpl<$Res>;
+  $Res call(
+      {String? tokenAddress,
+      String? tokenSymbol,
+      String? tokenDecimal,
+      Status<dynamic> status});
+}
+
+/// @nodoc
+class _$ImportTokenStateCopyWithImpl<$Res>
+    implements $ImportTokenStateCopyWith<$Res> {
+  _$ImportTokenStateCopyWithImpl(this._value, this._then);
+
+  final ImportTokenState _value;
+  // ignore: unused_field
+  final $Res Function(ImportTokenState) _then;
+
+  @override
+  $Res call({
+    Object? tokenAddress = freezed,
+    Object? tokenSymbol = freezed,
+    Object? tokenDecimal = freezed,
+    Object? status = freezed,
+  }) {
+    return _then(_value.copyWith(
+      tokenAddress: tokenAddress == freezed
+          ? _value.tokenAddress
+          : tokenAddress // ignore: cast_nullable_to_non_nullable
+              as String?,
+      tokenSymbol: tokenSymbol == freezed
+          ? _value.tokenSymbol
+          : tokenSymbol // ignore: cast_nullable_to_non_nullable
+              as String?,
+      tokenDecimal: tokenDecimal == freezed
+          ? _value.tokenDecimal
+          : tokenDecimal // ignore: cast_nullable_to_non_nullable
+              as String?,
+      status: status == freezed
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as Status<dynamic>,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$ImportTokenStateCopyWith<$Res>
+    implements $ImportTokenStateCopyWith<$Res> {
+  factory _$ImportTokenStateCopyWith(
+          _ImportTokenState value, $Res Function(_ImportTokenState) then) =
+      __$ImportTokenStateCopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {String? tokenAddress,
+      String? tokenSymbol,
+      String? tokenDecimal,
+      Status<dynamic> status});
+}
+
+/// @nodoc
+class __$ImportTokenStateCopyWithImpl<$Res>
+    extends _$ImportTokenStateCopyWithImpl<$Res>
+    implements _$ImportTokenStateCopyWith<$Res> {
+  __$ImportTokenStateCopyWithImpl(
+      _ImportTokenState _value, $Res Function(_ImportTokenState) _then)
+      : super(_value, (v) => _then(v as _ImportTokenState));
+
+  @override
+  _ImportTokenState get _value => super._value as _ImportTokenState;
+
+  @override
+  $Res call({
+    Object? tokenAddress = freezed,
+    Object? tokenSymbol = freezed,
+    Object? tokenDecimal = freezed,
+    Object? status = freezed,
+  }) {
+    return _then(_ImportTokenState(
+      tokenAddress: tokenAddress == freezed
+          ? _value.tokenAddress
+          : tokenAddress // ignore: cast_nullable_to_non_nullable
+              as String?,
+      tokenSymbol: tokenSymbol == freezed
+          ? _value.tokenSymbol
+          : tokenSymbol // ignore: cast_nullable_to_non_nullable
+              as String?,
+      tokenDecimal: tokenDecimal == freezed
+          ? _value.tokenDecimal
+          : tokenDecimal // ignore: cast_nullable_to_non_nullable
+              as String?,
+      status: status == freezed
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as Status<dynamic>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ImportTokenState implements _ImportTokenState {
+  const _$_ImportTokenState(
+      {this.tokenAddress,
+      this.tokenSymbol,
+      this.tokenDecimal,
+      this.status = const Idle()});
+
+  @override
+  final String? tokenAddress;
+  @override
+  final String? tokenSymbol;
+  @override
+  final String? tokenDecimal;
+  @JsonKey()
+  @override
+  final Status<dynamic> status;
+
+  @override
+  String toString() {
+    return 'ImportTokenState(tokenAddress: $tokenAddress, tokenSymbol: $tokenSymbol, tokenDecimal: $tokenDecimal, status: $status)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _ImportTokenState &&
+            const DeepCollectionEquality()
+                .equals(other.tokenAddress, tokenAddress) &&
+            const DeepCollectionEquality()
+                .equals(other.tokenSymbol, tokenSymbol) &&
+            const DeepCollectionEquality()
+                .equals(other.tokenDecimal, tokenDecimal) &&
+            const DeepCollectionEquality().equals(other.status, status));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(tokenAddress),
+      const DeepCollectionEquality().hash(tokenSymbol),
+      const DeepCollectionEquality().hash(tokenDecimal),
+      const DeepCollectionEquality().hash(status));
+
+  @JsonKey(ignore: true)
+  @override
+  _$ImportTokenStateCopyWith<_ImportTokenState> get copyWith =>
+      __$ImportTokenStateCopyWithImpl<_ImportTokenState>(this, _$identity);
+}
+
+abstract class _ImportTokenState implements ImportTokenState {
+  const factory _ImportTokenState(
+      {String? tokenAddress,
+      String? tokenSymbol,
+      String? tokenDecimal,
+      Status<dynamic> status}) = _$_ImportTokenState;
+
+  @override
+  String? get tokenAddress;
+  @override
+  String? get tokenSymbol;
+  @override
+  String? get tokenDecimal;
+  @override
+  Status<dynamic> get status;
+  @override
+  @JsonKey(ignore: true)
+  _$ImportTokenStateCopyWith<_ImportTokenState> get copyWith =>
+      throw _privateConstructorUsedError;
 }

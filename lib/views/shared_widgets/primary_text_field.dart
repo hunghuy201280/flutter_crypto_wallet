@@ -46,7 +46,19 @@ class _PrimaryTextFieldState extends State<PrimaryTextField> {
     ),
   );
 
-  bool isHidden = true;
+  bool isHidden = false;
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
+      if (mounted) {
+        setState(() {
+          isHidden = widget.obscureText;
+        });
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {

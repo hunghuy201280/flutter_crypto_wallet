@@ -85,5 +85,7 @@
   "confirmYourPassword" : "Confirm your password",
   "changePasswordSentence1" : "Before continuing we need you to confirm your password",
   "confirm" : "Confirm",
+  "wrongPassword" : "Wrong Password",
+  "passwordChangedSuccessfully" : "Password changed successfully",
   "addCustomToken" : "Add Custom Token"
 }

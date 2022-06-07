@@ -760,6 +760,26 @@ class S {
     );
   }
 
+  /// `Wrong Password`
+  String get wrongPassword {
+    return Intl.message(
+      'Wrong Password',
+      name: 'wrongPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password changed successfully`
+  String get passwordChangedSuccessfully {
+    return Intl.message(
+      'Password changed successfully',
+      name: 'passwordChangedSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Add Custom Token`
   String get addCustomToken {
     return Intl.message(

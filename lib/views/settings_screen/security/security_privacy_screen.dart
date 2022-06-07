@@ -5,6 +5,7 @@ import 'package:flutter_ntf_marketplace/views/settings_screen/security/widgets/s
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../generated/l10n.dart';
+import '../../forgot_password/change_password_screen.dart';
 
 class SecurityPrivacyScreen extends StatefulWidget {
   static const String id = 'setting/security';
@@ -40,7 +41,9 @@ class _SecurityPrivacyScreenState extends State<SecurityPrivacyScreen> {
               title: s.password,
               description: s.passwordDescription,
               btnTitle: s.changePassword,
-              onClick: () {},
+              onClick: () {
+                Navigator.pushNamed(context, ChangePasswordScreen.id);
+              },
             ),
           ],
         ),

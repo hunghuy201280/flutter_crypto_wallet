@@ -448,12 +448,14 @@ class _$ChangePasswordStateTearOff {
       {required TextEditingController currentPassword,
       required TextEditingController newPassword,
       required TextEditingController reNewPassword,
-      required bool isChecked}) {
+      required bool isChecked,
+      required Status<dynamic> status}) {
     return _ChangePasswordState(
       currentPassword: currentPassword,
       newPassword: newPassword,
       reNewPassword: reNewPassword,
       isChecked: isChecked,
+      status: status,
     );
   }
 }
@@ -468,6 +470,7 @@ mixin _$ChangePasswordState {
   TextEditingController get newPassword => throw _privateConstructorUsedError;
   TextEditingController get reNewPassword => throw _privateConstructorUsedError;
   bool get isChecked => throw _privateConstructorUsedError;
+  Status<dynamic> get status => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ChangePasswordStateCopyWith<ChangePasswordState> get copyWith =>
@@ -483,7 +486,8 @@ abstract class $ChangePasswordStateCopyWith<$Res> {
       {TextEditingController currentPassword,
       TextEditingController newPassword,
       TextEditingController reNewPassword,
-      bool isChecked});
+      bool isChecked,
+      Status<dynamic> status});
 }
 
 /// @nodoc
@@ -501,6 +505,7 @@ class _$ChangePasswordStateCopyWithImpl<$Res>
     Object? newPassword = freezed,
     Object? reNewPassword = freezed,
     Object? isChecked = freezed,
+    Object? status = freezed,
   }) {
     return _then(_value.copyWith(
       currentPassword: currentPassword == freezed
@@ -519,6 +524,10 @@ class _$ChangePasswordStateCopyWithImpl<$Res>
           ? _value.isChecked
           : isChecked // ignore: cast_nullable_to_non_nullable
               as bool,
+      status: status == freezed
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as Status<dynamic>,
     ));
   }
 }
@@ -534,7 +543,8 @@ abstract class _$ChangePasswordStateCopyWith<$Res>
       {TextEditingController currentPassword,
       TextEditingController newPassword,
       TextEditingController reNewPassword,
-      bool isChecked});
+      bool isChecked,
+      Status<dynamic> status});
 }
 
 /// @nodoc
@@ -554,6 +564,7 @@ class __$ChangePasswordStateCopyWithImpl<$Res>
     Object? newPassword = freezed,
     Object? reNewPassword = freezed,
     Object? isChecked = freezed,
+    Object? status = freezed,
   }) {
     return _then(_ChangePasswordState(
       currentPassword: currentPassword == freezed
@@ -572,6 +583,10 @@ class __$ChangePasswordStateCopyWithImpl<$Res>
           ? _value.isChecked
           : isChecked // ignore: cast_nullable_to_non_nullable
               as bool,
+      status: status == freezed
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as Status<dynamic>,
     ));
   }
 }
@@ -583,7 +598,8 @@ class _$_ChangePasswordState extends _ChangePasswordState {
       {required this.currentPassword,
       required this.newPassword,
       required this.reNewPassword,
-      required this.isChecked})
+      required this.isChecked,
+      required this.status})
       : super._();
 
   @override
@@ -594,10 +610,12 @@ class _$_ChangePasswordState extends _ChangePasswordState {
   final TextEditingController reNewPassword;
   @override
   final bool isChecked;
+  @override
+  final Status<dynamic> status;
 
   @override
   String toString() {
-    return 'ChangePasswordState(currentPassword: $currentPassword, newPassword: $newPassword, reNewPassword: $reNewPassword, isChecked: $isChecked)';
+    return 'ChangePasswordState(currentPassword: $currentPassword, newPassword: $newPassword, reNewPassword: $reNewPassword, isChecked: $isChecked, status: $status)';
   }
 
   @override
@@ -611,7 +629,8 @@ class _$_ChangePasswordState extends _ChangePasswordState {
                 .equals(other.newPassword, newPassword) &&
             const DeepCollectionEquality()
                 .equals(other.reNewPassword, reNewPassword) &&
-            const DeepCollectionEquality().equals(other.isChecked, isChecked));
+            const DeepCollectionEquality().equals(other.isChecked, isChecked) &&
+            const DeepCollectionEquality().equals(other.status, status));
   }
 
   @override
@@ -620,7 +639,8 @@ class _$_ChangePasswordState extends _ChangePasswordState {
       const DeepCollectionEquality().hash(currentPassword),
       const DeepCollectionEquality().hash(newPassword),
       const DeepCollectionEquality().hash(reNewPassword),
-      const DeepCollectionEquality().hash(isChecked));
+      const DeepCollectionEquality().hash(isChecked),
+      const DeepCollectionEquality().hash(status));
 
   @JsonKey(ignore: true)
   @override
@@ -634,7 +654,8 @@ abstract class _ChangePasswordState extends ChangePasswordState {
       {required TextEditingController currentPassword,
       required TextEditingController newPassword,
       required TextEditingController reNewPassword,
-      required bool isChecked}) = _$_ChangePasswordState;
+      required bool isChecked,
+      required Status<dynamic> status}) = _$_ChangePasswordState;
   const _ChangePasswordState._() : super._();
 
   @override
@@ -645,6 +666,8 @@ abstract class _ChangePasswordState extends ChangePasswordState {
   TextEditingController get reNewPassword;
   @override
   bool get isChecked;
+  @override
+  Status<dynamic> get status;
   @override
   @JsonKey(ignore: true)
   _$ChangePasswordStateCopyWith<_ChangePasswordState> get copyWith =>

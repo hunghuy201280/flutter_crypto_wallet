@@ -21,7 +21,7 @@ packages:
       name: another_flushbar
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.10.29"
+    version: "1.10.28"
   args:
     dependency: transitive
     description:
@@ -201,8 +201,8 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: HEAD
-      resolved-ref: f77fdbfa75bd2b18a882425e1d9692468ba09efb
+      ref: eacb283d2f1b28e4fea2d262d3b12fd39837d02e
+      resolved-ref: eacb283d2f1b28e4fea2d262d3b12fd39837d02e
       url: "https://github.com/idootop/custom_nested_scroll_view.git"
     source: git
     version: "0.0.1"
@@ -212,7 +212,7 @@ packages:
       name: custom_refresh_indicator
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.2.0"
+    version: "1.1.1"
   dart_style:
     dependency: transitive
     description:
@@ -568,28 +568,28 @@ packages:
       name: local_auth_android
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.4"
+    version: "1.0.5"
   local_auth_ios:
     dependency: transitive
     description:
       name: local_auth_ios
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.6"
+    version: "1.0.7"
   local_auth_platform_interface:
     dependency: transitive
     description:
       name: local_auth_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.3"
+    version: "1.0.4"
   local_auth_windows:
     dependency: transitive
     description:
       name: local_auth_windows
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.0"
+    version: "1.0.1"
   logger:
     dependency: "direct main"
     description:
@@ -687,7 +687,7 @@ packages:
       name: path_provider
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.10"
+    version: "2.0.11"
   path_provider_android:
     dependency: transitive
     description:

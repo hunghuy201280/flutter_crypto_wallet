@@ -8,10 +8,14 @@ class ChangePasswordState with _$ChangePasswordState {
     required TextEditingController newPassword,
     required TextEditingController reNewPassword,
     required bool isChecked,
+    required Status status,
   }) = _ChangePasswordState;
 
   factory ChangePasswordState.initial() => ChangePasswordState(
         isChecked: false,
-        currentPassword: TextEditingController(), newPassword: TextEditingController(), reNewPassword: TextEditingController(),
+        currentPassword: TextEditingController(),
+        newPassword: TextEditingController(),
+        reNewPassword: TextEditingController(),
+        status: const Idle(),
       );
 }
