@@ -89,5 +89,13 @@
   "passwordChangedSuccessfully" : "Password changed successfully",
   "privateKeyHint" : "e.g. 570b05a4bcdbg97afdb8ae9cd1ad8cc55dfa7x1e5d25e4dse8b8c9379f5cgfe9",
   "invalidPrivateKey" : "Invalid private key",
+  "importAccountText1": "Imported accounts will not be associated with your originally created {appName} account Secret Recovery Phrase",
+  "@importAccountText1": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
   "addCustomToken" : "Add Custom Token"
 }

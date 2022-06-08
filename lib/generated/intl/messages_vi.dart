@@ -23,7 +23,10 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m0(appName) =>
       "Tôi hiểu rằng ${appName} không thể khôi phục mật khẩu này cho tôi.";
 
-  static String m1(num) => "Phải chứa ít nhất ${num} kí tự";
+  static String m1(appName) =>
+      "Các tài khoản được thêm vào sẽ không được liên kết với cụm từ bí mật đã được tạo khi bạn dùng ứng dụng này.";
+
+  static String m2(num) => "Phải chứa ít nhất ${num} kí tự";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -68,6 +71,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "getStarted": MessageLookupByLibrary.simpleMessage("Bắt đầu"),
         "hide": MessageLookupByLibrary.simpleMessage("Ẩn"),
         "iUnderstandThatAppNameCannotRecoverThisPasswordForMe": m0,
+        "importAccountText1": m1,
         "importAnAccount":
             MessageLookupByLibrary.simpleMessage("Thêm tài khoản"),
         "importNFTs": MessageLookupByLibrary.simpleMessage("Thêm nfts"),
@@ -81,7 +85,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "manageYourEveryPennyAndTransactionWithEase":
             MessageLookupByLibrary.simpleMessage(
                 "Quản lý từng xu và giao dịch của bạn một cách dễ dàng"),
-        "mustBeAtLeastCharacters": m1,
+        "mustBeAtLeastCharacters": m2,
         "networks": MessageLookupByLibrary.simpleMessage("Mạng lưới"),
         "networksDescription": MessageLookupByLibrary.simpleMessage(
             "Thêm và chỉnh sửa mạng RPC tùy chỉnh"),

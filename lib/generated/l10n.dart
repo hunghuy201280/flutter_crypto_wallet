@@ -800,6 +800,16 @@ class S {
     );
   }
 
+  /// `Imported accounts will not be associated with your originally created {appName} account Secret Recovery Phrase`
+  String importAccountText1(String appName) {
+    return Intl.message(
+      'Imported accounts will not be associated with your originally created $appName account Secret Recovery Phrase',
+      name: 'importAccountText1',
+      desc: '',
+      args: [appName],
+    );
+  }
+
   /// `Add Custom Token`
   String get addCustomToken {
     return Intl.message(

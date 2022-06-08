@@ -5,10 +5,11 @@ import 'package:flutter_ntf_marketplace/generated/l10n.dart';
 import 'package:flutter_ntf_marketplace/utils/helpers/status.dart';
 import 'package:flutter_ntf_marketplace/utils/shared_widgets/loading/global_loading.dart';
 import 'package:flutter_ntf_marketplace/utils/utils.dart';
-import 'package:flutter_ntf_marketplace/views/shared_widgets/primary_button.dart';
+import 'package:flutter_ntf_marketplace/views/shared_widgets/primary_button_medium.dart';
 import 'package:flutter_ntf_marketplace/views/shared_widgets/primary_text_field.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../configs/text_config.dart';
 import '../../view_models/import_account_bloc/import_account_bloc.dart';
 
 class ImportAccountScreen extends StatefulWidget {
@@ -62,30 +63,34 @@ class _ImportAccountScreenState extends State<ImportAccountScreen> {
         appBar: Utils.buildAppBar(
           context,
           title: s.importWallet,
+          centerTitle: true,
         ),
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 24.w),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                16.verticalSpace,
-                PrimaryTextField(
-                  title: s.privateKey,
-                  hint: s.privateKeyHint,
-                  controller: _bloc.state.privateKey,
-                  maxLines: 5,
-                  onChanged: (value) {},
-                ),
-                24.verticalSpace,
-                PrimaryButton(
-                  title: s.importWallet,
-                  onTap: () {
-                    _bloc.add(const ImportAccountImported());
-                  },
-                )
-              ],
-            ),
+        body: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 24.w),
+          child: Column(
+            children: [
+              16.verticalSpace,
+              PrimaryTextField(
+                title: s.privateKey,
+                hint: s.privateKeyHint,
+                controller: _bloc.state.privateKey,
+                maxLines: 5,
+                onChanged: (value) {},
+              ),
+              16.verticalSpace,
+              Text(
+                s.importAccountText1(s.appName),
+                style: TextConfigs.kBody2_2,
+              ),
+              const Spacer(),
+              PrimaryButtonMedium(
+                title: s.importWallet,
+                onTap: () {
+                  _bloc.add(const ImportAccountImported());
+                },
+              ),
+              48.verticalSpace,
+            ],
           ),
         ),
       ),

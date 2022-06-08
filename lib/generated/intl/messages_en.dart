@@ -23,7 +23,10 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m0(appName) =>
       "I understand that ${appName} cannot recover this password for me.";
 
-  static String m1(num) => "Must be at least ${num} characters";
+  static String m1(appName) =>
+      "Imported accounts will not be associated with your originally created ${appName} account Secret Recovery Phrase";
+
+  static String m2(num) => "Must be at least ${num} characters";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -70,6 +73,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "getStarted": MessageLookupByLibrary.simpleMessage("Get started"),
         "hide": MessageLookupByLibrary.simpleMessage("Hide"),
         "iUnderstandThatAppNameCannotRecoverThisPasswordForMe": m0,
+        "importAccountText1": m1,
         "importAnAccount":
             MessageLookupByLibrary.simpleMessage("Import an Account"),
         "importNFTs": MessageLookupByLibrary.simpleMessage("Import nfts"),
@@ -83,7 +87,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "manageYourEveryPennyAndTransactionWithEase":
             MessageLookupByLibrary.simpleMessage(
                 "Manage your every penny and transaction with ease"),
-        "mustBeAtLeastCharacters": m1,
+        "mustBeAtLeastCharacters": m2,
         "networks": MessageLookupByLibrary.simpleMessage("Networks"),
         "networksDescription": MessageLookupByLibrary.simpleMessage(
             "Add and edit custom RPC networks"),

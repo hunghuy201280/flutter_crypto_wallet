@@ -1,6 +1,7 @@
 import 'package:clipboard/clipboard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_ntf_marketplace/di/dependency_injection.dart';
 import 'package:flutter_ntf_marketplace/utils/extensions.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -8,6 +9,7 @@ import '../../../configs/app_config.dart';
 import '../../../configs/color_config.dart';
 import '../../../configs/text_config.dart';
 import '../../../utils/utils.dart';
+import '../../../view_models/account_selector_bloc/account_selector_bloc.dart';
 import '../../../view_models/auth_bloc/auth_bloc.dart';
 import '../../shared_widgets/primary_avatar.dart';
 import 'account_selector.dart';
@@ -95,12 +97,19 @@ class AccountInfo extends StatelessWidget {
   }
 
   _onTap(BuildContext context) async {
+    final authBloc = context.read<AuthBloc>();
     showModalBottomSheet(
       context: context,
       shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(top: Radius.circular(40))),
       useRootNavigator: true,
-      builder: (context) => const AccountSelector(),
+      builder: (context) => BlocProvider(
+        create: (context) => getIt<AccountSelectorBloc>(
+          param1: (authBloc.state as Authenticated).wallet,
+          param2: authBloc,
+        ),
+        child: const AccountSelector(),
+      ),
     );
   }
 }

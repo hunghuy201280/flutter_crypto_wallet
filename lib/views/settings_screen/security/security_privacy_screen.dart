@@ -26,27 +26,25 @@ class _SecurityPrivacyScreenState extends State<SecurityPrivacyScreen> {
         title: s.securityAndPrivacy,
         centerTitle: true,
       ),
-      body: Container(
-        child: ListView(
-          shrinkWrap: true,
-          children: [
-            SecurityPrivacyItem(
-              title: s.protectYourWallet,
-              description: s.protectYourWalletDesription,
-              btnTitle: s.recoverySecretRecoveryPhrase,
-              onClick: () {},
-            ),
-            16.verticalSpace,
-            SecurityPrivacyItem(
-              title: s.password,
-              description: s.passwordDescription,
-              btnTitle: s.changePassword,
-              onClick: () {
-                Navigator.pushNamed(context, ChangePasswordScreen.id);
-              },
-            ),
-          ],
-        ),
+      body: ListView(
+        shrinkWrap: true,
+        children: [
+          SecurityPrivacyItem(
+            title: s.protectYourWallet,
+            description: s.protectYourWalletDesription,
+            btnTitle: s.recoverySecretRecoveryPhrase,
+            onClick: () {},
+          ),
+          16.verticalSpace,
+          SecurityPrivacyItem(
+            title: s.password,
+            description: s.passwordDescription,
+            btnTitle: s.changePassword,
+            onClick: () {
+              Navigator.pushNamed(context, ChangePasswordScreen.id);
+            },
+          ),
+        ],
       ),
     );
   }
