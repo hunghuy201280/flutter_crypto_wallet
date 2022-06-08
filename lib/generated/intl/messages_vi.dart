@@ -73,6 +73,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "importNFTs": MessageLookupByLibrary.simpleMessage("Thêm nfts"),
         "importTokens": MessageLookupByLibrary.simpleMessage("Thêm tokens"),
         "importWallet": MessageLookupByLibrary.simpleMessage("Nhập ví"),
+        "invalidPrivateKey":
+            MessageLookupByLibrary.simpleMessage("Private key không hợp lệ"),
         "logInWithBiometrics":
             MessageLookupByLibrary.simpleMessage("Đăng nhập bằng vân tay"),
         "logout": MessageLookupByLibrary.simpleMessage("Đăng xuất"),
@@ -100,6 +102,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseAcceptPolicy": MessageLookupByLibrary.simpleMessage(
             "Vui lòng chấp nhận chính sách"),
         "privateKey": MessageLookupByLibrary.simpleMessage("Private key"),
+        "privateKeyHint": MessageLookupByLibrary.simpleMessage(
+            "Ví dụ 570b05a4bcdbg97afdb8ae9cd1ad8cc55dfa7x1e5d25e4dse8b8c9379f5cgfe9"),
         "protectYourWallet":
             MessageLookupByLibrary.simpleMessage("Protect your wallet"),
         "protectYourWalletDesription": MessageLookupByLibrary.simpleMessage(

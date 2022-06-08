@@ -32,8 +32,8 @@ class ImportTokenBloc extends Bloc<ImportTokenEvent, ImportTokenState> {
                 symbol: state.tokenSymbol!,
                 demical: int.parse(state.tokenDecimal!)));
         emit(state.copyWith(status: const Success()));
-      } catch (e) {
-        printLog(this, message: e, error: e);
+      } catch (e, trace) {
+        printLog(this, message: e, error: e, trace: trace);
         emit(state.copyWith(status: Error(e)));
       } finally {
         emit(state.copyWith(status: const Idle()));

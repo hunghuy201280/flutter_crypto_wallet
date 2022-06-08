@@ -21,15 +21,16 @@ import '../view_models/auth_bloc/auth_bloc.dart' as _i17;
 import '../view_models/change_password_bloc/change_password_bloc.dart' as _i20;
 import '../view_models/create_wallet_bloc/create_wallet_bloc.dart' as _i21;
 import '../view_models/dashboard_bloc/dashboard_bloc.dart' as _i6;
-import '../view_models/import_token_bloc/import_token_bloc.dart' as _i22;
-import '../view_models/import_wallet_bloc/import_wallet_bloc.dart' as _i23;
+import '../view_models/import_account_bloc/import_account_bloc.dart' as _i22;
+import '../view_models/import_token_bloc/import_token_bloc.dart' as _i23;
+import '../view_models/import_wallet_bloc/import_wallet_bloc.dart' as _i24;
 import '../view_models/login_bloc/login_bloc.dart' as _i8;
 import '../view_models/onboard_cubit/onboard_cubit.dart' as _i15;
 import '../view_models/passcode_bloc/passcode_bloc.dart' as _i16;
 import '../view_models/splash_bloc/splash_bloc.dart' as _i18;
 import '../view_models/wallet_detail_bloc/wallet_detail_bloc.dart' as _i19;
 import 'di_module/hive_module.dart'
-    as _i24; // ignore_for_file: unnecessary_lambdas
+    as _i25; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -74,12 +75,14 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
   gh.factoryParam<_i21.CreateWalletBloc, _i17.AuthBloc, dynamic>(
       (_authBloc, _) => _i21.CreateWalletBloc(
           get<_i13.RemoteProvider>(), get<_i14.LocalProvider>(), _authBloc));
-  gh.factory<_i22.ImportTokenBloc>(() => _i22.ImportTokenBloc(
+  gh.factory<_i22.ImportAccountBloc>(() => _i22.ImportAccountBloc(
       get<_i13.RemoteProvider>(), get<_i14.LocalProvider>()));
-  gh.factoryParam<_i23.ImportWalletBloc, _i17.AuthBloc, dynamic>(
-      (_authBloc, _) => _i23.ImportWalletBloc(
+  gh.factory<_i23.ImportTokenBloc>(() => _i23.ImportTokenBloc(
+      get<_i13.RemoteProvider>(), get<_i14.LocalProvider>()));
+  gh.factoryParam<_i24.ImportWalletBloc, _i17.AuthBloc, dynamic>(
+      (_authBloc, _) => _i24.ImportWalletBloc(
           get<_i13.RemoteProvider>(), get<_i14.LocalProvider>(), _authBloc));
   return get;
 }
 
-class _$HiveModule extends _i24.HiveModule {}
+class _$HiveModule extends _i25.HiveModule {}

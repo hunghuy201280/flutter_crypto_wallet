@@ -73,6 +73,8 @@
   "confirm" : "Xác nhận",
   "wrongPassword" : "Sai mật khẩu",
   "passwordChangedSuccessfully" : "Mật khẩu đã được thay đổi",
+  "privateKeyHint" : "Ví dụ 570b05a4bcdbg97afdb8ae9cd1ad8cc55dfa7x1e5d25e4dse8b8c9379f5cgfe9",
+  "invalidPrivateKey" : "Private key không hợp lệ",
 
   "addCustomToken" : "Thêm Token"
 }

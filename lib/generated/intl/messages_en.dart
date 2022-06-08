@@ -75,6 +75,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "importNFTs": MessageLookupByLibrary.simpleMessage("Import nfts"),
         "importTokens": MessageLookupByLibrary.simpleMessage("Import tokens"),
         "importWallet": MessageLookupByLibrary.simpleMessage("Import Wallet"),
+        "invalidPrivateKey":
+            MessageLookupByLibrary.simpleMessage("Invalid private key"),
         "logInWithBiometrics":
             MessageLookupByLibrary.simpleMessage("Log In With Biometrics"),
         "logout": MessageLookupByLibrary.simpleMessage("Logout"),
@@ -102,6 +104,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseAcceptPolicy":
             MessageLookupByLibrary.simpleMessage("Please accept policy"),
         "privateKey": MessageLookupByLibrary.simpleMessage("Private key"),
+        "privateKeyHint": MessageLookupByLibrary.simpleMessage(
+            "e.g. 570b05a4bcdbg97afdb8ae9cd1ad8cc55dfa7x1e5d25e4dse8b8c9379f5cgfe9"),
         "protectYourWallet":
             MessageLookupByLibrary.simpleMessage("Protect your wallet"),
         "protectYourWalletDesription": MessageLookupByLibrary.simpleMessage(

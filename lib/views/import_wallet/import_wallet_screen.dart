@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ntf_marketplace/configs/color_config.dart';
 import 'package:flutter_ntf_marketplace/generated/l10n.dart';
 import 'package:flutter_ntf_marketplace/utils/enums.dart';
-import 'package:flutter_ntf_marketplace/utils/extensions.dart';
 import 'package:flutter_ntf_marketplace/utils/helpers/status.dart';
 import 'package:flutter_ntf_marketplace/utils/shared_widgets/loading/global_loading.dart';
 import 'package:flutter_ntf_marketplace/utils/utils.dart';
@@ -104,10 +103,6 @@ class _ImportWalletScreenState extends State<ImportWalletScreen> {
                   onChanged: (value) {
                     _bloc.add(ImportWalletMnemonicChanged(value));
                   },
-                  suffixIcon: Padding(
-                    padding: EdgeInsets.only(right: 8.w),
-                    child: "show".getIcon(height: 24.w, width: 24.w),
-                  ),
                 ),
                 24.verticalSpace,
                 PrimaryTextField(

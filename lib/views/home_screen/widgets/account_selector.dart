@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_ntf_marketplace/utils/extensions.dart';
 import 'package:flutter_ntf_marketplace/views/create_wallet/create_wallet_screen.dart';
-import 'package:flutter_ntf_marketplace/views/import_wallet/import_wallet_screen.dart';
+import 'package:flutter_ntf_marketplace/views/import_account/import_account_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../configs/app_config.dart';
@@ -85,7 +85,7 @@ class _AccountSelectorState extends State<AccountSelector> {
             GestureDetector(
               onTap: () {
                 Navigator.of(context, rootNavigator: true)
-                    .pushNamed(ImportWalletScreen.id);
+                    .pushNamed(ImportAccountScreen.id);
               },
               child: Text(
                 s.importAnAccount,
