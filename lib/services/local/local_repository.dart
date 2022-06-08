@@ -119,11 +119,12 @@ class LocalRepository {
     final wallet = _appPref.wallet;
     final tokens = getSaveTokens();
     try {
-      tokens.firstWhere((element) => element.address == token.address);
-    } catch (e) {
-      tokens.add(token);
-      await wallet.setSavedTokens(tokens);
-    }
+      if (tokens.indexWhere((element) => element.address == token.address) <
+          0) {
+        tokens.add(token);
+        await wallet.setSavedTokens(tokens);
+      }
+    } catch (e) {}
   }
 
   Future<void> setSaveTokens({required List<Token> tokens}) async {

@@ -25,7 +25,7 @@ dependencies:
   flutter_bloc: ^8.0.1
   intl: ^0.17.0
   clipboard: ^0.1.3
-  another_flushbar: 1.10.28
+  another_flushbar: ^1.10.28
   fluttertoast: ^8.0.9
   get_it: ^7.2.0
   cupertino_icons: ^1.0.4
@@ -48,7 +48,7 @@ dependencies:
     git:
       url: https://github.com/idootop/custom_nested_scroll_view.git
       ref: eacb283d2f1b28e4fea2d262d3b12fd39837d02e
-  custom_refresh_indicator: 1.1.1
+  custom_refresh_indicator: ^1.1.1
 
 
 

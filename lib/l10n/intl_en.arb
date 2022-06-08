@@ -87,5 +87,6 @@
   "confirm" : "Confirm",
   "wrongPassword" : "Wrong Password",
   "passwordChangedSuccessfully" : "Password changed successfully",
-  "addCustomToken" : "Add Custom Token"
+  "addCustomToken" : "Add Custom Token",
+  "withdraw" : "Withdraw"
 }

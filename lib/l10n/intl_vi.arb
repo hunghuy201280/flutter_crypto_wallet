@@ -73,6 +73,6 @@
   "confirm" : "Xác nhận",
   "wrongPassword" : "Sai mật khẩu",
   "passwordChangedSuccessfully" : "Mật khẩu đã được thay đổi",
-
-  "addCustomToken" : "Thêm Token"
+  "addCustomToken" : "Thêm Token",
+  "withdraw" : "Rút tiền"
 }

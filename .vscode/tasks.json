@@ -1,0 +1,16 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "🏃‍♂️ Run fvm build",
+			"command": "fvm",
+			"args": [
+				"flutter",
+				"pub",
+				"run",
+				"build_runner",
+				"build"
+			]
+		},
+	]
+}

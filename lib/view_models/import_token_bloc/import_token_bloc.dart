@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_ntf_marketplace/models/token/token.dart';
 import 'package:flutter_ntf_marketplace/services/local/local_provider.dart';
 import 'package:flutter_ntf_marketplace/services/remote/remote_provider.dart';
@@ -16,7 +17,7 @@ class ImportTokenBloc extends Bloc<ImportTokenEvent, ImportTokenState> {
   final RemoteProvider _remoteProvider;
   final LocalProvider _localProvider;
   ImportTokenBloc(this._remoteProvider, this._localProvider)
-      : super(const ImportTokenState()) {
+      : super(ImportTokenState.initial()) {
     on<_ImportTokenEventAdd>((event, emit) async {
       emit(state.copyWith(status: const Loading()));
       try {
@@ -48,12 +49,14 @@ class ImportTokenBloc extends Bloc<ImportTokenEvent, ImportTokenState> {
         final result =
             await _remoteProvider.getInfoOfToken(state.tokenAddress!);
         if (result.error) throw result.message;
+        state.controllerDecimal.text = result.result?.demical.toString() ?? '';
+        state.controllerSymbol.text = result.result?.symbol ?? '';
         emit(state.copyWith(
             tokenAddress: result.result?.address,
             tokenDecimal: result.result?.demical.toString(),
             tokenSymbol: result.result?.symbol));
       } catch (e) {
-        printLog(this, message: e, error: e);
+        printLog(this, message: 'Error', error: e);
         emit(state.copyWith(status: Error(e)));
       } finally {
         emit(state.copyWith(status: const Idle()));

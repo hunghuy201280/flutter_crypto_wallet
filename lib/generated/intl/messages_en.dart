@@ -140,6 +140,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "walletAddedSuccessfully":
             MessageLookupByLibrary.simpleMessage("Wallet added successfully"),
         "welcomeBack": MessageLookupByLibrary.simpleMessage("Welcome Back!"),
+        "withdraw": MessageLookupByLibrary.simpleMessage("Withdraw"),
         "withdrawCrypto":
             MessageLookupByLibrary.simpleMessage("Withdraw Crypto"),
         "wrongPassword": MessageLookupByLibrary.simpleMessage("Wrong Password")

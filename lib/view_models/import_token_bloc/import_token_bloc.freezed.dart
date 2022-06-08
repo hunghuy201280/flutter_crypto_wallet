@@ -871,11 +871,15 @@ class _$ImportTokenStateTearOff {
   const _$ImportTokenStateTearOff();
 
   _ImportTokenState call(
-      {String? tokenAddress,
+      {required TextEditingController controllerSymbol,
+      required TextEditingController controllerDecimal,
+      String? tokenAddress,
       String? tokenSymbol,
       String? tokenDecimal,
       Status<dynamic> status = const Idle()}) {
     return _ImportTokenState(
+      controllerSymbol: controllerSymbol,
+      controllerDecimal: controllerDecimal,
       tokenAddress: tokenAddress,
       tokenSymbol: tokenSymbol,
       tokenDecimal: tokenDecimal,
@@ -889,6 +893,10 @@ const $ImportTokenState = _$ImportTokenStateTearOff();
 
 /// @nodoc
 mixin _$ImportTokenState {
+  TextEditingController get controllerSymbol =>
+      throw _privateConstructorUsedError;
+  TextEditingController get controllerDecimal =>
+      throw _privateConstructorUsedError;
   String? get tokenAddress => throw _privateConstructorUsedError;
   String? get tokenSymbol => throw _privateConstructorUsedError;
   String? get tokenDecimal => throw _privateConstructorUsedError;
@@ -905,7 +913,9 @@ abstract class $ImportTokenStateCopyWith<$Res> {
           ImportTokenState value, $Res Function(ImportTokenState) then) =
       _$ImportTokenStateCopyWithImpl<$Res>;
   $Res call(
-      {String? tokenAddress,
+      {TextEditingController controllerSymbol,
+      TextEditingController controllerDecimal,
+      String? tokenAddress,
       String? tokenSymbol,
       String? tokenDecimal,
       Status<dynamic> status});
@@ -922,12 +932,22 @@ class _$ImportTokenStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? controllerSymbol = freezed,
+    Object? controllerDecimal = freezed,
     Object? tokenAddress = freezed,
     Object? tokenSymbol = freezed,
     Object? tokenDecimal = freezed,
     Object? status = freezed,
   }) {
     return _then(_value.copyWith(
+      controllerSymbol: controllerSymbol == freezed
+          ? _value.controllerSymbol
+          : controllerSymbol // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      controllerDecimal: controllerDecimal == freezed
+          ? _value.controllerDecimal
+          : controllerDecimal // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
       tokenAddress: tokenAddress == freezed
           ? _value.tokenAddress
           : tokenAddress // ignore: cast_nullable_to_non_nullable
@@ -956,7 +976,9 @@ abstract class _$ImportTokenStateCopyWith<$Res>
       __$ImportTokenStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? tokenAddress,
+      {TextEditingController controllerSymbol,
+      TextEditingController controllerDecimal,
+      String? tokenAddress,
       String? tokenSymbol,
       String? tokenDecimal,
       Status<dynamic> status});
@@ -975,12 +997,22 @@ class __$ImportTokenStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? controllerSymbol = freezed,
+    Object? controllerDecimal = freezed,
     Object? tokenAddress = freezed,
     Object? tokenSymbol = freezed,
     Object? tokenDecimal = freezed,
     Object? status = freezed,
   }) {
     return _then(_ImportTokenState(
+      controllerSymbol: controllerSymbol == freezed
+          ? _value.controllerSymbol
+          : controllerSymbol // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      controllerDecimal: controllerDecimal == freezed
+          ? _value.controllerDecimal
+          : controllerDecimal // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
       tokenAddress: tokenAddress == freezed
           ? _value.tokenAddress
           : tokenAddress // ignore: cast_nullable_to_non_nullable
@@ -1005,11 +1037,17 @@ class __$ImportTokenStateCopyWithImpl<$Res>
 
 class _$_ImportTokenState implements _ImportTokenState {
   const _$_ImportTokenState(
-      {this.tokenAddress,
+      {required this.controllerSymbol,
+      required this.controllerDecimal,
+      this.tokenAddress,
       this.tokenSymbol,
       this.tokenDecimal,
       this.status = const Idle()});
 
+  @override
+  final TextEditingController controllerSymbol;
+  @override
+  final TextEditingController controllerDecimal;
   @override
   final String? tokenAddress;
   @override
@@ -1022,7 +1060,7 @@ class _$_ImportTokenState implements _ImportTokenState {
 
   @override
   String toString() {
-    return 'ImportTokenState(tokenAddress: $tokenAddress, tokenSymbol: $tokenSymbol, tokenDecimal: $tokenDecimal, status: $status)';
+    return 'ImportTokenState(controllerSymbol: $controllerSymbol, controllerDecimal: $controllerDecimal, tokenAddress: $tokenAddress, tokenSymbol: $tokenSymbol, tokenDecimal: $tokenDecimal, status: $status)';
   }
 
   @override
@@ -1030,6 +1068,10 @@ class _$_ImportTokenState implements _ImportTokenState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _ImportTokenState &&
+            const DeepCollectionEquality()
+                .equals(other.controllerSymbol, controllerSymbol) &&
+            const DeepCollectionEquality()
+                .equals(other.controllerDecimal, controllerDecimal) &&
             const DeepCollectionEquality()
                 .equals(other.tokenAddress, tokenAddress) &&
             const DeepCollectionEquality()
@@ -1042,6 +1084,8 @@ class _$_ImportTokenState implements _ImportTokenState {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(controllerSymbol),
+      const DeepCollectionEquality().hash(controllerDecimal),
       const DeepCollectionEquality().hash(tokenAddress),
       const DeepCollectionEquality().hash(tokenSymbol),
       const DeepCollectionEquality().hash(tokenDecimal),
@@ -1055,11 +1099,17 @@ class _$_ImportTokenState implements _ImportTokenState {
 
 abstract class _ImportTokenState implements ImportTokenState {
   const factory _ImportTokenState(
-      {String? tokenAddress,
+      {required TextEditingController controllerSymbol,
+      required TextEditingController controllerDecimal,
+      String? tokenAddress,
       String? tokenSymbol,
       String? tokenDecimal,
       Status<dynamic> status}) = _$_ImportTokenState;
 
+  @override
+  TextEditingController get controllerSymbol;
+  @override
+  TextEditingController get controllerDecimal;
   @override
   String? get tokenAddress;
   @override

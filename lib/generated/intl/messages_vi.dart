@@ -139,6 +139,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Thêm ví thành công"),
         "welcomeBack":
             MessageLookupByLibrary.simpleMessage("Chào mừng trở lại!"),
+        "withdraw": MessageLookupByLibrary.simpleMessage("Rút tiền"),
         "withdrawCrypto": MessageLookupByLibrary.simpleMessage("Rút tiền"),
         "wrongPassword": MessageLookupByLibrary.simpleMessage("Sai mật khẩu")
       };

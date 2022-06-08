@@ -49,6 +49,8 @@ class WalletDetailBloc extends Bloc<WalletDetailEvent, WalletDetailState> {
     });
     on<WalletDetailBalanceTokensLoaded>((event, emit) async {
       try {
+        final tokens = _localProvider.getSaveTokens();
+        emit(state.copyWith(tokens: tokens));
         final result = await _remoteProvider.getBalanceTokensOfAddress(
             address, state.tokens);
         if (result.error) throw result.message;

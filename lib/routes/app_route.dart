@@ -5,6 +5,7 @@ import 'package:flutter_ntf_marketplace/view_models/change_password_bloc/change_
 import 'package:flutter_ntf_marketplace/view_models/login_bloc/login_bloc.dart';
 import 'package:flutter_ntf_marketplace/view_models/onboard_cubit/onboard_cubit.dart';
 import 'package:flutter_ntf_marketplace/view_models/passcode_bloc/passcode_bloc.dart';
+import 'package:flutter_ntf_marketplace/view_models/withdraw_bloc/withdraw_bloc.dart';
 import 'package:flutter_ntf_marketplace/views/import_token/import_token_screen.dart';
 import 'package:flutter_ntf_marketplace/views/import_wallet/import_wallet_screen.dart';
 import 'package:flutter_ntf_marketplace/views/login/login_screen.dart';
@@ -14,6 +15,7 @@ import 'package:flutter_ntf_marketplace/views/settings_screen/about_screen.dart'
 import 'package:flutter_ntf_marketplace/views/settings_screen/networks/networks_screen.dart';
 import 'package:flutter_ntf_marketplace/views/settings_screen/security/security_privacy_screen.dart';
 import 'package:flutter_ntf_marketplace/views/splash_screen.dart';
+import 'package:flutter_ntf_marketplace/views/withdraw_token/withdraw_screen.dart';
 
 import '../di/dependency_injection.dart';
 import '../view_models/auth_bloc/auth_bloc.dart';
@@ -125,6 +127,12 @@ class AppRoute {
             child: const ImportTokenScreen(),
           ),
           settings: settings,
+        );
+      case WithdrawScreen.id:
+        return CupertinoPageRoute(
+          builder: (context) => BlocProvider(
+              create: (context) => getIt.call<WithdrawBloc>(),
+              child: const WithdrawScreen()),
         );
       default:
         return _errorRoute();

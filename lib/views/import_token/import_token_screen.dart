@@ -43,8 +43,6 @@ class _BodyScreen extends StatefulWidget {
 class __BodyScreenState extends State<_BodyScreen> {
   late ImportTokenBloc _bloc;
   late FocusNode _focusNode;
-  final TextEditingController controllerSymbol = TextEditingController();
-  final TextEditingController controllerDecimal = TextEditingController();
   @override
   void initState() {
     _bloc = context.read<ImportTokenBloc>();
@@ -70,8 +68,6 @@ class __BodyScreenState extends State<_BodyScreen> {
     final s = S.of(context);
     return BlocListener<ImportTokenBloc, ImportTokenState>(
       listener: (context, state) {
-        controllerDecimal.text = state.tokenDecimal ?? '';
-        controllerSymbol.text = state.tokenSymbol ?? '';
         switch (state.status.runtimeType) {
           case Idle:
             hideLoadingDialog();
@@ -106,7 +102,7 @@ class __BodyScreenState extends State<_BodyScreen> {
             ),
             16.verticalSpace,
             PrimaryTextField(
-              controller: controllerSymbol,
+              controller: _bloc.state.controllerSymbol,
               title: s.tokenSymbol,
               hint: 'GNO',
               onChanged: (value) {
@@ -115,7 +111,7 @@ class __BodyScreenState extends State<_BodyScreen> {
             ),
             16.verticalSpace,
             PrimaryTextField(
-              controller: controllerDecimal,
+              controller: _bloc.state.controllerDecimal,
               title: s.tokenOfPrecision,
               hint: '12',
               onChanged: (value) {
