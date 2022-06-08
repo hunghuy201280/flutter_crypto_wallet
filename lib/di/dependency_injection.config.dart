@@ -12,17 +12,21 @@ import 'package:injectable/injectable.dart' as _i2;
 import '../constants/app_prefs.dart' as _i12;
 import '../models/prefs/configspref.dart' as _i5;
 import '../models/prefs/walletpref.dart' as _i10;
+import '../models/wallet/wallet.dart' as _i22;
 import '../services/local/local_provider.dart' as _i15;
 import '../services/local/local_repository.dart' as _i13;
 import '../services/remote/remote_provider.dart' as _i14;
 import '../services/remote/remote_repository.dart' as _i9;
+import '../view_models/account_selector_bloc/account_selector_bloc.dart'
+    as _i21;
 import '../view_models/app_bloc/app_bloc.dart' as _i3;
 import '../view_models/auth_bloc/auth_bloc.dart' as _i18;
-import '../view_models/change_password_bloc/change_password_bloc.dart' as _i21;
-import '../view_models/create_wallet_bloc/create_wallet_bloc.dart' as _i22;
+import '../view_models/change_password_bloc/change_password_bloc.dart' as _i23;
+import '../view_models/create_wallet_bloc/create_wallet_bloc.dart' as _i24;
 import '../view_models/dashboard_bloc/dashboard_bloc.dart' as _i6;
-import '../view_models/import_token_bloc/import_token_bloc.dart' as _i23;
-import '../view_models/import_wallet_bloc/import_wallet_bloc.dart' as _i24;
+import '../view_models/import_account_bloc/import_account_bloc.dart' as _i25;
+import '../view_models/import_token_bloc/import_token_bloc.dart' as _i26;
+import '../view_models/import_wallet_bloc/import_wallet_bloc.dart' as _i27;
 import '../view_models/login_bloc/login_bloc.dart' as _i8;
 import '../view_models/onboard_cubit/onboard_cubit.dart' as _i16;
 import '../view_models/passcode_bloc/passcode_bloc.dart' as _i17;
@@ -30,7 +34,7 @@ import '../view_models/splash_bloc/splash_bloc.dart' as _i19;
 import '../view_models/wallet_detail_bloc/wallet_detail_bloc.dart' as _i20;
 import '../view_models/withdraw_bloc/withdraw_bloc.dart' as _i11;
 import 'di_module/hive_module.dart'
-    as _i25; // ignore_for_file: unnecessary_lambdas
+    as _i28; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -70,18 +74,23 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
   gh.factoryParam<_i20.WalletDetailBloc, _i18.AuthBloc, dynamic>(
       (_authBloc, _) => _i20.WalletDetailBloc(
           get<_i14.RemoteProvider>(), _authBloc, get<_i15.LocalProvider>()));
+  gh.factoryParam<_i21.AccountSelectorBloc, _i22.Wallet, _i18.AuthBloc>(
+      (selectedWallet, authBloc) => _i21.AccountSelectorBloc(
+          selectedWallet, get<_i15.LocalProvider>(), authBloc));
   gh.factory<_i18.AuthBloc>(() => _i18.AuthBloc(get<_i15.LocalProvider>()));
-  gh.factory<_i21.ChangePasswordBloc>(
-      () => _i21.ChangePasswordBloc(get<_i15.LocalProvider>()));
-  gh.factoryParam<_i22.CreateWalletBloc, _i18.AuthBloc, dynamic>(
-      (_authBloc, _) => _i22.CreateWalletBloc(
+  gh.factory<_i23.ChangePasswordBloc>(
+      () => _i23.ChangePasswordBloc(get<_i15.LocalProvider>()));
+  gh.factoryParam<_i24.CreateWalletBloc, _i18.AuthBloc, dynamic>(
+      (_authBloc, _) => _i24.CreateWalletBloc(
           get<_i14.RemoteProvider>(), get<_i15.LocalProvider>(), _authBloc));
-  gh.factory<_i23.ImportTokenBloc>(() => _i23.ImportTokenBloc(
+  gh.factory<_i25.ImportAccountBloc>(() => _i25.ImportAccountBloc(
       get<_i14.RemoteProvider>(), get<_i15.LocalProvider>()));
-  gh.factoryParam<_i24.ImportWalletBloc, _i18.AuthBloc, dynamic>(
-      (_authBloc, _) => _i24.ImportWalletBloc(
+  gh.factory<_i26.ImportTokenBloc>(() => _i26.ImportTokenBloc(
+      get<_i14.RemoteProvider>(), get<_i15.LocalProvider>()));
+  gh.factoryParam<_i27.ImportWalletBloc, _i18.AuthBloc, dynamic>(
+      (_authBloc, _) => _i27.ImportWalletBloc(
           get<_i14.RemoteProvider>(), get<_i15.LocalProvider>(), _authBloc));
   return get;
 }
 
-class _$HiveModule extends _i25.HiveModule {}
+class _$HiveModule extends _i28.HiveModule {}

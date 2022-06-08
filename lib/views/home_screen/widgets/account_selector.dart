@@ -1,9 +1,10 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_ntf_marketplace/utils/extensions.dart';
 import 'package:flutter_ntf_marketplace/views/create_wallet/create_wallet_screen.dart';
-import 'package:flutter_ntf_marketplace/views/import_wallet/import_wallet_screen.dart';
+import 'package:flutter_ntf_marketplace/views/import_account/import_account_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../configs/app_config.dart';
@@ -11,6 +12,7 @@ import '../../../configs/color_config.dart';
 import '../../../configs/text_config.dart';
 import '../../../generated/l10n.dart';
 import '../../../utils/utils.dart';
+import '../../../view_models/account_selector_bloc/account_selector_bloc.dart';
 import '../../shared_widgets/primary_avatar.dart';
 
 class AccountSelector extends StatefulWidget {
@@ -28,7 +30,14 @@ class _AccountSelectorState extends State<AccountSelector> {
         height: 0.3.w,
         color: AppColors.kColor2,
       );
-  int selectedIndex = 0;
+
+  late AccountSelectorBloc bloc;
+  @override
+  void initState() {
+    super.initState();
+    bloc = context.read<AccountSelectorBloc>();
+  }
+
   @override
   Widget build(BuildContext context) {
     final s = S.of(context);
@@ -48,24 +57,27 @@ class _AccountSelectorState extends State<AccountSelector> {
             24.verticalSpace,
             divider,
             Expanded(
-              child: ListView.separated(
-                physics: const BouncingScrollPhysics(),
-                itemBuilder: (context, index) {
-                  final rnd = Utils.getRandom(100);
-                  return AccountItem(
-                    balance: rnd.toDouble(),
-                    name: "Account ${index + 1}",
-                    imported: rnd % 3 == 0,
-                    selected: index == selectedIndex,
-                    onSelected: () {
-                      setState(() {
-                        selectedIndex = index;
-                      });
+              child: BlocBuilder<AccountSelectorBloc, AccountSelectorState>(
+                builder: (context, state) {
+                  return ListView.separated(
+                    physics: const BouncingScrollPhysics(),
+                    itemBuilder: (context, index) {
+                      final rnd = Utils.getRandom(100);
+                      final item = state.wallets[index];
+                      return AccountItem(
+                        balance: rnd.toDouble(),
+                        name: "Account ${index + 1}",
+                        imported: item.isImportedWallet,
+                        selected: state.selectedWallet.address == item.address,
+                        onSelected: () {
+                          bloc.add(AccountSelectorEvent.selected(item));
+                        },
+                      );
                     },
+                    separatorBuilder: (_, __) => divider,
+                    itemCount: state.wallets.length,
                   );
                 },
-                separatorBuilder: (_, __) => divider,
-                itemCount: 10,
               ),
             ),
             divider,
@@ -85,7 +97,7 @@ class _AccountSelectorState extends State<AccountSelector> {
             GestureDetector(
               onTap: () {
                 Navigator.of(context, rootNavigator: true)
-                    .pushNamed(ImportWalletScreen.id);
+                    .pushNamed(ImportAccountScreen.id);
               },
               child: Text(
                 s.importAnAccount,
@@ -115,6 +127,7 @@ class AccountItem extends StatelessWidget {
   final bool imported;
   final bool selected;
   final GestureTapCallback onSelected;
+
   @override
   Widget build(BuildContext context) {
     return InkWell(

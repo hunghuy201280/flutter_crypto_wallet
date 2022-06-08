@@ -23,7 +23,10 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m0(appName) =>
       "Tôi hiểu rằng ${appName} không thể khôi phục mật khẩu này cho tôi.";
 
-  static String m1(num) => "Phải chứa ít nhất ${num} kí tự";
+  static String m1(appName) =>
+      "Các tài khoản được thêm vào sẽ không được liên kết với cụm từ bí mật đã được tạo khi bạn dùng ứng dụng này.";
+
+  static String m2(num) => "Phải chứa ít nhất ${num} kí tự";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -68,18 +71,21 @@ class MessageLookup extends MessageLookupByLibrary {
         "getStarted": MessageLookupByLibrary.simpleMessage("Bắt đầu"),
         "hide": MessageLookupByLibrary.simpleMessage("Ẩn"),
         "iUnderstandThatAppNameCannotRecoverThisPasswordForMe": m0,
+        "importAccountText1": m1,
         "importAnAccount":
             MessageLookupByLibrary.simpleMessage("Thêm tài khoản"),
         "importNFTs": MessageLookupByLibrary.simpleMessage("Thêm nfts"),
         "importTokens": MessageLookupByLibrary.simpleMessage("Thêm tokens"),
         "importWallet": MessageLookupByLibrary.simpleMessage("Nhập ví"),
+        "invalidPrivateKey":
+            MessageLookupByLibrary.simpleMessage("Private key không hợp lệ"),
         "logInWithBiometrics":
             MessageLookupByLibrary.simpleMessage("Đăng nhập bằng vân tay"),
         "logout": MessageLookupByLibrary.simpleMessage("Đăng xuất"),
         "manageYourEveryPennyAndTransactionWithEase":
             MessageLookupByLibrary.simpleMessage(
                 "Quản lý từng xu và giao dịch của bạn một cách dễ dàng"),
-        "mustBeAtLeastCharacters": m1,
+        "mustBeAtLeastCharacters": m2,
         "networks": MessageLookupByLibrary.simpleMessage("Mạng lưới"),
         "networksDescription": MessageLookupByLibrary.simpleMessage(
             "Thêm và chỉnh sửa mạng RPC tùy chỉnh"),
@@ -100,6 +106,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseAcceptPolicy": MessageLookupByLibrary.simpleMessage(
             "Vui lòng chấp nhận chính sách"),
         "privateKey": MessageLookupByLibrary.simpleMessage("Private key"),
+        "privateKeyHint": MessageLookupByLibrary.simpleMessage(
+            "Ví dụ 570b05a4bcdbg97afdb8ae9cd1ad8cc55dfa7x1e5d25e4dse8b8c9379f5cgfe9"),
         "protectYourWallet":
             MessageLookupByLibrary.simpleMessage("Protect your wallet"),
         "protectYourWalletDesription": MessageLookupByLibrary.simpleMessage(

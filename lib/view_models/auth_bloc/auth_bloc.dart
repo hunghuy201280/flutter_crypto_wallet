@@ -52,6 +52,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
   FutureOr<void> _loggedInToState(AuthLoggedIn event, Emitter<AuthState> emit) {
     emit(Authenticated(wallet: event.selectedWallet));
+    _localProvider.saveSelectedWallet(selectedWallet: event.selectedWallet);
   }
 
   //#endregion mapEventToState

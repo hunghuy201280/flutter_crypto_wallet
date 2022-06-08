@@ -780,6 +780,36 @@ class S {
     );
   }
 
+  /// `e.g. 570b05a4bcdbg97afdb8ae9cd1ad8cc55dfa7x1e5d25e4dse8b8c9379f5cgfe9`
+  String get privateKeyHint {
+    return Intl.message(
+      'e.g. 570b05a4bcdbg97afdb8ae9cd1ad8cc55dfa7x1e5d25e4dse8b8c9379f5cgfe9',
+      name: 'privateKeyHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invalid private key`
+  String get invalidPrivateKey {
+    return Intl.message(
+      'Invalid private key',
+      name: 'invalidPrivateKey',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Imported accounts will not be associated with your originally created {appName} account Secret Recovery Phrase`
+  String importAccountText1(String appName) {
+    return Intl.message(
+      'Imported accounts will not be associated with your originally created $appName account Secret Recovery Phrase',
+      name: 'importAccountText1',
+      desc: '',
+      args: [appName],
+    );
+  }
+
   /// `Add Custom Token`
   String get addCustomToken {
     return Intl.message(

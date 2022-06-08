@@ -23,7 +23,10 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m0(appName) =>
       "I understand that ${appName} cannot recover this password for me.";
 
-  static String m1(num) => "Must be at least ${num} characters";
+  static String m1(appName) =>
+      "Imported accounts will not be associated with your originally created ${appName} account Secret Recovery Phrase";
+
+  static String m2(num) => "Must be at least ${num} characters";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -70,18 +73,21 @@ class MessageLookup extends MessageLookupByLibrary {
         "getStarted": MessageLookupByLibrary.simpleMessage("Get started"),
         "hide": MessageLookupByLibrary.simpleMessage("Hide"),
         "iUnderstandThatAppNameCannotRecoverThisPasswordForMe": m0,
+        "importAccountText1": m1,
         "importAnAccount":
             MessageLookupByLibrary.simpleMessage("Import an Account"),
         "importNFTs": MessageLookupByLibrary.simpleMessage("Import nfts"),
         "importTokens": MessageLookupByLibrary.simpleMessage("Import tokens"),
         "importWallet": MessageLookupByLibrary.simpleMessage("Import Wallet"),
+        "invalidPrivateKey":
+            MessageLookupByLibrary.simpleMessage("Invalid private key"),
         "logInWithBiometrics":
             MessageLookupByLibrary.simpleMessage("Log In With Biometrics"),
         "logout": MessageLookupByLibrary.simpleMessage("Logout"),
         "manageYourEveryPennyAndTransactionWithEase":
             MessageLookupByLibrary.simpleMessage(
                 "Manage your every penny and transaction with ease"),
-        "mustBeAtLeastCharacters": m1,
+        "mustBeAtLeastCharacters": m2,
         "networks": MessageLookupByLibrary.simpleMessage("Networks"),
         "networksDescription": MessageLookupByLibrary.simpleMessage(
             "Add and edit custom RPC networks"),
@@ -102,6 +108,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseAcceptPolicy":
             MessageLookupByLibrary.simpleMessage("Please accept policy"),
         "privateKey": MessageLookupByLibrary.simpleMessage("Private key"),
+        "privateKeyHint": MessageLookupByLibrary.simpleMessage(
+            "e.g. 570b05a4bcdbg97afdb8ae9cd1ad8cc55dfa7x1e5d25e4dse8b8c9379f5cgfe9"),
         "protectYourWallet":
             MessageLookupByLibrary.simpleMessage("Protect your wallet"),
         "protectYourWalletDesription": MessageLookupByLibrary.simpleMessage(

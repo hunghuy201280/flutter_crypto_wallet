@@ -48,6 +48,7 @@ class ImportWalletBloc extends Bloc<ImportWalletEvent, ImportWalletState> {
         await _localProvider.saveMnemonicPhrase(mnemonicPhrase: mnemonic);
         await _localProvider.addWallet(wallet: walletDetail.wallet!);
         await _localProvider.savePasscode(passCode: state.password);
+        _authBloc.add(AuthLoggedIn(walletDetail.wallet!));
         emit(state.copyWith(status: const Success()));
       } catch (e, trace) {
         printLog(this, message: "Error", error: e, trace: trace);
