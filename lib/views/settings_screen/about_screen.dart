@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ntf_marketplace/configs/color_config.dart';
-import 'package:flutter_ntf_marketplace/utils/utils.dart';
+import 'package:flutter_crypto_wallet/configs/color_config.dart';
+import 'package:flutter_crypto_wallet/utils/utils.dart';
 
 import '../../generated/l10n.dart';
 

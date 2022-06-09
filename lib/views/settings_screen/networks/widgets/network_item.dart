@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ntf_marketplace/configs/text_config.dart';
+import 'package:flutter_crypto_wallet/configs/text_config.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class NetworkItem extends StatelessWidget {

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_ntf_marketplace/configs/color_config.dart';
-import 'package:flutter_ntf_marketplace/configs/text_config.dart';
-import 'package:flutter_ntf_marketplace/models/token/token.dart';
-import 'package:flutter_ntf_marketplace/utils/extensions.dart';
-import 'package:flutter_ntf_marketplace/utils/helpers/status.dart';
-import 'package:flutter_ntf_marketplace/views/import_token/import_token_screen.dart';
-import 'package:flutter_ntf_marketplace/views/wallet_screen/widgets/wallet_coin_item.dart';
-import 'package:flutter_ntf_marketplace/views/wallet_screen/widgets/wallet_nft_group.dart';
+import 'package:flutter_crypto_wallet/configs/color_config.dart';
+import 'package:flutter_crypto_wallet/configs/text_config.dart';
+import 'package:flutter_crypto_wallet/models/token/token.dart';
+import 'package:flutter_crypto_wallet/utils/extensions.dart';
+import 'package:flutter_crypto_wallet/utils/helpers/status.dart';
+import 'package:flutter_crypto_wallet/views/import_token/import_token_screen.dart';
+import 'package:flutter_crypto_wallet/views/wallet_screen/widgets/wallet_coin_item.dart';
+import 'package:flutter_crypto_wallet/views/wallet_screen/widgets/wallet_nft_group.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tuple/tuple.dart';
 

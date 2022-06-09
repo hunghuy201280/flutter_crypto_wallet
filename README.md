@@ -1,4 +1,4 @@
-# flutter_ntf_marketplace
+# flutter_crypto_wallet
 
 A new Flutter project.
 

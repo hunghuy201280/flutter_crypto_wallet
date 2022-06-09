@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_ntf_marketplace/services/local/local_provider.dart';
-import 'package:flutter_ntf_marketplace/services/remote/remote_provider.dart';
-import 'package:flutter_ntf_marketplace/view_models/auth_bloc/auth_bloc.dart';
+import 'package:flutter_crypto_wallet/services/local/local_provider.dart';
+import 'package:flutter_crypto_wallet/services/remote/remote_provider.dart';
+import 'package:flutter_crypto_wallet/view_models/auth_bloc/auth_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 

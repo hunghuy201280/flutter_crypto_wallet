@@ -2,16 +2,17 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_ntf_marketplace/utils/extensions.dart';
-import 'package:flutter_ntf_marketplace/views/create_wallet/create_wallet_screen.dart';
-import 'package:flutter_ntf_marketplace/views/import_account/import_account_screen.dart';
+import 'package:flutter_crypto_wallet/utils/extensions.dart';
+import 'package:flutter_crypto_wallet/views/create_wallet/create_wallet_screen.dart';
+import 'package:flutter_crypto_wallet/views/import_account/import_account_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 import '../../../configs/app_config.dart';
 import '../../../configs/color_config.dart';
 import '../../../configs/text_config.dart';
 import '../../../generated/l10n.dart';
-import '../../../utils/utils.dart';
+import '../../../utils/helpers/status.dart';
 import '../../../view_models/account_selector_bloc/account_selector_bloc.dart';
 import '../../shared_widgets/primary_avatar.dart';
 
@@ -59,14 +60,20 @@ class _AccountSelectorState extends State<AccountSelector> {
             Expanded(
               child: BlocBuilder<AccountSelectorBloc, AccountSelectorState>(
                 builder: (context, state) {
+                  if (state.status is Loading) {
+                    return const Center(
+                      child: SpinKitDancingSquare(
+                        color: AppColors.kColor6,
+                      ),
+                    );
+                  }
                   return ListView.separated(
                     physics: const BouncingScrollPhysics(),
                     itemBuilder: (context, index) {
-                      final rnd = Utils.getRandom(100);
                       final item = state.wallets[index];
                       return AccountItem(
-                        balance: rnd.toDouble(),
-                        name: "Account ${index + 1}",
+                        balance: item.balance,
+                        name: "Account ${item.index}",
                         imported: item.isImportedWallet,
                         selected: state.selectedWallet.address == item.address,
                         onSelected: () {
@@ -95,9 +102,12 @@ class _AccountSelectorState extends State<AccountSelector> {
             ),
             8.verticalSpace,
             GestureDetector(
-              onTap: () {
-                Navigator.of(context, rootNavigator: true)
+              onTap: () async {
+                final res = await Navigator.of(context, rootNavigator: true)
                     .pushNamed(ImportAccountScreen.id);
+                if (res == true) {
+                  bloc.add(const AccountSelectorInitialized());
+                }
               },
               child: Text(
                 s.importAnAccount,
@@ -167,7 +177,7 @@ class AccountItem extends StatelessWidget {
                   ],
                 ),
                 Text(
-                  "${balance.toStringAsFixed(2)} MATIC",
+                  "${balance.toStringAsFixed(2)} BNB",
                   style: TextConfigs.kCaption_1,
                 ),
               ],

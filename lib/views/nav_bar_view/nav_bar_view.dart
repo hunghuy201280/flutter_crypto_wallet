@@ -2,14 +2,14 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_ntf_marketplace/configs/color_config.dart';
-import 'package:flutter_ntf_marketplace/configs/text_config.dart';
-import 'package:flutter_ntf_marketplace/utils/extensions.dart';
-import 'package:flutter_ntf_marketplace/view_models/auth_bloc/auth_bloc.dart';
-import 'package:flutter_ntf_marketplace/views/login/login_screen.dart';
-import 'package:flutter_ntf_marketplace/views/settings_screen/settings_screen.dart';
-import 'package:flutter_ntf_marketplace/views/statistic_screen/statistic_screen.dart';
-import 'package:flutter_ntf_marketplace/views/wallet_screen/wallet_screen.dart';
+import 'package:flutter_crypto_wallet/configs/color_config.dart';
+import 'package:flutter_crypto_wallet/configs/text_config.dart';
+import 'package:flutter_crypto_wallet/utils/extensions.dart';
+import 'package:flutter_crypto_wallet/view_models/auth_bloc/auth_bloc.dart';
+import 'package:flutter_crypto_wallet/views/login/login_screen.dart';
+import 'package:flutter_crypto_wallet/views/settings_screen/settings_screen.dart';
+import 'package:flutter_crypto_wallet/views/statistic_screen/statistic_screen.dart';
+import 'package:flutter_crypto_wallet/views/wallet_screen/wallet_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
 

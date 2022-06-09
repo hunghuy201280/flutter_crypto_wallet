@@ -1,5 +1,5 @@
-import 'package:flutter_ntf_marketplace/configs/app_config.dart';
-import 'package:flutter_ntf_marketplace/constants/app_prefs.dart';
+import 'package:flutter_crypto_wallet/configs/app_config.dart';
+import 'package:flutter_crypto_wallet/constants/app_prefs.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../models/token/token.dart';
@@ -38,6 +38,10 @@ class LocalRepository {
   List<Wallet> getSavedWallets() {
     final wallet = _appPref.wallet;
     return wallet.savedWallets;
+  }
+
+  Future setSavedWallets(List<Wallet> wallets) async {
+    await _appPref.wallet.setSavedWallets(wallets);
   }
 
   Future<void> removeWallet({required String address}) async {

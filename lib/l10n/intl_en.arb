@@ -98,6 +98,7 @@
     }
   },
   "addCustomToken" : "Add Custom Token",
-  "withdraw" : "Withdraw",
-  "address" : "Address"
+  "address" : "Address",
+  "duplicateAccount" : "Account had already been added",
+  "withdraw" : "Withdraw"
 }

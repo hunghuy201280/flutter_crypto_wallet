@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ntf_marketplace/configs/text_config.dart';
-import 'package:flutter_ntf_marketplace/generated/l10n.dart';
-import 'package:flutter_ntf_marketplace/utils/extensions.dart';
-import 'package:flutter_ntf_marketplace/views/statistic_screen/widgets/statistic_chart.dart';
+import 'package:flutter_crypto_wallet/configs/text_config.dart';
+import 'package:flutter_crypto_wallet/generated/l10n.dart';
+import 'package:flutter_crypto_wallet/utils/extensions.dart';
+import 'package:flutter_crypto_wallet/views/statistic_screen/widgets/statistic_chart.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sliver_tools/sliver_tools.dart';
 

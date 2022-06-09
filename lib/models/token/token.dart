@@ -14,7 +14,7 @@ class Token with _$Token {
   const factory Token({
     @HiveField(0) required String address,
     @HiveField(1) required String symbol,
-    @HiveField(2) required int demical,
+    @HiveField(2) required int decimal,
     @HiveField(3) String? imageUrl,
     @HiveField(4) @Default(0) double balance,
   }) = _Token;

@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ntf_marketplace/configs/color_config.dart';
-import 'package:flutter_ntf_marketplace/configs/text_config.dart';
-import 'package:flutter_ntf_marketplace/generated/l10n.dart';
-import 'package:flutter_ntf_marketplace/utils/extensions.dart';
-import 'package:flutter_ntf_marketplace/views/home_screen/widgets/account_info.dart';
-import 'package:flutter_ntf_marketplace/views/nav_bar_view/nav_bar_view.dart';
-import 'package:flutter_ntf_marketplace/views/shared_widgets/primary_button.dart';
-import 'package:flutter_ntf_marketplace/views/withdraw_token/withdraw_screen.dart';
+import 'package:flutter_crypto_wallet/configs/color_config.dart';
+import 'package:flutter_crypto_wallet/configs/text_config.dart';
+import 'package:flutter_crypto_wallet/generated/l10n.dart';
+import 'package:flutter_crypto_wallet/utils/extensions.dart';
+import 'package:flutter_crypto_wallet/utils/shared_widgets/loading/global_loading.dart';
+import 'package:flutter_crypto_wallet/views/home_screen/widgets/account_info.dart';
+import 'package:flutter_crypto_wallet/views/nav_bar_view/nav_bar_view.dart';
+import 'package:flutter_crypto_wallet/views/shared_widgets/primary_button.dart';
+import 'package:flutter_crypto_wallet/views/withdraw_token/withdraw_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -36,7 +37,9 @@ class _HomeScreenState extends State<HomeScreen> {
             title: s.depositCrypto,
             leading: "deposit".getIcon(width: 24.w, height: 24.w),
             style: TextConfigs.kSubtitle_9,
-            onTap: () {},
+            onTap: () {
+              showLoadingDialog(tapDismiss: true);
+            },
             backgroundColor: AppColors.kColor3,
             verticalPadding: 24.w,
             horizontalMargin: 24.w,

@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_ntf_marketplace/constants/hive_configs.dart';
+import 'package:flutter_crypto_wallet/constants/hive_configs.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:injectable/injectable.dart';
 

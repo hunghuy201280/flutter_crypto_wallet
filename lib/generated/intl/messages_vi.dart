@@ -59,6 +59,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Không thấy nft của bạn?"),
         "dontSeeYourToken":
             MessageLookupByLibrary.simpleMessage("Không thấy token của bạn?"),
+        "duplicateAccount": MessageLookupByLibrary.simpleMessage(
+            "Tài khoản này đã được thêm trước đó"),
         "easyWayToManageYourEWallet": MessageLookupByLibrary.simpleMessage(
             "Dễ dàng để quản lý ví điện tử của bạn"),
         "english": MessageLookupByLibrary.simpleMessage("Tiếng Anh"),

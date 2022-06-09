@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ntf_marketplace/configs/color_config.dart';
-import 'package:flutter_ntf_marketplace/configs/text_config.dart';
-import 'package:flutter_ntf_marketplace/views/wallet_screen/widgets/wallet_nft_item.dart';
+import 'package:flutter_crypto_wallet/configs/color_config.dart';
+import 'package:flutter_crypto_wallet/configs/text_config.dart';
+import 'package:flutter_crypto_wallet/views/wallet_screen/widgets/wallet_nft_item.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class WalletNFTGroup extends StatelessWidget {

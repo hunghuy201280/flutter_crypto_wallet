@@ -25,13 +25,13 @@ class _$TokenTearOff {
   _Token call(
       {@HiveField(0) required String address,
       @HiveField(1) required String symbol,
-      @HiveField(2) required int demical,
+      @HiveField(2) required int decimal,
       @HiveField(3) String? imageUrl,
       @HiveField(4) double balance = 0}) {
     return _Token(
       address: address,
       symbol: symbol,
-      demical: demical,
+      decimal: decimal,
       imageUrl: imageUrl,
       balance: balance,
     );
@@ -52,7 +52,7 @@ mixin _$Token {
   @HiveField(1)
   String get symbol => throw _privateConstructorUsedError;
   @HiveField(2)
-  int get demical => throw _privateConstructorUsedError;
+  int get decimal => throw _privateConstructorUsedError;
   @HiveField(3)
   String? get imageUrl => throw _privateConstructorUsedError;
   @HiveField(4)
@@ -70,7 +70,7 @@ abstract class $TokenCopyWith<$Res> {
   $Res call(
       {@HiveField(0) String address,
       @HiveField(1) String symbol,
-      @HiveField(2) int demical,
+      @HiveField(2) int decimal,
       @HiveField(3) String? imageUrl,
       @HiveField(4) double balance});
 }
@@ -87,7 +87,7 @@ class _$TokenCopyWithImpl<$Res> implements $TokenCopyWith<$Res> {
   $Res call({
     Object? address = freezed,
     Object? symbol = freezed,
-    Object? demical = freezed,
+    Object? decimal = freezed,
     Object? imageUrl = freezed,
     Object? balance = freezed,
   }) {
@@ -100,9 +100,9 @@ class _$TokenCopyWithImpl<$Res> implements $TokenCopyWith<$Res> {
           ? _value.symbol
           : symbol // ignore: cast_nullable_to_non_nullable
               as String,
-      demical: demical == freezed
-          ? _value.demical
-          : demical // ignore: cast_nullable_to_non_nullable
+      decimal: decimal == freezed
+          ? _value.decimal
+          : decimal // ignore: cast_nullable_to_non_nullable
               as int,
       imageUrl: imageUrl == freezed
           ? _value.imageUrl
@@ -124,7 +124,7 @@ abstract class _$TokenCopyWith<$Res> implements $TokenCopyWith<$Res> {
   $Res call(
       {@HiveField(0) String address,
       @HiveField(1) String symbol,
-      @HiveField(2) int demical,
+      @HiveField(2) int decimal,
       @HiveField(3) String? imageUrl,
       @HiveField(4) double balance});
 }
@@ -142,7 +142,7 @@ class __$TokenCopyWithImpl<$Res> extends _$TokenCopyWithImpl<$Res>
   $Res call({
     Object? address = freezed,
     Object? symbol = freezed,
-    Object? demical = freezed,
+    Object? decimal = freezed,
     Object? imageUrl = freezed,
     Object? balance = freezed,
   }) {
@@ -155,9 +155,9 @@ class __$TokenCopyWithImpl<$Res> extends _$TokenCopyWithImpl<$Res>
           ? _value.symbol
           : symbol // ignore: cast_nullable_to_non_nullable
               as String,
-      demical: demical == freezed
-          ? _value.demical
-          : demical // ignore: cast_nullable_to_non_nullable
+      decimal: decimal == freezed
+          ? _value.decimal
+          : decimal // ignore: cast_nullable_to_non_nullable
               as int,
       imageUrl: imageUrl == freezed
           ? _value.imageUrl
@@ -179,7 +179,7 @@ class _$_Token implements _Token {
   const _$_Token(
       {@HiveField(0) required this.address,
       @HiveField(1) required this.symbol,
-      @HiveField(2) required this.demical,
+      @HiveField(2) required this.decimal,
       @HiveField(3) this.imageUrl,
       @HiveField(4) this.balance = 0});
 
@@ -194,7 +194,7 @@ class _$_Token implements _Token {
   final String symbol;
   @override
   @HiveField(2)
-  final int demical;
+  final int decimal;
   @override
   @HiveField(3)
   final String? imageUrl;
@@ -205,7 +205,7 @@ class _$_Token implements _Token {
 
   @override
   String toString() {
-    return 'Token(address: $address, symbol: $symbol, demical: $demical, imageUrl: $imageUrl, balance: $balance)';
+    return 'Token(address: $address, symbol: $symbol, decimal: $decimal, imageUrl: $imageUrl, balance: $balance)';
   }
 
   @override
@@ -215,7 +215,7 @@ class _$_Token implements _Token {
             other is _Token &&
             const DeepCollectionEquality().equals(other.address, address) &&
             const DeepCollectionEquality().equals(other.symbol, symbol) &&
-            const DeepCollectionEquality().equals(other.demical, demical) &&
+            const DeepCollectionEquality().equals(other.decimal, decimal) &&
             const DeepCollectionEquality().equals(other.imageUrl, imageUrl) &&
             const DeepCollectionEquality().equals(other.balance, balance));
   }
@@ -225,7 +225,7 @@ class _$_Token implements _Token {
       runtimeType,
       const DeepCollectionEquality().hash(address),
       const DeepCollectionEquality().hash(symbol),
-      const DeepCollectionEquality().hash(demical),
+      const DeepCollectionEquality().hash(decimal),
       const DeepCollectionEquality().hash(imageUrl),
       const DeepCollectionEquality().hash(balance));
 
@@ -244,7 +244,7 @@ abstract class _Token implements Token {
   const factory _Token(
       {@HiveField(0) required String address,
       @HiveField(1) required String symbol,
-      @HiveField(2) required int demical,
+      @HiveField(2) required int decimal,
       @HiveField(3) String? imageUrl,
       @HiveField(4) double balance}) = _$_Token;
 
@@ -258,7 +258,7 @@ abstract class _Token implements Token {
   String get symbol;
   @override
   @HiveField(2)
-  int get demical;
+  int get decimal;
   @override
   @HiveField(3)
   String? get imageUrl;

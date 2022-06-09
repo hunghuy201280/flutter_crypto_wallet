@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_ntf_marketplace/configs/color_config.dart';
-import 'package:flutter_ntf_marketplace/generated/l10n.dart';
-import 'package:flutter_ntf_marketplace/utils/enums.dart';
-import 'package:flutter_ntf_marketplace/utils/helpers/status.dart';
-import 'package:flutter_ntf_marketplace/utils/shared_widgets/loading/global_loading.dart';
-import 'package:flutter_ntf_marketplace/utils/utils.dart';
-import 'package:flutter_ntf_marketplace/view_models/create_wallet_bloc/create_wallet_bloc.dart';
-import 'package:flutter_ntf_marketplace/views/create_wallet/widgets/create_wallet_body1.dart';
-import 'package:flutter_ntf_marketplace/views/create_wallet/widgets/create_wallet_body2.dart';
-import 'package:flutter_ntf_marketplace/views/create_wallet/widgets/nstepper.dart';
+import 'package:flutter_crypto_wallet/configs/color_config.dart';
+import 'package:flutter_crypto_wallet/generated/l10n.dart';
+import 'package:flutter_crypto_wallet/utils/enums.dart';
+import 'package:flutter_crypto_wallet/utils/helpers/status.dart';
+import 'package:flutter_crypto_wallet/utils/shared_widgets/loading/global_loading.dart';
+import 'package:flutter_crypto_wallet/utils/utils.dart';
+import 'package:flutter_crypto_wallet/view_models/create_wallet_bloc/create_wallet_bloc.dart';
+import 'package:flutter_crypto_wallet/views/create_wallet/widgets/create_wallet_body1.dart';
+import 'package:flutter_crypto_wallet/views/create_wallet/widgets/create_wallet_body2.dart';
+import 'package:flutter_crypto_wallet/views/create_wallet/widgets/nstepper.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../nav_bar_view/nav_bar_view.dart';

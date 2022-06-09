@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ntf_marketplace/configs/color_config.dart';
-import 'package:flutter_ntf_marketplace/configs/text_config.dart';
-import 'package:flutter_ntf_marketplace/generated/l10n.dart';
-import 'package:flutter_ntf_marketplace/views/create_wallet/create_wallet_screen.dart';
-import 'package:flutter_ntf_marketplace/views/import_wallet/import_wallet_screen.dart';
+import 'package:flutter_crypto_wallet/configs/color_config.dart';
+import 'package:flutter_crypto_wallet/configs/text_config.dart';
+import 'package:flutter_crypto_wallet/generated/l10n.dart';
+import 'package:flutter_crypto_wallet/views/create_wallet/create_wallet_screen.dart';
+import 'package:flutter_crypto_wallet/views/import_wallet/import_wallet_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_ntf_marketplace/di/dependency_injection.dart';
-import 'package:flutter_ntf_marketplace/view_models/app_bloc/app_bloc.dart';
+import 'package:flutter_crypto_wallet/di/dependency_injection.dart';
+import 'package:flutter_crypto_wallet/view_models/app_bloc/app_bloc.dart';
 
 import 'app.dart';
 import 'configs/app_config.dart';

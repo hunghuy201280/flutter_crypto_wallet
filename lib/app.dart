@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_ntf_marketplace/routes/app_route.dart';
-import 'package:flutter_ntf_marketplace/utils/shared_widgets/loading/load.dart';
-import 'package:flutter_ntf_marketplace/utils/utils.dart';
-import 'package:flutter_ntf_marketplace/view_models/app_bloc/app_bloc.dart';
-import 'package:flutter_ntf_marketplace/view_models/auth_bloc/auth_bloc.dart';
-import 'package:flutter_ntf_marketplace/views/shared_widgets/app_loading_indicator.dart';
-import 'package:flutter_ntf_marketplace/views/splash_screen.dart';
+import 'package:flutter_crypto_wallet/routes/app_route.dart';
+import 'package:flutter_crypto_wallet/utils/shared_widgets/loading/load.dart';
+import 'package:flutter_crypto_wallet/utils/utils.dart';
+import 'package:flutter_crypto_wallet/view_models/app_bloc/app_bloc.dart';
+import 'package:flutter_crypto_wallet/view_models/auth_bloc/auth_bloc.dart';
+import 'package:flutter_crypto_wallet/views/shared_widgets/app_loading_indicator.dart';
+import 'package:flutter_crypto_wallet/views/splash_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive/hive.dart';
 

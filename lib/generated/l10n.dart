@@ -820,21 +820,31 @@ class S {
     );
   }
 
-  /// `Withdraw`
-  String get withdraw {
-    return Intl.message(
-      'Withdraw',
-      name: 'withdraw',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Address`
   String get address {
     return Intl.message(
       'Address',
       name: 'address',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Account had already been added`
+  String get duplicateAccount {
+    return Intl.message(
+      'Account had already been added',
+      name: 'duplicateAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Withdraw`
+  String get withdraw {
+    return Intl.message(
+      'Withdraw',
+      name: 'withdraw',
       desc: '',
       args: [],
     );

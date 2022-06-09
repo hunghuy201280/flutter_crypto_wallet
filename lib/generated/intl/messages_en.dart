@@ -61,6 +61,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Don\'t see your nft?"),
         "dontSeeYourToken":
             MessageLookupByLibrary.simpleMessage("Don\'t see your token?"),
+        "duplicateAccount": MessageLookupByLibrary.simpleMessage(
+            "Account had already been added"),
         "easyWayToManageYourEWallet": MessageLookupByLibrary.simpleMessage(
             "Easy way to manage your e-wallet"),
         "english": MessageLookupByLibrary.simpleMessage("English"),

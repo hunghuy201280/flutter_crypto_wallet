@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_ntf_marketplace/configs/app_config.dart';
-import 'package:flutter_ntf_marketplace/constants/endpoints.dart';
+import 'package:flutter_crypto_wallet/configs/app_config.dart';
+import 'package:flutter_crypto_wallet/constants/endpoints.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../models/token/token.dart';
@@ -49,6 +49,13 @@ class RemoteRepository {
   Future<Response> getInfoOfToken(String tokenAddress) async {
     Response response = await _dio.get(
       AppEndpoint.getInfoOfToken(tokenAddress),
+    );
+    return response;
+  }
+
+  Future<Response> getWalletInfo(String walletAddress) async {
+    Response response = await _dio.get(
+      AppEndpoint.getWalletInfo(walletAddress),
     );
     return response;
   }
