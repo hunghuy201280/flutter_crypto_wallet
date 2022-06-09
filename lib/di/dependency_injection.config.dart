@@ -75,8 +75,8 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
       (_authBloc, _) => _i20.WalletDetailBloc(
           get<_i14.RemoteProvider>(), _authBloc, get<_i15.LocalProvider>()));
   gh.factoryParam<_i21.AccountSelectorBloc, _i22.Wallet, _i18.AuthBloc>(
-      (selectedWallet, authBloc) => _i21.AccountSelectorBloc(
-          selectedWallet, get<_i15.LocalProvider>(), authBloc));
+      (selectedWallet, authBloc) => _i21.AccountSelectorBloc(selectedWallet,
+          get<_i15.LocalProvider>(), authBloc, get<_i14.RemoteProvider>()));
   gh.factory<_i18.AuthBloc>(() => _i18.AuthBloc(get<_i15.LocalProvider>()));
   gh.factory<_i23.ChangePasswordBloc>(
       () => _i23.ChangePasswordBloc(get<_i15.LocalProvider>()));

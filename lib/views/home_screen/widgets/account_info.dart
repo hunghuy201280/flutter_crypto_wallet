@@ -1,8 +1,8 @@
 import 'package:clipboard/clipboard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_ntf_marketplace/di/dependency_injection.dart';
-import 'package:flutter_ntf_marketplace/utils/extensions.dart';
+import 'package:flutter_crypto_wallet/di/dependency_injection.dart';
+import 'package:flutter_crypto_wallet/utils/extensions.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../configs/app_config.dart';
@@ -45,7 +45,7 @@ class AccountInfo extends StatelessWidget {
                     Column(
                       children: [
                         Text(
-                          "Account 1",
+                          "Account ${state.wallet.index}",
                           style: TextConfigs.kBody2_9,
                         ),
                         8.verticalSpace,

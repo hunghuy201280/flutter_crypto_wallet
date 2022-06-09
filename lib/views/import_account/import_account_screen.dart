@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_ntf_marketplace/configs/color_config.dart';
-import 'package:flutter_ntf_marketplace/generated/l10n.dart';
-import 'package:flutter_ntf_marketplace/utils/helpers/status.dart';
-import 'package:flutter_ntf_marketplace/utils/shared_widgets/loading/global_loading.dart';
-import 'package:flutter_ntf_marketplace/utils/utils.dart';
-import 'package:flutter_ntf_marketplace/views/shared_widgets/primary_button_medium.dart';
-import 'package:flutter_ntf_marketplace/views/shared_widgets/primary_text_field.dart';
+import 'package:flutter_crypto_wallet/configs/color_config.dart';
+import 'package:flutter_crypto_wallet/generated/l10n.dart';
+import 'package:flutter_crypto_wallet/utils/helpers/status.dart';
+import 'package:flutter_crypto_wallet/utils/shared_widgets/loading/global_loading.dart';
+import 'package:flutter_crypto_wallet/utils/utils.dart';
+import 'package:flutter_crypto_wallet/views/shared_widgets/primary_button_medium.dart';
+import 'package:flutter_crypto_wallet/views/shared_widgets/primary_text_field.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../configs/text_config.dart';
@@ -43,7 +43,10 @@ class _ImportAccountScreenState extends State<ImportAccountScreen> {
           case InvalidPrivateKeyError:
             hideLoadingDialog();
             showInfoDialog(context, message: s.invalidPrivateKey);
-
+            break;
+          case DuplicateAccountError:
+            hideLoadingDialog();
+            showInfoDialog(context, message: s.duplicateAccount);
             break;
           case Loading:
             showLoadingDialog();
@@ -51,7 +54,7 @@ class _ImportAccountScreenState extends State<ImportAccountScreen> {
           case Success:
             hideLoadingDialog();
 
-            Navigator.pop(context);
+            Navigator.pop(context, true);
             break;
           case Idle:
             hideLoadingDialog();

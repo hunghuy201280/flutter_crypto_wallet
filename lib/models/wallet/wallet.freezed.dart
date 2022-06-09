@@ -25,11 +25,15 @@ class _$WalletTearOff {
   _Wallet call(
       {@HiveField(0) required String address,
       @HiveField(1) required String privateKey,
-      @HiveField(2) bool isImportedWallet = false}) {
+      @HiveField(2) bool isImportedWallet = false,
+      @HiveField(3) double balance = 0,
+      @HiveField(4) int index = 1}) {
     return _Wallet(
       address: address,
       privateKey: privateKey,
       isImportedWallet: isImportedWallet,
+      balance: balance,
+      index: index,
     );
   }
 
@@ -49,6 +53,10 @@ mixin _$Wallet {
   String get privateKey => throw _privateConstructorUsedError;
   @HiveField(2)
   bool get isImportedWallet => throw _privateConstructorUsedError;
+  @HiveField(3)
+  double get balance => throw _privateConstructorUsedError;
+  @HiveField(4)
+  int get index => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -62,7 +70,9 @@ abstract class $WalletCopyWith<$Res> {
   $Res call(
       {@HiveField(0) String address,
       @HiveField(1) String privateKey,
-      @HiveField(2) bool isImportedWallet});
+      @HiveField(2) bool isImportedWallet,
+      @HiveField(3) double balance,
+      @HiveField(4) int index});
 }
 
 /// @nodoc
@@ -78,6 +88,8 @@ class _$WalletCopyWithImpl<$Res> implements $WalletCopyWith<$Res> {
     Object? address = freezed,
     Object? privateKey = freezed,
     Object? isImportedWallet = freezed,
+    Object? balance = freezed,
+    Object? index = freezed,
   }) {
     return _then(_value.copyWith(
       address: address == freezed
@@ -92,6 +104,14 @@ class _$WalletCopyWithImpl<$Res> implements $WalletCopyWith<$Res> {
           ? _value.isImportedWallet
           : isImportedWallet // ignore: cast_nullable_to_non_nullable
               as bool,
+      balance: balance == freezed
+          ? _value.balance
+          : balance // ignore: cast_nullable_to_non_nullable
+              as double,
+      index: index == freezed
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -104,7 +124,9 @@ abstract class _$WalletCopyWith<$Res> implements $WalletCopyWith<$Res> {
   $Res call(
       {@HiveField(0) String address,
       @HiveField(1) String privateKey,
-      @HiveField(2) bool isImportedWallet});
+      @HiveField(2) bool isImportedWallet,
+      @HiveField(3) double balance,
+      @HiveField(4) int index});
 }
 
 /// @nodoc
@@ -121,6 +143,8 @@ class __$WalletCopyWithImpl<$Res> extends _$WalletCopyWithImpl<$Res>
     Object? address = freezed,
     Object? privateKey = freezed,
     Object? isImportedWallet = freezed,
+    Object? balance = freezed,
+    Object? index = freezed,
   }) {
     return _then(_Wallet(
       address: address == freezed
@@ -135,6 +159,14 @@ class __$WalletCopyWithImpl<$Res> extends _$WalletCopyWithImpl<$Res>
           ? _value.isImportedWallet
           : isImportedWallet // ignore: cast_nullable_to_non_nullable
               as bool,
+      balance: balance == freezed
+          ? _value.balance
+          : balance // ignore: cast_nullable_to_non_nullable
+              as double,
+      index: index == freezed
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -146,7 +178,9 @@ class _$_Wallet implements _Wallet {
   _$_Wallet(
       {@HiveField(0) required this.address,
       @HiveField(1) required this.privateKey,
-      @HiveField(2) this.isImportedWallet = false});
+      @HiveField(2) this.isImportedWallet = false,
+      @HiveField(3) this.balance = 0,
+      @HiveField(4) this.index = 1});
 
   factory _$_Wallet.fromJson(Map<String, dynamic> json) =>
       _$$_WalletFromJson(json);
@@ -161,10 +195,18 @@ class _$_Wallet implements _Wallet {
   @override
   @HiveField(2)
   final bool isImportedWallet;
+  @JsonKey()
+  @override
+  @HiveField(3)
+  final double balance;
+  @JsonKey()
+  @override
+  @HiveField(4)
+  final int index;
 
   @override
   String toString() {
-    return 'Wallet(address: $address, privateKey: $privateKey, isImportedWallet: $isImportedWallet)';
+    return 'Wallet(address: $address, privateKey: $privateKey, isImportedWallet: $isImportedWallet, balance: $balance, index: $index)';
   }
 
   @override
@@ -176,7 +218,9 @@ class _$_Wallet implements _Wallet {
             const DeepCollectionEquality()
                 .equals(other.privateKey, privateKey) &&
             const DeepCollectionEquality()
-                .equals(other.isImportedWallet, isImportedWallet));
+                .equals(other.isImportedWallet, isImportedWallet) &&
+            const DeepCollectionEquality().equals(other.balance, balance) &&
+            const DeepCollectionEquality().equals(other.index, index));
   }
 
   @override
@@ -184,7 +228,9 @@ class _$_Wallet implements _Wallet {
       runtimeType,
       const DeepCollectionEquality().hash(address),
       const DeepCollectionEquality().hash(privateKey),
-      const DeepCollectionEquality().hash(isImportedWallet));
+      const DeepCollectionEquality().hash(isImportedWallet),
+      const DeepCollectionEquality().hash(balance),
+      const DeepCollectionEquality().hash(index));
 
   @JsonKey(ignore: true)
   @override
@@ -201,7 +247,9 @@ abstract class _Wallet implements Wallet {
   factory _Wallet(
       {@HiveField(0) required String address,
       @HiveField(1) required String privateKey,
-      @HiveField(2) bool isImportedWallet}) = _$_Wallet;
+      @HiveField(2) bool isImportedWallet,
+      @HiveField(3) double balance,
+      @HiveField(4) int index}) = _$_Wallet;
 
   factory _Wallet.fromJson(Map<String, dynamic> json) = _$_Wallet.fromJson;
 
@@ -214,6 +262,12 @@ abstract class _Wallet implements Wallet {
   @override
   @HiveField(2)
   bool get isImportedWallet;
+  @override
+  @HiveField(3)
+  double get balance;
+  @override
+  @HiveField(4)
+  int get index;
   @override
   @JsonKey(ignore: true)
   _$WalletCopyWith<_Wallet> get copyWith => throw _privateConstructorUsedError;

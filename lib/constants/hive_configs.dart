@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:flutter_ntf_marketplace/models/token/token.dart';
+import 'package:flutter_crypto_wallet/models/token/token.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 

@@ -19,7 +19,7 @@ class TokenAdapter extends TypeAdapter<_$_Token> {
     return _$_Token(
       address: fields[0] as String,
       symbol: fields[1] as String,
-      demical: fields[2] as int,
+      decimal: fields[2] as int,
       imageUrl: fields[3] as String?,
       balance: fields[4] as double,
     );
@@ -34,7 +34,7 @@ class TokenAdapter extends TypeAdapter<_$_Token> {
       ..writeByte(1)
       ..write(obj.symbol)
       ..writeByte(2)
-      ..write(obj.demical)
+      ..write(obj.decimal)
       ..writeByte(3)
       ..write(obj.imageUrl)
       ..writeByte(4)
@@ -59,7 +59,7 @@ class TokenAdapter extends TypeAdapter<_$_Token> {
 _$_Token _$$_TokenFromJson(Map<String, dynamic> json) => _$_Token(
       address: json['address'] as String,
       symbol: json['symbol'] as String,
-      demical: json['demical'] as int,
+      decimal: json['decimal'] as int,
       imageUrl: json['imageUrl'] as String?,
       balance: (json['balance'] as num?)?.toDouble() ?? 0,
     );
@@ -67,7 +67,7 @@ _$_Token _$$_TokenFromJson(Map<String, dynamic> json) => _$_Token(
 Map<String, dynamic> _$$_TokenToJson(_$_Token instance) => <String, dynamic>{
       'address': instance.address,
       'symbol': instance.symbol,
-      'demical': instance.demical,
+      'decimal': instance.decimal,
       'imageUrl': instance.imageUrl,
       'balance': instance.balance,
     };

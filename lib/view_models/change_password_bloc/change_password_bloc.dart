@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ntf_marketplace/services/local/local_provider.dart';
-import 'package:flutter_ntf_marketplace/utils/extensions.dart';
-import 'package:flutter_ntf_marketplace/utils/helpers/status.dart';
+import 'package:flutter_crypto_wallet/services/local/local_provider.dart';
+import 'package:flutter_crypto_wallet/utils/extensions.dart';
+import 'package:flutter_crypto_wallet/utils/helpers/status.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_ntf_marketplace/configs/app_config.dart';
-import 'package:flutter_ntf_marketplace/configs/color_config.dart';
+import 'package:flutter_crypto_wallet/configs/app_config.dart';
+import 'package:flutter_crypto_wallet/configs/color_config.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../configs/text_config.dart';

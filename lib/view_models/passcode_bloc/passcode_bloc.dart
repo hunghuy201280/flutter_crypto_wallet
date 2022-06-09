@@ -1,13 +1,13 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_ntf_marketplace/services/local/local_provider.dart';
-import 'package:flutter_ntf_marketplace/utils/helpers/status.dart';
-import 'package:flutter_ntf_marketplace/view_models/auth_bloc/auth_bloc.dart';
+import 'package:flutter_crypto_wallet/services/local/local_provider.dart';
+import 'package:flutter_crypto_wallet/utils/helpers/status.dart';
+import 'package:flutter_crypto_wallet/view_models/auth_bloc/auth_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:local_auth/local_auth.dart';
-import 'package:local_auth/error_codes.dart' as auth_error;
 import 'package:injectable/injectable.dart';
+import 'package:local_auth/error_codes.dart' as auth_error;
+import 'package:local_auth/local_auth.dart';
 
 part 'passcode_bloc.freezed.dart';
 part 'passcode_event.dart';

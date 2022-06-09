@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_ntf_marketplace/utils/utils.dart';
+import 'package:flutter_crypto_wallet/utils/utils.dart';
 
 class AppBlocObserver extends BlocObserver {
   @override

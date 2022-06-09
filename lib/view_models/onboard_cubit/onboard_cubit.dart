@@ -1,10 +1,10 @@
 import 'package:bloc/bloc.dart';
-import 'package:flutter_ntf_marketplace/services/local/local_provider.dart';
+import 'package:flutter_crypto_wallet/services/local/local_provider.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
-part 'onboard_state.dart';
 part 'onboard_cubit.freezed.dart';
+part 'onboard_state.dart';
 
 @injectable
 class OnboardCubit extends Cubit<OnboardState> {

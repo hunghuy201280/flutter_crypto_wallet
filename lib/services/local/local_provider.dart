@@ -31,12 +31,17 @@ class LocalProvider {
     return _repo.getSavedWallets();
   }
 
+  Future setSavedWallets(List<Wallet> wallets) {
+    return _repo.setSavedWallets(wallets);
+  }
+
   Future<void> removeWallet({required String address}) async {
     await _repo.removeWallet(address: address);
   }
 
   Future<void> addWallet({required Wallet wallet}) async {
-    await _repo.addWallet(value: wallet);
+    await _repo.addWallet(
+        value: wallet.copyWith(index: getSavedWallets().length + 1));
   }
 
   Future<void> removeAllWallets() async {

@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_ntf_marketplace/services/dto//import_wallet_mnemonic_dto/import_wallet_mnemonic_dto.dart';
-import 'package:flutter_ntf_marketplace/services/dto/token_balance_dto/token_balance_dto.dart';
+import 'package:flutter_crypto_wallet/services/dto//import_wallet_mnemonic_dto/import_wallet_mnemonic_dto.dart';
+import 'package:flutter_crypto_wallet/services/dto/token_balance_dto/token_balance_dto.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../models/token/token.dart';
@@ -72,6 +72,19 @@ class RemoteProvider {
   Future<BaseDto<Token>> getInfoOfToken(String tokenAddress) async {
     try {
       final response = await _repo.getInfoOfToken(tokenAddress);
+      final data = BaseDto<Token>.fromJson(
+        response.data,
+        create: (data) => Token.fromJson(data),
+      );
+      return data;
+    } on DioError catch (e) {
+      return BaseDto.fromJson(e.response?.data);
+    }
+  }
+
+  Future<BaseDto<Token>> getWalletInfo(String walletToken) async {
+    try {
+      final response = await _repo.getWalletInfo(walletToken);
       final data = BaseDto<Token>.fromJson(
         response.data,
         create: (data) => Token.fromJson(data),

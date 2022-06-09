@@ -1,8 +1,8 @@
 import 'package:clipboard/clipboard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_ntf_marketplace/utils/extensions.dart';
-import 'package:flutter_ntf_marketplace/view_models/create_wallet_bloc/create_wallet_bloc.dart';
+import 'package:flutter_crypto_wallet/utils/extensions.dart';
+import 'package:flutter_crypto_wallet/view_models/create_wallet_bloc/create_wallet_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../configs/text_config.dart';

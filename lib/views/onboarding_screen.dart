@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_ntf_marketplace/configs/color_config.dart';
-import 'package:flutter_ntf_marketplace/configs/text_config.dart';
-import 'package:flutter_ntf_marketplace/generated/l10n.dart';
-import 'package:flutter_ntf_marketplace/view_models/onboard_cubit/onboard_cubit.dart';
-import 'package:flutter_ntf_marketplace/views/login/login_screen.dart';
+import 'package:flutter_crypto_wallet/configs/color_config.dart';
+import 'package:flutter_crypto_wallet/configs/text_config.dart';
+import 'package:flutter_crypto_wallet/generated/l10n.dart';
+import 'package:flutter_crypto_wallet/view_models/onboard_cubit/onboard_cubit.dart';
+import 'package:flutter_crypto_wallet/views/login/login_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 

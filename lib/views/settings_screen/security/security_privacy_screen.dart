@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ntf_marketplace/configs/color_config.dart';
-import 'package:flutter_ntf_marketplace/utils/utils.dart';
-import 'package:flutter_ntf_marketplace/views/settings_screen/security/widgets/security_privacy_item.dart';
+import 'package:flutter_crypto_wallet/configs/color_config.dart';
+import 'package:flutter_crypto_wallet/utils/utils.dart';
+import 'package:flutter_crypto_wallet/views/settings_screen/security/widgets/security_privacy_item.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../generated/l10n.dart';

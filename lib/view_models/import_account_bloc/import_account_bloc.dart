@@ -1,11 +1,11 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_ntf_marketplace/services/local/local_provider.dart';
-import 'package:flutter_ntf_marketplace/services/remote/remote_provider.dart';
-import 'package:flutter_ntf_marketplace/utils/extensions.dart';
-import 'package:flutter_ntf_marketplace/utils/helpers/status.dart';
-import 'package:flutter_ntf_marketplace/utils/utils.dart';
+import 'package:flutter_crypto_wallet/services/local/local_provider.dart';
+import 'package:flutter_crypto_wallet/services/remote/remote_provider.dart';
+import 'package:flutter_crypto_wallet/utils/extensions.dart';
+import 'package:flutter_crypto_wallet/utils/helpers/status.dart';
+import 'package:flutter_crypto_wallet/utils/utils.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
@@ -25,6 +25,14 @@ class ImportAccountBloc extends Bloc<ImportAccountEvent, ImportAccountState> {
     on<ImportAccountImported>((event, emit) async {
       emit(state.copyWith(status: const Loading()));
       try {
+        //duplicate account
+        final savedWallets = _localProvider.getSavedWallets();
+        if (savedWallets
+            .any((element) => element.privateKey == state.privateKey.trimmed)) {
+          _emitStatus(const DuplicateAccountError(), emit);
+          return;
+        }
+
         final response = await _remoteProvider.verifyWalletPrivateKey(
             privateKey: state.privateKey.trimmed);
         if (response.result == null) {

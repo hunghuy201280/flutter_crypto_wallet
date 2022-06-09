@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_ntf_marketplace/configs/color_config.dart';
-import 'package:flutter_ntf_marketplace/generated/l10n.dart';
-import 'package:flutter_ntf_marketplace/utils/utils.dart';
+import 'package:flutter_crypto_wallet/configs/color_config.dart';
+import 'package:flutter_crypto_wallet/generated/l10n.dart';
+import 'package:flutter_crypto_wallet/utils/utils.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../view_models/app_bloc/app_bloc.dart';

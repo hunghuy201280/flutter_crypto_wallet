@@ -17,3 +17,7 @@ class ImportAccountState with _$ImportAccountState {
 class InvalidPrivateKeyError extends Error {
   const InvalidPrivateKeyError();
 }
+
+class DuplicateAccountError extends Error {
+  const DuplicateAccountError();
+}

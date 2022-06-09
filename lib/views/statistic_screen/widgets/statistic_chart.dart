@@ -1,6 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ntf_marketplace/views/statistic_screen/widgets/statistic_unit_dropdown.dart';
+import 'package:flutter_crypto_wallet/views/statistic_screen/widgets/statistic_unit_dropdown.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../configs/color_config.dart';

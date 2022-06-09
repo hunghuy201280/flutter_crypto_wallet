@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ntf_marketplace/utils/extensions.dart';
+import 'package:flutter_crypto_wallet/utils/extensions.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../configs/color_config.dart';

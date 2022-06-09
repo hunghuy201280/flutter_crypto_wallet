@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_ntf_marketplace/configs/color_config.dart';
-import 'package:flutter_ntf_marketplace/utils/helpers/status.dart';
-import 'package:flutter_ntf_marketplace/utils/shared_widgets/loading/global_loading.dart';
-import 'package:flutter_ntf_marketplace/utils/utils.dart';
-import 'package:flutter_ntf_marketplace/views/nav_bar_view/nav_bar_view.dart';
-import 'package:flutter_ntf_marketplace/views/passcode/widgets/passcode_bottom.dart';
+import 'package:flutter_crypto_wallet/configs/color_config.dart';
+import 'package:flutter_crypto_wallet/utils/helpers/status.dart';
+import 'package:flutter_crypto_wallet/utils/shared_widgets/loading/global_loading.dart';
+import 'package:flutter_crypto_wallet/utils/utils.dart';
+import 'package:flutter_crypto_wallet/views/nav_bar_view/nav_bar_view.dart';
+import 'package:flutter_crypto_wallet/views/passcode/widgets/passcode_bottom.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../view_models/passcode_bloc/passcode_bloc.dart';
