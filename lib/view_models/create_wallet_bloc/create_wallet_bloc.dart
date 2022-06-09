@@ -48,9 +48,6 @@ class CreateWalletBloc extends Bloc<CreateWalletEvent, CreateWalletState> {
         final result = await _remoteProvider.createWallet();
         if (result.error) throw result.message;
         final walletDetail = result.result!;
-        await _localProvider.addWallet(wallet: walletDetail.wallet);
-        await _localProvider.saveSelectedWallet(
-            selectedWallet: walletDetail.wallet);
         emit(
           state.copyWith(
             mnemonic: walletDetail.mnemonic,
