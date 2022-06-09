@@ -30,26 +30,6 @@ class JazziconShape {
   String toString() {
     return "JazziconShape tx=$tx ty=$ty rotate=$rotate center=$center fill=$fill";
   }
-
-  Map<String, dynamic> toMap() {
-    return {
-      'center': this.center,
-      'tx': this.tx,
-      'ty': this.ty,
-      'rotate': this.rotate,
-      'fill': this.fill.value,
-    };
-  }
-
-  factory JazziconShape.fromMap(Map<String, dynamic> map) {
-    return JazziconShape(
-      center: map['center'] as double,
-      tx: map['tx'] as double,
-      ty: map['ty'] as double,
-      rotate: map['rotate'] as double,
-      fill: map['fill'] as Color,
-    );
-  }
 }
 
 class JazziconData {
