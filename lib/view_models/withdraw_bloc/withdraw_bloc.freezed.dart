@@ -15,239 +15,6 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-class _$WithdrawStateTearOff {
-  const _$WithdrawStateTearOff();
-
-  _WithdrawState call(
-      {required TextEditingController controllerAddress,
-      String? address,
-      bool isValidAddress = false,
-      List<Token> tokens = const [],
-      Status<dynamic> status = const Idle()}) {
-    return _WithdrawState(
-      controllerAddress: controllerAddress,
-      address: address,
-      isValidAddress: isValidAddress,
-      tokens: tokens,
-      status: status,
-    );
-  }
-}
-
-/// @nodoc
-const $WithdrawState = _$WithdrawStateTearOff();
-
-/// @nodoc
-mixin _$WithdrawState {
-  TextEditingController get controllerAddress =>
-      throw _privateConstructorUsedError;
-  String? get address => throw _privateConstructorUsedError;
-  bool get isValidAddress => throw _privateConstructorUsedError;
-  List<Token> get tokens => throw _privateConstructorUsedError;
-  Status<dynamic> get status => throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $WithdrawStateCopyWith<WithdrawState> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $WithdrawStateCopyWith<$Res> {
-  factory $WithdrawStateCopyWith(
-          WithdrawState value, $Res Function(WithdrawState) then) =
-      _$WithdrawStateCopyWithImpl<$Res>;
-  $Res call(
-      {TextEditingController controllerAddress,
-      String? address,
-      bool isValidAddress,
-      List<Token> tokens,
-      Status<dynamic> status});
-}
-
-/// @nodoc
-class _$WithdrawStateCopyWithImpl<$Res>
-    implements $WithdrawStateCopyWith<$Res> {
-  _$WithdrawStateCopyWithImpl(this._value, this._then);
-
-  final WithdrawState _value;
-  // ignore: unused_field
-  final $Res Function(WithdrawState) _then;
-
-  @override
-  $Res call({
-    Object? controllerAddress = freezed,
-    Object? address = freezed,
-    Object? isValidAddress = freezed,
-    Object? tokens = freezed,
-    Object? status = freezed,
-  }) {
-    return _then(_value.copyWith(
-      controllerAddress: controllerAddress == freezed
-          ? _value.controllerAddress
-          : controllerAddress // ignore: cast_nullable_to_non_nullable
-              as TextEditingController,
-      address: address == freezed
-          ? _value.address
-          : address // ignore: cast_nullable_to_non_nullable
-              as String?,
-      isValidAddress: isValidAddress == freezed
-          ? _value.isValidAddress
-          : isValidAddress // ignore: cast_nullable_to_non_nullable
-              as bool,
-      tokens: tokens == freezed
-          ? _value.tokens
-          : tokens // ignore: cast_nullable_to_non_nullable
-              as List<Token>,
-      status: status == freezed
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as Status<dynamic>,
-    ));
-  }
-}
-
-/// @nodoc
-abstract class _$WithdrawStateCopyWith<$Res>
-    implements $WithdrawStateCopyWith<$Res> {
-  factory _$WithdrawStateCopyWith(
-          _WithdrawState value, $Res Function(_WithdrawState) then) =
-      __$WithdrawStateCopyWithImpl<$Res>;
-  @override
-  $Res call(
-      {TextEditingController controllerAddress,
-      String? address,
-      bool isValidAddress,
-      List<Token> tokens,
-      Status<dynamic> status});
-}
-
-/// @nodoc
-class __$WithdrawStateCopyWithImpl<$Res>
-    extends _$WithdrawStateCopyWithImpl<$Res>
-    implements _$WithdrawStateCopyWith<$Res> {
-  __$WithdrawStateCopyWithImpl(
-      _WithdrawState _value, $Res Function(_WithdrawState) _then)
-      : super(_value, (v) => _then(v as _WithdrawState));
-
-  @override
-  _WithdrawState get _value => super._value as _WithdrawState;
-
-  @override
-  $Res call({
-    Object? controllerAddress = freezed,
-    Object? address = freezed,
-    Object? isValidAddress = freezed,
-    Object? tokens = freezed,
-    Object? status = freezed,
-  }) {
-    return _then(_WithdrawState(
-      controllerAddress: controllerAddress == freezed
-          ? _value.controllerAddress
-          : controllerAddress // ignore: cast_nullable_to_non_nullable
-              as TextEditingController,
-      address: address == freezed
-          ? _value.address
-          : address // ignore: cast_nullable_to_non_nullable
-              as String?,
-      isValidAddress: isValidAddress == freezed
-          ? _value.isValidAddress
-          : isValidAddress // ignore: cast_nullable_to_non_nullable
-              as bool,
-      tokens: tokens == freezed
-          ? _value.tokens
-          : tokens // ignore: cast_nullable_to_non_nullable
-              as List<Token>,
-      status: status == freezed
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as Status<dynamic>,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_WithdrawState implements _WithdrawState {
-  const _$_WithdrawState(
-      {required this.controllerAddress,
-      this.address,
-      this.isValidAddress = false,
-      this.tokens = const [],
-      this.status = const Idle()});
-
-  @override
-  final TextEditingController controllerAddress;
-  @override
-  final String? address;
-  @JsonKey()
-  @override
-  final bool isValidAddress;
-  @JsonKey()
-  @override
-  final List<Token> tokens;
-  @JsonKey()
-  @override
-  final Status<dynamic> status;
-
-  @override
-  String toString() {
-    return 'WithdrawState(controllerAddress: $controllerAddress, address: $address, isValidAddress: $isValidAddress, tokens: $tokens, status: $status)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _WithdrawState &&
-            const DeepCollectionEquality()
-                .equals(other.controllerAddress, controllerAddress) &&
-            const DeepCollectionEquality().equals(other.address, address) &&
-            const DeepCollectionEquality()
-                .equals(other.isValidAddress, isValidAddress) &&
-            const DeepCollectionEquality().equals(other.tokens, tokens) &&
-            const DeepCollectionEquality().equals(other.status, status));
-  }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(controllerAddress),
-      const DeepCollectionEquality().hash(address),
-      const DeepCollectionEquality().hash(isValidAddress),
-      const DeepCollectionEquality().hash(tokens),
-      const DeepCollectionEquality().hash(status));
-
-  @JsonKey(ignore: true)
-  @override
-  _$WithdrawStateCopyWith<_WithdrawState> get copyWith =>
-      __$WithdrawStateCopyWithImpl<_WithdrawState>(this, _$identity);
-}
-
-abstract class _WithdrawState implements WithdrawState {
-  const factory _WithdrawState(
-      {required TextEditingController controllerAddress,
-      String? address,
-      bool isValidAddress,
-      List<Token> tokens,
-      Status<dynamic> status}) = _$_WithdrawState;
-
-  @override
-  TextEditingController get controllerAddress;
-  @override
-  String? get address;
-  @override
-  bool get isValidAddress;
-  @override
-  List<Token> get tokens;
-  @override
-  Status<dynamic> get status;
-  @override
-  @JsonKey(ignore: true)
-  _$WithdrawStateCopyWith<_WithdrawState> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
 class _$WithdrawEventTearOff {
   const _$WithdrawEventTearOff();
 
@@ -705,4 +472,237 @@ class _$_WithdrawEventValidAddress implements _WithdrawEventValidAddress {
 
 abstract class _WithdrawEventValidAddress implements WithdrawEvent {
   const factory _WithdrawEventValidAddress() = _$_WithdrawEventValidAddress;
+}
+
+/// @nodoc
+class _$WithdrawStateTearOff {
+  const _$WithdrawStateTearOff();
+
+  _WithdrawState call(
+      {required TextEditingController controllerAddress,
+      String? address,
+      bool isValidAddress = false,
+      List<Token> tokens = const [],
+      Status<dynamic> status = const Idle()}) {
+    return _WithdrawState(
+      controllerAddress: controllerAddress,
+      address: address,
+      isValidAddress: isValidAddress,
+      tokens: tokens,
+      status: status,
+    );
+  }
+}
+
+/// @nodoc
+const $WithdrawState = _$WithdrawStateTearOff();
+
+/// @nodoc
+mixin _$WithdrawState {
+  TextEditingController get controllerAddress =>
+      throw _privateConstructorUsedError;
+  String? get address => throw _privateConstructorUsedError;
+  bool get isValidAddress => throw _privateConstructorUsedError;
+  List<Token> get tokens => throw _privateConstructorUsedError;
+  Status<dynamic> get status => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $WithdrawStateCopyWith<WithdrawState> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $WithdrawStateCopyWith<$Res> {
+  factory $WithdrawStateCopyWith(
+          WithdrawState value, $Res Function(WithdrawState) then) =
+      _$WithdrawStateCopyWithImpl<$Res>;
+  $Res call(
+      {TextEditingController controllerAddress,
+      String? address,
+      bool isValidAddress,
+      List<Token> tokens,
+      Status<dynamic> status});
+}
+
+/// @nodoc
+class _$WithdrawStateCopyWithImpl<$Res>
+    implements $WithdrawStateCopyWith<$Res> {
+  _$WithdrawStateCopyWithImpl(this._value, this._then);
+
+  final WithdrawState _value;
+  // ignore: unused_field
+  final $Res Function(WithdrawState) _then;
+
+  @override
+  $Res call({
+    Object? controllerAddress = freezed,
+    Object? address = freezed,
+    Object? isValidAddress = freezed,
+    Object? tokens = freezed,
+    Object? status = freezed,
+  }) {
+    return _then(_value.copyWith(
+      controllerAddress: controllerAddress == freezed
+          ? _value.controllerAddress
+          : controllerAddress // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      address: address == freezed
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as String?,
+      isValidAddress: isValidAddress == freezed
+          ? _value.isValidAddress
+          : isValidAddress // ignore: cast_nullable_to_non_nullable
+              as bool,
+      tokens: tokens == freezed
+          ? _value.tokens
+          : tokens // ignore: cast_nullable_to_non_nullable
+              as List<Token>,
+      status: status == freezed
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as Status<dynamic>,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$WithdrawStateCopyWith<$Res>
+    implements $WithdrawStateCopyWith<$Res> {
+  factory _$WithdrawStateCopyWith(
+          _WithdrawState value, $Res Function(_WithdrawState) then) =
+      __$WithdrawStateCopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {TextEditingController controllerAddress,
+      String? address,
+      bool isValidAddress,
+      List<Token> tokens,
+      Status<dynamic> status});
+}
+
+/// @nodoc
+class __$WithdrawStateCopyWithImpl<$Res>
+    extends _$WithdrawStateCopyWithImpl<$Res>
+    implements _$WithdrawStateCopyWith<$Res> {
+  __$WithdrawStateCopyWithImpl(
+      _WithdrawState _value, $Res Function(_WithdrawState) _then)
+      : super(_value, (v) => _then(v as _WithdrawState));
+
+  @override
+  _WithdrawState get _value => super._value as _WithdrawState;
+
+  @override
+  $Res call({
+    Object? controllerAddress = freezed,
+    Object? address = freezed,
+    Object? isValidAddress = freezed,
+    Object? tokens = freezed,
+    Object? status = freezed,
+  }) {
+    return _then(_WithdrawState(
+      controllerAddress: controllerAddress == freezed
+          ? _value.controllerAddress
+          : controllerAddress // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      address: address == freezed
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as String?,
+      isValidAddress: isValidAddress == freezed
+          ? _value.isValidAddress
+          : isValidAddress // ignore: cast_nullable_to_non_nullable
+              as bool,
+      tokens: tokens == freezed
+          ? _value.tokens
+          : tokens // ignore: cast_nullable_to_non_nullable
+              as List<Token>,
+      status: status == freezed
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as Status<dynamic>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_WithdrawState implements _WithdrawState {
+  const _$_WithdrawState(
+      {required this.controllerAddress,
+      this.address,
+      this.isValidAddress = false,
+      this.tokens = const [],
+      this.status = const Idle()});
+
+  @override
+  final TextEditingController controllerAddress;
+  @override
+  final String? address;
+  @JsonKey()
+  @override
+  final bool isValidAddress;
+  @JsonKey()
+  @override
+  final List<Token> tokens;
+  @JsonKey()
+  @override
+  final Status<dynamic> status;
+
+  @override
+  String toString() {
+    return 'WithdrawState(controllerAddress: $controllerAddress, address: $address, isValidAddress: $isValidAddress, tokens: $tokens, status: $status)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _WithdrawState &&
+            const DeepCollectionEquality()
+                .equals(other.controllerAddress, controllerAddress) &&
+            const DeepCollectionEquality().equals(other.address, address) &&
+            const DeepCollectionEquality()
+                .equals(other.isValidAddress, isValidAddress) &&
+            const DeepCollectionEquality().equals(other.tokens, tokens) &&
+            const DeepCollectionEquality().equals(other.status, status));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(controllerAddress),
+      const DeepCollectionEquality().hash(address),
+      const DeepCollectionEquality().hash(isValidAddress),
+      const DeepCollectionEquality().hash(tokens),
+      const DeepCollectionEquality().hash(status));
+
+  @JsonKey(ignore: true)
+  @override
+  _$WithdrawStateCopyWith<_WithdrawState> get copyWith =>
+      __$WithdrawStateCopyWithImpl<_WithdrawState>(this, _$identity);
+}
+
+abstract class _WithdrawState implements WithdrawState {
+  const factory _WithdrawState(
+      {required TextEditingController controllerAddress,
+      String? address,
+      bool isValidAddress,
+      List<Token> tokens,
+      Status<dynamic> status}) = _$_WithdrawState;
+
+  @override
+  TextEditingController get controllerAddress;
+  @override
+  String? get address;
+  @override
+  bool get isValidAddress;
+  @override
+  List<Token> get tokens;
+  @override
+  Status<dynamic> get status;
+  @override
+  @JsonKey(ignore: true)
+  _$WithdrawStateCopyWith<_WithdrawState> get copyWith =>
+      throw _privateConstructorUsedError;
 }

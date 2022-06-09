@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_ntf_marketplace/configs/app_config.dart';
-import 'package:flutter_ntf_marketplace/constants/endpoints.dart';
+import 'package:flutter_crypto_wallet/configs/app_config.dart';
+import 'package:flutter_crypto_wallet/constants/endpoints.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../models/token/token.dart';

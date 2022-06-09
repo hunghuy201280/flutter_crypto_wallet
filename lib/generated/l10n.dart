@@ -820,6 +820,16 @@ class S {
     );
   }
 
+  /// `Address`
+  String get address {
+    return Intl.message(
+      'Address',
+      name: 'address',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Account had already been added`
   String get duplicateAccount {
     return Intl.message(
@@ -835,16 +845,6 @@ class S {
     return Intl.message(
       'Withdraw',
       name: 'withdraw',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Address`
-  String get address {
-    return Intl.message(
-      'Address',
-      name: 'address',
       desc: '',
       args: [],
     );
