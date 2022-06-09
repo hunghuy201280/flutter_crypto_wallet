@@ -81,4 +81,18 @@ class RemoteProvider {
       return BaseDto.fromJson(e.response?.data);
     }
   }
+
+  Future<BaseDto<bool>> getValidWalletAddress(String walletAddress) async {
+    try {
+      final response = await _repo.getValidWalletAddress(walletAddress);
+      final data = BaseDto<bool>.fromJson(
+        response.data,
+        create: (data) => data['isValid'],
+      );
+
+      return data;
+    } on DioError catch (e) {
+      return BaseDto.fromJson(e.response?.data);
+    }
+  }
 }

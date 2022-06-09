@@ -98,5 +98,6 @@
     }
   },
   "addCustomToken" : "Add Custom Token",
-  "withdraw" : "Withdraw"
+  "withdraw" : "Withdraw",
+  "address" : "Address"
 }

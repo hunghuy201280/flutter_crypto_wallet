@@ -64,8 +64,8 @@ class PasscodeBloc extends Bloc<PasscodeEvent, PasscodeState> {
                 options: const AuthenticationOptions(useErrorDialogs: false));
             // ···
             if (didAuthenticate) {
-              emit(state.copyWith(status: const SignedInSuccess()));
               _authBloc.add(AuthLoggedIn(_localProvider.getSelectedWallet()!));
+              emit(state.copyWith(status: const SignedInSuccess()));
             }
           } on PlatformException catch (e) {
             if (e.code == auth_error.notAvailable) {
@@ -83,8 +83,8 @@ class PasscodeBloc extends Bloc<PasscodeEvent, PasscodeState> {
     on<_PasscodeEventSignInWithPasscode>((event, emit) {
       final passcodeSave = _localProvider.getPasscode();
       if (state.password == passcodeSave) {
-        emit(state.copyWith(status: const SignedInSuccess()));
         _authBloc.add(AuthLoggedIn(_localProvider.getSelectedWallet()!));
+        emit(state.copyWith(status: const SignedInSuccess()));
       } else {
         emit(state.copyWith(status: const SignedInFailed("Wrong password")));
       }

@@ -7,4 +7,6 @@ class AppEndpoint {
           String address, List<String> tokens) =>
       '/token/?address=$address&tokenArray=${tokens.join(',')}';
   static String getInfoOfToken(String address) => '/token/$address';
+  static String getValidWalletAddress(String address) =>
+      '/wallet/valid/$address';
 }

@@ -52,4 +52,11 @@ class RemoteRepository {
     );
     return response;
   }
+
+  Future<Response> getValidWalletAddress(String walletAddress) async {
+    Response response = await _dio.get(
+      AppEndpoint.getValidWalletAddress(walletAddress),
+    );
+    return response;
+  }
 }

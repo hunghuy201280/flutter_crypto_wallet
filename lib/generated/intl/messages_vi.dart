@@ -34,6 +34,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "aboutAppName":
             MessageLookupByLibrary.simpleMessage("Thông tin về App Name"),
         "addCustomToken": MessageLookupByLibrary.simpleMessage("Thêm Token"),
+        "address": MessageLookupByLibrary.simpleMessage("Địa chỉ"),
         "appName": MessageLookupByLibrary.simpleMessage("App Name"),
         "changePassword": MessageLookupByLibrary.simpleMessage("Đổi mật khẩu"),
         "changePasswordSentence1": MessageLookupByLibrary.simpleMessage(
