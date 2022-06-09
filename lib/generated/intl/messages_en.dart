@@ -34,6 +34,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "aboutAppName": MessageLookupByLibrary.simpleMessage("About App Name"),
         "addCustomToken":
             MessageLookupByLibrary.simpleMessage("Add Custom Token"),
+        "address": MessageLookupByLibrary.simpleMessage("Address"),
         "appName": MessageLookupByLibrary.simpleMessage("App Name"),
         "changePassword":
             MessageLookupByLibrary.simpleMessage("Change password"),

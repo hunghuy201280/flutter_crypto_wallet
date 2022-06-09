@@ -9,7 +9,7 @@ class PrimaryTextField extends StatefulWidget {
   const PrimaryTextField({
     Key? key,
     this.controller,
-    required this.title,
+    this.title,
     this.obscureText = false,
     this.hint,
     this.autovalidateMode = AutovalidateMode.disabled,
@@ -23,7 +23,7 @@ class PrimaryTextField extends StatefulWidget {
   }) : super(key: key);
 
   final TextEditingController? controller;
-  final String title;
+  final String? title;
   final String? hint;
   final bool obscureText;
   final AutovalidateMode autovalidateMode;
@@ -66,12 +66,12 @@ class _PrimaryTextFieldState extends State<PrimaryTextField> {
 
     return Column(
       children: [
-        if (widget.title.isNotEmpty)
+        if (widget.title != null)
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                widget.title,
+                widget.title!,
                 style: TextConfigs.kLabel_9,
               ),
               if (widget.obscureText)

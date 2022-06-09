@@ -77,7 +77,8 @@
   "invalidPrivateKey" : "Private key không hợp lệ",
   "importAccountText1" : "Các tài khoản được thêm vào sẽ không được liên kết với cụm từ bí mật đã được tạo khi bạn dùng ứng dụng này.",
   "addCustomToken" : "Thêm Token",
+  "withdraw" : "Rút tiền",
+  "address" : "Địa chỉ",
   "duplicateAccount" : "Tài khoản này đã được thêm trước đó",
 
-  "withdraw" : "Rút tiền"
 }

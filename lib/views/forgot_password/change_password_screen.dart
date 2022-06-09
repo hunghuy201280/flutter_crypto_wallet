@@ -206,7 +206,6 @@ class ChangePasswordConfirmBody extends StatelessWidget {
           ),
           16.verticalSpace,
           PrimaryTextField(
-            title: "",
             hint: s.password,
             controller: bloc.state.currentPassword,
             onChanged: (value) {},

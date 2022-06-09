@@ -56,7 +56,8 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
   gh.factory<String>(() => hiveModule.getBaseUrl(), instanceName: 'BaseUrl');
   gh.singleton<_i10.WalletPref>(
       _i10.WalletPref(box: get<_i4.Box<dynamic>>(instanceName: 'WALLET_BOX')));
-  gh.factory<_i11.WithdrawBloc>(() => _i11.WithdrawBloc());
+  gh.factoryParam<_i11.WithdrawBloc, dynamic, dynamic>((_authBloc, _) =>
+      _i11.WithdrawBloc(get<dynamic>(), get<dynamic>(), _authBloc));
   gh.singleton<_i12.AppPref>(_i12.AppPref(
       config: get<_i5.ConfigsPref>(), wallet: get<_i10.WalletPref>()));
   gh.singleton<_i13.LocalRepository>(

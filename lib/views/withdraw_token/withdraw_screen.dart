@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_crypto_wallet/configs/color_config.dart';
-import 'package:flutter_crypto_wallet/utils/utils.dart';
-import 'package:flutter_crypto_wallet/view_models/withdraw_bloc/withdraw_bloc.dart';
+import 'package:flutter_ntf_marketplace/configs/color_config.dart';
+import 'package:flutter_ntf_marketplace/utils/utils.dart';
+import 'package:flutter_ntf_marketplace/view_models/withdraw_bloc/withdraw_bloc.dart';
 
 import '../../generated/l10n.dart';
 
@@ -35,10 +35,21 @@ class _BodyScreen extends StatefulWidget {
 
 class __BodyScreenState extends State<_BodyScreen> {
   late WithdrawBloc _bloc;
+  late FocusNode _focusNode;
   @override
   void initState() {
     _bloc = context.read<WithdrawBloc>();
+    _focusNode = FocusNode();
     super.initState();
+    _bloc.add(const WithdrawEvent.initialData());
+
+    WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
+      _focusNode.addListener(() {
+        if (!_focusNode.hasFocus) {
+          _bloc.add(const WithdrawEvent.validAddress());
+        }
+      });
+    });
   }
 
   @override
