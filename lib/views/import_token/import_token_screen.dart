@@ -54,6 +54,8 @@ class __BodyScreenState extends State<_BodyScreen> {
           _bloc.add(const ImportTokenEvent.loadInfo());
         }
       });
+      _bloc.add(ImportTokenEvent.addressChanged(
+          "0xeD24FC36d5Ee211Ea25A80239Fb8C4Cfd80f12Ee"));
     });
   }
 
@@ -80,7 +82,7 @@ class __BodyScreenState extends State<_BodyScreen> {
             showInfoDialog(context, message: state.status.data);
             break;
           case Success:
-            Navigator.pop(context);
+            Navigator.pop(context, true);
             break;
           default:
             hideLoadingDialog();

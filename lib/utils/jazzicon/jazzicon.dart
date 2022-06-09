@@ -1,7 +1,6 @@
 library jazzicon;
 
 import 'dart:math';
-import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 
@@ -37,7 +36,6 @@ class Jazzicon {
         seed = MersenneTwister19937.unsigned32(seed! & 0xffffffff);
       }
     }
-    print("seed=$seed");
     MersenneTwister19937 generator = MersenneTwister19937();
     generator.init_genrand(seed);
 
@@ -49,7 +47,6 @@ class Jazzicon {
     for (var i = 0; i < shapeCount - 1; i++) {
       JazziconShape shape =
           _genShape(remainingColors, diameter, i, shapeCount - 1, generator);
-      print(shape);
       shapelist.add(shape);
     }
 
