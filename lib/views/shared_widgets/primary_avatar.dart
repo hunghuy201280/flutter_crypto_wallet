@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_crypto_wallet/configs/color_config.dart';
+import 'package:flutter_crypto_wallet/utils/jazzicon/jazzicon.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../utils/utils.dart';
@@ -81,7 +82,7 @@ class PrimaryAvatar extends StatelessWidget {
           ),
           size: Size(size, size),
         ),
-        child,
+        Jazzicon.getIconWidget(Jazzicon.getJazziconData(size - 8.w)),
       ],
     );
   }
