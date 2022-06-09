@@ -66,6 +66,7 @@ class _TokenTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = S.of(context);
+    final _bloc = context.read<WalletDetailBloc>();
     return NotificationListener<OverscrollNotification>(
       onNotification: (notification) {
         return true;
@@ -109,9 +110,12 @@ class _TokenTab extends StatelessWidget {
               ),
               2.verticalSpace,
               GestureDetector(
-                onTap: () {
-                  Navigator.of(context, rootNavigator: true)
+                onTap: () async {
+                  final res = await Navigator.of(context, rootNavigator: true)
                       .pushNamed(ImportTokenScreen.id);
+                  if (res == true) {
+                    _bloc.add(const WalletDetailEvent.balanceTokensLoaded());
+                  }
                 },
                 child: Text(
                   s.importTokens,
