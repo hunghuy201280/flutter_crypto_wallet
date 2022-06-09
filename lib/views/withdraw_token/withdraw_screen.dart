@@ -44,12 +44,21 @@ class __BodyScreenState extends State<_BodyScreen> {
     _bloc.add(const WithdrawEvent.initialData());
 
     WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
-      _focusNode.addListener(() {
-        if (!_focusNode.hasFocus) {
-          _bloc.add(const WithdrawEvent.validAddress());
-        }
-      });
+      _focusNode.addListener(checkFocusAddress);
     });
+  }
+
+  void checkFocusAddress() {
+    if (!_focusNode.hasFocus) {
+      _bloc.add(const WithdrawEvent.validAddress());
+    }
+  }
+
+  @override
+  void dispose() {
+    _focusNode.removeListener(checkFocusAddress);
+    _focusNode.dispose();
+    super.dispose();
   }
 
   @override

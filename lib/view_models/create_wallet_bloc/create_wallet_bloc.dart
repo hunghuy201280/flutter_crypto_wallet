@@ -53,10 +53,8 @@ class CreateWalletBloc extends Bloc<CreateWalletEvent, CreateWalletState> {
             mnemonic: walletDetail.mnemonic,
             wallet: walletDetail.wallet,
             currentPage: 2,
-            status: const Success(),
           ),
         );
-        _authBloc.add(AuthLoggedIn(_localProvider.getSelectedWallet()!));
       } catch (e, trace) {
         printLog(this, message: e, error: e, trace: trace);
         emit(state.copyWith(status: Error(e)));
@@ -68,6 +66,7 @@ class CreateWalletBloc extends Bloc<CreateWalletEvent, CreateWalletState> {
       await _localProvider.savePasscode(passCode: state.password);
       await _localProvider.saveMnemonicPhrase(mnemonicPhrase: state.mnemonic!);
       await _localProvider.addWallet(wallet: state.wallet!);
+      _authBloc.add(AuthLoggedIn(state.wallet!));
       emit(state.copyWith(status: const Success()));
     });
   }
