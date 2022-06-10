@@ -100,5 +100,10 @@
   "addCustomToken" : "Add Custom Token",
   "address" : "Address",
   "duplicateAccount" : "Account had already been added",
+  "scanAddressTo" : "Quét mã QR để nhận thanh toán",
+  "receive" : "Receive",
+  "or": "Or",
+  "copied" : "Copied",
+
   "withdraw" : "Withdraw"
 }

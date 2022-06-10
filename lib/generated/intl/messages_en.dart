@@ -45,6 +45,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Confirm Password"),
         "confirmYourPassword":
             MessageLookupByLibrary.simpleMessage("Confirm your password"),
+        "copied": MessageLookupByLibrary.simpleMessage("Copied"),
         "createNewAccount":
             MessageLookupByLibrary.simpleMessage("Create New Account"),
         "createPassword":
@@ -96,6 +97,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Add and edit custom RPC networks"),
         "newPassword": MessageLookupByLibrary.simpleMessage("New Password"),
         "nfts": MessageLookupByLibrary.simpleMessage("NFTs"),
+        "or": MessageLookupByLibrary.simpleMessage("Or"),
         "otherNetworks": MessageLookupByLibrary.simpleMessage("Other Networks"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "passwordChangedSuccessfully": MessageLookupByLibrary.simpleMessage(
@@ -117,8 +119,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Protect your wallet"),
         "protectYourWalletDesription": MessageLookupByLibrary.simpleMessage(
             "Protect your wallet by saving your Secret Recovery Phrase in various places like on a piece of paper, password manager and/or the cloud"),
+        "receive": MessageLookupByLibrary.simpleMessage("Receive"),
         "recoverySecretRecoveryPhrase": MessageLookupByLibrary.simpleMessage(
             "Recovery Secret Recovery Phrase"),
+        "scanAddressTo": MessageLookupByLibrary.simpleMessage(
+            "Quét mã QR để nhận thanh toán"),
         "secretRecoveryPhrase":
             MessageLookupByLibrary.simpleMessage("Secret Recovery Phrase"),
         "securityAndPrivacy":

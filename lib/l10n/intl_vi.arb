@@ -80,5 +80,9 @@
   "withdraw" : "Rút tiền",
   "address" : "Địa chỉ",
   "duplicateAccount" : "Tài khoản này đã được thêm trước đó",
+  "scanAddressTo" : "Quét mã QR để nhận thanh toán",
+  "receive" : "Nhận",
+  "copied" : "Đã sao chép",
+  "or": "Hoặc"
 
 }

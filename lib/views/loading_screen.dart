@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_crypto_wallet/di/dependency_injection.dart';
+import 'package:flutter_crypto_wallet/utils/utils.dart';
 import 'package:flutter_crypto_wallet/views/nav_bar_view/nav_bar_view.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -27,14 +28,19 @@ class _LoadingScreenState extends State<LoadingScreen> {
   }
 
   _load() async {
-    final selectedWallet = _localProvider.getSelectedWallet();
-    final response =
-        await _remoteProvider.getWalletInfo(selectedWallet.address);
-    final updatedWallet = selectedWallet.copyWith(
-      balanceToken: response.result!,
-    );
-    await _localProvider.setSavedWallet(updatedWallet);
-    Navigator.pushNamed(context, NavBarView.id);
+    try {
+      final selectedWallet = _localProvider.getSelectedWallet();
+      final response =
+          await _remoteProvider.getWalletInfo(selectedWallet.address);
+      final updatedWallet = selectedWallet.copyWith(
+        balanceToken: response.result!,
+      );
+      await _localProvider.setSavedWallet(updatedWallet);
+      Navigator.pushNamed(context, NavBarView.id);
+    } catch (e, trace) {
+      printLog(this, message: "Error", error: e, trace: trace);
+      _load();
+    }
   }
 
   @override

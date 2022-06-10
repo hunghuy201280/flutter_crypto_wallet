@@ -40,6 +40,19 @@ class TextConfigs {
     color: AppColors.kColor9,
   );
 
+  static final kSubtitle_1 = TextStyle(
+    fontSize: 20.sp,
+    fontFamily: kFontFamily,
+    fontWeight: FontWeight.w600,
+    color: AppColors.kColor1,
+  );
+  static final kSubtitle_5 = TextStyle(
+    fontSize: 20.sp,
+    fontFamily: kFontFamily,
+    fontWeight: FontWeight.w600,
+    color: AppColors.kColor5,
+  );
+
   static final kLabel_9 = TextStyle(
     fontSize: 16.sp,
     fontFamily: kFontFamily,
