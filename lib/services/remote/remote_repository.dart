@@ -7,7 +7,7 @@ import '../../models/token/token.dart';
 
 @singleton
 class RemoteRepository {
-  static const baseUrl = AppConfigs.kServerUri;
+  static final baseUrl = AppConfigs.kServerUri;
   final Dio _dio;
 
   RemoteRepository(this._dio);
