@@ -7,7 +7,7 @@ import '../../models/wallet/wallet.dart';
 
 @singleton
 class LocalRepository {
-  static const baseUrl = AppConfigs.kServerUri;
+  static final baseUrl = AppConfigs.kServerUri;
 
   const LocalRepository({
     required AppPref appPref,
@@ -41,6 +41,18 @@ class LocalRepository {
   }
 
   Future setSavedWallets(List<Wallet> wallets) async {
+    await _appPref.wallet.setSavedWallets(wallets);
+  }
+
+  Future setSavedWallet(Wallet wallet) async {
+    final wallets = _appPref.wallet.savedWallets;
+    final index =
+        wallets.indexWhere((element) => element.address == wallet.address);
+    if (index == -1) {
+      throw "Wallet $wallet not found";
+    }
+    wallets[index] = wallet;
+
     await _appPref.wallet.setSavedWallets(wallets);
   }
 

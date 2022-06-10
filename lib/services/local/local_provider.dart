@@ -35,6 +35,10 @@ class LocalProvider {
     return _repo.setSavedWallets(wallets);
   }
 
+  Future setSavedWallet(Wallet wallet) {
+    return _repo.setSavedWallet(wallet);
+  }
+
   Future<void> removeWallet({required String address}) async {
     await _repo.removeWallet(address: address);
   }
