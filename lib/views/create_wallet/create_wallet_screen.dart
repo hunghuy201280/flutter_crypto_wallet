@@ -10,9 +10,9 @@ import 'package:flutter_crypto_wallet/view_models/create_wallet_bloc/create_wall
 import 'package:flutter_crypto_wallet/views/create_wallet/widgets/create_wallet_body1.dart';
 import 'package:flutter_crypto_wallet/views/create_wallet/widgets/create_wallet_body2.dart';
 import 'package:flutter_crypto_wallet/views/create_wallet/widgets/nstepper.dart';
+import 'package:flutter_crypto_wallet/views/loading_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../nav_bar_view/nav_bar_view.dart';
 import '../shared_widgets/primary_button.dart';
 
 class CreateWalletScreen extends StatefulWidget {
@@ -79,7 +79,7 @@ class _CreateWalletScreenState extends State<CreateWalletScreen> {
             break;
           case Success:
             hideLoadingDialog();
-            Navigator.pushNamed(context, NavBarView.id);
+            Navigator.pushNamed(context, LoadingScreen.id);
             break;
         }
       },
