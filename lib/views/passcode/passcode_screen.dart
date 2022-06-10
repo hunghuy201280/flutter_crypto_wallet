@@ -4,7 +4,7 @@ import 'package:flutter_crypto_wallet/configs/color_config.dart';
 import 'package:flutter_crypto_wallet/utils/helpers/status.dart';
 import 'package:flutter_crypto_wallet/utils/shared_widgets/loading/global_loading.dart';
 import 'package:flutter_crypto_wallet/utils/utils.dart';
-import 'package:flutter_crypto_wallet/views/nav_bar_view/nav_bar_view.dart';
+import 'package:flutter_crypto_wallet/views/loading_screen.dart';
 import 'package:flutter_crypto_wallet/views/passcode/widgets/passcode_bottom.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -36,7 +36,7 @@ class _PasscodeScreenState extends State<PasscodeScreen> {
         if (status is SignedInSuccess) {
           hideLoadingDialog();
           Navigator.pushNamedAndRemoveUntil(
-              context, NavBarView.id, (route) => false);
+              context, LoadingScreen.id, (route) => false);
         } else if (status is SignedInFailed) {
           hideLoadingDialog();
           showInfoDialog(context, message: status.error);

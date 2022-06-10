@@ -7,13 +7,13 @@ import 'package:flutter_crypto_wallet/utils/helpers/status.dart';
 import 'package:flutter_crypto_wallet/utils/shared_widgets/loading/global_loading.dart';
 import 'package:flutter_crypto_wallet/utils/utils.dart';
 import 'package:flutter_crypto_wallet/view_models/import_wallet_bloc/import_wallet_bloc.dart';
+import 'package:flutter_crypto_wallet/views/loading_screen.dart';
 import 'package:flutter_crypto_wallet/views/shared_widgets/primary_button.dart';
 import 'package:flutter_crypto_wallet/views/shared_widgets/primary_text_field.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../configs/text_config.dart';
 import '../create_wallet/widgets/checkbox_row.dart';
-import '../nav_bar_view/nav_bar_view.dart';
 
 class ImportWalletScreen extends StatefulWidget {
   const ImportWalletScreen({Key? key}) : super(key: key);
@@ -74,7 +74,7 @@ class _ImportWalletScreenState extends State<ImportWalletScreen> {
             showLoadingDialog();
             break;
           case Success:
-            Navigator.pushNamed(context, NavBarView.id);
+            Navigator.pushNamed(context, LoadingScreen.id);
             hideLoadingDialog();
             break;
           case Idle:

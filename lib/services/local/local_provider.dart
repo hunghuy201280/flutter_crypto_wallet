@@ -52,8 +52,12 @@ class LocalProvider {
     await _repo.removeAllWallets();
   }
 
-  String? getSelectedWallet() {
-    return _repo.getSelectedWallet();
+  Wallet getSelectedWallet() {
+    final selectedWalletAddress = _repo.getSelectedWallet();
+    final selectedWallet = _repo
+        .getSavedWallets()
+        .firstWhere((element) => element.address == selectedWalletAddress);
+    return selectedWallet;
   }
 
   Future<void> saveSelectedWallet({required String selectedWallet}) async {

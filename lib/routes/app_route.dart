@@ -8,6 +8,7 @@ import 'package:flutter_crypto_wallet/view_models/passcode_bloc/passcode_bloc.da
 import 'package:flutter_crypto_wallet/view_models/withdraw_bloc/withdraw_bloc.dart';
 import 'package:flutter_crypto_wallet/views/import_token/import_token_screen.dart';
 import 'package:flutter_crypto_wallet/views/import_wallet/import_wallet_screen.dart';
+import 'package:flutter_crypto_wallet/views/loading_screen.dart';
 import 'package:flutter_crypto_wallet/views/login/login_screen.dart';
 import 'package:flutter_crypto_wallet/views/onboarding_screen.dart';
 import 'package:flutter_crypto_wallet/views/passcode/passcode_screen.dart';
@@ -106,6 +107,11 @@ class AppRoute {
       case GeneralScreen.id:
         return CupertinoPageRoute(
           builder: (context) => const GeneralScreen(),
+          settings: settings,
+        );
+      case LoadingScreen.id:
+        return CupertinoPageRoute(
+          builder: (context) => const LoadingScreen(),
           settings: settings,
         );
       case SecurityPrivacyScreen.id:

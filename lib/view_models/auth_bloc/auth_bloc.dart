@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:math';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter_crypto_wallet/services/local/local_provider.dart';
@@ -30,23 +29,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       await clearLocalDB();
     }
 
-    var selectedWallet = _localProvider.getSelectedWallet();
-    List<Wallet> wallets = _localProvider.getSavedWallets();
-    // return AuthenticatedNoPassword(walletAddress: walletSelected);
-    if (wallets.isNotEmpty) {
-      if (selectedWallet == null) {
-        final wallet = wallets.first;
-        await _localProvider.saveSelectedWallet(selectedWallet: wallet.address);
-        emit(AuthenticatedNoPassword(walletAddress: wallet));
-      } else {
-        final wallet = wallets.firstWhere(
-          (element) => element.address == selectedWallet,
-        );
-        emit(AuthenticatedNoPassword(walletAddress: wallet));
-      }
-    } else {
-      emit(const UnAuthenticated());
-    }
+    final selectedWallet = _localProvider.getSelectedWallet();
+    emit(AuthenticatedNoPassword(walletAddress: selectedWallet));
   }
 
   FutureOr<void> _loggedOutToState(
@@ -64,10 +48,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
   FutureOr<void> _reloadSelectedWallet(
       AuthEventReloadSelectedWallet event, Emitter<AuthState> emit) async {
-    final walletAddress = _localProvider.getSelectedWallet();
-    final wallets = _localProvider.getSavedWallets();
-    final wallet =
-        wallets.firstWhere((element) => element.address == walletAddress);
+    final wallet = _localProvider.getSelectedWallet();
     emit(AuthState.authenticated(wallet: wallet));
   }
 

@@ -75,9 +75,9 @@ class LocalRepository {
     await wallet.setSavedWallets([]);
   }
 
-  String? getSelectedWallet() {
+  String getSelectedWallet() {
     final wallet = _appPref.wallet;
-    return wallet.selectedWallet;
+    return wallet.selectedWallet!;
   }
 
   Future<void> saveSelectedWallet({required String selectedWallet}) async {

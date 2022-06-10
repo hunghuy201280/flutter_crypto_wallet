@@ -96,9 +96,9 @@ class RemoteProvider {
     }
   }
 
-  Future<BaseDto<Token>> getWalletInfo(String walletToken) async {
+  Future<BaseDto<Token>> getWalletInfo(String walletAddress) async {
     try {
-      final response = await _repo.getWalletInfo(walletToken);
+      final response = await _repo.getWalletInfo(walletAddress);
       final data = BaseDto<Token>.fromJson(
         response.data,
         create: (data) => Token.fromJson(data),
