@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_crypto_wallet/configs/color_config.dart';
+import 'package:flutter_crypto_wallet/models/token/token.dart';
+import 'package:flutter_crypto_wallet/utils/helpers/status.dart';
+import 'package:flutter_crypto_wallet/utils/shared_widgets/loading/global_loading.dart';
 import 'package:flutter_crypto_wallet/utils/utils.dart';
 import 'package:flutter_crypto_wallet/view_models/withdraw_bloc/withdraw_bloc.dart';
+import 'package:flutter_crypto_wallet/views/shared_widgets/dropdown_icon_widget.dart';
+import 'package:flutter_crypto_wallet/views/shared_widgets/primary_text_field.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:tuple/tuple.dart';
 
 import '../../generated/l10n.dart';
 
@@ -63,6 +70,59 @@ class __BodyScreenState extends State<_BodyScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    final s = S.of(context);
+    return BlocListener<WithdrawBloc, WithdrawState>(
+      listener: (context, state) {
+        switch (state.status.runtimeType) {
+          case Loading:
+            showLoadingDialog();
+            break;
+          case Success:
+            hideLoadingDialog();
+            break;
+          case Error:
+            hideLoadingDialog();
+            break;
+          case Idle:
+            hideLoadingDialog();
+            break;
+        }
+      },
+      child: Container(
+        padding: EdgeInsets.all(24.w),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            PrimaryTextField(
+              focusNode: _focusNode,
+              hint: s.address,
+              onChanged: (value) {
+                _bloc.add(WithdrawEvent.onAddressChanged(value));
+              },
+            ),
+            BlocSelector<WithdrawBloc, WithdrawState,
+                Tuple2<bool, List<Token>>>(
+              selector: (state) => Tuple2(state.isValidAddress, state.tokens),
+              builder: (context, item) {
+                return item.item1
+                    ? DropdownIconWidget<Token>(
+                        items: item.item2
+                            .map(
+                              (e) => DropdownIconMenuItem(
+                                title: e.symbol,
+                                value: e,
+                                image: Image.network(e.imageUrl ?? ''),
+                              ),
+                            )
+                            .toList(),
+                      )
+                    : Container();
+              },
+            )
+          ],
+        ),
+      ),
+    );
   }
 }

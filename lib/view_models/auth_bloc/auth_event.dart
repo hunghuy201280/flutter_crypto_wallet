@@ -6,4 +6,6 @@ class AuthEvent with _$AuthEvent {
   const factory AuthEvent.loggedIn(Wallet selectedWallet) = AuthLoggedIn;
   const factory AuthEvent.loggedOut() = AuthLoggedOut;
   const factory AuthEvent.passcodeChanged() = AuthPasscodeChanged;
+  const factory AuthEvent.reloadSelectedWallet() =
+      AuthEventReloadSelectedWallet;
 }

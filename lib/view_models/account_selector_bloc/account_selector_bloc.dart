@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_crypto_wallet/models/wallet/wallet.dart';
 import 'package:flutter_crypto_wallet/services/local/local_provider.dart';
 import 'package:flutter_crypto_wallet/services/remote/remote_provider.dart';
+import 'package:flutter_crypto_wallet/utils/utils.dart';
 import 'package:flutter_crypto_wallet/view_models/auth_bloc/auth_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -26,15 +27,22 @@ class AccountSelectorBloc
     on<AccountSelectorInitialized>((event, emit) async {
       emit(state.copyWith(status: const Loading()));
       final wallets = localProvider.getSavedWallets();
-      final balances = await Future.wait(
-          wallets.map((e) => remoteProvider.getWalletInfo(e.address)));
-      for (int i = 0; i < wallets.length; i++) {
-        wallets[i] = wallets[i].copyWith(balance: balances[i].result!.balance);
-      }
-      localProvider.setSavedWallets(wallets);
+      final walletsUpdate = await Future.wait(wallets.map((wallet) async {
+        try {
+          final req = await remoteProvider.getWalletInfo(wallet.address);
+          if (!req.error) {
+            wallet = wallet.copyWith(balanceToken: req.result!);
+          }
+          return wallet;
+        } catch (e) {
+          printLog(this, message: 'Get Wallet Infor Error', error: e);
+          return wallet;
+        }
+      }));
+      await localProvider.setSavedWallets(walletsUpdate);
       emit(
         state.copyWith(
-          wallets: wallets,
+          wallets: walletsUpdate,
           status: const Idle(),
         ),
       );

@@ -8,6 +8,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../models/token/token.dart';
+import '../../models/wallet/wallet.dart';
 import '../../utils/helpers/status.dart';
 import '../../utils/utils.dart';
 
@@ -27,10 +28,10 @@ class WalletDetailBloc extends Bloc<WalletDetailEvent, WalletDetailState> {
   final LocalProvider _localProvider;
   final AuthBloc _authBloc;
 
-  String get address {
+  Wallet get wallet {
     final _st = _authBloc.state;
     if (_st is Authenticated) {
-      return _st.wallet.address;
+      return _st.wallet;
     }
     throw "Unauthenticated";
   }
@@ -39,6 +40,7 @@ class WalletDetailBloc extends Bloc<WalletDetailEvent, WalletDetailState> {
     on<WalletDetailTokensLoaded>((event, emit) async {
       try {
         final tokens = _localProvider.getSaveTokens();
+        if (wallet.balanceToken != null) tokens.insert(0, wallet.balanceToken!);
         emit(state.copyWith(tokens: tokens));
       } on DioError catch (e, trace) {
         printLog(this, message: "Error", error: e, trace: trace);
@@ -50,9 +52,10 @@ class WalletDetailBloc extends Bloc<WalletDetailEvent, WalletDetailState> {
     on<WalletDetailBalanceTokensLoaded>((event, emit) async {
       try {
         final tokens = _localProvider.getSaveTokens();
+        if (wallet.balanceToken != null) tokens.insert(0, wallet.balanceToken!);
         emit(state.copyWith(tokens: tokens));
         final result = await _remoteProvider.getBalanceTokensOfAddress(
-            address, state.tokens);
+            wallet.address, state.tokens);
         if (result.error) throw result.message;
         if (result.result != null) {
           final tokenClone = List<Token>.from(state.tokens);

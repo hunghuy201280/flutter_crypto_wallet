@@ -67,7 +67,7 @@ class _WalletInfoState extends State<WalletInfo> {
               ),
               16.verticalSpace,
               Text(
-                '${state.wallet.balance} BNB',
+                '${state.wallet.balanceToken?.balance ?? 0} BNB',
                 style: TextConfigs.kLabel_9,
               )
             ],

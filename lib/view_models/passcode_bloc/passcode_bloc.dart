@@ -64,7 +64,10 @@ class PasscodeBloc extends Bloc<PasscodeEvent, PasscodeState> {
                 options: const AuthenticationOptions(useErrorDialogs: false));
             // ···
             if (didAuthenticate) {
-              _authBloc.add(AuthLoggedIn(_localProvider.getSelectedWallet()!));
+              final wallets = _localProvider.getSavedWallets();
+              final wallet = wallets.firstWhere((element) =>
+                  element.address == _localProvider.getSelectedWallet());
+              _authBloc.add(AuthLoggedIn(wallet));
               emit(state.copyWith(status: const SignedInSuccess()));
             }
           } on PlatformException catch (e) {

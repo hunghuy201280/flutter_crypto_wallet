@@ -20,6 +20,7 @@ class PrimaryTextField extends StatefulWidget {
     this.suffixIcon,
     this.onChanged,
     this.focusNode,
+    this.enable,
   }) : super(key: key);
 
   final TextEditingController? controller;
@@ -34,6 +35,7 @@ class PrimaryTextField extends StatefulWidget {
   final Widget? suffixIcon;
   final ValueChanged<String>? onChanged;
   final FocusNode? focusNode;
+  final bool? enable;
   @override
   State<PrimaryTextField> createState() => _PrimaryTextFieldState();
 }
@@ -93,6 +95,7 @@ class _PrimaryTextFieldState extends State<PrimaryTextField> {
           ),
         if (!widget.obscureText) 8.verticalSpace,
         TextFormField(
+          enabled: widget.enable,
           controller: widget.controller,
           focusNode: widget.focusNode,
           style: TextConfigs.kBody2_9,

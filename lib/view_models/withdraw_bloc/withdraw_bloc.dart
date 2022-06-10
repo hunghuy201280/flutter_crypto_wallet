@@ -52,6 +52,7 @@ class WithdrawBloc extends Bloc<WithdrawEvent, WithdrawState> {
         }
       } catch (e) {
         printLog(this, message: 'Error Wtihdraw Load Data', error: e);
+        emit(state.copyWith(status: Error(e)));
       } finally {
         emit(state.copyWith(status: const Idle()));
       }
@@ -59,11 +60,16 @@ class WithdrawBloc extends Bloc<WithdrawEvent, WithdrawState> {
     on<_WithdrawEventValidAddress>((event, emit) async {
       emit(state.copyWith(status: const Loading()));
       try {
+        if (state.address?.isEmpty ?? true) {
+          throw 'Wallet Address Is Not Empty';
+        }
         final result =
             await _remoteProvider.getValidWalletAddress(state.address ?? "");
+        if (result.error) throw result.message;
         emit(state.copyWith(isValidAddress: result.result ?? false));
       } catch (e) {
         printLog(this, message: 'Error Withdraw Valid Address', error: e);
+        emit(state.copyWith(status: Error(e)));
       } finally {
         emit(state.copyWith(status: const Idle()));
       }

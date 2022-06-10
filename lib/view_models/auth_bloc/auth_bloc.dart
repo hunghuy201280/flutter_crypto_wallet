@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter_crypto_wallet/services/local/local_provider.dart';
@@ -33,11 +34,14 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     // return AuthenticatedNoPassword(walletAddress: walletSelected);
     if (wallets.isNotEmpty) {
       if (selectedWallet == null) {
-        await _localProvider.saveSelectedWallet(selectedWallet: wallets.first);
-        emit(AuthenticatedNoPassword(
-            walletAddress: _localProvider.getSelectedWallet()!));
+        final wallet = wallets.first;
+        await _localProvider.saveSelectedWallet(selectedWallet: wallet.address);
+        emit(AuthenticatedNoPassword(walletAddress: wallet));
       } else {
-        emit(AuthenticatedNoPassword(walletAddress: selectedWallet));
+        final wallet = wallets.firstWhere(
+          (element) => element.address == selectedWallet,
+        );
+        emit(AuthenticatedNoPassword(walletAddress: wallet));
       }
     } else {
       emit(const UnAuthenticated());
@@ -50,9 +54,20 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     emit(const UnAuthenticated());
   }
 
-  FutureOr<void> _loggedInToState(AuthLoggedIn event, Emitter<AuthState> emit) {
+  FutureOr<void> _loggedInToState(
+      AuthLoggedIn event, Emitter<AuthState> emit) async {
+    await _localProvider.saveSelectedWallet(
+        selectedWallet: event.selectedWallet.address);
     emit(Authenticated(wallet: event.selectedWallet));
-    _localProvider.saveSelectedWallet(selectedWallet: event.selectedWallet);
+  }
+
+  FutureOr<void> _reloadSelectedWallet(
+      AuthEventReloadSelectedWallet event, Emitter<AuthState> emit) async {
+    final walletAddress = _localProvider.getSelectedWallet();
+    final wallets = _localProvider.getSavedWallets();
+    final wallet =
+        wallets.firstWhere((element) => element.address == walletAddress);
+    emit(AuthState.authenticated(wallet: wallet));
   }
 
   //#endregion mapEventToState

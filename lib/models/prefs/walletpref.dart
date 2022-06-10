@@ -23,7 +23,7 @@ class WalletPref {
       box.put(kMnemonicPhraseKey, value);
 
   Wallet? get selectedWallet => box.get(kSelectedWalletKey);
-  Future<void> setSelectedWallet(Wallet value) =>
+  Future<void> setSelectedWallet(String value) =>
       box.put(kSelectedWalletKey, value);
 
   Future<void> clearSelectedWallet() => box.delete(kSelectedWalletKey);

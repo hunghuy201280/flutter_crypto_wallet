@@ -72,7 +72,7 @@ class _AccountSelectorState extends State<AccountSelector> {
                     itemBuilder: (context, index) {
                       final item = state.wallets[index];
                       return AccountItem(
-                        balance: item.balance,
+                        balance: item.balanceToken?.balance ?? 0,
                         name: "Account ${item.index}",
                         imported: item.isImportedWallet,
                         selected: state.selectedWallet.address == item.address,

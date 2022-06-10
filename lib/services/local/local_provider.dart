@@ -52,7 +52,7 @@ class LocalProvider {
     return _repo.getSelectedWallet();
   }
 
-  Future<void> saveSelectedWallet({required Wallet selectedWallet}) async {
+  Future<void> saveSelectedWallet({required String selectedWallet}) async {
     await _repo.saveSelectedWallet(selectedWallet: selectedWallet);
   }
 

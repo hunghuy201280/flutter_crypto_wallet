@@ -27,46 +27,50 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final s = S.of(context);
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: AppColors.kColor1,
-      body: Column(
-        children: [
-          16.verticalSpace,
-          const AccountInfo(),
-          NavBarView.height.verticalSpace,
-          PrimaryButton(
-            title: s.depositCrypto,
-            leading: "deposit".getIcon(width: 24.w, height: 24.w),
-            style: TextConfigs.kSubtitle_9,
-            onTap: () {
-              showLoadingDialog(tapDismiss: true);
-            },
-            backgroundColor: AppColors.kColor3,
-            verticalPadding: 24.w,
-            horizontalMargin: 24.w,
-          ),
-          24.verticalSpace,
-          PrimaryButton(
-            title: s.withdrawCrypto,
-            leading: "withdraw".getIcon(width: 24.w, height: 24.w),
-            style: TextConfigs.kSubtitle_9,
-            onTap: () {
-              Navigator.of(context, rootNavigator: true)
-                  .pushNamed(WithdrawScreen.id);
-            },
-            verticalPadding: 24.w,
-            horizontalMargin: 24.w,
-          ),
-          24.verticalSpace,
-          PrimaryButton(
-            title: s.exchangeCrypto,
-            leading: "exchange".getIcon(width: 24.w, height: 24.w),
-            style: TextConfigs.kSubtitle_9,
-            onTap: () {},
-            backgroundColor: AppColors.kColor5,
-            horizontalMargin: 24.w,
-            verticalPadding: 24.w,
-          ),
-        ],
+      body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
+        child: Column(
+          children: [
+            16.verticalSpace,
+            const AccountInfo(),
+            NavBarView.height.verticalSpace,
+            PrimaryButton(
+              title: s.depositCrypto,
+              leading: "deposit".getIcon(width: 24.w, height: 24.w),
+              style: TextConfigs.kSubtitle_9,
+              onTap: () {
+                showLoadingDialog(tapDismiss: true);
+              },
+              backgroundColor: AppColors.kColor3,
+              verticalPadding: 24.w,
+              horizontalMargin: 24.w,
+            ),
+            24.verticalSpace,
+            PrimaryButton(
+              title: s.withdrawCrypto,
+              leading: "withdraw".getIcon(width: 24.w, height: 24.w),
+              style: TextConfigs.kSubtitle_9,
+              onTap: () {
+                Navigator.of(context, rootNavigator: true)
+                    .pushNamed(WithdrawScreen.id);
+              },
+              verticalPadding: 24.w,
+              horizontalMargin: 24.w,
+            ),
+            24.verticalSpace,
+            PrimaryButton(
+              title: s.exchangeCrypto,
+              leading: "exchange".getIcon(width: 24.w, height: 24.w),
+              style: TextConfigs.kSubtitle_9,
+              onTap: () {},
+              backgroundColor: AppColors.kColor5,
+              horizontalMargin: 24.w,
+              verticalPadding: 24.w,
+            ),
+          ],
+        ),
       ),
     );
   }
