@@ -19,6 +19,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<AuthInitial>(_initialToState);
     on<AuthLoggedIn>(_loggedInToState);
     on<AuthLoggedOut>(_loggedOutToState);
+    on<AuthEventReloadSelectedWallet>(_reloadSelectedWallet);
   }
 
   //#region mapEventToState
@@ -76,6 +77,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     await Future.wait([
       _localProvider.clearSelectedWallet(),
       _localProvider.removeAllWallets(),
+      _localProvider.deleteAllSaveToken(),
       _localProvider.saveMnemonicPhrase(mnemonicPhrase: ""),
       _localProvider.saveStateFirstRunApp(isFirstRun: false),
       _localProvider.deletePasscode(),

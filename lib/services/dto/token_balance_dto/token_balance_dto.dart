@@ -6,8 +6,8 @@ part 'token_balance_dto.g.dart';
 @freezed
 class TokenBalanceDto with _$TokenBalanceDto {
   factory TokenBalanceDto({
-    String? address,
-    int? balance,
+    required String address,
+    required double balance,
   }) = _TokenBalanceDto;
 
   factory TokenBalanceDto.fromJson(Map<String, dynamic> json) =>

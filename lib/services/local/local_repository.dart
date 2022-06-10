@@ -63,7 +63,7 @@ class LocalRepository {
     await wallet.setSavedWallets([]);
   }
 
-  Wallet? getSelectedWallet() {
+  String? getSelectedWallet() {
     final wallet = _appPref.wallet;
     return wallet.selectedWallet;
   }
