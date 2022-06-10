@@ -44,7 +44,7 @@ class WithdrawBloc extends Bloc<WithdrawEvent, WithdrawState> {
                 tokenClone.indexWhere((i) => i.address == element.address);
             if (index >= 0) {
               tokenClone[index] =
-                  tokenClone[index].copyWith(address: element.address ?? '');
+                  tokenClone[index].copyWith(address: element.address);
             }
           }
           await _localProvider.setSaveTokens(tokens: tokenClone);

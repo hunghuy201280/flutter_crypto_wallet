@@ -19,17 +19,17 @@ part 'account_selector_state.dart';
 class AccountSelectorBloc
     extends Bloc<AccountSelectorEvent, AccountSelectorState> {
   AccountSelectorBloc(
-    @factoryParam this.selectedWallet,
-    this.localProvider,
-    @factoryParam this.authBloc,
-    this.remoteProvider,
-  ) : super(AccountSelectorState.initial(selectedWallet)) {
+    @factoryParam this._selectedWallet,
+    this._localProvider,
+    @factoryParam this._authBloc,
+    this._remoteProvider,
+  ) : super(AccountSelectorState.initial(_selectedWallet)) {
     on<AccountSelectorInitialized>((event, emit) async {
       emit(state.copyWith(status: const Loading()));
-      final wallets = localProvider.getSavedWallets();
+      final wallets = _localProvider.getSavedWallets();
       final walletsUpdate = await Future.wait(wallets.map((wallet) async {
         try {
-          final req = await remoteProvider.getWalletInfo(wallet.address);
+          final req = await _remoteProvider.getWalletInfo(wallet.address);
           if (!req.error) {
             wallet = wallet.copyWith(balanceToken: req.result!);
           }
@@ -39,7 +39,8 @@ class AccountSelectorBloc
           return wallet;
         }
       }));
-      await localProvider.setSavedWallets(walletsUpdate);
+      await _localProvider.setSavedWallets(walletsUpdate);
+      _authBloc.add(const AuthEvent.reloadSelectedWallet());
       emit(
         state.copyWith(
           wallets: walletsUpdate,
@@ -48,16 +49,18 @@ class AccountSelectorBloc
       );
     });
     on<AccountSelectorSelected>((event, emit) async {
+      await _localProvider.saveSelectedWallet(
+          selectedWallet: event.wallet.address);
+      _authBloc.add(const AuthEvent.reloadSelectedWallet());
       emit(state.copyWith(selectedWallet: event.wallet));
-      authBloc.add(AuthEvent.loggedIn(event.wallet));
     });
     add(const AccountSelectorEvent.initialized());
   }
 
-  final Wallet selectedWallet;
-  final LocalProvider localProvider;
-  final RemoteProvider remoteProvider;
-  final AuthBloc authBloc;
+  final Wallet _selectedWallet;
+  final LocalProvider _localProvider;
+  final RemoteProvider _remoteProvider;
+  final AuthBloc _authBloc;
 
   //#region helper
   _emitStatus(Status status, Emitter emit) {

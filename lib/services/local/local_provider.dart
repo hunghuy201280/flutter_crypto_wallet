@@ -52,7 +52,7 @@ class LocalProvider {
     await _repo.removeAllWallets();
   }
 
-  Wallet? getSelectedWallet() {
+  String? getSelectedWallet() {
     return _repo.getSelectedWallet();
   }
 

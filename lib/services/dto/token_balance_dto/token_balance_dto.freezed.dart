@@ -22,7 +22,7 @@ TokenBalanceDto _$TokenBalanceDtoFromJson(Map<String, dynamic> json) {
 class _$TokenBalanceDtoTearOff {
   const _$TokenBalanceDtoTearOff();
 
-  _TokenBalanceDto call({String? address, int? balance}) {
+  _TokenBalanceDto call({required String address, required double balance}) {
     return _TokenBalanceDto(
       address: address,
       balance: balance,
@@ -39,8 +39,8 @@ const $TokenBalanceDto = _$TokenBalanceDtoTearOff();
 
 /// @nodoc
 mixin _$TokenBalanceDto {
-  String? get address => throw _privateConstructorUsedError;
-  int? get balance => throw _privateConstructorUsedError;
+  String get address => throw _privateConstructorUsedError;
+  double get balance => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -53,7 +53,7 @@ abstract class $TokenBalanceDtoCopyWith<$Res> {
   factory $TokenBalanceDtoCopyWith(
           TokenBalanceDto value, $Res Function(TokenBalanceDto) then) =
       _$TokenBalanceDtoCopyWithImpl<$Res>;
-  $Res call({String? address, int? balance});
+  $Res call({String address, double balance});
 }
 
 /// @nodoc
@@ -74,11 +74,11 @@ class _$TokenBalanceDtoCopyWithImpl<$Res>
       address: address == freezed
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       balance: balance == freezed
           ? _value.balance
           : balance // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double,
     ));
   }
 }
@@ -90,7 +90,7 @@ abstract class _$TokenBalanceDtoCopyWith<$Res>
           _TokenBalanceDto value, $Res Function(_TokenBalanceDto) then) =
       __$TokenBalanceDtoCopyWithImpl<$Res>;
   @override
-  $Res call({String? address, int? balance});
+  $Res call({String address, double balance});
 }
 
 /// @nodoc
@@ -113,11 +113,11 @@ class __$TokenBalanceDtoCopyWithImpl<$Res>
       address: address == freezed
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       balance: balance == freezed
           ? _value.balance
           : balance // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double,
     ));
   }
 }
@@ -125,15 +125,15 @@ class __$TokenBalanceDtoCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_TokenBalanceDto implements _TokenBalanceDto {
-  _$_TokenBalanceDto({this.address, this.balance});
+  _$_TokenBalanceDto({required this.address, required this.balance});
 
   factory _$_TokenBalanceDto.fromJson(Map<String, dynamic> json) =>
       _$$_TokenBalanceDtoFromJson(json);
 
   @override
-  final String? address;
+  final String address;
   @override
-  final int? balance;
+  final double balance;
 
   @override
   String toString() {
@@ -167,16 +167,16 @@ class _$_TokenBalanceDto implements _TokenBalanceDto {
 }
 
 abstract class _TokenBalanceDto implements TokenBalanceDto {
-  factory _TokenBalanceDto({String? address, int? balance}) =
+  factory _TokenBalanceDto({required String address, required double balance}) =
       _$_TokenBalanceDto;
 
   factory _TokenBalanceDto.fromJson(Map<String, dynamic> json) =
       _$_TokenBalanceDto.fromJson;
 
   @override
-  String? get address;
+  String get address;
   @override
-  int? get balance;
+  double get balance;
   @override
   @JsonKey(ignore: true)
   _$TokenBalanceDtoCopyWith<_TokenBalanceDto> get copyWith =>

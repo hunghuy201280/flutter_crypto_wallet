@@ -8,8 +8,8 @@ part of 'token_balance_dto.dart';
 
 _$_TokenBalanceDto _$$_TokenBalanceDtoFromJson(Map<String, dynamic> json) =>
     _$_TokenBalanceDto(
-      address: json['address'] as String?,
-      balance: json['balance'] as int?,
+      address: json['address'] as String,
+      balance: (json['balance'] as num).toDouble(),
     );
 
 Map<String, dynamic> _$$_TokenBalanceDtoToJson(_$_TokenBalanceDto instance) =>

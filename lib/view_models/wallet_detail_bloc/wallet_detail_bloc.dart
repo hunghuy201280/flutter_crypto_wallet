@@ -51,25 +51,59 @@ class WalletDetailBloc extends Bloc<WalletDetailEvent, WalletDetailState> {
     });
     on<WalletDetailBalanceTokensLoaded>((event, emit) async {
       try {
-        final tokens = _localProvider.getSaveTokens();
+        var tokens = _localProvider.getSaveTokens();
+
         if (wallet.balanceToken != null) tokens.insert(0, wallet.balanceToken!);
         emit(state.copyWith(tokens: tokens));
-        final result = await _remoteProvider.getBalanceTokensOfAddress(
-            wallet.address, state.tokens);
-        if (result.error) throw result.message;
-        if (result.result != null) {
-          final tokenClone = List<Token>.from(state.tokens);
-          for (var element in result.result!) {
-            int index =
-                tokenClone.indexWhere((i) => i.address == element.address);
-            if (index >= 0) {
-              tokenClone[index] =
-                  tokenClone[index].copyWith(address: element.address ?? '');
-            }
+        var listTokenFetch = <String, double>{};
+        // Fetch balance of tokens
+        try {
+          final result = await _remoteProvider.getBalanceTokensOfAddress(
+              wallet.address, state.tokens);
+          if (result.error) throw result.message;
+          if (result.result != null) {
+            var items =
+                result.result!.map((e) => MapEntry(e.address, e.balance));
+            listTokenFetch.addEntries(items);
           }
-          await _localProvider.setSaveTokens(tokens: tokenClone);
-          emit(state.copyWith(tokens: tokenClone));
+        } catch (e) {
+          printLog(this, message: 'Fetch Token Balance Faild', error: e);
         }
+        // Fetch blance of wallet
+        try {
+          final result = await _remoteProvider.getWalletInfo(wallet.address);
+          if (result.error) throw result.message;
+          if (result.result != null) {
+            final token = result.result!;
+            listTokenFetch.addEntries([MapEntry("", token.balance)]);
+            final wallets = _localProvider.getSavedWallets();
+            await _localProvider.setSavedWallets(wallets.map((wallet) {
+              int index = wallets
+                  .indexWhere((element) => element.address == token.address);
+              if (index >= 0) {
+                wallet = wallet.copyWith(
+                    balanceToken:
+                        wallet.balanceToken?.copyWith(balance: token.balance));
+              }
+              return wallet;
+            }).toList());
+          }
+        } catch (e) {
+          printLog(this, message: 'Fetch Token Balance Faild', error: e);
+        }
+        final tokensClone = List<Token>.from(state.tokens);
+        listTokenFetch.forEach(((key, value) {
+          int index =
+              tokensClone.indexWhere((element) => element.address == key);
+          if (index >= 0) {
+            tokensClone[index] = tokensClone[index].copyWith(balance: value);
+          }
+        }));
+
+        emit(state.copyWith(tokens: tokensClone));
+
+        tokensClone.removeWhere((element) => element.address.isEmpty);
+        await _localProvider.setSaveTokens(tokens: tokensClone);
       } on DioError catch (e, trace) {
         printLog(this, message: "Error", error: e, trace: trace);
         emit(state.copyWith(status: Error(e)));

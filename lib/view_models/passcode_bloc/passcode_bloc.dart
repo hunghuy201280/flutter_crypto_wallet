@@ -86,7 +86,10 @@ class PasscodeBloc extends Bloc<PasscodeEvent, PasscodeState> {
     on<_PasscodeEventSignInWithPasscode>((event, emit) {
       final passcodeSave = _localProvider.getPasscode();
       if (state.password == passcodeSave) {
-        _authBloc.add(AuthLoggedIn(_localProvider.getSelectedWallet()!));
+        final wallets = _localProvider.getSavedWallets();
+        final wallet = wallets.firstWhere(
+            (element) => element.address == _localProvider.getSelectedWallet());
+        _authBloc.add(AuthLoggedIn(wallet));
         emit(state.copyWith(status: const SignedInSuccess()));
       } else {
         emit(state.copyWith(status: const SignedInFailed("Wrong password")));
