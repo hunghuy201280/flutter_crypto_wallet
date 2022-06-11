@@ -83,11 +83,13 @@
   "scanAddressTo" : "Quét mã QR để nhận thanh toán",
   "receive" : "Nhận",
   "copied" : "Đã sao chép",
-
   "offline" : "Bạn đang không kết nối internet",
   "unableToConnectToTheBlockchainHost" : "Không thể kết nối đến máy chủ phân tán Blockchain",
-  "or": "Hoặc"
-
+  "or": "Hoặc",
   "max" : "Tối đa", 
-  "send" : "Gửi"
+  "send" : "Gửi",
+  "ok" : "Đồng ý",
+  "cancel" :"Huỷ",
+  "error" :"Lỗi",
+  "alert" : "Thông báo"
 }

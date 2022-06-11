@@ -35,7 +35,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Thông tin về App Name"),
         "addCustomToken": MessageLookupByLibrary.simpleMessage("Thêm Token"),
         "address": MessageLookupByLibrary.simpleMessage("Địa chỉ"),
+        "alert": MessageLookupByLibrary.simpleMessage("Thông báo"),
         "appName": MessageLookupByLibrary.simpleMessage("App Name"),
+        "cancel": MessageLookupByLibrary.simpleMessage("Huỷ"),
         "changePassword": MessageLookupByLibrary.simpleMessage("Đổi mật khẩu"),
         "changePasswordSentence1": MessageLookupByLibrary.simpleMessage(
             "Hãy xác nhận mật khẩu hiện tại của bạn để tiếp tục"),
@@ -67,6 +69,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "english": MessageLookupByLibrary.simpleMessage("Tiếng Anh"),
         "enterToYourWallet":
             MessageLookupByLibrary.simpleMessage("Truy cập vào ví"),
+        "error": MessageLookupByLibrary.simpleMessage("Lỗi"),
         "exchangeCrypto":
             MessageLookupByLibrary.simpleMessage("Chuyển đổi tiền"),
         "general": MessageLookupByLibrary.simpleMessage("Chung"),
@@ -98,6 +101,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "nfts": MessageLookupByLibrary.simpleMessage("NFTs"),
         "offline": MessageLookupByLibrary.simpleMessage(
             "Bạn đang không kết nối internet"),
+        "ok": MessageLookupByLibrary.simpleMessage("Đồng ý"),
         "or": MessageLookupByLibrary.simpleMessage("Hoặc"),
         "otherNetworks": MessageLookupByLibrary.simpleMessage("Mạng khác"),
         "password": MessageLookupByLibrary.simpleMessage("Mật khẩu"),

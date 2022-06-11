@@ -35,7 +35,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "addCustomToken":
             MessageLookupByLibrary.simpleMessage("Add Custom Token"),
         "address": MessageLookupByLibrary.simpleMessage("Address"),
+        "alert": MessageLookupByLibrary.simpleMessage("Alert"),
         "appName": MessageLookupByLibrary.simpleMessage("App Name"),
+        "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "changePassword":
             MessageLookupByLibrary.simpleMessage("Change password"),
         "changePasswordSentence1": MessageLookupByLibrary.simpleMessage(
@@ -69,6 +71,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "english": MessageLookupByLibrary.simpleMessage("English"),
         "enterToYourWallet":
             MessageLookupByLibrary.simpleMessage("Enter to your wallet"),
+        "error": MessageLookupByLibrary.simpleMessage("Error"),
         "exchangeCrypto":
             MessageLookupByLibrary.simpleMessage("Exchange Crypto"),
         "general": MessageLookupByLibrary.simpleMessage("General"),
@@ -99,6 +102,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "newPassword": MessageLookupByLibrary.simpleMessage("New Password"),
         "nfts": MessageLookupByLibrary.simpleMessage("NFTs"),
         "offline": MessageLookupByLibrary.simpleMessage("You’re offline"),
+        "ok": MessageLookupByLibrary.simpleMessage("OK"),
         "or": MessageLookupByLibrary.simpleMessage("Or"),
         "otherNetworks": MessageLookupByLibrary.simpleMessage("Other Networks"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),

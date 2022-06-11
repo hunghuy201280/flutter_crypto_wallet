@@ -840,6 +840,36 @@ class S {
     );
   }
 
+  /// `Withdraw`
+  String get withdraw {
+    return Intl.message(
+      'Withdraw',
+      name: 'withdraw',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Max`
+  String get max {
+    return Intl.message(
+      'Max',
+      name: 'max',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Send`
+  String get send {
+    return Intl.message(
+      'Send',
+      name: 'send',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Quét mã QR để nhận thanh toán`
   String get scanAddressTo {
     return Intl.message(
@@ -900,31 +930,41 @@ class S {
     );
   }
 
-  /// `Withdraw`
-  String get withdraw {
+  /// `OK`
+  String get ok {
     return Intl.message(
-      'Withdraw',
-      name: 'withdraw',
+      'OK',
+      name: 'ok',
       desc: '',
       args: [],
     );
   }
 
-  /// `Max`
-  String get max {
+  /// `Cancel`
+  String get cancel {
     return Intl.message(
-      'Max',
-      name: 'max',
+      'Cancel',
+      name: 'cancel',
       desc: '',
       args: [],
     );
   }
 
-  /// `Send`
-  String get send {
+  /// `Error`
+  String get error {
     return Intl.message(
-      'Send',
-      name: 'send',
+      'Error',
+      name: 'error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Alert`
+  String get alert {
+    return Intl.message(
+      'Alert',
+      name: 'alert',
       desc: '',
       args: [],
     );

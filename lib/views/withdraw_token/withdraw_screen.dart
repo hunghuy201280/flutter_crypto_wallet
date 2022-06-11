@@ -87,6 +87,8 @@ class __BodyScreenState extends State<_BodyScreen> {
             hideLoadingDialog();
             break;
           case Idle:
+            showAlertDialog(context,
+                message: 'Withdraw success', onNegative: () {});
             hideLoadingDialog();
             break;
         }

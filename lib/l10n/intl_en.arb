@@ -102,13 +102,15 @@
   "duplicateAccount" : "Account had already been added",
   "withdraw" : "Withdraw",
   "max" : "Max",
-  "send" : "Send"
+  "send" : "Send",
   "scanAddressTo" : "Quét mã QR để nhận thanh toán",
   "receive" : "Receive",
   "or": "Or",
   "copied" : "Copied",
-
   "offline" : "You’re offline",
   "unableToConnectToTheBlockchainHost" : "Unable to connect to the blockchain host",
-  "withdraw" : "Withdraw"
+  "ok" : "OK",
+  "cancel" :"Cancel",
+  "error" :"Error",
+  "alert" : "Alert"
 }

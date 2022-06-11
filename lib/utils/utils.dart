@@ -5,12 +5,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animated_dialog/flutter_animated_dialog.dart';
 import 'package:flutter_crypto_wallet/configs/color_config.dart';
 import 'package:flutter_crypto_wallet/utils/extensions.dart';
+import 'package:flutter_crypto_wallet/views/shared_widgets/base_dialog.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:shimmer/shimmer.dart';
 
 import '../configs/text_config.dart';
 import '../constants/constants.dart';
+import '../generated/l10n.dart';
 import '../views/shared_widgets/confirm_dialog.dart';
 import '../views/shared_widgets/info_dialog.dart';
 
@@ -119,13 +121,54 @@ void printLog(Object parent,
   logger.i(mes);
 }
 
-Future<bool> showConfirmDialog(BuildContext context,
-    {required String title}) async {
+Future<bool> showErrorDialog(
+  BuildContext context, {
+  required String message,
+  String? positiveText,
+  String? negativeText,
+  VoidCallback? onPositive,
+  VoidCallback? onNegative,
+}) async {
+  final s = S.of(context);
   return await showAnimatedDialog<bool?>(
         barrierDismissible: true,
         context: context,
-        builder: (context) => ConfirmDialog(
-          title: title,
+        builder: (context) => BaseDialog(
+          priamry: AppColors.kColor4,
+          title: s.error,
+          content: message,
+          negativeText: negativeText,
+          positiveText: positiveText,
+          onPositive: onPositive,
+          onNegative: onNegative,
+        ),
+        animationType: DialogTransitionType.slideFromTop,
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeOut,
+      ) ??
+      false;
+}
+
+Future<bool> showAlertDialog(
+  BuildContext context, {
+  required String message,
+  String? positiveText,
+  String? negativeText,
+  VoidCallback? onPositive,
+  VoidCallback? onNegative,
+}) async {
+  final s = S.of(context);
+  return await showAnimatedDialog<bool?>(
+        barrierDismissible: true,
+        context: context,
+        builder: (context) => BaseDialog(
+          priamry: AppColors.kColor7,
+          title: s.alert,
+          content: message,
+          negativeText: negativeText,
+          positiveText: positiveText,
+          onPositive: onPositive,
+          onNegative: onNegative,
         ),
         animationType: DialogTransitionType.slideFromTop,
         duration: const Duration(milliseconds: 300),
