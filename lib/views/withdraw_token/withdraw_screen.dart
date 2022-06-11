@@ -28,6 +28,7 @@ class _WithdrawScreenState extends State<WithdrawScreen> {
   Widget build(BuildContext context) {
     final s = S.of(context);
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: AppColors.kColor1,
       appBar: Utils.buildAppBar(context, title: s.withdraw, centerTitle: true),
       body: const _BodyScreen(),
