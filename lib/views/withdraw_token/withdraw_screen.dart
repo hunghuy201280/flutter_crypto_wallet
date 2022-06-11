@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_crypto_wallet/configs/color_config.dart';
+import 'package:flutter_crypto_wallet/configs/text_config.dart';
 import 'package:flutter_crypto_wallet/models/token/token.dart';
 import 'package:flutter_crypto_wallet/utils/helpers/status.dart';
 import 'package:flutter_crypto_wallet/utils/shared_widgets/loading/global_loading.dart';
 import 'package:flutter_crypto_wallet/utils/utils.dart';
 import 'package:flutter_crypto_wallet/view_models/withdraw_bloc/withdraw_bloc.dart';
 import 'package:flutter_crypto_wallet/views/shared_widgets/dropdown_icon_widget.dart';
+import 'package:flutter_crypto_wallet/views/shared_widgets/primary_button_medium.dart';
 import 'package:flutter_crypto_wallet/views/shared_widgets/primary_text_field.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tuple/tuple.dart';
@@ -79,6 +81,7 @@ class __BodyScreenState extends State<_BodyScreen> {
             break;
           case Success:
             hideLoadingDialog();
+            Navigator.pop(context);
             break;
           case Error:
             hideLoadingDialog();
@@ -91,33 +94,83 @@ class __BodyScreenState extends State<_BodyScreen> {
       child: Container(
         padding: EdgeInsets.all(24.w),
         child: Column(
-          mainAxisSize: MainAxisSize.min,
+          mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             PrimaryTextField(
+              controller: _bloc.state.controllerAddress,
               focusNode: _focusNode,
               hint: s.address,
               onChanged: (value) {
                 _bloc.add(WithdrawEvent.onAddressChanged(value));
               },
             ),
+            24.verticalSpace,
             BlocSelector<WithdrawBloc, WithdrawState,
-                Tuple2<bool, List<Token>>>(
-              selector: (state) => Tuple2(state.isValidAddress, state.tokens),
+                Tuple3<bool, Token?, List<Token>>>(
+              selector: (state) => Tuple3(
+                  state.isValidAddress, state.tokenSelected, state.tokens),
               builder: (context, item) {
-                return item.item1
-                    ? DropdownIconWidget<Token>(
-                        items: item.item2
-                            .map(
-                              (e) => DropdownIconMenuItem(
-                                title: e.symbol,
-                                value: e,
-                                image: Image.network(e.imageUrl ?? ''),
+                if (item.item1) {
+                  return Expanded(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            DropdownIconWidget<Token>(
+                              itemSelected: item.item2,
+                              items: item.item3
+                                  .map(
+                                    (e) => DropdownIconMenuItem(
+                                      title: e.symbol,
+                                      value: e,
+                                      image: Image.network(e.imageUrl ?? ''),
+                                    ),
+                                  )
+                                  .toList(),
+                              onSelected: (token) {
+                                _bloc.add(WithdrawEvent.onTokenChanged(token));
+                              },
+                            ),
+                            Expanded(child: Container()),
+                            TextButton(
+                              onPressed: () {
+                                _bloc.add(const WithdrawEvent.maxAmount());
+                              },
+                              style: TextButton.styleFrom(
+                                primary: AppColors.kColor4,
                               ),
-                            )
-                            .toList(),
-                      )
-                    : Container();
+                              child: Text(
+                                s.max,
+                                style: TextConfigs.kBody2_4,
+                              ),
+                            ),
+                          ],
+                        ),
+                        PrimaryTextField(
+                          inputType: TextInputType.number,
+                          controller: _bloc.state.controllerAmount,
+                          hint: item.item2?.balance.toString(),
+                          onChanged: (value) {
+                            _bloc.add(WithdrawEvent.onAmountChanged(
+                                double.parse(value)));
+                          },
+                        ),
+                        Expanded(child: Container()),
+                        PrimaryButtonMedium(
+                          title: s.send,
+                          onTap: () {
+                            _bloc.add(const WithdrawEvent.send());
+                          },
+                        )
+                      ],
+                    ),
+                  );
+                } else {
+                  return Container();
+                }
               },
             )
           ],

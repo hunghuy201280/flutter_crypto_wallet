@@ -22,7 +22,7 @@ class WalletDetailBloc extends Bloc<WalletDetailEvent, WalletDetailState> {
       this._remoteProvider, @factoryParam this._authBloc, this._localProvider)
       : super(WalletDetailState.initial()) {
     _mapEventToState();
-    add(const WalletDetailTokensLoaded());
+    add(const WalletDetailBalanceTokensLoaded());
   }
   final RemoteProvider _remoteProvider;
   final LocalProvider _localProvider;
@@ -37,18 +37,6 @@ class WalletDetailBloc extends Bloc<WalletDetailEvent, WalletDetailState> {
   }
 
   void _mapEventToState() {
-    on<WalletDetailTokensLoaded>((event, emit) async {
-      try {
-        final tokens = _localProvider.getSaveTokens();
-        if (wallet.balanceToken != null) tokens.insert(0, wallet.balanceToken!);
-        emit(state.copyWith(tokens: tokens));
-      } on DioError catch (e, trace) {
-        printLog(this, message: "Error", error: e, trace: trace);
-        emit(state.copyWith(status: Error(e)));
-      } finally {
-        emit(state.copyWith(status: const Idle()));
-      }
-    });
     on<WalletDetailBalanceTokensLoaded>((event, emit) async {
       try {
         var tokens = _localProvider.getSaveTokens();
@@ -100,7 +88,7 @@ class WalletDetailBloc extends Bloc<WalletDetailEvent, WalletDetailState> {
           }
         }));
 
-        emit(state.copyWith(tokens: tokensClone));
+        emit(state.copyWith(tokens: [...tokensClone], status: const Success()));
 
         tokensClone.removeWhere((element) => element.address.isEmpty);
         await _localProvider.setSaveTokens(tokens: tokensClone);

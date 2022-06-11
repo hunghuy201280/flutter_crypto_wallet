@@ -100,5 +100,7 @@
   "addCustomToken" : "Add Custom Token",
   "address" : "Address",
   "duplicateAccount" : "Account had already been added",
-  "withdraw" : "Withdraw"
+  "withdraw" : "Withdraw",
+  "max" : "Max",
+  "send" : "Send"
 }

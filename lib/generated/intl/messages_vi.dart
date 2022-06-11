@@ -88,6 +88,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "manageYourEveryPennyAndTransactionWithEase":
             MessageLookupByLibrary.simpleMessage(
                 "Quản lý từng xu và giao dịch của bạn một cách dễ dàng"),
+        "max": MessageLookupByLibrary.simpleMessage("Tối đa"),
         "mustBeAtLeastCharacters": m2,
         "networks": MessageLookupByLibrary.simpleMessage("Mạng lưới"),
         "networksDescription": MessageLookupByLibrary.simpleMessage(
@@ -124,6 +125,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "securityAndPrivacyDescription": MessageLookupByLibrary.simpleMessage(
             "Cài đặt quyền riêng tư, khóa cá nhân và ví cụm từ khôi phục bí mật"),
         "seeAll": MessageLookupByLibrary.simpleMessage("Xem tất cả"),
+        "send": MessageLookupByLibrary.simpleMessage("Gửi"),
         "show": MessageLookupByLibrary.simpleMessage("Hiện"),
         "signIn": MessageLookupByLibrary.simpleMessage("Đăng nhập"),
         "signInWithBiometrics": MessageLookupByLibrary.simpleMessage(

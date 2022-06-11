@@ -90,6 +90,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "manageYourEveryPennyAndTransactionWithEase":
             MessageLookupByLibrary.simpleMessage(
                 "Manage your every penny and transaction with ease"),
+        "max": MessageLookupByLibrary.simpleMessage("Max"),
         "mustBeAtLeastCharacters": m2,
         "networks": MessageLookupByLibrary.simpleMessage("Networks"),
         "networksDescription": MessageLookupByLibrary.simpleMessage(
@@ -126,6 +127,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "securityAndPrivacyDescription": MessageLookupByLibrary.simpleMessage(
             "Privacy settings, private key and wallet Secret Recovery Phrase"),
         "seeAll": MessageLookupByLibrary.simpleMessage("See all"),
+        "send": MessageLookupByLibrary.simpleMessage("Send"),
         "show": MessageLookupByLibrary.simpleMessage("Show"),
         "signIn": MessageLookupByLibrary.simpleMessage("Sign In"),
         "signInWithBiometrics":

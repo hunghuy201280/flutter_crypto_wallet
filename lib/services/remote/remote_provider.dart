@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_crypto_wallet/models/transaction/transaction.dart';
 import 'package:flutter_crypto_wallet/services/dto//import_wallet_mnemonic_dto/import_wallet_mnemonic_dto.dart';
 import 'package:flutter_crypto_wallet/services/dto/token_balance_dto/token_balance_dto.dart';
 import 'package:injectable/injectable.dart';
@@ -102,6 +103,36 @@ class RemoteProvider {
       final data = BaseDto<Token>.fromJson(
         response.data,
         create: (data) => Token.fromJson(data),
+      );
+      return data;
+    } on DioError catch (e) {
+      return BaseDto.fromJson(e.response?.data);
+    }
+  }
+
+  Future<BaseDto<Transaction>> sendToken(String fromAddress, String toAddress,
+      String tokenAddress, double value, String fromPrivateKey) async {
+    try {
+      final response = await _repo.sendToken(
+          fromAddress, toAddress, tokenAddress, value, fromPrivateKey);
+      final data = BaseDto<Transaction>.fromJson(
+        response.data,
+        create: (data) => Transaction.fromJson(data),
+      );
+      return data;
+    } on DioError catch (e) {
+      return BaseDto.fromJson(e.response?.data);
+    }
+  }
+
+  Future<BaseDto<Transaction>> sendBalance(String fromAddress, String toAddress,
+      double value, String fromPrivateKey) async {
+    try {
+      final response = await _repo.sendBalance(
+          fromAddress, toAddress, value, fromPrivateKey);
+      final data = BaseDto<Transaction>.fromJson(
+        response.data,
+        create: (data) => Transaction.fromJson(data),
       );
       return data;
     } on DioError catch (e) {

@@ -66,4 +66,27 @@ class RemoteRepository {
     );
     return response;
   }
+
+  Future<Response> sendToken(String fromAddress, String toAddress,
+      String tokenAddress, double value, String fromPrivateKey) async {
+    Response response = await _dio.post(AppEndpoint.tokenSend, data: {
+      'fromAddress': fromAddress,
+      'toAddress': toAddress,
+      'tokenAddress': tokenAddress,
+      'value': value,
+      'fromPrivateKey': fromPrivateKey,
+    });
+    return response;
+  }
+
+  Future<Response> sendBalance(String fromAddress, String toAddress,
+      double value, String fromPrivateKey) async {
+    Response response = await _dio.post(AppEndpoint.balanceSend, data: {
+      'fromAddress': fromAddress,
+      'toAddress': toAddress,
+      'value': value,
+      'fromPrivateKey': fromPrivateKey,
+    });
+    return response;
+  }
 }

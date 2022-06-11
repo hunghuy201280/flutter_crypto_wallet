@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:custom_nested_scroll_view/custom_nested_scroll_view.dart';
 import 'package:custom_refresh_indicator/custom_refresh_indicator.dart';
 import 'package:flutter/material.dart';
@@ -5,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_crypto_wallet/configs/color_config.dart';
 import 'package:flutter_crypto_wallet/di/dependency_injection.dart';
 import 'package:flutter_crypto_wallet/utils/extensions.dart';
+import 'package:flutter_crypto_wallet/utils/helpers/status.dart';
 import 'package:flutter_crypto_wallet/views/wallet_screen/widgets/wallet_detail.dart';
 import 'package:flutter_crypto_wallet/views/wallet_screen/widgets/wallet_info.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -58,78 +61,92 @@ class _WalletScreenState extends State<WalletScreen>
     );
   }
 
+  Completer? _refreshCompleter;
+
   Widget _bodyScreen() {
-    return SizedBox(
-      width: 1.sw,
-      child: CustomRefreshIndicator(
-        builder: (context, child, controller) {
-          return Stack(
-            children: <Widget>[
-              AnimatedBuilder(
-                animation: controller,
-                builder: (BuildContext context, Widget? _) {
-                  final containerHeight = controller.value * _indicatorSize;
-                  return Container(
-                    alignment: Alignment.center,
-                    height: containerHeight,
-                    child: OverflowBox(
-                      maxHeight: 40,
-                      minHeight: 40,
-                      maxWidth: 40,
-                      minWidth: 40,
+    return BlocListener<WalletDetailBloc, WalletDetailState>(
+      listener: (context, state) {
+        switch (state.status.runtimeType) {
+          case Success:
+          case Error:
+            _refreshCompleter?.complete();
+            _refreshCompleter = null;
+            break;
+        }
+      },
+      child: SizedBox(
+        width: 1.sw,
+        child: CustomRefreshIndicator(
+          builder: (context, child, controller) {
+            return Stack(
+              children: <Widget>[
+                AnimatedBuilder(
+                  animation: controller,
+                  builder: (BuildContext context, Widget? _) {
+                    final containerHeight = controller.value * _indicatorSize;
+                    return Container(
                       alignment: Alignment.center,
-                      child: AnimatedOpacity(
-                        duration: const Duration(milliseconds: 150),
-                        opacity: controller.value.clamp(0.5, 1.0),
-                        child: SizedBox(
-                          height: 30,
-                          width: 30,
-                          child: CircularProgressIndicator(
-                            strokeWidth: 4,
-                            color: AppColors.kColor5,
-                            value: controller.isDragging || controller.isArmed
-                                ? controller.value.clamp(0.0, 1.0)
-                                : null,
+                      height: containerHeight,
+                      child: OverflowBox(
+                        maxHeight: 40,
+                        minHeight: 40,
+                        maxWidth: 40,
+                        minWidth: 40,
+                        alignment: Alignment.center,
+                        child: AnimatedOpacity(
+                          duration: const Duration(milliseconds: 150),
+                          opacity: controller.value.clamp(0.5, 1.0),
+                          child: SizedBox(
+                            height: 30,
+                            width: 30,
+                            child: CircularProgressIndicator(
+                              strokeWidth: 4,
+                              color: AppColors.kColor5,
+                              value: controller.isDragging || controller.isArmed
+                                  ? controller.value.clamp(0.0, 1.0)
+                                  : null,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  );
-                },
-              ),
-              AnimatedBuilder(
-                builder: (context, _) {
-                  return Transform.translate(
-                    offset: Offset(0.0, controller.value * _indicatorSize),
-                    child: child,
-                  );
-                },
-                animation: controller,
-              ),
-            ],
-          );
-        },
-        onRefresh: () async {
-          _bloc.add(const WalletDetailEvent.balanceTokensLoaded());
-          await Future.delayed(const Duration(milliseconds: 1500));
-        },
-        child: NotificationListener<OverscrollIndicatorNotification>(
-          onNotification: (notification) {
-            notification.disallowIndicator();
-            return true;
+                    );
+                  },
+                ),
+                AnimatedBuilder(
+                  builder: (context, _) {
+                    return Transform.translate(
+                      offset: Offset(0.0, controller.value * _indicatorSize),
+                      child: child,
+                    );
+                  },
+                  animation: controller,
+                ),
+              ],
+            );
           },
-          child: CustomNestedScrollView(
-            controller: _scrollController,
-            headerSliverBuilder: (context, check) => [
-              SizedBox(
-                height: 0.3.sh,
-                child: const WalletInfo(),
-              ).toSliver,
-            ],
-            overscrollType: CustomOverscroll.outer,
-            physics: const ClampingScrollPhysics(),
-            body: WalletDetail(
-              tabController: _tabController,
+          onRefresh: () {
+            _refreshCompleter = Completer();
+            _bloc.add(const WalletDetailEvent.balanceTokensLoaded());
+            return _refreshCompleter!.future;
+          },
+          child: NotificationListener<OverscrollIndicatorNotification>(
+            onNotification: (notification) {
+              notification.disallowIndicator();
+              return true;
+            },
+            child: CustomNestedScrollView(
+              controller: _scrollController,
+              headerSliverBuilder: (context, check) => [
+                SizedBox(
+                  height: 0.3.sh,
+                  child: const WalletInfo(),
+                ).toSliver,
+              ],
+              overscrollType: CustomOverscroll.outer,
+              physics: const ClampingScrollPhysics(),
+              body: WalletDetail(
+                tabController: _tabController,
+              ),
             ),
           ),
         ),

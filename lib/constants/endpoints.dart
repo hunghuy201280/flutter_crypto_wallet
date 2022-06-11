@@ -10,4 +10,6 @@ class AppEndpoint {
   static String getValidWalletAddress(String address) =>
       '/wallet/valid/$address';
   static String getWalletInfo(String address) => '/wallet/info/$address';
+  static String tokenSend = '/token/send';
+  static String balanceSend = '/wallet/send';
 }

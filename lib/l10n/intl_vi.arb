@@ -80,5 +80,6 @@
   "withdraw" : "Rút tiền",
   "address" : "Địa chỉ",
   "duplicateAccount" : "Tài khoản này đã được thêm trước đó",
-
+  "max" : "Tối đa", 
+  "send" : "Gửi"
 }

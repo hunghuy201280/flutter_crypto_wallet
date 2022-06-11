@@ -32,13 +32,14 @@ class _DropdownIconWidgetState<T> extends State<DropdownIconWidget<T>> {
   void initState() {
     itemSelected = widget.itemSelected ??
         (widget.items.isEmpty ? null : widget.items.first.value);
+    widget.onSelected?.call(itemSelected!);
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 8.h),
+      padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 12.h),
       child: DropdownButtonHideUnderline(
         child: DropdownButton<T>(
             borderRadius: BorderRadius.circular(10.w),
@@ -53,13 +54,15 @@ class _DropdownIconWidgetState<T> extends State<DropdownIconWidget<T>> {
                   (e) => DropdownMenuItem<T>(
                     child: Row(mainAxisSize: MainAxisSize.min, children: [
                       PrimaryAvatar(
-                        size: 24.w,
+                        size: 28.w,
                         image: e.image.image,
                       ),
+                      14.horizontalSpace,
                       Text(
                         e.title,
                         style: TextConfigs.kBody2_9,
-                      )
+                      ),
+                      14.horizontalSpace,
                     ]),
                     value: e.value,
                   ),
@@ -69,9 +72,7 @@ class _DropdownIconWidgetState<T> extends State<DropdownIconWidget<T>> {
               setState(() {
                 if (value != null) {
                   itemSelected = value;
-                  if (widget.onSelected != null) {
-                    widget.onSelected!(value);
-                  }
+                  widget.onSelected?.call(value);
                 }
               });
             }),

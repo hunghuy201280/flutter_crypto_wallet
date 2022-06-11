@@ -31,6 +31,26 @@ class _$WithdrawEventTearOff {
   _WithdrawEventValidAddress validAddress() {
     return const _WithdrawEventValidAddress();
   }
+
+  _WithdrawEventTokenChanged onTokenChanged(Token token) {
+    return _WithdrawEventTokenChanged(
+      token,
+    );
+  }
+
+  _WithdrawEventAmountChanged onAmountChanged(double amount) {
+    return _WithdrawEventAmountChanged(
+      amount,
+    );
+  }
+
+  _WithdrawEventMaxAmount maxAmount() {
+    return const _WithdrawEventMaxAmount();
+  }
+
+  _WithdrawEventSend send() {
+    return const _WithdrawEventSend();
+  }
 }
 
 /// @nodoc
@@ -43,6 +63,10 @@ mixin _$WithdrawEvent {
     required TResult Function(String address) onAddressChanged,
     required TResult Function() initialData,
     required TResult Function() validAddress,
+    required TResult Function(Token token) onTokenChanged,
+    required TResult Function(double amount) onAmountChanged,
+    required TResult Function() maxAmount,
+    required TResult Function() send,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +74,10 @@ mixin _$WithdrawEvent {
     TResult Function(String address)? onAddressChanged,
     TResult Function()? initialData,
     TResult Function()? validAddress,
+    TResult Function(Token token)? onTokenChanged,
+    TResult Function(double amount)? onAmountChanged,
+    TResult Function()? maxAmount,
+    TResult Function()? send,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +85,10 @@ mixin _$WithdrawEvent {
     TResult Function(String address)? onAddressChanged,
     TResult Function()? initialData,
     TResult Function()? validAddress,
+    TResult Function(Token token)? onTokenChanged,
+    TResult Function(double amount)? onAmountChanged,
+    TResult Function()? maxAmount,
+    TResult Function()? send,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -66,6 +98,11 @@ mixin _$WithdrawEvent {
         onAddressChanged,
     required TResult Function(_WithdrawEventInitData value) initialData,
     required TResult Function(_WithdrawEventValidAddress value) validAddress,
+    required TResult Function(_WithdrawEventTokenChanged value) onTokenChanged,
+    required TResult Function(_WithdrawEventAmountChanged value)
+        onAmountChanged,
+    required TResult Function(_WithdrawEventMaxAmount value) maxAmount,
+    required TResult Function(_WithdrawEventSend value) send,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -73,6 +110,10 @@ mixin _$WithdrawEvent {
     TResult Function(_WithdrawEventAddressChanged value)? onAddressChanged,
     TResult Function(_WithdrawEventInitData value)? initialData,
     TResult Function(_WithdrawEventValidAddress value)? validAddress,
+    TResult Function(_WithdrawEventTokenChanged value)? onTokenChanged,
+    TResult Function(_WithdrawEventAmountChanged value)? onAmountChanged,
+    TResult Function(_WithdrawEventMaxAmount value)? maxAmount,
+    TResult Function(_WithdrawEventSend value)? send,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -80,6 +121,10 @@ mixin _$WithdrawEvent {
     TResult Function(_WithdrawEventAddressChanged value)? onAddressChanged,
     TResult Function(_WithdrawEventInitData value)? initialData,
     TResult Function(_WithdrawEventValidAddress value)? validAddress,
+    TResult Function(_WithdrawEventTokenChanged value)? onTokenChanged,
+    TResult Function(_WithdrawEventAmountChanged value)? onAmountChanged,
+    TResult Function(_WithdrawEventMaxAmount value)? maxAmount,
+    TResult Function(_WithdrawEventSend value)? send,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -174,6 +219,10 @@ class _$_WithdrawEventAddressChanged implements _WithdrawEventAddressChanged {
     required TResult Function(String address) onAddressChanged,
     required TResult Function() initialData,
     required TResult Function() validAddress,
+    required TResult Function(Token token) onTokenChanged,
+    required TResult Function(double amount) onAmountChanged,
+    required TResult Function() maxAmount,
+    required TResult Function() send,
   }) {
     return onAddressChanged(address);
   }
@@ -184,6 +233,10 @@ class _$_WithdrawEventAddressChanged implements _WithdrawEventAddressChanged {
     TResult Function(String address)? onAddressChanged,
     TResult Function()? initialData,
     TResult Function()? validAddress,
+    TResult Function(Token token)? onTokenChanged,
+    TResult Function(double amount)? onAmountChanged,
+    TResult Function()? maxAmount,
+    TResult Function()? send,
   }) {
     return onAddressChanged?.call(address);
   }
@@ -194,6 +247,10 @@ class _$_WithdrawEventAddressChanged implements _WithdrawEventAddressChanged {
     TResult Function(String address)? onAddressChanged,
     TResult Function()? initialData,
     TResult Function()? validAddress,
+    TResult Function(Token token)? onTokenChanged,
+    TResult Function(double amount)? onAmountChanged,
+    TResult Function()? maxAmount,
+    TResult Function()? send,
     required TResult orElse(),
   }) {
     if (onAddressChanged != null) {
@@ -209,6 +266,11 @@ class _$_WithdrawEventAddressChanged implements _WithdrawEventAddressChanged {
         onAddressChanged,
     required TResult Function(_WithdrawEventInitData value) initialData,
     required TResult Function(_WithdrawEventValidAddress value) validAddress,
+    required TResult Function(_WithdrawEventTokenChanged value) onTokenChanged,
+    required TResult Function(_WithdrawEventAmountChanged value)
+        onAmountChanged,
+    required TResult Function(_WithdrawEventMaxAmount value) maxAmount,
+    required TResult Function(_WithdrawEventSend value) send,
   }) {
     return onAddressChanged(this);
   }
@@ -219,6 +281,10 @@ class _$_WithdrawEventAddressChanged implements _WithdrawEventAddressChanged {
     TResult Function(_WithdrawEventAddressChanged value)? onAddressChanged,
     TResult Function(_WithdrawEventInitData value)? initialData,
     TResult Function(_WithdrawEventValidAddress value)? validAddress,
+    TResult Function(_WithdrawEventTokenChanged value)? onTokenChanged,
+    TResult Function(_WithdrawEventAmountChanged value)? onAmountChanged,
+    TResult Function(_WithdrawEventMaxAmount value)? maxAmount,
+    TResult Function(_WithdrawEventSend value)? send,
   }) {
     return onAddressChanged?.call(this);
   }
@@ -229,6 +295,10 @@ class _$_WithdrawEventAddressChanged implements _WithdrawEventAddressChanged {
     TResult Function(_WithdrawEventAddressChanged value)? onAddressChanged,
     TResult Function(_WithdrawEventInitData value)? initialData,
     TResult Function(_WithdrawEventValidAddress value)? validAddress,
+    TResult Function(_WithdrawEventTokenChanged value)? onTokenChanged,
+    TResult Function(_WithdrawEventAmountChanged value)? onAmountChanged,
+    TResult Function(_WithdrawEventMaxAmount value)? maxAmount,
+    TResult Function(_WithdrawEventSend value)? send,
     required TResult orElse(),
   }) {
     if (onAddressChanged != null) {
@@ -292,6 +362,10 @@ class _$_WithdrawEventInitData implements _WithdrawEventInitData {
     required TResult Function(String address) onAddressChanged,
     required TResult Function() initialData,
     required TResult Function() validAddress,
+    required TResult Function(Token token) onTokenChanged,
+    required TResult Function(double amount) onAmountChanged,
+    required TResult Function() maxAmount,
+    required TResult Function() send,
   }) {
     return initialData();
   }
@@ -302,6 +376,10 @@ class _$_WithdrawEventInitData implements _WithdrawEventInitData {
     TResult Function(String address)? onAddressChanged,
     TResult Function()? initialData,
     TResult Function()? validAddress,
+    TResult Function(Token token)? onTokenChanged,
+    TResult Function(double amount)? onAmountChanged,
+    TResult Function()? maxAmount,
+    TResult Function()? send,
   }) {
     return initialData?.call();
   }
@@ -312,6 +390,10 @@ class _$_WithdrawEventInitData implements _WithdrawEventInitData {
     TResult Function(String address)? onAddressChanged,
     TResult Function()? initialData,
     TResult Function()? validAddress,
+    TResult Function(Token token)? onTokenChanged,
+    TResult Function(double amount)? onAmountChanged,
+    TResult Function()? maxAmount,
+    TResult Function()? send,
     required TResult orElse(),
   }) {
     if (initialData != null) {
@@ -327,6 +409,11 @@ class _$_WithdrawEventInitData implements _WithdrawEventInitData {
         onAddressChanged,
     required TResult Function(_WithdrawEventInitData value) initialData,
     required TResult Function(_WithdrawEventValidAddress value) validAddress,
+    required TResult Function(_WithdrawEventTokenChanged value) onTokenChanged,
+    required TResult Function(_WithdrawEventAmountChanged value)
+        onAmountChanged,
+    required TResult Function(_WithdrawEventMaxAmount value) maxAmount,
+    required TResult Function(_WithdrawEventSend value) send,
   }) {
     return initialData(this);
   }
@@ -337,6 +424,10 @@ class _$_WithdrawEventInitData implements _WithdrawEventInitData {
     TResult Function(_WithdrawEventAddressChanged value)? onAddressChanged,
     TResult Function(_WithdrawEventInitData value)? initialData,
     TResult Function(_WithdrawEventValidAddress value)? validAddress,
+    TResult Function(_WithdrawEventTokenChanged value)? onTokenChanged,
+    TResult Function(_WithdrawEventAmountChanged value)? onAmountChanged,
+    TResult Function(_WithdrawEventMaxAmount value)? maxAmount,
+    TResult Function(_WithdrawEventSend value)? send,
   }) {
     return initialData?.call(this);
   }
@@ -347,6 +438,10 @@ class _$_WithdrawEventInitData implements _WithdrawEventInitData {
     TResult Function(_WithdrawEventAddressChanged value)? onAddressChanged,
     TResult Function(_WithdrawEventInitData value)? initialData,
     TResult Function(_WithdrawEventValidAddress value)? validAddress,
+    TResult Function(_WithdrawEventTokenChanged value)? onTokenChanged,
+    TResult Function(_WithdrawEventAmountChanged value)? onAmountChanged,
+    TResult Function(_WithdrawEventMaxAmount value)? maxAmount,
+    TResult Function(_WithdrawEventSend value)? send,
     required TResult orElse(),
   }) {
     if (initialData != null) {
@@ -406,6 +501,10 @@ class _$_WithdrawEventValidAddress implements _WithdrawEventValidAddress {
     required TResult Function(String address) onAddressChanged,
     required TResult Function() initialData,
     required TResult Function() validAddress,
+    required TResult Function(Token token) onTokenChanged,
+    required TResult Function(double amount) onAmountChanged,
+    required TResult Function() maxAmount,
+    required TResult Function() send,
   }) {
     return validAddress();
   }
@@ -416,6 +515,10 @@ class _$_WithdrawEventValidAddress implements _WithdrawEventValidAddress {
     TResult Function(String address)? onAddressChanged,
     TResult Function()? initialData,
     TResult Function()? validAddress,
+    TResult Function(Token token)? onTokenChanged,
+    TResult Function(double amount)? onAmountChanged,
+    TResult Function()? maxAmount,
+    TResult Function()? send,
   }) {
     return validAddress?.call();
   }
@@ -426,6 +529,10 @@ class _$_WithdrawEventValidAddress implements _WithdrawEventValidAddress {
     TResult Function(String address)? onAddressChanged,
     TResult Function()? initialData,
     TResult Function()? validAddress,
+    TResult Function(Token token)? onTokenChanged,
+    TResult Function(double amount)? onAmountChanged,
+    TResult Function()? maxAmount,
+    TResult Function()? send,
     required TResult orElse(),
   }) {
     if (validAddress != null) {
@@ -441,6 +548,11 @@ class _$_WithdrawEventValidAddress implements _WithdrawEventValidAddress {
         onAddressChanged,
     required TResult Function(_WithdrawEventInitData value) initialData,
     required TResult Function(_WithdrawEventValidAddress value) validAddress,
+    required TResult Function(_WithdrawEventTokenChanged value) onTokenChanged,
+    required TResult Function(_WithdrawEventAmountChanged value)
+        onAmountChanged,
+    required TResult Function(_WithdrawEventMaxAmount value) maxAmount,
+    required TResult Function(_WithdrawEventSend value) send,
   }) {
     return validAddress(this);
   }
@@ -451,6 +563,10 @@ class _$_WithdrawEventValidAddress implements _WithdrawEventValidAddress {
     TResult Function(_WithdrawEventAddressChanged value)? onAddressChanged,
     TResult Function(_WithdrawEventInitData value)? initialData,
     TResult Function(_WithdrawEventValidAddress value)? validAddress,
+    TResult Function(_WithdrawEventTokenChanged value)? onTokenChanged,
+    TResult Function(_WithdrawEventAmountChanged value)? onAmountChanged,
+    TResult Function(_WithdrawEventMaxAmount value)? maxAmount,
+    TResult Function(_WithdrawEventSend value)? send,
   }) {
     return validAddress?.call(this);
   }
@@ -461,6 +577,10 @@ class _$_WithdrawEventValidAddress implements _WithdrawEventValidAddress {
     TResult Function(_WithdrawEventAddressChanged value)? onAddressChanged,
     TResult Function(_WithdrawEventInitData value)? initialData,
     TResult Function(_WithdrawEventValidAddress value)? validAddress,
+    TResult Function(_WithdrawEventTokenChanged value)? onTokenChanged,
+    TResult Function(_WithdrawEventAmountChanged value)? onAmountChanged,
+    TResult Function(_WithdrawEventMaxAmount value)? maxAmount,
+    TResult Function(_WithdrawEventSend value)? send,
     required TResult orElse(),
   }) {
     if (validAddress != null) {
@@ -475,21 +595,650 @@ abstract class _WithdrawEventValidAddress implements WithdrawEvent {
 }
 
 /// @nodoc
+abstract class _$WithdrawEventTokenChangedCopyWith<$Res> {
+  factory _$WithdrawEventTokenChangedCopyWith(_WithdrawEventTokenChanged value,
+          $Res Function(_WithdrawEventTokenChanged) then) =
+      __$WithdrawEventTokenChangedCopyWithImpl<$Res>;
+  $Res call({Token token});
+
+  $TokenCopyWith<$Res> get token;
+}
+
+/// @nodoc
+class __$WithdrawEventTokenChangedCopyWithImpl<$Res>
+    extends _$WithdrawEventCopyWithImpl<$Res>
+    implements _$WithdrawEventTokenChangedCopyWith<$Res> {
+  __$WithdrawEventTokenChangedCopyWithImpl(_WithdrawEventTokenChanged _value,
+      $Res Function(_WithdrawEventTokenChanged) _then)
+      : super(_value, (v) => _then(v as _WithdrawEventTokenChanged));
+
+  @override
+  _WithdrawEventTokenChanged get _value =>
+      super._value as _WithdrawEventTokenChanged;
+
+  @override
+  $Res call({
+    Object? token = freezed,
+  }) {
+    return _then(_WithdrawEventTokenChanged(
+      token == freezed
+          ? _value.token
+          : token // ignore: cast_nullable_to_non_nullable
+              as Token,
+    ));
+  }
+
+  @override
+  $TokenCopyWith<$Res> get token {
+    return $TokenCopyWith<$Res>(_value.token, (value) {
+      return _then(_value.copyWith(token: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_WithdrawEventTokenChanged implements _WithdrawEventTokenChanged {
+  const _$_WithdrawEventTokenChanged(this.token);
+
+  @override
+  final Token token;
+
+  @override
+  String toString() {
+    return 'WithdrawEvent.onTokenChanged(token: $token)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _WithdrawEventTokenChanged &&
+            const DeepCollectionEquality().equals(other.token, token));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(token));
+
+  @JsonKey(ignore: true)
+  @override
+  _$WithdrawEventTokenChangedCopyWith<_WithdrawEventTokenChanged>
+      get copyWith =>
+          __$WithdrawEventTokenChangedCopyWithImpl<_WithdrawEventTokenChanged>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String address) onAddressChanged,
+    required TResult Function() initialData,
+    required TResult Function() validAddress,
+    required TResult Function(Token token) onTokenChanged,
+    required TResult Function(double amount) onAmountChanged,
+    required TResult Function() maxAmount,
+    required TResult Function() send,
+  }) {
+    return onTokenChanged(token);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String address)? onAddressChanged,
+    TResult Function()? initialData,
+    TResult Function()? validAddress,
+    TResult Function(Token token)? onTokenChanged,
+    TResult Function(double amount)? onAmountChanged,
+    TResult Function()? maxAmount,
+    TResult Function()? send,
+  }) {
+    return onTokenChanged?.call(token);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String address)? onAddressChanged,
+    TResult Function()? initialData,
+    TResult Function()? validAddress,
+    TResult Function(Token token)? onTokenChanged,
+    TResult Function(double amount)? onAmountChanged,
+    TResult Function()? maxAmount,
+    TResult Function()? send,
+    required TResult orElse(),
+  }) {
+    if (onTokenChanged != null) {
+      return onTokenChanged(token);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WithdrawEventAddressChanged value)
+        onAddressChanged,
+    required TResult Function(_WithdrawEventInitData value) initialData,
+    required TResult Function(_WithdrawEventValidAddress value) validAddress,
+    required TResult Function(_WithdrawEventTokenChanged value) onTokenChanged,
+    required TResult Function(_WithdrawEventAmountChanged value)
+        onAmountChanged,
+    required TResult Function(_WithdrawEventMaxAmount value) maxAmount,
+    required TResult Function(_WithdrawEventSend value) send,
+  }) {
+    return onTokenChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_WithdrawEventAddressChanged value)? onAddressChanged,
+    TResult Function(_WithdrawEventInitData value)? initialData,
+    TResult Function(_WithdrawEventValidAddress value)? validAddress,
+    TResult Function(_WithdrawEventTokenChanged value)? onTokenChanged,
+    TResult Function(_WithdrawEventAmountChanged value)? onAmountChanged,
+    TResult Function(_WithdrawEventMaxAmount value)? maxAmount,
+    TResult Function(_WithdrawEventSend value)? send,
+  }) {
+    return onTokenChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WithdrawEventAddressChanged value)? onAddressChanged,
+    TResult Function(_WithdrawEventInitData value)? initialData,
+    TResult Function(_WithdrawEventValidAddress value)? validAddress,
+    TResult Function(_WithdrawEventTokenChanged value)? onTokenChanged,
+    TResult Function(_WithdrawEventAmountChanged value)? onAmountChanged,
+    TResult Function(_WithdrawEventMaxAmount value)? maxAmount,
+    TResult Function(_WithdrawEventSend value)? send,
+    required TResult orElse(),
+  }) {
+    if (onTokenChanged != null) {
+      return onTokenChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _WithdrawEventTokenChanged implements WithdrawEvent {
+  const factory _WithdrawEventTokenChanged(Token token) =
+      _$_WithdrawEventTokenChanged;
+
+  Token get token;
+  @JsonKey(ignore: true)
+  _$WithdrawEventTokenChangedCopyWith<_WithdrawEventTokenChanged>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$WithdrawEventAmountChangedCopyWith<$Res> {
+  factory _$WithdrawEventAmountChangedCopyWith(
+          _WithdrawEventAmountChanged value,
+          $Res Function(_WithdrawEventAmountChanged) then) =
+      __$WithdrawEventAmountChangedCopyWithImpl<$Res>;
+  $Res call({double amount});
+}
+
+/// @nodoc
+class __$WithdrawEventAmountChangedCopyWithImpl<$Res>
+    extends _$WithdrawEventCopyWithImpl<$Res>
+    implements _$WithdrawEventAmountChangedCopyWith<$Res> {
+  __$WithdrawEventAmountChangedCopyWithImpl(_WithdrawEventAmountChanged _value,
+      $Res Function(_WithdrawEventAmountChanged) _then)
+      : super(_value, (v) => _then(v as _WithdrawEventAmountChanged));
+
+  @override
+  _WithdrawEventAmountChanged get _value =>
+      super._value as _WithdrawEventAmountChanged;
+
+  @override
+  $Res call({
+    Object? amount = freezed,
+  }) {
+    return _then(_WithdrawEventAmountChanged(
+      amount == freezed
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
+              as double,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_WithdrawEventAmountChanged implements _WithdrawEventAmountChanged {
+  const _$_WithdrawEventAmountChanged(this.amount);
+
+  @override
+  final double amount;
+
+  @override
+  String toString() {
+    return 'WithdrawEvent.onAmountChanged(amount: $amount)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _WithdrawEventAmountChanged &&
+            const DeepCollectionEquality().equals(other.amount, amount));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(amount));
+
+  @JsonKey(ignore: true)
+  @override
+  _$WithdrawEventAmountChangedCopyWith<_WithdrawEventAmountChanged>
+      get copyWith => __$WithdrawEventAmountChangedCopyWithImpl<
+          _WithdrawEventAmountChanged>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String address) onAddressChanged,
+    required TResult Function() initialData,
+    required TResult Function() validAddress,
+    required TResult Function(Token token) onTokenChanged,
+    required TResult Function(double amount) onAmountChanged,
+    required TResult Function() maxAmount,
+    required TResult Function() send,
+  }) {
+    return onAmountChanged(amount);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String address)? onAddressChanged,
+    TResult Function()? initialData,
+    TResult Function()? validAddress,
+    TResult Function(Token token)? onTokenChanged,
+    TResult Function(double amount)? onAmountChanged,
+    TResult Function()? maxAmount,
+    TResult Function()? send,
+  }) {
+    return onAmountChanged?.call(amount);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String address)? onAddressChanged,
+    TResult Function()? initialData,
+    TResult Function()? validAddress,
+    TResult Function(Token token)? onTokenChanged,
+    TResult Function(double amount)? onAmountChanged,
+    TResult Function()? maxAmount,
+    TResult Function()? send,
+    required TResult orElse(),
+  }) {
+    if (onAmountChanged != null) {
+      return onAmountChanged(amount);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WithdrawEventAddressChanged value)
+        onAddressChanged,
+    required TResult Function(_WithdrawEventInitData value) initialData,
+    required TResult Function(_WithdrawEventValidAddress value) validAddress,
+    required TResult Function(_WithdrawEventTokenChanged value) onTokenChanged,
+    required TResult Function(_WithdrawEventAmountChanged value)
+        onAmountChanged,
+    required TResult Function(_WithdrawEventMaxAmount value) maxAmount,
+    required TResult Function(_WithdrawEventSend value) send,
+  }) {
+    return onAmountChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_WithdrawEventAddressChanged value)? onAddressChanged,
+    TResult Function(_WithdrawEventInitData value)? initialData,
+    TResult Function(_WithdrawEventValidAddress value)? validAddress,
+    TResult Function(_WithdrawEventTokenChanged value)? onTokenChanged,
+    TResult Function(_WithdrawEventAmountChanged value)? onAmountChanged,
+    TResult Function(_WithdrawEventMaxAmount value)? maxAmount,
+    TResult Function(_WithdrawEventSend value)? send,
+  }) {
+    return onAmountChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WithdrawEventAddressChanged value)? onAddressChanged,
+    TResult Function(_WithdrawEventInitData value)? initialData,
+    TResult Function(_WithdrawEventValidAddress value)? validAddress,
+    TResult Function(_WithdrawEventTokenChanged value)? onTokenChanged,
+    TResult Function(_WithdrawEventAmountChanged value)? onAmountChanged,
+    TResult Function(_WithdrawEventMaxAmount value)? maxAmount,
+    TResult Function(_WithdrawEventSend value)? send,
+    required TResult orElse(),
+  }) {
+    if (onAmountChanged != null) {
+      return onAmountChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _WithdrawEventAmountChanged implements WithdrawEvent {
+  const factory _WithdrawEventAmountChanged(double amount) =
+      _$_WithdrawEventAmountChanged;
+
+  double get amount;
+  @JsonKey(ignore: true)
+  _$WithdrawEventAmountChangedCopyWith<_WithdrawEventAmountChanged>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$WithdrawEventMaxAmountCopyWith<$Res> {
+  factory _$WithdrawEventMaxAmountCopyWith(_WithdrawEventMaxAmount value,
+          $Res Function(_WithdrawEventMaxAmount) then) =
+      __$WithdrawEventMaxAmountCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$WithdrawEventMaxAmountCopyWithImpl<$Res>
+    extends _$WithdrawEventCopyWithImpl<$Res>
+    implements _$WithdrawEventMaxAmountCopyWith<$Res> {
+  __$WithdrawEventMaxAmountCopyWithImpl(_WithdrawEventMaxAmount _value,
+      $Res Function(_WithdrawEventMaxAmount) _then)
+      : super(_value, (v) => _then(v as _WithdrawEventMaxAmount));
+
+  @override
+  _WithdrawEventMaxAmount get _value => super._value as _WithdrawEventMaxAmount;
+}
+
+/// @nodoc
+
+class _$_WithdrawEventMaxAmount implements _WithdrawEventMaxAmount {
+  const _$_WithdrawEventMaxAmount();
+
+  @override
+  String toString() {
+    return 'WithdrawEvent.maxAmount()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _WithdrawEventMaxAmount);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String address) onAddressChanged,
+    required TResult Function() initialData,
+    required TResult Function() validAddress,
+    required TResult Function(Token token) onTokenChanged,
+    required TResult Function(double amount) onAmountChanged,
+    required TResult Function() maxAmount,
+    required TResult Function() send,
+  }) {
+    return maxAmount();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String address)? onAddressChanged,
+    TResult Function()? initialData,
+    TResult Function()? validAddress,
+    TResult Function(Token token)? onTokenChanged,
+    TResult Function(double amount)? onAmountChanged,
+    TResult Function()? maxAmount,
+    TResult Function()? send,
+  }) {
+    return maxAmount?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String address)? onAddressChanged,
+    TResult Function()? initialData,
+    TResult Function()? validAddress,
+    TResult Function(Token token)? onTokenChanged,
+    TResult Function(double amount)? onAmountChanged,
+    TResult Function()? maxAmount,
+    TResult Function()? send,
+    required TResult orElse(),
+  }) {
+    if (maxAmount != null) {
+      return maxAmount();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WithdrawEventAddressChanged value)
+        onAddressChanged,
+    required TResult Function(_WithdrawEventInitData value) initialData,
+    required TResult Function(_WithdrawEventValidAddress value) validAddress,
+    required TResult Function(_WithdrawEventTokenChanged value) onTokenChanged,
+    required TResult Function(_WithdrawEventAmountChanged value)
+        onAmountChanged,
+    required TResult Function(_WithdrawEventMaxAmount value) maxAmount,
+    required TResult Function(_WithdrawEventSend value) send,
+  }) {
+    return maxAmount(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_WithdrawEventAddressChanged value)? onAddressChanged,
+    TResult Function(_WithdrawEventInitData value)? initialData,
+    TResult Function(_WithdrawEventValidAddress value)? validAddress,
+    TResult Function(_WithdrawEventTokenChanged value)? onTokenChanged,
+    TResult Function(_WithdrawEventAmountChanged value)? onAmountChanged,
+    TResult Function(_WithdrawEventMaxAmount value)? maxAmount,
+    TResult Function(_WithdrawEventSend value)? send,
+  }) {
+    return maxAmount?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WithdrawEventAddressChanged value)? onAddressChanged,
+    TResult Function(_WithdrawEventInitData value)? initialData,
+    TResult Function(_WithdrawEventValidAddress value)? validAddress,
+    TResult Function(_WithdrawEventTokenChanged value)? onTokenChanged,
+    TResult Function(_WithdrawEventAmountChanged value)? onAmountChanged,
+    TResult Function(_WithdrawEventMaxAmount value)? maxAmount,
+    TResult Function(_WithdrawEventSend value)? send,
+    required TResult orElse(),
+  }) {
+    if (maxAmount != null) {
+      return maxAmount(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _WithdrawEventMaxAmount implements WithdrawEvent {
+  const factory _WithdrawEventMaxAmount() = _$_WithdrawEventMaxAmount;
+}
+
+/// @nodoc
+abstract class _$WithdrawEventSendCopyWith<$Res> {
+  factory _$WithdrawEventSendCopyWith(
+          _WithdrawEventSend value, $Res Function(_WithdrawEventSend) then) =
+      __$WithdrawEventSendCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$WithdrawEventSendCopyWithImpl<$Res>
+    extends _$WithdrawEventCopyWithImpl<$Res>
+    implements _$WithdrawEventSendCopyWith<$Res> {
+  __$WithdrawEventSendCopyWithImpl(
+      _WithdrawEventSend _value, $Res Function(_WithdrawEventSend) _then)
+      : super(_value, (v) => _then(v as _WithdrawEventSend));
+
+  @override
+  _WithdrawEventSend get _value => super._value as _WithdrawEventSend;
+}
+
+/// @nodoc
+
+class _$_WithdrawEventSend implements _WithdrawEventSend {
+  const _$_WithdrawEventSend();
+
+  @override
+  String toString() {
+    return 'WithdrawEvent.send()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _WithdrawEventSend);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String address) onAddressChanged,
+    required TResult Function() initialData,
+    required TResult Function() validAddress,
+    required TResult Function(Token token) onTokenChanged,
+    required TResult Function(double amount) onAmountChanged,
+    required TResult Function() maxAmount,
+    required TResult Function() send,
+  }) {
+    return send();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String address)? onAddressChanged,
+    TResult Function()? initialData,
+    TResult Function()? validAddress,
+    TResult Function(Token token)? onTokenChanged,
+    TResult Function(double amount)? onAmountChanged,
+    TResult Function()? maxAmount,
+    TResult Function()? send,
+  }) {
+    return send?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String address)? onAddressChanged,
+    TResult Function()? initialData,
+    TResult Function()? validAddress,
+    TResult Function(Token token)? onTokenChanged,
+    TResult Function(double amount)? onAmountChanged,
+    TResult Function()? maxAmount,
+    TResult Function()? send,
+    required TResult orElse(),
+  }) {
+    if (send != null) {
+      return send();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WithdrawEventAddressChanged value)
+        onAddressChanged,
+    required TResult Function(_WithdrawEventInitData value) initialData,
+    required TResult Function(_WithdrawEventValidAddress value) validAddress,
+    required TResult Function(_WithdrawEventTokenChanged value) onTokenChanged,
+    required TResult Function(_WithdrawEventAmountChanged value)
+        onAmountChanged,
+    required TResult Function(_WithdrawEventMaxAmount value) maxAmount,
+    required TResult Function(_WithdrawEventSend value) send,
+  }) {
+    return send(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_WithdrawEventAddressChanged value)? onAddressChanged,
+    TResult Function(_WithdrawEventInitData value)? initialData,
+    TResult Function(_WithdrawEventValidAddress value)? validAddress,
+    TResult Function(_WithdrawEventTokenChanged value)? onTokenChanged,
+    TResult Function(_WithdrawEventAmountChanged value)? onAmountChanged,
+    TResult Function(_WithdrawEventMaxAmount value)? maxAmount,
+    TResult Function(_WithdrawEventSend value)? send,
+  }) {
+    return send?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WithdrawEventAddressChanged value)? onAddressChanged,
+    TResult Function(_WithdrawEventInitData value)? initialData,
+    TResult Function(_WithdrawEventValidAddress value)? validAddress,
+    TResult Function(_WithdrawEventTokenChanged value)? onTokenChanged,
+    TResult Function(_WithdrawEventAmountChanged value)? onAmountChanged,
+    TResult Function(_WithdrawEventMaxAmount value)? maxAmount,
+    TResult Function(_WithdrawEventSend value)? send,
+    required TResult orElse(),
+  }) {
+    if (send != null) {
+      return send(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _WithdrawEventSend implements WithdrawEvent {
+  const factory _WithdrawEventSend() = _$_WithdrawEventSend;
+}
+
+/// @nodoc
 class _$WithdrawStateTearOff {
   const _$WithdrawStateTearOff();
 
   _WithdrawState call(
       {required TextEditingController controllerAddress,
+      required TextEditingController controllerAmount,
       String? address,
       bool isValidAddress = false,
+      Token? tokenSelected,
       List<Token> tokens = const [],
-      Status<dynamic> status = const Idle()}) {
+      Status<dynamic> status = const Idle(),
+      double amount = 0.0}) {
     return _WithdrawState(
       controllerAddress: controllerAddress,
+      controllerAmount: controllerAmount,
       address: address,
       isValidAddress: isValidAddress,
+      tokenSelected: tokenSelected,
       tokens: tokens,
       status: status,
+      amount: amount,
     );
   }
 }
@@ -501,10 +1250,14 @@ const $WithdrawState = _$WithdrawStateTearOff();
 mixin _$WithdrawState {
   TextEditingController get controllerAddress =>
       throw _privateConstructorUsedError;
+  TextEditingController get controllerAmount =>
+      throw _privateConstructorUsedError;
   String? get address => throw _privateConstructorUsedError;
   bool get isValidAddress => throw _privateConstructorUsedError;
+  Token? get tokenSelected => throw _privateConstructorUsedError;
   List<Token> get tokens => throw _privateConstructorUsedError;
   Status<dynamic> get status => throw _privateConstructorUsedError;
+  double get amount => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $WithdrawStateCopyWith<WithdrawState> get copyWith =>
@@ -518,10 +1271,15 @@ abstract class $WithdrawStateCopyWith<$Res> {
       _$WithdrawStateCopyWithImpl<$Res>;
   $Res call(
       {TextEditingController controllerAddress,
+      TextEditingController controllerAmount,
       String? address,
       bool isValidAddress,
+      Token? tokenSelected,
       List<Token> tokens,
-      Status<dynamic> status});
+      Status<dynamic> status,
+      double amount});
+
+  $TokenCopyWith<$Res>? get tokenSelected;
 }
 
 /// @nodoc
@@ -536,15 +1294,22 @@ class _$WithdrawStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? controllerAddress = freezed,
+    Object? controllerAmount = freezed,
     Object? address = freezed,
     Object? isValidAddress = freezed,
+    Object? tokenSelected = freezed,
     Object? tokens = freezed,
     Object? status = freezed,
+    Object? amount = freezed,
   }) {
     return _then(_value.copyWith(
       controllerAddress: controllerAddress == freezed
           ? _value.controllerAddress
           : controllerAddress // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      controllerAmount: controllerAmount == freezed
+          ? _value.controllerAmount
+          : controllerAmount // ignore: cast_nullable_to_non_nullable
               as TextEditingController,
       address: address == freezed
           ? _value.address
@@ -554,6 +1319,10 @@ class _$WithdrawStateCopyWithImpl<$Res>
           ? _value.isValidAddress
           : isValidAddress // ignore: cast_nullable_to_non_nullable
               as bool,
+      tokenSelected: tokenSelected == freezed
+          ? _value.tokenSelected
+          : tokenSelected // ignore: cast_nullable_to_non_nullable
+              as Token?,
       tokens: tokens == freezed
           ? _value.tokens
           : tokens // ignore: cast_nullable_to_non_nullable
@@ -562,7 +1331,22 @@ class _$WithdrawStateCopyWithImpl<$Res>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as Status<dynamic>,
+      amount: amount == freezed
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
+              as double,
     ));
+  }
+
+  @override
+  $TokenCopyWith<$Res>? get tokenSelected {
+    if (_value.tokenSelected == null) {
+      return null;
+    }
+
+    return $TokenCopyWith<$Res>(_value.tokenSelected!, (value) {
+      return _then(_value.copyWith(tokenSelected: value));
+    });
   }
 }
 
@@ -575,10 +1359,16 @@ abstract class _$WithdrawStateCopyWith<$Res>
   @override
   $Res call(
       {TextEditingController controllerAddress,
+      TextEditingController controllerAmount,
       String? address,
       bool isValidAddress,
+      Token? tokenSelected,
       List<Token> tokens,
-      Status<dynamic> status});
+      Status<dynamic> status,
+      double amount});
+
+  @override
+  $TokenCopyWith<$Res>? get tokenSelected;
 }
 
 /// @nodoc
@@ -595,15 +1385,22 @@ class __$WithdrawStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? controllerAddress = freezed,
+    Object? controllerAmount = freezed,
     Object? address = freezed,
     Object? isValidAddress = freezed,
+    Object? tokenSelected = freezed,
     Object? tokens = freezed,
     Object? status = freezed,
+    Object? amount = freezed,
   }) {
     return _then(_WithdrawState(
       controllerAddress: controllerAddress == freezed
           ? _value.controllerAddress
           : controllerAddress // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      controllerAmount: controllerAmount == freezed
+          ? _value.controllerAmount
+          : controllerAmount // ignore: cast_nullable_to_non_nullable
               as TextEditingController,
       address: address == freezed
           ? _value.address
@@ -613,6 +1410,10 @@ class __$WithdrawStateCopyWithImpl<$Res>
           ? _value.isValidAddress
           : isValidAddress // ignore: cast_nullable_to_non_nullable
               as bool,
+      tokenSelected: tokenSelected == freezed
+          ? _value.tokenSelected
+          : tokenSelected // ignore: cast_nullable_to_non_nullable
+              as Token?,
       tokens: tokens == freezed
           ? _value.tokens
           : tokens // ignore: cast_nullable_to_non_nullable
@@ -621,6 +1422,10 @@ class __$WithdrawStateCopyWithImpl<$Res>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as Status<dynamic>,
+      amount: amount == freezed
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
+              as double,
     ));
   }
 }
@@ -630,28 +1435,38 @@ class __$WithdrawStateCopyWithImpl<$Res>
 class _$_WithdrawState implements _WithdrawState {
   const _$_WithdrawState(
       {required this.controllerAddress,
+      required this.controllerAmount,
       this.address,
       this.isValidAddress = false,
+      this.tokenSelected,
       this.tokens = const [],
-      this.status = const Idle()});
+      this.status = const Idle(),
+      this.amount = 0.0});
 
   @override
   final TextEditingController controllerAddress;
+  @override
+  final TextEditingController controllerAmount;
   @override
   final String? address;
   @JsonKey()
   @override
   final bool isValidAddress;
+  @override
+  final Token? tokenSelected;
   @JsonKey()
   @override
   final List<Token> tokens;
   @JsonKey()
   @override
   final Status<dynamic> status;
+  @JsonKey()
+  @override
+  final double amount;
 
   @override
   String toString() {
-    return 'WithdrawState(controllerAddress: $controllerAddress, address: $address, isValidAddress: $isValidAddress, tokens: $tokens, status: $status)';
+    return 'WithdrawState(controllerAddress: $controllerAddress, controllerAmount: $controllerAmount, address: $address, isValidAddress: $isValidAddress, tokenSelected: $tokenSelected, tokens: $tokens, status: $status, amount: $amount)';
   }
 
   @override
@@ -661,21 +1476,29 @@ class _$_WithdrawState implements _WithdrawState {
             other is _WithdrawState &&
             const DeepCollectionEquality()
                 .equals(other.controllerAddress, controllerAddress) &&
+            const DeepCollectionEquality()
+                .equals(other.controllerAmount, controllerAmount) &&
             const DeepCollectionEquality().equals(other.address, address) &&
             const DeepCollectionEquality()
                 .equals(other.isValidAddress, isValidAddress) &&
+            const DeepCollectionEquality()
+                .equals(other.tokenSelected, tokenSelected) &&
             const DeepCollectionEquality().equals(other.tokens, tokens) &&
-            const DeepCollectionEquality().equals(other.status, status));
+            const DeepCollectionEquality().equals(other.status, status) &&
+            const DeepCollectionEquality().equals(other.amount, amount));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(controllerAddress),
+      const DeepCollectionEquality().hash(controllerAmount),
       const DeepCollectionEquality().hash(address),
       const DeepCollectionEquality().hash(isValidAddress),
+      const DeepCollectionEquality().hash(tokenSelected),
       const DeepCollectionEquality().hash(tokens),
-      const DeepCollectionEquality().hash(status));
+      const DeepCollectionEquality().hash(status),
+      const DeepCollectionEquality().hash(amount));
 
   @JsonKey(ignore: true)
   @override
@@ -686,21 +1509,30 @@ class _$_WithdrawState implements _WithdrawState {
 abstract class _WithdrawState implements WithdrawState {
   const factory _WithdrawState(
       {required TextEditingController controllerAddress,
+      required TextEditingController controllerAmount,
       String? address,
       bool isValidAddress,
+      Token? tokenSelected,
       List<Token> tokens,
-      Status<dynamic> status}) = _$_WithdrawState;
+      Status<dynamic> status,
+      double amount}) = _$_WithdrawState;
 
   @override
   TextEditingController get controllerAddress;
+  @override
+  TextEditingController get controllerAmount;
   @override
   String? get address;
   @override
   bool get isValidAddress;
   @override
+  Token? get tokenSelected;
+  @override
   List<Token> get tokens;
   @override
   Status<dynamic> get status;
+  @override
+  double get amount;
   @override
   @JsonKey(ignore: true)
   _$WithdrawStateCopyWith<_WithdrawState> get copyWith =>
