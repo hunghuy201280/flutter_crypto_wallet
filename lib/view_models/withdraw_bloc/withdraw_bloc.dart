@@ -85,7 +85,7 @@ class WithdrawBloc extends Bloc<WithdrawEvent, WithdrawState> {
           }
         }));
 
-        emit(state.copyWith(tokens: [...tokensClone], status: const Success()));
+        emit(state.copyWith(tokens: [...tokensClone]));
         tokensClone.removeWhere((element) => element.address.isEmpty);
         await _localProvider.setSaveTokens(tokens: tokensClone);
       } catch (e) {
@@ -137,15 +137,14 @@ class WithdrawBloc extends Bloc<WithdrawEvent, WithdrawState> {
           if (transaction.error) {
             throw transaction.message;
           }
-          emit(state.copyWith(status: const Success()));
         } else {
           final transaction = await _remoteProvider.sendBalance(wallet.address,
               state.address ?? '', state.amount, wallet.privateKey);
           if (transaction.error) {
             throw transaction.message;
           }
-          emit(state.copyWith(status: const Success()));
         }
+        emit(state.copyWith(status: const Success()));
       } catch (e) {
         printLog(this, message: 'Error Withdraw', error: e);
         emit(state.copyWith(status: Error(e)));
