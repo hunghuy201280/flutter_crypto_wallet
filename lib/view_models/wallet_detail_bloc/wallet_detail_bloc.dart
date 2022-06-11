@@ -40,7 +40,6 @@ class WalletDetailBloc extends Bloc<WalletDetailEvent, WalletDetailState> {
     on<WalletDetailBalanceTokensLoaded>((event, emit) async {
       try {
         var tokens = _localProvider.getSaveTokens();
-
         if (wallet.balanceToken != null) tokens.insert(0, wallet.balanceToken!);
         emit(state.copyWith(tokens: tokens));
         var listTokenFetch = <String, double>{};
@@ -65,16 +64,17 @@ class WalletDetailBloc extends Bloc<WalletDetailEvent, WalletDetailState> {
             final token = result.result!;
             listTokenFetch.addEntries([MapEntry("", token.balance)]);
             final wallets = _localProvider.getSavedWallets();
-            await _localProvider.setSavedWallets(wallets.map((wallet) {
+            await _localProvider.setSavedWallets(wallets.map((walletItem) {
               int index = wallets
-                  .indexWhere((element) => element.address == token.address);
+                  .indexWhere((element) => element.address == wallet.address);
               if (index >= 0) {
-                wallet = wallet.copyWith(
-                    balanceToken:
-                        wallet.balanceToken?.copyWith(balance: token.balance));
+                walletItem = walletItem.copyWith(
+                    balanceToken: walletItem.balanceToken
+                        ?.copyWith(balance: token.balance));
               }
-              return wallet;
+              return walletItem;
             }).toList());
+            _authBloc.add(const AuthEvent.reloadSelectedWallet());
           }
         } catch (e) {
           printLog(this, message: 'Fetch Token Balance Faild', error: e);

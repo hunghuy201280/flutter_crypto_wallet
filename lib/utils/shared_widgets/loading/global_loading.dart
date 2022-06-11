@@ -1,7 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_crypto_wallet/utils/utils.dart';
+import 'package:uuid/uuid.dart';
 
 import 'dismiss_future.dart';
 import 'load.dart';
@@ -167,6 +169,7 @@ Future<LoadingDismissFuture> showCustomLoadingWidget(
 
 /// will dismiss all dialog
 void hideLoadingDialog() {
+  printLog(GlobalLoading, message: "Hide custom loading dialog");
   Future.delayed(Duration.zero, () {
     if (_keys.isNotEmpty) {
       var key = _keys.first;

@@ -29,8 +29,6 @@ class _ImportAccountScreenState extends State<ImportAccountScreen> {
   void initState() {
     super.initState();
     _bloc = context.read<ImportAccountBloc>();
-    _bloc.state.privateKey.text =
-        "570b05a4bcdb597a0db8a89cc1ad8cc55dea78155d2564d1e8b8c9379f5c5fe9";
   }
 
   @override

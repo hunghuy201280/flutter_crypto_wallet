@@ -117,6 +117,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Mật khẩu không thoả điều kiện, chuỗi ký tự lớn hơn 8"),
         "pleaseAcceptPolicy": MessageLookupByLibrary.simpleMessage(
             "Vui lòng chấp nhận chính sách"),
+        "pleaseInputCorrectAmount":
+            MessageLookupByLibrary.simpleMessage("Vui lòng nhập đúng số tiền"),
         "privateKey": MessageLookupByLibrary.simpleMessage("Private key"),
         "privateKeyHint": MessageLookupByLibrary.simpleMessage(
             "Ví dụ 570b05a4bcdbg97afdb8ae9cd1ad8cc55dfa7x1e5d25e4dse8b8c9379f5cgfe9"),
@@ -168,6 +170,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Chào mừng trở lại!"),
         "withdraw": MessageLookupByLibrary.simpleMessage("Rút tiền"),
         "withdrawCrypto": MessageLookupByLibrary.simpleMessage("Rút tiền"),
+        "withdrawSuccess":
+            MessageLookupByLibrary.simpleMessage("Rút tiền thành công"),
         "wrongPassword": MessageLookupByLibrary.simpleMessage("Sai mật khẩu")
       };
 }

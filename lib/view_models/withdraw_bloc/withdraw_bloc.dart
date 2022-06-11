@@ -15,6 +15,10 @@ part 'withdraw_bloc.freezed.dart';
 part 'withdraw_event.dart';
 part 'withdraw_state.dart';
 
+class AmountError extends Error {
+  const AmountError() : super();
+}
+
 @injectable
 class WithdrawBloc extends Bloc<WithdrawEvent, WithdrawState> {
   final LocalProvider _localProvider;
@@ -39,7 +43,6 @@ class WithdrawBloc extends Bloc<WithdrawEvent, WithdrawState> {
         final tokens = _localProvider.getSaveTokens();
         // Load Token From Wallet
         if (wallet.balanceToken != null) tokens.insert(0, wallet.balanceToken!);
-        emit(state.copyWith(tokens: tokens));
         var listTokenFetch = <String, double>{};
         // Fetch balance of tokens
         try {
@@ -62,15 +65,15 @@ class WithdrawBloc extends Bloc<WithdrawEvent, WithdrawState> {
             final token = result.result!;
             listTokenFetch.addEntries([MapEntry("", token.balance)]);
             final wallets = _localProvider.getSavedWallets();
-            await _localProvider.setSavedWallets(wallets.map((wallet) {
+            await _localProvider.setSavedWallets(wallets.map((walletItem) {
               int index = wallets
-                  .indexWhere((element) => element.address == token.address);
+                  .indexWhere((element) => element.address == wallet.address);
               if (index >= 0) {
-                wallet = wallet.copyWith(
-                    balanceToken:
-                        wallet.balanceToken?.copyWith(balance: token.balance));
+                walletItem = walletItem.copyWith(
+                    balanceToken: walletItem.balanceToken
+                        ?.copyWith(balance: token.balance));
               }
-              return wallet;
+              return walletItem;
             }).toList());
           }
         } catch (e) {
@@ -96,11 +99,11 @@ class WithdrawBloc extends Bloc<WithdrawEvent, WithdrawState> {
       }
     });
     on<_WithdrawEventValidAddress>((event, emit) async {
+      if (state.address?.isEmpty ?? true) {
+        return;
+      }
       emit(state.copyWith(status: const Loading()));
       try {
-        if (state.address?.isEmpty ?? true) {
-          throw 'Wallet Address Is Not Empty';
-        }
         final result =
             await _remoteProvider.getValidWalletAddress(state.address ?? "");
         if (result.error) throw result.message;
@@ -125,29 +128,39 @@ class WithdrawBloc extends Bloc<WithdrawEvent, WithdrawState> {
     });
     on<_WithdrawEventSend>((event, emit) async {
       emit(state.copyWith(status: const Loading()));
+
       try {
-        if (state.tokenSelected == null) return;
-        if (state.tokenSelected!.address.isNotEmpty) {
-          final transaction = await _remoteProvider.sendToken(
-              wallet.address,
-              state.address ?? '',
-              state.tokenSelected!.address,
-              state.amount,
-              wallet.privateKey);
-          if (transaction.error) {
-            throw transaction.message;
-          }
+        if (state.tokenSelected == null) {
+        } else if (state.amount <= 0) {
+          emit(state.copyWith(status: const AmountError()));
         } else {
-          final transaction = await _remoteProvider.sendBalance(wallet.address,
-              state.address ?? '', state.amount, wallet.privateKey);
-          if (transaction.error) {
-            throw transaction.message;
+          if (state.tokenSelected!.address.isNotEmpty) {
+            final transaction = await _remoteProvider.sendToken(
+                wallet.address,
+                state.address ?? '',
+                state.tokenSelected!.address,
+                state.amount,
+                wallet.privateKey);
+            if (transaction.error) {
+              throw transaction.message;
+            }
+          } else {
+            final transaction = await _remoteProvider.sendBalance(
+                wallet.address,
+                state.address ?? '',
+                state.amount,
+                wallet.privateKey);
+            if (transaction.error) {
+              throw transaction.message;
+            }
           }
+          emit(state.copyWith(status: const Success()));
         }
-        emit(state.copyWith(status: const Success()));
       } catch (e) {
         printLog(this, message: 'Error Withdraw', error: e);
         emit(state.copyWith(status: Error(e)));
+      } finally {
+        emit(state.copyWith(status: const Idle()));
       }
     });
     on<_WithdrawEventAmountChanged>(

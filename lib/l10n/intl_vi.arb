@@ -91,5 +91,7 @@
   "ok" : "Đồng ý",
   "cancel" :"Huỷ",
   "error" :"Lỗi",
-  "alert" : "Thông báo"
+  "alert" : "Thông báo",
+  "withdrawSuccess" : "Rút tiền thành công",
+  "pleaseInputCorrectAmount" : "Vui lòng nhập đúng số tiền"
 }

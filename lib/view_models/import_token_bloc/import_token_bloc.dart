@@ -43,10 +43,11 @@ class ImportTokenBloc extends Bloc<ImportTokenEvent, ImportTokenState> {
       }
     });
     on<_ImportTokenEventLoad>((event, emit) async {
-      emit(state.copyWith(status: const Loading()));
       if (state.tokenAddress?.isEmpty == true) {
-        return emit(state.copyWith(status: const Idle()));
+        return;
       }
+      emit(state.copyWith(status: const Loading()));
+
       try {
         final result =
             await _remoteProvider.getInfoOfToken(state.tokenAddress!);

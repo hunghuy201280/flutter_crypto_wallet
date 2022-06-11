@@ -64,16 +64,24 @@ class _WalletScreenState extends State<WalletScreen>
   Completer? _refreshCompleter;
 
   Widget _bodyScreen() {
-    return BlocListener<WalletDetailBloc, WalletDetailState>(
-      listener: (context, state) {
-        switch (state.status.runtimeType) {
-          case Success:
-          case Error:
-            _refreshCompleter?.complete();
-            _refreshCompleter = null;
-            break;
-        }
-      },
+    return MultiBlocListener(
+      listeners: [
+        BlocListener<WalletDetailBloc, WalletDetailState>(
+            listener: (context, state) {
+          switch (state.status.runtimeType) {
+            case Success:
+            case Error:
+              _refreshCompleter?.complete();
+              _refreshCompleter = null;
+              break;
+          }
+        }),
+        BlocListener<AuthBloc, AuthState>(listener: (context, state) {
+          if (state is Authenticated) {
+            _bloc.add(const WalletDetailEvent.balanceTokensLoaded());
+          }
+        })
+      ],
       child: SizedBox(
         width: 1.sw,
         child: CustomRefreshIndicator(

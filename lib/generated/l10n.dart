@@ -969,6 +969,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Withdraw Success`
+  String get withdrawSuccess {
+    return Intl.message(
+      'Withdraw Success',
+      name: 'withdrawSuccess',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please Input Correct Amount`
+  String get pleaseInputCorrectAmount {
+    return Intl.message(
+      'Please Input Correct Amount',
+      name: 'pleaseInputCorrectAmount',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

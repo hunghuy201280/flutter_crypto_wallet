@@ -33,8 +33,6 @@ class _ImportWalletScreenState extends State<ImportWalletScreen> {
   void initState() {
     super.initState();
     _bloc = context.read<ImportWalletBloc>();
-    controller.text =
-        "sing omit organ aunt sing guess include just wealth extend govern apart";
   }
 
   @override

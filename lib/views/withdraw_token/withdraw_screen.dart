@@ -50,9 +50,8 @@ class __BodyScreenState extends State<_BodyScreen> {
     _bloc = context.read<WithdrawBloc>();
     _focusNode = FocusNode();
     super.initState();
-    _bloc.add(const WithdrawEvent.initialData());
-
     WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
+      _bloc.add(const WithdrawEvent.initialData());
       _focusNode.addListener(checkFocusAddress);
     });
   }
@@ -82,15 +81,21 @@ class __BodyScreenState extends State<_BodyScreen> {
           case Success:
             hideLoadingDialog();
             Navigator.pop(context);
+            showAlertDialog(context, message: s.withdrawSuccess);
             break;
           case Error:
             hideLoadingDialog();
+            if (state.status is AmountError) {
+              showErrorDialog(context, message: s.pleaseInputCorrectAmount);
+            } else {
+              showErrorDialog(context, message: s.somethingHappenedWrong);
+            }
             break;
           case Idle:
-            showAlertDialog(context,
-                message: 'Withdraw success', onNegative: () {});
             hideLoadingDialog();
             break;
+          default:
+            hideLoadingDialog();
         }
       },
       child: Container(

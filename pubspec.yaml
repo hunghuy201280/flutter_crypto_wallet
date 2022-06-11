@@ -55,6 +55,7 @@ dependencies:
       ref: eacb283d2f1b28e4fea2d262d3b12fd39837d02e
   custom_refresh_indicator: 1.1.1
   connectivity_plus: ^2.3.3
+  uuid: ^3.0.6
 
 
 

@@ -118,6 +118,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Password does not meet the conditions, character string is greater than 8"),
         "pleaseAcceptPolicy":
             MessageLookupByLibrary.simpleMessage("Please accept policy"),
+        "pleaseInputCorrectAmount":
+            MessageLookupByLibrary.simpleMessage("Please Input Correct Amount"),
         "privateKey": MessageLookupByLibrary.simpleMessage("Private key"),
         "privateKeyHint": MessageLookupByLibrary.simpleMessage(
             "e.g. 570b05a4bcdbg97afdb8ae9cd1ad8cc55dfa7x1e5d25e4dse8b8c9379f5cgfe9"),
@@ -169,6 +171,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "withdraw": MessageLookupByLibrary.simpleMessage("Withdraw"),
         "withdrawCrypto":
             MessageLookupByLibrary.simpleMessage("Withdraw Crypto"),
+        "withdrawSuccess":
+            MessageLookupByLibrary.simpleMessage("Withdraw Success"),
         "wrongPassword": MessageLookupByLibrary.simpleMessage("Wrong Password")
       };
 }
