@@ -29,12 +29,21 @@ class Utils {
     await Flushbar(
       messageText: Text(
         message,
-        style: TextConfigs.kBody2_9,
+        style: TextConfigs.kLabel_1,
       ),
-      backgroundColor: isError ? Colors.red : AppColors.kColor6,
+      backgroundColor: isError ? Colors.red : AppColors.kColor9,
       duration: const Duration(seconds: 2),
+      icon: "info_circle".getIcon(width: 24.w, height: 24.w),
+
       borderRadius: BorderRadius.circular(10),
-      margin: EdgeInsets.only(bottom: 24.h),
+      // margin: EdgeInsets.symmetric(
+      //   vertical: 16.h,
+      //   horizontal: 24.w,
+      // ),
+      padding: EdgeInsets.symmetric(
+        vertical: 16.h,
+        horizontal: 24.w,
+      ),
       flushbarPosition: position,
     ).show(context);
   }

@@ -1,13 +1,17 @@
+import 'dart:async';
+
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_crypto_wallet/routes/app_route.dart';
 import 'package:flutter_crypto_wallet/utils/shared_widgets/loading/load.dart';
 import 'package:flutter_crypto_wallet/utils/utils.dart';
 import 'package:flutter_crypto_wallet/view_models/app_bloc/app_bloc.dart';
 import 'package:flutter_crypto_wallet/view_models/auth_bloc/auth_bloc.dart';
+import 'package:flutter_crypto_wallet/views/no_internet_screen.dart';
 import 'package:flutter_crypto_wallet/views/shared_widgets/app_loading_indicator.dart';
 import 'package:flutter_crypto_wallet/views/splash_screen.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive/hive.dart';
 
@@ -23,11 +27,39 @@ class NFTApp extends StatefulWidget {
 
 class _NFTAppState extends State<NFTApp> {
   @override
-  void dispose() {
+  void dispose() async {
     Hive.close();
+    connectivitySubscription?.cancel();
+
     super.dispose();
   }
 
+  bool isInNoConnectionScreen = false;
+  StreamSubscription? connectivitySubscription;
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance?.addPostFrameCallback((_) async {
+      final connectionState = await Connectivity().checkConnectivity();
+      if (connectionState == ConnectivityResult.none) {
+        if (mounted) {
+          await navKey.currentState!.pushNamed(NoInternetScreen.id);
+        }
+      }
+      connectivitySubscription =
+          Connectivity().onConnectivityChanged.listen((connectionState) async {
+        if (connectionState == ConnectivityResult.none) {
+          if (mounted && !isInNoConnectionScreen) {
+            isInNoConnectionScreen = true;
+            await navKey.currentState!.pushNamed(NoInternetScreen.id);
+            isInNoConnectionScreen = false;
+          }
+        }
+      });
+    });
+  }
+
+  static final navKey = GlobalKey<NavigatorState>();
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -44,6 +76,7 @@ class _NFTAppState extends State<NFTApp> {
           designSize: const Size(390, 844),
           builder: (context, widget) {
             return MaterialApp(
+              navigatorKey: navKey,
               localizationsDelegates: const [
                 S.delegate,
                 GlobalMaterialLocalizations.delegate,

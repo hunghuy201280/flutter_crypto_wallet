@@ -44,6 +44,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Xác nhận mật khẩu"),
         "confirmYourPassword": MessageLookupByLibrary.simpleMessage(
             "Xác nhận mật khẩu hiện tại của bạn"),
+        "copied": MessageLookupByLibrary.simpleMessage("Đã sao chép"),
         "createNewAccount":
             MessageLookupByLibrary.simpleMessage("Tạo tài khoản mới"),
         "createPassword": MessageLookupByLibrary.simpleMessage("Tạo mật khẩu"),
@@ -95,6 +96,9 @@ class MessageLookup extends MessageLookupByLibrary {
             "Thêm và chỉnh sửa mạng RPC tùy chỉnh"),
         "newPassword": MessageLookupByLibrary.simpleMessage("Mật khẩu mới"),
         "nfts": MessageLookupByLibrary.simpleMessage("NFTs"),
+        "offline": MessageLookupByLibrary.simpleMessage(
+            "Bạn đang không kết nối internet"),
+        "or": MessageLookupByLibrary.simpleMessage("Hoặc"),
         "otherNetworks": MessageLookupByLibrary.simpleMessage("Mạng khác"),
         "password": MessageLookupByLibrary.simpleMessage("Mật khẩu"),
         "passwordChangedSuccessfully":
@@ -116,8 +120,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Protect your wallet"),
         "protectYourWalletDesription": MessageLookupByLibrary.simpleMessage(
             "Bảo vệ ví của bạn bằng cách lưu Cụm từ khôi phục bí mật của bạn ở nhiều nơi khác nhau như trên một mảnh giấy, trình quản lý mật khẩu và / hoặc đám mây"),
+        "receive": MessageLookupByLibrary.simpleMessage("Nhận"),
         "recoverySecretRecoveryPhrase": MessageLookupByLibrary.simpleMessage(
             "Khôi phục cụm từ khôi phục bí mật"),
+        "scanAddressTo": MessageLookupByLibrary.simpleMessage(
+            "Quét mã QR để nhận thanh toán"),
         "secretRecoveryPhrase":
             MessageLookupByLibrary.simpleMessage("Cụm từ khôi phục bí mật"),
         "securityAndPrivacy":
@@ -147,6 +154,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "tokens": MessageLookupByLibrary.simpleMessage("TOKENS"),
         "transactionHistory":
             MessageLookupByLibrary.simpleMessage("Lịch sử giao dịch"),
+        "unableToConnectToTheBlockchainHost":
+            MessageLookupByLibrary.simpleMessage(
+                "Không thể kết nối đến máy chủ phân tán Blockchain"),
         "vietnamese": MessageLookupByLibrary.simpleMessage("Tiếng Việt"),
         "walletAddedSuccessfully":
             MessageLookupByLibrary.simpleMessage("Thêm ví thành công"),

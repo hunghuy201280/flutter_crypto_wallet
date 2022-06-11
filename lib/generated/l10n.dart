@@ -840,6 +840,66 @@ class S {
     );
   }
 
+  /// `Quét mã QR để nhận thanh toán`
+  String get scanAddressTo {
+    return Intl.message(
+      'Quét mã QR để nhận thanh toán',
+      name: 'scanAddressTo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Receive`
+  String get receive {
+    return Intl.message(
+      'Receive',
+      name: 'receive',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Or`
+  String get or {
+    return Intl.message(
+      'Or',
+      name: 'or',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Copied`
+  String get copied {
+    return Intl.message(
+      'Copied',
+      name: 'copied',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You’re offline`
+  String get offline {
+    return Intl.message(
+      'You’re offline',
+      name: 'offline',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Unable to connect to the blockchain host`
+  String get unableToConnectToTheBlockchainHost {
+    return Intl.message(
+      'Unable to connect to the blockchain host',
+      name: 'unableToConnectToTheBlockchainHost',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Withdraw`
   String get withdraw {
     return Intl.message(

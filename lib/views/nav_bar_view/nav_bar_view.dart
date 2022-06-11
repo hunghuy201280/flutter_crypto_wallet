@@ -18,6 +18,7 @@ import '../../routes/app_route.dart';
 import '../../utils/utils.dart';
 import '../home_screen/home_screen.dart';
 import '../passcode/passcode_screen.dart';
+import '../qr_scan_screen.dart';
 
 class NavBarView extends StatefulWidget {
   static const id = "NavBarView";
@@ -31,6 +32,7 @@ class NavBarView extends StatefulWidget {
 class _NavBarViewState extends State<NavBarView> {
   int selectedIndex = 0;
   late S s;
+
   @override
   Widget build(BuildContext context) {
     s = S.of(context);
@@ -137,7 +139,9 @@ class _NavBarViewState extends State<NavBarView> {
         actions: [
           IconButton(
             icon: "scan".getIcon(),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, QRScanScreen.id);
+            },
             splashRadius: 20.w,
           ),
           8.horizontalSpace,

@@ -30,6 +30,8 @@ import '../views/forgot_password/change_password_screen.dart';
 import '../views/import_account/import_account_screen.dart';
 import '../views/import_wallet/import_wallet_success_screen.dart';
 import '../views/nav_bar_view/nav_bar_view.dart';
+import '../views/no_internet_screen.dart';
+import '../views/qr_scan_screen.dart';
 import '../views/settings_screen/general/general_screen.dart';
 
 class AppRoute {
@@ -94,6 +96,16 @@ class AppRoute {
       case NavBarView.id:
         return CupertinoPageRoute(
           builder: (context) => const NavBarView(),
+          settings: settings,
+        );
+      case NoInternetScreen.id:
+        return CupertinoPageRoute(
+          builder: (context) => const NoInternetScreen(),
+          settings: settings,
+        );
+      case QRScanScreen.id:
+        return CupertinoPageRoute(
+          builder: (context) => const QRScanScreen(),
           settings: settings,
         );
       case ChangePasswordScreen.id:

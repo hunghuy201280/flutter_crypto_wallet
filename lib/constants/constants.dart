@@ -10,3 +10,5 @@ final logger = Logger(
     printTime: true,
   ),
 );
+
+const kUniLinkScheme = "cryptowallet";
