@@ -97,6 +97,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Add and edit custom RPC networks"),
         "newPassword": MessageLookupByLibrary.simpleMessage("New Password"),
         "nfts": MessageLookupByLibrary.simpleMessage("NFTs"),
+        "offline": MessageLookupByLibrary.simpleMessage("You’re offline"),
         "or": MessageLookupByLibrary.simpleMessage("Or"),
         "otherNetworks": MessageLookupByLibrary.simpleMessage("Other Networks"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
@@ -152,6 +153,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "tokens": MessageLookupByLibrary.simpleMessage("TOKENS"),
         "transactionHistory":
             MessageLookupByLibrary.simpleMessage("Transaction History"),
+        "unableToConnectToTheBlockchainHost":
+            MessageLookupByLibrary.simpleMessage(
+                "Unable to connect to the blockchain host"),
         "vietnamese": MessageLookupByLibrary.simpleMessage("Vietnamese"),
         "walletAddedSuccessfully":
             MessageLookupByLibrary.simpleMessage("Wallet added successfully"),

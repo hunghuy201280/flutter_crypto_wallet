@@ -128,7 +128,6 @@ class _GlobalLoadingState extends State<GlobalLoading> {
   }
 
   void dismissLoading() {
-    printLog(this, message: "dismiss loading called.");
     _realDismissDialog();
   }
 }

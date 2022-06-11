@@ -95,6 +95,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Thêm và chỉnh sửa mạng RPC tùy chỉnh"),
         "newPassword": MessageLookupByLibrary.simpleMessage("Mật khẩu mới"),
         "nfts": MessageLookupByLibrary.simpleMessage("NFTs"),
+        "offline": MessageLookupByLibrary.simpleMessage(
+            "Bạn đang không kết nối internet"),
         "or": MessageLookupByLibrary.simpleMessage("Hoặc"),
         "otherNetworks": MessageLookupByLibrary.simpleMessage("Mạng khác"),
         "password": MessageLookupByLibrary.simpleMessage("Mật khẩu"),
@@ -150,6 +152,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "tokens": MessageLookupByLibrary.simpleMessage("TOKENS"),
         "transactionHistory":
             MessageLookupByLibrary.simpleMessage("Lịch sử giao dịch"),
+        "unableToConnectToTheBlockchainHost":
+            MessageLookupByLibrary.simpleMessage(
+                "Không thể kết nối đến máy chủ phân tán Blockchain"),
         "vietnamese": MessageLookupByLibrary.simpleMessage("Tiếng Việt"),
         "walletAddedSuccessfully":
             MessageLookupByLibrary.simpleMessage("Thêm ví thành công"),

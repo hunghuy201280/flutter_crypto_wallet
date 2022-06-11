@@ -880,6 +880,26 @@ class S {
     );
   }
 
+  /// `You’re offline`
+  String get offline {
+    return Intl.message(
+      'You’re offline',
+      name: 'offline',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Unable to connect to the blockchain host`
+  String get unableToConnectToTheBlockchainHost {
+    return Intl.message(
+      'Unable to connect to the blockchain host',
+      name: 'unableToConnectToTheBlockchainHost',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Withdraw`
   String get withdraw {
     return Intl.message(

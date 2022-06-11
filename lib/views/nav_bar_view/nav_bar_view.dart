@@ -29,8 +29,11 @@ class NavBarView extends StatefulWidget {
 }
 
 class _NavBarViewState extends State<NavBarView> {
+
   int selectedIndex = 0;
   late S s;
+
+
   @override
   Widget build(BuildContext context) {
     s = S.of(context);

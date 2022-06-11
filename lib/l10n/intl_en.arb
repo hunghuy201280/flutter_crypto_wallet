@@ -105,5 +105,7 @@
   "or": "Or",
   "copied" : "Copied",
 
+  "offline" : "You’re offline",
+  "unableToConnectToTheBlockchainHost" : "Unable to connect to the blockchain host",
   "withdraw" : "Withdraw"
 }
