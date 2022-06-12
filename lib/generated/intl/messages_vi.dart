@@ -33,6 +33,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "about": MessageLookupByLibrary.simpleMessage("Thông tin"),
         "aboutAppName":
             MessageLookupByLibrary.simpleMessage("Thông tin về App Name"),
+        "addCollection":
+            MessageLookupByLibrary.simpleMessage("Thêm vào bộ sưu tập"),
         "addCustomToken": MessageLookupByLibrary.simpleMessage("Thêm Token"),
         "address": MessageLookupByLibrary.simpleMessage("Địa chỉ"),
         "alert": MessageLookupByLibrary.simpleMessage("Thông báo"),
@@ -81,6 +83,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "importAccountText1": m1,
         "importAnAccount":
             MessageLookupByLibrary.simpleMessage("Thêm tài khoản"),
+        "importCollection":
+            MessageLookupByLibrary.simpleMessage("Thêm bộ sưu tập"),
         "importNFTs": MessageLookupByLibrary.simpleMessage("Thêm nfts"),
         "importTokens": MessageLookupByLibrary.simpleMessage("Thêm tokens"),
         "importWallet": MessageLookupByLibrary.simpleMessage("Nhập ví"),
@@ -94,6 +98,7 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Quản lý từng xu và giao dịch của bạn một cách dễ dàng"),
         "max": MessageLookupByLibrary.simpleMessage("Tối đa"),
         "mustBeAtLeastCharacters": m2,
+        "name": MessageLookupByLibrary.simpleMessage("Tên"),
         "networks": MessageLookupByLibrary.simpleMessage("Mạng lưới"),
         "networksDescription": MessageLookupByLibrary.simpleMessage(
             "Thêm và chỉnh sửa mạng RPC tùy chỉnh"),
@@ -163,6 +168,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "unableToConnectToTheBlockchainHost":
             MessageLookupByLibrary.simpleMessage(
                 "Không thể kết nối đến máy chủ phân tán Blockchain"),
+        "validAddressFailure":
+            MessageLookupByLibrary.simpleMessage("Địa chỉ không hợp lệ"),
         "vietnamese": MessageLookupByLibrary.simpleMessage("Tiếng Việt"),
         "walletAddedSuccessfully":
             MessageLookupByLibrary.simpleMessage("Thêm ví thành công"),

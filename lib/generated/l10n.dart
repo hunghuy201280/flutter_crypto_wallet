@@ -989,6 +989,46 @@ class S {
       args: [],
     );
   }
+
+  /// `Import Collection`
+  String get importCollection {
+    return Intl.message(
+      'Import Collection',
+      name: 'importCollection',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Name`
+  String get name {
+    return Intl.message(
+      'Name',
+      name: 'name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add Collection`
+  String get addCollection {
+    return Intl.message(
+      'Add Collection',
+      name: 'addCollection',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Valid Address Failure`
+  String get validAddressFailure {
+    return Intl.message(
+      'Valid Address Failure',
+      name: 'validAddressFailure',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

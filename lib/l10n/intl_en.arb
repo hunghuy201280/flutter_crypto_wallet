@@ -114,5 +114,9 @@
   "error" :"Error",
   "alert" : "Alert",
   "withdrawSuccess" : "Withdraw Success",
-  "pleaseInputCorrectAmount" : "Please Input Correct Amount"
+  "pleaseInputCorrectAmount" : "Please Input Correct Amount",
+  "importCollection" : "Import Collection",
+  "name" : "Name",
+  "addCollection" : "Add Collection",
+  "validAddressFailure" : "Valid Address Failure"
 }

@@ -8,6 +8,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:tuple/tuple.dart';
 
+import '../../models/collection/collection.dart';
 import '../../models/token/token.dart';
 import '../../models/wallet/wallet.dart';
 import '../../utils/helpers/status.dart';
@@ -99,6 +100,25 @@ class WalletDetailBloc extends Bloc<WalletDetailEvent, WalletDetailState> {
         await _localProvider.setSaveTokens(tokens: tokensClone);
       } on DioError catch (e, trace) {
         printLog(this, message: "Error", error: e, trace: trace);
+        emit(state.copyWith(status: Error(e)));
+      } finally {
+        emit(state.copyWith(status: const Idle()));
+      }
+    });
+    on<WalletDetailNFTsLoaded>((event, emit) async {
+      try {
+        final collectionsAddress = _localProvider.getSaveCollections();
+        final result = await _remoteProvider.getOwnerNft(
+            wallet.address, collectionsAddress);
+        if (result.error) throw result.message;
+        if (result.result != null) {
+          final collections = result.result!;
+          emit(state.copyWith(
+              status: const Success(), collections: collections));
+        }
+      } catch (e, trace) {
+        printLog(this,
+            message: "Fetch Colelction Failed", error: e, trace: trace);
         emit(state.copyWith(status: Error(e)));
       } finally {
         emit(state.copyWith(status: const Idle()));

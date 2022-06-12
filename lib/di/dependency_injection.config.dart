@@ -25,8 +25,10 @@ import '../view_models/change_password_bloc/change_password_bloc.dart' as _i23;
 import '../view_models/create_wallet_bloc/create_wallet_bloc.dart' as _i24;
 import '../view_models/dashboard_bloc/dashboard_bloc.dart' as _i6;
 import '../view_models/import_account_bloc/import_account_bloc.dart' as _i25;
-import '../view_models/import_token_bloc/import_token_bloc.dart' as _i26;
-import '../view_models/import_wallet_bloc/import_wallet_bloc.dart' as _i27;
+import '../view_models/import_collection_bloc/import_collection_bloc.dart'
+    as _i26;
+import '../view_models/import_token_bloc/import_token_bloc.dart' as _i27;
+import '../view_models/import_wallet_bloc/import_wallet_bloc.dart' as _i28;
 import '../view_models/login_bloc/login_bloc.dart' as _i8;
 import '../view_models/onboard_cubit/onboard_cubit.dart' as _i15;
 import '../view_models/passcode_bloc/passcode_bloc.dart' as _i16;
@@ -34,7 +36,7 @@ import '../view_models/splash_bloc/splash_bloc.dart' as _i18;
 import '../view_models/wallet_detail_bloc/wallet_detail_bloc.dart' as _i19;
 import '../view_models/withdraw_bloc/withdraw_bloc.dart' as _i20;
 import 'di_module/hive_module.dart'
-    as _i28; // ignore_for_file: unnecessary_lambdas
+    as _i29; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -87,12 +89,15 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
           get<_i13.RemoteProvider>(), get<_i14.LocalProvider>(), _authBloc));
   gh.factory<_i25.ImportAccountBloc>(() => _i25.ImportAccountBloc(
       get<_i13.RemoteProvider>(), get<_i14.LocalProvider>()));
-  gh.factory<_i26.ImportTokenBloc>(() => _i26.ImportTokenBloc(
+  gh.factoryParam<_i26.ImportCollectionBloc, _i17.AuthBloc, dynamic>(
+      (_authBloc, _) => _i26.ImportCollectionBloc(
+          get<_i13.RemoteProvider>(), get<_i14.LocalProvider>(), _authBloc));
+  gh.factory<_i27.ImportTokenBloc>(() => _i27.ImportTokenBloc(
       get<_i13.RemoteProvider>(), get<_i14.LocalProvider>()));
-  gh.factoryParam<_i27.ImportWalletBloc, _i17.AuthBloc, dynamic>(
-      (_authBloc, _) => _i27.ImportWalletBloc(
+  gh.factoryParam<_i28.ImportWalletBloc, _i17.AuthBloc, dynamic>(
+      (_authBloc, _) => _i28.ImportWalletBloc(
           get<_i13.RemoteProvider>(), get<_i14.LocalProvider>(), _authBloc));
   return get;
 }
 
-class _$HiveModule extends _i28.HiveModule {}
+class _$HiveModule extends _i29.HiveModule {}

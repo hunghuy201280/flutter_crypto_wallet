@@ -93,5 +93,9 @@
   "error" :"Lỗi",
   "alert" : "Thông báo",
   "withdrawSuccess" : "Rút tiền thành công",
-  "pleaseInputCorrectAmount" : "Vui lòng nhập đúng số tiền"
+  "pleaseInputCorrectAmount" : "Vui lòng nhập đúng số tiền",
+  "importCollection" : "Thêm bộ sưu tập",
+  "name" : "Tên",
+  "addCollection" : "Thêm vào bộ sưu tập",
+  "validAddressFailure" : "Địa chỉ không hợp lệ"
 }

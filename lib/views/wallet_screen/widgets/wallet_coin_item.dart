@@ -48,7 +48,6 @@ class _WalletCoinItemState extends State<WalletCoinItem> {
                       style: TextConfigs.kCaption_9,
                     ),
                   ],
-                  
                 ),
               ),
             ),

@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_crypto_wallet/models/collection/collection.dart';
 import 'package:flutter_crypto_wallet/models/transaction/transaction.dart';
 import 'package:flutter_crypto_wallet/services/dto//import_wallet_mnemonic_dto/import_wallet_mnemonic_dto.dart';
 import 'package:flutter_crypto_wallet/services/dto/token_balance_dto/token_balance_dto.dart';
@@ -134,6 +135,49 @@ class RemoteProvider {
         response.data,
         create: (data) => Transaction.fromJson(data),
       );
+      return data;
+    } on DioError catch (e) {
+      return BaseDto.fromJson(e.response?.data);
+    }
+  }
+
+  Future<BaseDto<List<Collection>>> getOwnerNft(
+      String addressOwner, List<String> collections) async {
+    try {
+      final response = await _repo.getOwnerNft(addressOwner, collections);
+      final data = BaseDto<List<Collection>>.fromJson(
+        response.data,
+        create: (data) =>
+            (data as List).map((e) => Collection.fromJson(e)).toList(),
+      );
+      return data;
+    } on DioError catch (e) {
+      return BaseDto.fromJson(e.response?.data);
+    }
+  }
+
+  Future<BaseDto<bool>> getValidCollectionAddress(String walletAddress) async {
+    try {
+      final response = await _repo.getValidCollectionAddress(walletAddress);
+      final data = BaseDto<bool>.fromJson(
+        response.data,
+        create: (data) => data['isValid'],
+      );
+
+      return data;
+    } on DioError catch (e) {
+      return BaseDto.fromJson(e.response?.data);
+    }
+  }
+
+  Future<BaseDto<Collection>> getInfoOfCollection(String address) async {
+    try {
+      final response = await _repo.getInfoOfCollection(address);
+      final data = BaseDto<Collection>.fromJson(
+        response.data,
+        create: (data) => Collection.fromJson(data),
+      );
+
       return data;
     } on DioError catch (e) {
       return BaseDto.fromJson(e.response?.data);

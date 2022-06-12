@@ -71,6 +71,7 @@ class _WalletScreenState extends State<WalletScreen>
           switch (state.status.runtimeType) {
             case Success:
             case Error:
+            case Idle:
               _refreshCompleter?.complete();
               _refreshCompleter = null;
               break;
@@ -134,7 +135,12 @@ class _WalletScreenState extends State<WalletScreen>
           },
           onRefresh: () {
             _refreshCompleter = Completer();
-            _bloc.add(const WalletDetailEvent.balanceTokensLoaded());
+            if (_tabController.index == 0) {
+              _bloc.add(const WalletDetailEvent.balanceTokensLoaded());
+            } else {
+              _bloc.add(const WalletDetailEvent.NFTsLoaded());
+            }
+
             return _refreshCompleter!.future;
           },
           child: NotificationListener<OverscrollIndicatorNotification>(
