@@ -57,6 +57,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Currency Conversion"),
         "currentLanguage":
             MessageLookupByLibrary.simpleMessage("Current Language"),
+        "deleteAccountAlert": MessageLookupByLibrary.simpleMessage(
+            "Do you really want to remove this account?"),
         "depositCrypto": MessageLookupByLibrary.simpleMessage("Deposit Crypto"),
         "dontGiveThisPrivateKeyToAnyone": MessageLookupByLibrary.simpleMessage(
             "Don’t give this privatekey to anyone!"),
@@ -72,8 +74,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "enterToYourWallet":
             MessageLookupByLibrary.simpleMessage("Enter to your wallet"),
         "error": MessageLookupByLibrary.simpleMessage("Error"),
+        "exchange": MessageLookupByLibrary.simpleMessage("Exchange"),
         "exchangeCrypto":
             MessageLookupByLibrary.simpleMessage("Exchange Crypto"),
+        "from": MessageLookupByLibrary.simpleMessage("From"),
         "general": MessageLookupByLibrary.simpleMessage("General"),
         "generalDescription": MessageLookupByLibrary.simpleMessage(
             "Currency conversion, language"),
@@ -130,6 +134,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "receive": MessageLookupByLibrary.simpleMessage("Receive"),
         "recoverySecretRecoveryPhrase": MessageLookupByLibrary.simpleMessage(
             "Recovery Secret Recovery Phrase"),
+        "removeIt": MessageLookupByLibrary.simpleMessage("Yes, remove it"),
         "scanAddressTo": MessageLookupByLibrary.simpleMessage(
             "Quét mã QR để nhận thanh toán"),
         "secretRecoveryPhrase":
@@ -153,12 +158,16 @@ class MessageLookup extends MessageLookupByLibrary {
                 "This password will unlock your wallet only on this device."),
         "thisWeek": MessageLookupByLibrary.simpleMessage("This Week"),
         "thisYear": MessageLookupByLibrary.simpleMessage("This Year"),
+        "to": MessageLookupByLibrary.simpleMessage("To"),
         "tokenContractAddress":
             MessageLookupByLibrary.simpleMessage("Token Contract Address"),
+        "tokenDetail": MessageLookupByLibrary.simpleMessage("Token detail"),
         "tokenOfPrecision":
             MessageLookupByLibrary.simpleMessage("Token of Precision"),
         "tokenSymbol": MessageLookupByLibrary.simpleMessage("Token Symbol"),
         "tokens": MessageLookupByLibrary.simpleMessage("TOKENS"),
+        "transactionDetail":
+            MessageLookupByLibrary.simpleMessage("Transaction detail"),
         "transactionHistory":
             MessageLookupByLibrary.simpleMessage("Transaction History"),
         "unableToConnectToTheBlockchainHost":

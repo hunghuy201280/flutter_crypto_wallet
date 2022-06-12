@@ -33,6 +33,7 @@ import '../views/nav_bar_view/nav_bar_view.dart';
 import '../views/no_internet_screen.dart';
 import '../views/qr_scan_screen.dart';
 import '../views/settings_screen/general/general_screen.dart';
+import '../views/webview/webview_screen.dart';
 
 class AppRoute {
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
@@ -75,6 +76,15 @@ class AppRoute {
       case ImportWalletSuccessScreen.id:
         return CupertinoPageRoute(
           builder: (_) => const ImportWalletSuccessScreen(),
+          settings: settings,
+        );
+      case WebViewScreen.id:
+        final args = settings.arguments as Map;
+        return CupertinoPageRoute(
+          builder: (_) => WebViewScreen(
+            title: args["title"]!,
+            url: args["url"]!,
+          ),
           settings: settings,
         );
       case LoginScreen.id:

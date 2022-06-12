@@ -13,13 +13,34 @@ import 'package:shimmer/shimmer.dart';
 import '../configs/text_config.dart';
 import '../constants/constants.dart';
 import '../generated/l10n.dart';
-import '../views/shared_widgets/confirm_dialog.dart';
 import '../views/shared_widgets/info_dialog.dart';
 
 class Utils {
   static int getRandom(int to, {int from = 0}) {
     if (to == 0) return 0;
     return (Random().nextInt(to - from) + from);
+  }
+
+  static closeKeyboard() {
+    FocusManager.instance.primaryFocus?.unfocus();
+  }
+
+  static bool onScrollNotification(
+      ScrollNotification notification, VoidCallback load) {
+    if (notification.metrics.axis == Axis.vertical) {
+      if (notification is ScrollUpdateNotification) {
+        if (notification.metrics.extentAfter <= kLazyLoadScrollOffset) {
+          load();
+        }
+        return true;
+      } else if (notification is OverscrollNotification) {
+        if (notification.overscroll > 0) {
+          load();
+        }
+        return true;
+      }
+    }
+    return false;
   }
 
   static Future showCompleteSnackBar(

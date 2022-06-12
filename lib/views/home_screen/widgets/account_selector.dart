@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_crypto_wallet/utils/extensions.dart';
 import 'package:flutter_crypto_wallet/utils/jazzicon/jazziconshape.dart';
-import 'package:flutter_crypto_wallet/views/create_wallet/create_wallet_screen.dart';
+import 'package:flutter_crypto_wallet/utils/utils.dart';
 import 'package:flutter_crypto_wallet/views/import_account/import_account_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -80,6 +80,16 @@ class _AccountSelectorState extends State<AccountSelector> {
                           bloc.add(AccountSelectorEvent.selected(item));
                         },
                         avatarData: item.avatar!,
+                        onLongPressed: () {
+                          showAlertDialog(context,
+                              message: s.deleteAccountAlert,
+                              positiveText: s.removeIt,
+                              negativeText: s.cancel, onNegative: () {
+                            Navigator.pop(context);
+                          }, onPositive: () {
+                            bloc.add(AccountSelectorDeleted(item));
+                          });
+                        },
                       );
                     },
                     separatorBuilder: (_, __) => divider,
@@ -92,9 +102,7 @@ class _AccountSelectorState extends State<AccountSelector> {
             24.verticalSpace,
             GestureDetector(
               onTap: () {
-                Navigator.of(context, rootNavigator: true).pushNamed(
-                  CreateWalletScreen.id,
-                );
+                bloc.add(const AccountSelectorAdded());
               },
               child: Text(
                 s.createNewAccount,
@@ -132,6 +140,7 @@ class AccountItem extends StatelessWidget {
     this.selected = false,
     required this.onSelected,
     required this.avatarData,
+    required this.onLongPressed,
   }) : super(key: key);
 
   final String name;
@@ -139,11 +148,13 @@ class AccountItem extends StatelessWidget {
   final bool imported;
   final bool selected;
   final GestureTapCallback onSelected;
+  final GestureTapCallback onLongPressed;
   final JazziconData avatarData;
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onSelected,
+      onLongPress: onLongPressed,
       child: Padding(
         padding: EdgeInsets.symmetric(vertical: 16.w, horizontal: 24.w),
         child: Row(

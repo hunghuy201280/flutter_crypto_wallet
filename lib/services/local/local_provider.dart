@@ -48,6 +48,10 @@ class LocalProvider {
     return wallets;
   }
 
+  Future deleteAccount(Wallet wallet) async {
+    await _repo.deleteAccount(wallet);
+  }
+
   Future setSavedWallets(List<Wallet> wallets) {
     return _repo.setSavedWallets(wallets);
   }

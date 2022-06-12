@@ -104,8 +104,7 @@ class AccountInfo extends StatelessWidget {
       useRootNavigator: true,
       builder: (context) => BlocProvider(
         create: (context) => getIt<AccountSelectorBloc>(
-          param1: (authBloc.state as Authenticated).wallet,
-          param2: authBloc,
+          param1: authBloc,
         ),
         child: const AccountSelector(),
       ),

@@ -27,7 +27,7 @@ class _$TransactionTearOff {
       required String from,
       String? to,
       required int timestamp,
-      required int type}) {
+      required TransactionType type}) {
     return _Transaction(
       hash: hash,
       from: from,
@@ -51,7 +51,7 @@ mixin _$Transaction {
   String get from => throw _privateConstructorUsedError;
   String? get to => throw _privateConstructorUsedError;
   int get timestamp => throw _privateConstructorUsedError;
-  int get type => throw _privateConstructorUsedError;
+  TransactionType get type => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -64,7 +64,12 @@ abstract class $TransactionCopyWith<$Res> {
   factory $TransactionCopyWith(
           Transaction value, $Res Function(Transaction) then) =
       _$TransactionCopyWithImpl<$Res>;
-  $Res call({String hash, String from, String? to, int timestamp, int type});
+  $Res call(
+      {String hash,
+      String from,
+      String? to,
+      int timestamp,
+      TransactionType type});
 }
 
 /// @nodoc
@@ -103,7 +108,7 @@ class _$TransactionCopyWithImpl<$Res> implements $TransactionCopyWith<$Res> {
       type: type == freezed
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as int,
+              as TransactionType,
     ));
   }
 }
@@ -115,7 +120,12 @@ abstract class _$TransactionCopyWith<$Res>
           _Transaction value, $Res Function(_Transaction) then) =
       __$TransactionCopyWithImpl<$Res>;
   @override
-  $Res call({String hash, String from, String? to, int timestamp, int type});
+  $Res call(
+      {String hash,
+      String from,
+      String? to,
+      int timestamp,
+      TransactionType type});
 }
 
 /// @nodoc
@@ -156,7 +166,7 @@ class __$TransactionCopyWithImpl<$Res> extends _$TransactionCopyWithImpl<$Res>
       type: type == freezed
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as int,
+              as TransactionType,
     ));
   }
 }
@@ -183,7 +193,7 @@ class _$_Transaction implements _Transaction {
   @override
   final int timestamp;
   @override
-  final int type;
+  final TransactionType type;
 
   @override
   String toString() {
@@ -228,7 +238,7 @@ abstract class _Transaction implements Transaction {
       required String from,
       String? to,
       required int timestamp,
-      required int type}) = _$_Transaction;
+      required TransactionType type}) = _$_Transaction;
 
   factory _Transaction.fromJson(Map<String, dynamic> json) =
       _$_Transaction.fromJson;
@@ -242,7 +252,7 @@ abstract class _Transaction implements Transaction {
   @override
   int get timestamp;
   @override
-  int get type;
+  TransactionType get type;
   @override
   @JsonKey(ignore: true)
   _$TransactionCopyWith<_Transaction> get copyWith =>

@@ -55,6 +55,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Chuyển đổi tiền tệ"),
         "currentLanguage":
             MessageLookupByLibrary.simpleMessage("Ngôn ngữ mặc định"),
+        "deleteAccountAlert": MessageLookupByLibrary.simpleMessage(
+            "Bạn có thật sự muốn xoá account này?"),
         "depositCrypto": MessageLookupByLibrary.simpleMessage("Nạp tiền"),
         "dontGiveThisPrivateKeyToAnyone": MessageLookupByLibrary.simpleMessage(
             "Không tiết lộ private key này cho bất cứ ai!"),
@@ -70,8 +72,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "enterToYourWallet":
             MessageLookupByLibrary.simpleMessage("Truy cập vào ví"),
         "error": MessageLookupByLibrary.simpleMessage("Lỗi"),
+        "exchange": MessageLookupByLibrary.simpleMessage("Quy đổi"),
         "exchangeCrypto":
             MessageLookupByLibrary.simpleMessage("Chuyển đổi tiền"),
+        "from": MessageLookupByLibrary.simpleMessage("Từ"),
         "general": MessageLookupByLibrary.simpleMessage("Chung"),
         "generalDescription": MessageLookupByLibrary.simpleMessage(
             "Chuyển đổi tiền tệ, ngôn ngữ"),
@@ -129,6 +133,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "receive": MessageLookupByLibrary.simpleMessage("Nhận"),
         "recoverySecretRecoveryPhrase": MessageLookupByLibrary.simpleMessage(
             "Khôi phục cụm từ khôi phục bí mật"),
+        "removeIt": MessageLookupByLibrary.simpleMessage("Có"),
         "scanAddressTo": MessageLookupByLibrary.simpleMessage(
             "Quét mã QR để nhận thanh toán"),
         "secretRecoveryPhrase":
@@ -152,12 +157,16 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Mật khẩu này chỉ mở khóa ví của bạn trên thiết bị này."),
         "thisWeek": MessageLookupByLibrary.simpleMessage("Tuần này"),
         "thisYear": MessageLookupByLibrary.simpleMessage("Năm này"),
+        "to": MessageLookupByLibrary.simpleMessage("Đến"),
         "tokenContractAddress":
             MessageLookupByLibrary.simpleMessage("Địa Chỉ Token"),
+        "tokenDetail": MessageLookupByLibrary.simpleMessage("Chi tiết token"),
         "tokenOfPrecision":
             MessageLookupByLibrary.simpleMessage("Số thập phân"),
         "tokenSymbol": MessageLookupByLibrary.simpleMessage("Biểu tượng Token"),
         "tokens": MessageLookupByLibrary.simpleMessage("TOKENS"),
+        "transactionDetail":
+            MessageLookupByLibrary.simpleMessage("Chi tiết giao dịch"),
         "transactionHistory":
             MessageLookupByLibrary.simpleMessage("Lịch sử giao dịch"),
         "unableToConnectToTheBlockchainHost":

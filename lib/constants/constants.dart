@@ -15,3 +15,6 @@ const kUniLinkScheme = "cryptowallet";
 const kActionWithdraw = "withdraw";
 
 const kJazziconSize = 150.0;
+
+const kLazyLoadingPageSize = 15;
+const kLazyLoadScrollOffset = 200;

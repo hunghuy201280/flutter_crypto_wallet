@@ -93,5 +93,12 @@
   "error" :"Lỗi",
   "alert" : "Thông báo",
   "withdrawSuccess" : "Rút tiền thành công",
+  "transactionDetail" : "Chi tiết giao dịch",
+  "from" : "Từ",
+  "to" : "Đến",
+  "exchange" : "Quy đổi",
+  "tokenDetail" : "Chi tiết token",
+  "deleteAccountAlert" : "Bạn có thật sự muốn xoá account này?",
+  "removeIt":"Có",
   "pleaseInputCorrectAmount" : "Vui lòng nhập đúng số tiền"
 }

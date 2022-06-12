@@ -48,6 +48,7 @@ dependencies:
   mobile_scanner: ^1.1.2
   qr_flutter: ^4.0.0
   share_plus: ^4.0.7
+  webview_flutter: ^3.0.4
 
   custom_nested_scroll_view:
     git:

@@ -143,6 +143,7 @@ Future<LoadingDismissFuture?> showLoadingDialog({
     return null;
   }
   isLoadingShown = true;
+  Utils.closeKeyboard();
   var c = Completer<LoadingDismissFuture?>();
   Future.delayed(Duration.zero, () {
     if (_keys.isNotEmpty) {

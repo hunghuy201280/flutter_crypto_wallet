@@ -980,6 +980,76 @@ class S {
     );
   }
 
+  /// `Transaction detail`
+  String get transactionDetail {
+    return Intl.message(
+      'Transaction detail',
+      name: 'transactionDetail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `From`
+  String get from {
+    return Intl.message(
+      'From',
+      name: 'from',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `To`
+  String get to {
+    return Intl.message(
+      'To',
+      name: 'to',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Exchange`
+  String get exchange {
+    return Intl.message(
+      'Exchange',
+      name: 'exchange',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Token detail`
+  String get tokenDetail {
+    return Intl.message(
+      'Token detail',
+      name: 'tokenDetail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Do you really want to remove this account?`
+  String get deleteAccountAlert {
+    return Intl.message(
+      'Do you really want to remove this account?',
+      name: 'deleteAccountAlert',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Yes, remove it`
+  String get removeIt {
+    return Intl.message(
+      'Yes, remove it',
+      name: 'removeIt',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Please Input Correct Amount`
   String get pleaseInputCorrectAmount {
     return Intl.message(
