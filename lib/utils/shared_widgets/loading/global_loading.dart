@@ -1,9 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_crypto_wallet/utils/utils.dart';
-import 'package:uuid/uuid.dart';
 
 import 'dismiss_future.dart';
 import 'load.dart';
@@ -11,6 +9,7 @@ import 'loading.dart';
 import 'theme.dart';
 
 List<GlobalKey<_GlobalLoadingState>> _keys = [];
+bool isLoadingShown = false;
 
 class GlobalLoading extends StatefulWidget {
   final Widget child;
@@ -92,7 +91,6 @@ class _GlobalLoadingState extends State<GlobalLoading> {
     });
 
     overlayKey.currentState?.insert(entry);
-
     var future =
         LoadingDismissFuture(entry, loadingKey, themeData.animDuration);
     return future;
@@ -130,6 +128,8 @@ class _GlobalLoadingState extends State<GlobalLoading> {
   }
 
   void dismissLoading() {
+    isLoadingShown = false;
+
     _realDismissDialog();
   }
 }
@@ -137,8 +137,12 @@ class _GlobalLoadingState extends State<GlobalLoading> {
 /// Use [LoadingDismissFuture.dismiss] can dismiss current dialog
 Future<LoadingDismissFuture?> showLoadingDialog({
   bool? tapDismiss = false,
-}) {
-  printLog(GlobalLoading, message: "show loading dialog");
+}) async {
+  if (isLoadingShown) {
+    printLog("Loading", message: "loading shown");
+    return null;
+  }
+  isLoadingShown = true;
   var c = Completer<LoadingDismissFuture?>();
   Future.delayed(Duration.zero, () {
     if (_keys.isNotEmpty) {
@@ -148,28 +152,27 @@ Future<LoadingDismissFuture?> showLoadingDialog({
   });
   return c.future;
 }
-
-Future<LoadingDismissFuture> showCustomLoadingWidget(
-  Widget widget, {
-  bool? tapDismiss,
-}) {
-  printLog(GlobalLoading, message: "show custom loading dialog");
-  var c = Completer<LoadingDismissFuture>();
-  Future.delayed(Duration.zero, () {
-    if (_keys.isNotEmpty) {
-      var key = _keys.first;
-      c.complete(key.currentState?.showLoadingWidget(
-        widget,
-        tapDismiss: tapDismiss,
-      ));
-    }
-  });
-  return c.future;
-}
+//
+// Future<LoadingDismissFuture> showCustomLoadingWidget(
+//   Widget widget, {
+//   bool? tapDismiss,
+// }) {
+//   printLog(GlobalLoading, message: "show custom loading dialog");
+//   var c = Completer<LoadingDismissFuture>();
+//   Future.delayed(Duration.zero, () {
+//     if (_keys.isNotEmpty) {
+//       var key = _keys.first;
+//       c.complete(key.currentState?.showLoadingWidget(
+//         widget,
+//         tapDismiss: tapDismiss,
+//       ));
+//     }
+//   });
+//   return c.future;
+// }
 
 /// will dismiss all dialog
 void hideLoadingDialog() {
-  printLog(GlobalLoading, message: "Hide custom loading dialog");
   Future.delayed(Duration.zero, () {
     if (_keys.isNotEmpty) {
       var key = _keys.first;

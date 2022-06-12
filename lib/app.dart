@@ -50,6 +50,10 @@ class _NFTAppState extends State<NFTApp> {
           Connectivity().onConnectivityChanged.listen((connectionState) async {
         if (connectionState == ConnectivityResult.none) {
           if (mounted && !isInNoConnectionScreen) {
+            final actualState = await Connectivity().checkConnectivity();
+            if (actualState != ConnectivityResult.none) {
+              return;
+            }
             isInNoConnectionScreen = true;
             await navKey.currentState!.pushNamed(NoInternetScreen.id);
             isInNoConnectionScreen = false;

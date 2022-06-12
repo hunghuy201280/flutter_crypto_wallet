@@ -17,8 +17,8 @@ import '../../generated/l10n.dart';
 
 class WithdrawScreen extends StatefulWidget {
   static const id = '/withdraw';
-  const WithdrawScreen({Key? key}) : super(key: key);
-
+  const WithdrawScreen({Key? key, this.initialAddress}) : super(key: key);
+  final String? initialAddress;
   @override
   State<WithdrawScreen> createState() => _WithdrawScreenState();
 }
@@ -31,13 +31,16 @@ class _WithdrawScreenState extends State<WithdrawScreen> {
       resizeToAvoidBottomInset: false,
       backgroundColor: AppColors.kColor1,
       appBar: Utils.buildAppBar(context, title: s.withdraw, centerTitle: true),
-      body: const _BodyScreen(),
+      body: _BodyScreen(
+        initialAddress: widget.initialAddress,
+      ),
     );
   }
 }
 
 class _BodyScreen extends StatefulWidget {
-  const _BodyScreen({Key? key}) : super(key: key);
+  const _BodyScreen({Key? key, this.initialAddress}) : super(key: key);
+  final String? initialAddress;
 
   @override
   State<_BodyScreen> createState() => __BodyScreenState();
@@ -46,13 +49,15 @@ class _BodyScreen extends StatefulWidget {
 class __BodyScreenState extends State<_BodyScreen> {
   late WithdrawBloc _bloc;
   late FocusNode _focusNode;
+  bool isInitialLoaded = false;
   @override
   void initState() {
     _bloc = context.read<WithdrawBloc>();
     _focusNode = FocusNode();
     super.initState();
+    _bloc.add(const WithdrawEvent.initialData());
+
     WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
-      _bloc.add(const WithdrawEvent.initialData());
       _focusNode.addListener(checkFocusAddress);
     });
   }
@@ -94,6 +99,13 @@ class __BodyScreenState extends State<_BodyScreen> {
             break;
           case Idle:
             hideLoadingDialog();
+
+            if (widget.initialAddress != null && !isInitialLoaded) {
+              isInitialLoaded = true;
+              _bloc.state.controllerAddress.text = widget.initialAddress!;
+              _bloc.add(WithdrawEvent.onAddressChanged(widget.initialAddress!));
+              _bloc.add(const WithdrawEvent.validAddress());
+            }
             break;
           default:
             hideLoadingDialog();

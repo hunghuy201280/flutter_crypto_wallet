@@ -12,3 +12,4 @@ final logger = Logger(
 );
 
 const kUniLinkScheme = "cryptowallet";
+const kActionWithdraw="withdraw";

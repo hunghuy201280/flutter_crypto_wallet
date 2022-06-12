@@ -32,7 +32,7 @@ class _DropdownIconWidgetState<T> extends State<DropdownIconWidget<T>> {
   void initState() {
     itemSelected = widget.itemSelected ??
         (widget.items.isEmpty ? null : widget.items.first.value);
-    widget.onSelected?.call(itemSelected!);
+      widget.onSelected?.call(itemSelected!);
     super.initState();
   }
 
