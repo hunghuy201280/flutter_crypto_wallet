@@ -183,4 +183,45 @@ class RemoteProvider {
       return BaseDto.fromJson(e.response?.data);
     }
   }
+
+  Future<BaseDto<List<Transaction>>> getTransactionHistory({
+    required String address,
+    required int page,
+    required int pageSize,
+  }) async {
+    try {
+      final response = await _repo.getTransactionHistory(
+        address: address,
+        pageSize: pageSize,
+        page: page,
+      );
+      final data = BaseDto<List<Transaction>>.fromJson(
+        response.data,
+        create: (data) =>
+            (data as List).map((e) => Transaction.fromJson(e)).toList(),
+      );
+      return data;
+    } on DioError catch (e) {
+      return BaseDto.fromJson(e.response?.data);
+    }
+  }
+
+  Future<BaseDto<Wallet>> addAccount({
+    required String mnemonic,
+    required int walletNumber,
+  }) async {
+    try {
+      final response = await _repo.addAccount(
+        mnemonic: mnemonic,
+        walletNumber: walletNumber,
+      );
+      final data = BaseDto<Wallet>.fromJson(
+        response.data,
+        create: (data) => Wallet.fromJson(data),
+      );
+      return data;
+    } on DioError catch (e) {
+      return BaseDto.fromJson(e.response?.data);
+    }
+  }
 }

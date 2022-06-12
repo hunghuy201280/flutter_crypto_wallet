@@ -6,7 +6,9 @@ import 'package:flutter_crypto_wallet/views/shared_widgets/secondary_avatar.dart
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../di/dependency_injection.dart';
+import '../../../generated/l10n.dart';
 import '../../../models/token/token.dart';
+import '../../webview/webview_screen.dart';
 
 class WalletCoinItem extends StatefulWidget {
   const WalletCoinItem({Key? key, required this.token}) : super(key: key);
@@ -17,11 +19,25 @@ class WalletCoinItem extends StatefulWidget {
 
 class _WalletCoinItemState extends State<WalletCoinItem> {
   final _localProvider = getIt<LocalProvider>();
+
+  bool get canViewDetail => widget.token.address.isNotEmpty;
   @override
   Widget build(BuildContext context) {
+    final s = S.of(context);
     return InkWell(
       splashFactory: InkRipple.splashFactory,
-      onTap: () {},
+      onTap: !canViewDetail
+          ? null
+          : () {
+              Navigator.of(context, rootNavigator: true).pushNamed(
+                WebViewScreen.id,
+                arguments: {
+                  "url":
+                      "https://testnet.bscscan.com/token/${widget.token.address}",
+                  "title": s.tokenDetail,
+                },
+              );
+            },
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 16.h),
         child: Row(
@@ -51,7 +67,7 @@ class _WalletCoinItemState extends State<WalletCoinItem> {
                 ),
               ),
             ),
-            "arrow_right_ios".getIcon()
+            if (canViewDetail) "arrow_right_ios".getIcon()
           ],
         ),
       ),

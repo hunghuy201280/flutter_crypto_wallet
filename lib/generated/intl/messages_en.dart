@@ -28,6 +28,8 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m2(num) => "Must be at least ${num} characters";
 
+  static String m3(accountName) => "Show private key for “${accountName}”";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "about": MessageLookupByLibrary.simpleMessage("About"),
@@ -38,6 +40,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "address": MessageLookupByLibrary.simpleMessage("Address"),
         "alert": MessageLookupByLibrary.simpleMessage("Alert"),
         "appName": MessageLookupByLibrary.simpleMessage("App Name"),
+        "authenticateByFingerPrint":
+            MessageLookupByLibrary.simpleMessage("Authenticate by fingerprint"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "changePassword":
             MessageLookupByLibrary.simpleMessage("Change password"),
@@ -58,7 +62,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Currency Conversion"),
         "currentLanguage":
             MessageLookupByLibrary.simpleMessage("Current Language"),
+        "deleteAccountAlert": MessageLookupByLibrary.simpleMessage(
+            "Do you really want to remove this account?"),
         "depositCrypto": MessageLookupByLibrary.simpleMessage("Deposit Crypto"),
+        "done": MessageLookupByLibrary.simpleMessage("Done"),
         "dontGiveThisPrivateKeyToAnyone": MessageLookupByLibrary.simpleMessage(
             "Don’t give this privatekey to anyone!"),
         "dontSeeYourNFT":
@@ -73,8 +80,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "enterToYourWallet":
             MessageLookupByLibrary.simpleMessage("Enter to your wallet"),
         "error": MessageLookupByLibrary.simpleMessage("Error"),
+        "exchange": MessageLookupByLibrary.simpleMessage("Exchange"),
         "exchangeCrypto":
             MessageLookupByLibrary.simpleMessage("Exchange Crypto"),
+        "fingerprintNotSupported":
+            MessageLookupByLibrary.simpleMessage("Fingerprint not supported"),
+        "from": MessageLookupByLibrary.simpleMessage("From"),
         "general": MessageLookupByLibrary.simpleMessage("General"),
         "generalDescription": MessageLookupByLibrary.simpleMessage(
             "Currency conversion, language"),
@@ -129,11 +140,12 @@ class MessageLookup extends MessageLookupByLibrary {
             "e.g. 570b05a4bcdbg97afdb8ae9cd1ad8cc55dfa7x1e5d25e4dse8b8c9379f5cgfe9"),
         "protectYourWallet":
             MessageLookupByLibrary.simpleMessage("Protect your wallet"),
-        "protectYourWalletDesription": MessageLookupByLibrary.simpleMessage(
+        "protectYourWalletDescription": MessageLookupByLibrary.simpleMessage(
             "Protect your wallet by saving your Secret Recovery Phrase in various places like on a piece of paper, password manager and/or the cloud"),
         "receive": MessageLookupByLibrary.simpleMessage("Receive"),
         "recoverySecretRecoveryPhrase": MessageLookupByLibrary.simpleMessage(
             "Recovery Secret Recovery Phrase"),
+        "removeIt": MessageLookupByLibrary.simpleMessage("Yes, remove it"),
         "scanAddressTo": MessageLookupByLibrary.simpleMessage(
             "Quét mã QR để nhận thanh toán"),
         "secretRecoveryPhrase":
@@ -145,6 +157,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "seeAll": MessageLookupByLibrary.simpleMessage("See all"),
         "send": MessageLookupByLibrary.simpleMessage("Send"),
         "show": MessageLookupByLibrary.simpleMessage("Show"),
+        "showPrivateKey":
+            MessageLookupByLibrary.simpleMessage("Show private key"),
+        "showPrivateKeyDescription": MessageLookupByLibrary.simpleMessage(
+            "This is the private key for the current selected account. Never disclose this key. Anyone with your private key can fully control your account."),
+        "showPrivateKeyFor": m3,
         "signIn": MessageLookupByLibrary.simpleMessage("Sign In"),
         "signInWithBiometrics":
             MessageLookupByLibrary.simpleMessage("Sign in with Biometrics ?"),
@@ -157,12 +174,16 @@ class MessageLookup extends MessageLookupByLibrary {
                 "This password will unlock your wallet only on this device."),
         "thisWeek": MessageLookupByLibrary.simpleMessage("This Week"),
         "thisYear": MessageLookupByLibrary.simpleMessage("This Year"),
+        "to": MessageLookupByLibrary.simpleMessage("To"),
         "tokenContractAddress":
             MessageLookupByLibrary.simpleMessage("Token Contract Address"),
+        "tokenDetail": MessageLookupByLibrary.simpleMessage("Token detail"),
         "tokenOfPrecision":
             MessageLookupByLibrary.simpleMessage("Token of Precision"),
         "tokenSymbol": MessageLookupByLibrary.simpleMessage("Token Symbol"),
         "tokens": MessageLookupByLibrary.simpleMessage("TOKENS"),
+        "transactionDetail":
+            MessageLookupByLibrary.simpleMessage("Transaction detail"),
         "transactionHistory":
             MessageLookupByLibrary.simpleMessage("Transaction History"),
         "unableToConnectToTheBlockchainHost":

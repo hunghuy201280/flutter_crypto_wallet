@@ -8,7 +8,7 @@ part of 'collection.dart';
 
 _$_Collection _$$_CollectionFromJson(Map<String, dynamic> json) =>
     _$_Collection(
-      address: json['address'] as String?,
+      address: json['address'] as String,
       name: json['name'] as String?,
       symbol: json['symbol'] as String?,
       items: (json['items'] as List<dynamic>?)

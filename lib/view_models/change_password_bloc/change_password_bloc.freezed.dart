@@ -18,10 +18,6 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$ChangePasswordEventTearOff {
   const _$ChangePasswordEventTearOff();
 
-  ChangePasswordConfirmed confirmed() {
-    return const ChangePasswordConfirmed();
-  }
-
   ChangePasswordSubmitted submitted() {
     return const ChangePasswordSubmitted();
   }
@@ -38,21 +34,18 @@ const $ChangePasswordEvent = _$ChangePasswordEventTearOff();
 mixin _$ChangePasswordEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() confirmed,
     required TResult Function() submitted,
     required TResult Function() checkboxTapped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? confirmed,
     TResult Function()? submitted,
     TResult Function()? checkboxTapped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? confirmed,
     TResult Function()? submitted,
     TResult Function()? checkboxTapped,
     required TResult orElse(),
@@ -60,7 +53,6 @@ mixin _$ChangePasswordEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ChangePasswordConfirmed value) confirmed,
     required TResult Function(ChangePasswordSubmitted value) submitted,
     required TResult Function(ChangePasswordCheckboxTapped value)
         checkboxTapped,
@@ -68,14 +60,12 @@ mixin _$ChangePasswordEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ChangePasswordConfirmed value)? confirmed,
     TResult Function(ChangePasswordSubmitted value)? submitted,
     TResult Function(ChangePasswordCheckboxTapped value)? checkboxTapped,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ChangePasswordConfirmed value)? confirmed,
     TResult Function(ChangePasswordSubmitted value)? submitted,
     TResult Function(ChangePasswordCheckboxTapped value)? checkboxTapped,
     required TResult orElse(),
@@ -98,118 +88,6 @@ class _$ChangePasswordEventCopyWithImpl<$Res>
   final ChangePasswordEvent _value;
   // ignore: unused_field
   final $Res Function(ChangePasswordEvent) _then;
-}
-
-/// @nodoc
-abstract class $ChangePasswordConfirmedCopyWith<$Res> {
-  factory $ChangePasswordConfirmedCopyWith(ChangePasswordConfirmed value,
-          $Res Function(ChangePasswordConfirmed) then) =
-      _$ChangePasswordConfirmedCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class _$ChangePasswordConfirmedCopyWithImpl<$Res>
-    extends _$ChangePasswordEventCopyWithImpl<$Res>
-    implements $ChangePasswordConfirmedCopyWith<$Res> {
-  _$ChangePasswordConfirmedCopyWithImpl(ChangePasswordConfirmed _value,
-      $Res Function(ChangePasswordConfirmed) _then)
-      : super(_value, (v) => _then(v as ChangePasswordConfirmed));
-
-  @override
-  ChangePasswordConfirmed get _value => super._value as ChangePasswordConfirmed;
-}
-
-/// @nodoc
-
-class _$ChangePasswordConfirmed implements ChangePasswordConfirmed {
-  const _$ChangePasswordConfirmed();
-
-  @override
-  String toString() {
-    return 'ChangePasswordEvent.confirmed()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is ChangePasswordConfirmed);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() confirmed,
-    required TResult Function() submitted,
-    required TResult Function() checkboxTapped,
-  }) {
-    return confirmed();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? confirmed,
-    TResult Function()? submitted,
-    TResult Function()? checkboxTapped,
-  }) {
-    return confirmed?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? confirmed,
-    TResult Function()? submitted,
-    TResult Function()? checkboxTapped,
-    required TResult orElse(),
-  }) {
-    if (confirmed != null) {
-      return confirmed();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ChangePasswordConfirmed value) confirmed,
-    required TResult Function(ChangePasswordSubmitted value) submitted,
-    required TResult Function(ChangePasswordCheckboxTapped value)
-        checkboxTapped,
-  }) {
-    return confirmed(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ChangePasswordConfirmed value)? confirmed,
-    TResult Function(ChangePasswordSubmitted value)? submitted,
-    TResult Function(ChangePasswordCheckboxTapped value)? checkboxTapped,
-  }) {
-    return confirmed?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ChangePasswordConfirmed value)? confirmed,
-    TResult Function(ChangePasswordSubmitted value)? submitted,
-    TResult Function(ChangePasswordCheckboxTapped value)? checkboxTapped,
-    required TResult orElse(),
-  }) {
-    if (confirmed != null) {
-      return confirmed(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ChangePasswordConfirmed implements ChangePasswordEvent {
-  const factory ChangePasswordConfirmed() = _$ChangePasswordConfirmed;
 }
 
 /// @nodoc
@@ -253,7 +131,6 @@ class _$ChangePasswordSubmitted implements ChangePasswordSubmitted {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() confirmed,
     required TResult Function() submitted,
     required TResult Function() checkboxTapped,
   }) {
@@ -263,7 +140,6 @@ class _$ChangePasswordSubmitted implements ChangePasswordSubmitted {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? confirmed,
     TResult Function()? submitted,
     TResult Function()? checkboxTapped,
   }) {
@@ -273,7 +149,6 @@ class _$ChangePasswordSubmitted implements ChangePasswordSubmitted {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? confirmed,
     TResult Function()? submitted,
     TResult Function()? checkboxTapped,
     required TResult orElse(),
@@ -287,7 +162,6 @@ class _$ChangePasswordSubmitted implements ChangePasswordSubmitted {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ChangePasswordConfirmed value) confirmed,
     required TResult Function(ChangePasswordSubmitted value) submitted,
     required TResult Function(ChangePasswordCheckboxTapped value)
         checkboxTapped,
@@ -298,7 +172,6 @@ class _$ChangePasswordSubmitted implements ChangePasswordSubmitted {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ChangePasswordConfirmed value)? confirmed,
     TResult Function(ChangePasswordSubmitted value)? submitted,
     TResult Function(ChangePasswordCheckboxTapped value)? checkboxTapped,
   }) {
@@ -308,7 +181,6 @@ class _$ChangePasswordSubmitted implements ChangePasswordSubmitted {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ChangePasswordConfirmed value)? confirmed,
     TResult Function(ChangePasswordSubmitted value)? submitted,
     TResult Function(ChangePasswordCheckboxTapped value)? checkboxTapped,
     required TResult orElse(),
@@ -369,7 +241,6 @@ class _$ChangePasswordCheckboxTapped implements ChangePasswordCheckboxTapped {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() confirmed,
     required TResult Function() submitted,
     required TResult Function() checkboxTapped,
   }) {
@@ -379,7 +250,6 @@ class _$ChangePasswordCheckboxTapped implements ChangePasswordCheckboxTapped {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? confirmed,
     TResult Function()? submitted,
     TResult Function()? checkboxTapped,
   }) {
@@ -389,7 +259,6 @@ class _$ChangePasswordCheckboxTapped implements ChangePasswordCheckboxTapped {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? confirmed,
     TResult Function()? submitted,
     TResult Function()? checkboxTapped,
     required TResult orElse(),
@@ -403,7 +272,6 @@ class _$ChangePasswordCheckboxTapped implements ChangePasswordCheckboxTapped {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ChangePasswordConfirmed value) confirmed,
     required TResult Function(ChangePasswordSubmitted value) submitted,
     required TResult Function(ChangePasswordCheckboxTapped value)
         checkboxTapped,
@@ -414,7 +282,6 @@ class _$ChangePasswordCheckboxTapped implements ChangePasswordCheckboxTapped {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ChangePasswordConfirmed value)? confirmed,
     TResult Function(ChangePasswordSubmitted value)? submitted,
     TResult Function(ChangePasswordCheckboxTapped value)? checkboxTapped,
   }) {
@@ -424,7 +291,6 @@ class _$ChangePasswordCheckboxTapped implements ChangePasswordCheckboxTapped {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ChangePasswordConfirmed value)? confirmed,
     TResult Function(ChangePasswordSubmitted value)? submitted,
     TResult Function(ChangePasswordCheckboxTapped value)? checkboxTapped,
     required TResult orElse(),
@@ -445,13 +311,11 @@ class _$ChangePasswordStateTearOff {
   const _$ChangePasswordStateTearOff();
 
   _ChangePasswordState call(
-      {required TextEditingController currentPassword,
-      required TextEditingController newPassword,
+      {required TextEditingController newPassword,
       required TextEditingController reNewPassword,
       required bool isChecked,
       required Status<dynamic> status}) {
     return _ChangePasswordState(
-      currentPassword: currentPassword,
       newPassword: newPassword,
       reNewPassword: reNewPassword,
       isChecked: isChecked,
@@ -465,8 +329,6 @@ const $ChangePasswordState = _$ChangePasswordStateTearOff();
 
 /// @nodoc
 mixin _$ChangePasswordState {
-  TextEditingController get currentPassword =>
-      throw _privateConstructorUsedError;
   TextEditingController get newPassword => throw _privateConstructorUsedError;
   TextEditingController get reNewPassword => throw _privateConstructorUsedError;
   bool get isChecked => throw _privateConstructorUsedError;
@@ -483,8 +345,7 @@ abstract class $ChangePasswordStateCopyWith<$Res> {
           ChangePasswordState value, $Res Function(ChangePasswordState) then) =
       _$ChangePasswordStateCopyWithImpl<$Res>;
   $Res call(
-      {TextEditingController currentPassword,
-      TextEditingController newPassword,
+      {TextEditingController newPassword,
       TextEditingController reNewPassword,
       bool isChecked,
       Status<dynamic> status});
@@ -501,17 +362,12 @@ class _$ChangePasswordStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? currentPassword = freezed,
     Object? newPassword = freezed,
     Object? reNewPassword = freezed,
     Object? isChecked = freezed,
     Object? status = freezed,
   }) {
     return _then(_value.copyWith(
-      currentPassword: currentPassword == freezed
-          ? _value.currentPassword
-          : currentPassword // ignore: cast_nullable_to_non_nullable
-              as TextEditingController,
       newPassword: newPassword == freezed
           ? _value.newPassword
           : newPassword // ignore: cast_nullable_to_non_nullable
@@ -540,8 +396,7 @@ abstract class _$ChangePasswordStateCopyWith<$Res>
       __$ChangePasswordStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {TextEditingController currentPassword,
-      TextEditingController newPassword,
+      {TextEditingController newPassword,
       TextEditingController reNewPassword,
       bool isChecked,
       Status<dynamic> status});
@@ -560,17 +415,12 @@ class __$ChangePasswordStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? currentPassword = freezed,
     Object? newPassword = freezed,
     Object? reNewPassword = freezed,
     Object? isChecked = freezed,
     Object? status = freezed,
   }) {
     return _then(_ChangePasswordState(
-      currentPassword: currentPassword == freezed
-          ? _value.currentPassword
-          : currentPassword // ignore: cast_nullable_to_non_nullable
-              as TextEditingController,
       newPassword: newPassword == freezed
           ? _value.newPassword
           : newPassword // ignore: cast_nullable_to_non_nullable
@@ -595,15 +445,12 @@ class __$ChangePasswordStateCopyWithImpl<$Res>
 
 class _$_ChangePasswordState extends _ChangePasswordState {
   const _$_ChangePasswordState(
-      {required this.currentPassword,
-      required this.newPassword,
+      {required this.newPassword,
       required this.reNewPassword,
       required this.isChecked,
       required this.status})
       : super._();
 
-  @override
-  final TextEditingController currentPassword;
   @override
   final TextEditingController newPassword;
   @override
@@ -615,7 +462,7 @@ class _$_ChangePasswordState extends _ChangePasswordState {
 
   @override
   String toString() {
-    return 'ChangePasswordState(currentPassword: $currentPassword, newPassword: $newPassword, reNewPassword: $reNewPassword, isChecked: $isChecked, status: $status)';
+    return 'ChangePasswordState(newPassword: $newPassword, reNewPassword: $reNewPassword, isChecked: $isChecked, status: $status)';
   }
 
   @override
@@ -623,8 +470,6 @@ class _$_ChangePasswordState extends _ChangePasswordState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _ChangePasswordState &&
-            const DeepCollectionEquality()
-                .equals(other.currentPassword, currentPassword) &&
             const DeepCollectionEquality()
                 .equals(other.newPassword, newPassword) &&
             const DeepCollectionEquality()
@@ -636,7 +481,6 @@ class _$_ChangePasswordState extends _ChangePasswordState {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(currentPassword),
       const DeepCollectionEquality().hash(newPassword),
       const DeepCollectionEquality().hash(reNewPassword),
       const DeepCollectionEquality().hash(isChecked),
@@ -651,15 +495,12 @@ class _$_ChangePasswordState extends _ChangePasswordState {
 
 abstract class _ChangePasswordState extends ChangePasswordState {
   const factory _ChangePasswordState(
-      {required TextEditingController currentPassword,
-      required TextEditingController newPassword,
+      {required TextEditingController newPassword,
       required TextEditingController reNewPassword,
       required bool isChecked,
       required Status<dynamic> status}) = _$_ChangePasswordState;
   const _ChangePasswordState._() : super._();
 
-  @override
-  TextEditingController get currentPassword;
   @override
   TextEditingController get newPassword;
   @override

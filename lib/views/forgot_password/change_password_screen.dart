@@ -4,12 +4,14 @@ import 'package:flutter_crypto_wallet/configs/color_config.dart';
 import 'package:flutter_crypto_wallet/utils/helpers/status.dart';
 import 'package:flutter_crypto_wallet/utils/utils.dart';
 import 'package:flutter_crypto_wallet/view_models/change_password_bloc/change_password_bloc.dart';
+import 'package:flutter_crypto_wallet/view_models/confirm_password_bloc/confirm_password_bloc.dart';
 import 'package:flutter_crypto_wallet/views/shared_widgets/primary_button_medium.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../configs/text_config.dart';
 import '../../generated/l10n.dart';
 import '../../view_models/auth_bloc/auth_bloc.dart';
+import '../confirm_password/confirm_password_body.dart';
 import '../shared_widgets/custom_checkbox.dart';
 import '../shared_widgets/primary_text_field.dart';
 
@@ -35,37 +37,49 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen>
   @override
   Widget build(BuildContext context) {
     final s = S.of(context);
-    return BlocListener<ChangePasswordBloc, ChangePasswordState>(
-      listener: (_, state) {
-        final status = state.status;
-
-        if (status is Error<ChangePasswordEventType>) {
-          if (status.data == ChangePasswordEventType.wrongPassword) {
-            Utils.showCompleteSnackBar(context,
-                message: s.wrongPassword, isError: true);
-          } else if (status.data ==
-              ChangePasswordEventType.reNewPasswordIsNotIdentical) {
-            Utils.showCompleteSnackBar(context,
-                message: s.passwordNotMatch, isError: true);
-          } else if (status.data == ChangePasswordEventType.notChecked) {
-            Utils.showCompleteSnackBar(context,
-                message: s.pleaseAcceptPolicy, isError: true);
-          }
-        } else if (status is Success<ChangePasswordEventType>) {
-          if (status.data == ChangePasswordEventType.correctPassword) {
-            tabController.animateTo(1);
-          }
-          if (status.data ==
-              ChangePasswordEventType.passwordChangedSuccessfully) {
-            final authBloc = context.read<AuthBloc>();
-            Utils.showCompleteSnackBar(context,
-                    message: s.walletAddedSuccessfully)
-                .then((value) {
-              authBloc.add(const AuthInitial());
-            });
-          }
-        }
-      },
+    return MultiBlocListener(
+      listeners: [
+        BlocListener<ChangePasswordBloc, ChangePasswordState>(
+          listener: (_, state) {
+            final status = state.status;
+            if (status is Error<ChangePasswordEventType>) {
+              if (status.data ==
+                  ChangePasswordEventType.reNewPasswordIsNotIdentical) {
+                Utils.showCompleteSnackBar(context,
+                    message: s.passwordNotMatch, isError: true);
+              } else if (status.data == ChangePasswordEventType.notChecked) {
+                Utils.showCompleteSnackBar(context,
+                    message: s.pleaseAcceptPolicy, isError: true);
+              }
+            } else if (status is Success<ChangePasswordEventType>) {
+              if (status.data ==
+                  ChangePasswordEventType.passwordChangedSuccessfully) {
+                final authBloc = context.read<AuthBloc>();
+                Utils.showCompleteSnackBar(context,
+                        message: s.passwordChangedSuccessfully)
+                    .then((value) {
+                  authBloc.add(const AuthInitial());
+                });
+              }
+            }
+          },
+        ),
+        BlocListener<ConfirmPasswordBloc, ConfirmPasswordState>(
+          listener: (context, state) {
+            final status = state.status;
+            if (status is Error<ConfirmPasswordEventType>) {
+              if (status.data == ConfirmPasswordEventType.wrongPassword) {
+                Utils.showCompleteSnackBar(context,
+                    message: s.wrongPassword, isError: true);
+              }
+            } else if (status is Success<ConfirmPasswordEventType>) {
+              if (status.data == ConfirmPasswordEventType.correctPassword) {
+                tabController.animateTo(1);
+              }
+            }
+          },
+        ),
+      ],
       child: Scaffold(
         resizeToAvoidBottomInset: false,
         backgroundColor: AppColors.kColor1,
@@ -84,7 +98,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen>
         body: TabBarView(
           controller: tabController,
           children: const [
-            ChangePasswordConfirmBody(),
+            ConfirmPasswordBody(),
             ChangePasswordBody(),
           ],
           physics: const NeverScrollableScrollPhysics(),
@@ -166,55 +180,6 @@ class ChangePasswordBody extends StatelessWidget {
             title: s.changePassword,
             onTap: () {
               bloc.add(const ChangePasswordEvent.submitted());
-            },
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class ChangePasswordConfirmBody extends StatelessWidget {
-  const ChangePasswordConfirmBody({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    final s = S.of(context);
-    final bloc = context.read<ChangePasswordBloc>();
-
-    return Padding(
-      padding: EdgeInsets.symmetric(
-        horizontal: 24.w,
-      ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(
-            width: 200.w,
-            child: Text(
-              s.confirmYourPassword,
-              style: TextConfigs.kHeader3_9,
-            ),
-          ),
-          8.verticalSpace,
-          Text(
-            s.changePasswordSentence1,
-            style: TextConfigs.kBody2_9,
-          ),
-          16.verticalSpace,
-          PrimaryTextField(
-            hint: s.password,
-            controller: bloc.state.currentPassword,
-            onChanged: (value) {},
-          ),
-          24.verticalSpace,
-          PrimaryButtonMedium(
-            title: s.confirm,
-            onTap: () {
-              bloc.add(const ChangePasswordEvent.confirmed());
             },
           ),
         ],

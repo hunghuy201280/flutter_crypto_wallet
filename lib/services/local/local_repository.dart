@@ -48,6 +48,21 @@ class LocalRepository {
     await _appPref.wallet.setSavedWallets(wallets);
   }
 
+  Future deleteAccount(Wallet wallet) async {
+    final wallets = _appPref.wallet.savedWallets;
+    wallets.removeWhere((element) => element.address == wallet.address);
+
+    //Re-assign index
+    for (int i = 0; i < wallets.length; i++) {
+      wallets[i] = wallets[i].copyWith(index: i + 1);
+    }
+    await _appPref.wallet.setSavedWallets(wallets);
+    if (wallet.address == _appPref.wallet.selectedWallet) {
+      saveSelectedWallet(
+          selectedWallet: _appPref.wallet.savedWallets.first.address);
+    }
+  }
+
   Future setSavedWallet(Wallet wallet) async {
     final wallets = _appPref.wallet.savedWallets;
     final index =
@@ -70,6 +85,9 @@ class LocalRepository {
   Future<void> addWallet({required Wallet value}) async {
     final wallet = _appPref.wallet;
     final walletsImported = wallet.savedWallets;
+    if (walletsImported.any((element) => element.address == value.address)) {
+      throw "Duplicate Account";
+    }
     walletsImported.add(value);
     await wallet.setSavedWallets([...walletsImported]);
   }

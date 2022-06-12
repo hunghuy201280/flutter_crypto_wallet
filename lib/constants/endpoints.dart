@@ -12,6 +12,10 @@ class AppEndpoint {
   static String getWalletInfo(String address) => '/wallet/info/$address';
   static String tokenSend = '/token/send';
   static String balanceSend = '/wallet/send';
+  static String getTransactionHistory(String address) =>
+      '/transaction/history?address=$address';
+  static String transactionHistory = '/transaction/history';
+  static String addAccount = '/wallet/add_account';
   static String collectionOwner = '/collection/owner';
   static String getValidCollectionAddress(String address) =>
       '/collection/valid/$address';

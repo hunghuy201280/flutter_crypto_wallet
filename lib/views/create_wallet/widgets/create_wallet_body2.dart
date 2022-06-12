@@ -30,7 +30,7 @@ class CreateWalletBody2 extends StatelessWidget {
               GestureDetector(
                 onTap: () async {
                   await FlutterClipboard.copy(mnemonic ?? '');
-                  Utils.showToast(context, message: "Copied");
+                  Utils.showToast(context, message: s.copied);
                 },
                 child: Column(
                   mainAxisSize: MainAxisSize.min,

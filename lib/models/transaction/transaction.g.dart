@@ -12,7 +12,7 @@ _$_Transaction _$$_TransactionFromJson(Map<String, dynamic> json) =>
       from: json['from'] as String,
       to: json['to'] as String?,
       timestamp: json['timestamp'] as int,
-      type: json['type'] as int,
+      type: $enumDecode(_$TransactionTypeEnumMap, json['type']),
     );
 
 Map<String, dynamic> _$$_TransactionToJson(_$_Transaction instance) =>
@@ -21,5 +21,12 @@ Map<String, dynamic> _$$_TransactionToJson(_$_Transaction instance) =>
       'from': instance.from,
       'to': instance.to,
       'timestamp': instance.timestamp,
-      'type': instance.type,
+      'type': _$TransactionTypeEnumMap[instance.type],
     };
+
+const _$TransactionTypeEnumMap = {
+  TransactionType.withdraw: 0,
+  TransactionType.deposit: 1,
+  TransactionType.swap: 2,
+  TransactionType.undefined: 3,
+};

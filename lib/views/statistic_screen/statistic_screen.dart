@@ -1,67 +1,130 @@
+import 'dart:async';
+
+import 'package:custom_refresh_indicator/custom_refresh_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_crypto_wallet/configs/text_config.dart';
 import 'package:flutter_crypto_wallet/generated/l10n.dart';
 import 'package:flutter_crypto_wallet/utils/extensions.dart';
-import 'package:flutter_crypto_wallet/views/statistic_screen/widgets/statistic_chart.dart';
+import 'package:flutter_crypto_wallet/utils/utils.dart';
+import 'package:flutter_crypto_wallet/view_models/statistic_bloc/statistic_bloc.dart';
+import 'package:flutter_crypto_wallet/views/statistic_screen/widgets/transaction_item.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:sliver_tools/sliver_tools.dart';
 
 import '../../configs/color_config.dart';
+import '../../utils/helpers/status.dart';
+import '../shared_widgets/app_refresh_loading_indicator.dart';
 
-class StatisticScreen extends StatelessWidget {
+class StatisticScreen extends StatefulWidget {
   static const id = "StatisticScreen";
+
   const StatisticScreen({Key? key}) : super(key: key);
+
   static StatisticScreen get instance {
     return const StatisticScreen();
   }
 
   @override
+  State<StatisticScreen> createState() => _StatisticScreenState();
+}
+
+class _StatisticScreenState extends State<StatisticScreen> {
+  Completer? refreshCompleter;
+
+  late StatisticBloc bloc;
+
+  @override
+  void initState() {
+    super.initState();
+    bloc = context.read<StatisticBloc>();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final s = S.of(context);
-    return Scaffold(
-      backgroundColor: AppColors.kColor1,
-      body: NestedScrollView(
-        headerSliverBuilder: (context, innerBoxIsScrolled) => [
-          const StatisticChart(
-            previousData: [2, 5.5, 1.5, 2, 6.2, 5, 8],
-            presentData: [2, 4, 1, 2, 8, 5, 6],
-          ).toSliver,
-        ],
-        physics: const BouncingScrollPhysics(),
-        body: CustomScrollView(
-          physics: const BouncingScrollPhysics(),
-          slivers: [
-            SliverPinnedHeader(
-              child: Material(
-                color: AppColors.kColor1,
-                child: Row(
-                  children: [
-                    24.horizontalSpace,
-                    Text(
-                      s.transactionHistory,
-                      style: TextConfigs.kSubtitle_9,
-                    ),
-                    const Spacer(),
-                    TextButton(
-                      onPressed: () {},
-                      style: TextButton.styleFrom(
-                        primary: AppColors.kColor6,
+    return BlocListener<StatisticBloc, StatisticState>(
+      listener: (_, state) {
+        final status = state.status;
+        if (status is Success) {
+          refreshCompleter?.complete();
+        }
+      },
+      child: Scaffold(
+          backgroundColor: AppColors.kColor1,
+          body: CustomRefreshIndicator(
+            builder: (context, child, controller) {
+              return AppRefreshLoadingIndicator(
+                controller: controller,
+                child: child,
+              );
+            },
+            onRefresh: () {
+              refreshCompleter = Completer();
+              bloc.add(const StatisticEvent.loaded());
+              return refreshCompleter!.future;
+            },
+            child: NotificationListener<ScrollNotification>(
+              onNotification: (notification) {
+                Utils.onScrollNotification(notification, () {
+                  bloc.add(const StatisticEvent.moreLoaded());
+                });
+                return false;
+              },
+              child: CustomScrollView(
+                physics: const BouncingScrollPhysics(),
+                slivers: [
+                  SliverPinnedHeader(
+                    child: Material(
+                      color: AppColors.kColor1,
+                      child: Row(
+                        children: [
+                          24.horizontalSpace,
+                          Text(
+                            s.transactionHistory,
+                            style: TextConfigs.kSubtitle_9,
+                          ),
+                          const Spacer(),
+                          TextButton(
+                            onPressed: () {},
+                            style: TextButton.styleFrom(
+                              primary: AppColors.kColor6,
+                            ),
+                            child: Text(
+                              s.seeAll,
+                              style: TextConfigs.kBody2_4,
+                            ),
+                          ),
+                          24.horizontalSpace,
+                        ],
                       ),
-                      child: Text(
-                        s.seeAll,
-                        style: TextConfigs.kBody2_4,
-                      ),
                     ),
-                    24.horizontalSpace,
-                  ],
-                ),
+                  ),
+                  4.verticalSpace.toSliver,
+                  const TransactionHistory(),
+                  BlocSelector<StatisticBloc, StatisticState, Status>(
+                    selector: (state) => state.status,
+                    builder: (context, status) {
+                      if (status is! MoreLoading) {
+                        return Utils.empty.toSliver;
+                      }
+                      return Padding(
+                        padding: EdgeInsets.symmetric(
+                          vertical: 32.h,
+                        ),
+                        child: const Center(
+                          child: SpinKitDancingSquare(
+                            color: AppColors.kColor6,
+                          ),
+                        ),
+                      ).toSliver;
+                    },
+                  ),
+                ],
               ),
             ),
-            4.verticalSpace.toSliver,
-            const TransactionHistory(),
-          ],
-        ),
-      ),
+          )),
     );
   }
 }
@@ -71,133 +134,32 @@ class TransactionHistory extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SliverList(
-      delegate: SliverChildBuilderDelegate(
-        (context, index) {
-          return Transaction(
-            index: index,
-          );
-        },
-        childCount: 10,
-      ),
-    );
-  }
-}
-
-class Transaction extends StatelessWidget {
-  const Transaction({Key? key, required this.index}) : super(key: key);
-
-  final int index;
-
-  int get transactionType => index % 3;
-  Color get color {
-    switch (transactionType) {
-      case 1:
-        return AppColors.kColor6;
-      case 2:
-        return AppColors.kColor5;
-      case 0:
-      default:
-        return AppColors.kColor3;
-    }
-  }
-
-  String get icon {
-    switch (transactionType) {
-      case 1:
-        return "withdraw";
-      case 2:
-        return "exchange";
-      case 0:
-      default:
-        return "deposit";
-    }
-  }
-
-  String get prefix {
-    switch (transactionType) {
-      case 1:
-        return "To: ";
-      case 2:
-        return "Exchange: ";
-      case 0:
-      default:
-        return "From: ";
-    }
-  }
-
-  String get sign {
-    switch (transactionType) {
-      case 1:
-        return "-";
-      case 2:
-        return "";
-      case 0:
-      default:
-        return "+";
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Material(
-      color: Colors.transparent,
-      child: InkWell(
-        onTap: () {},
-        child: Padding(
-          padding: EdgeInsets.only(top: 12.w, bottom: 12.w),
-          child: Row(
-            children: [
-              24.horizontalSpace,
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
-                  color: color.withOpacity(0.65),
-                ),
-                width: 48.w,
-                height: 48.w,
-                child: Center(
-                  child: icon.getIcon(
-                    color: color,
-                    width: 16.w,
-                    height: 16.w,
-                  ),
-                ),
+    return BlocBuilder<StatisticBloc, StatisticState>(
+      builder: (context, state) {
+        if (state.status is Loading) {
+          return Padding(
+            padding: EdgeInsets.only(
+              top: 48.h,
+            ),
+            child: const Center(
+              child: SpinKitDancingSquare(
+                color: AppColors.kColor6,
               ),
-              16.horizontalSpace,
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Coin name $index",
-                    style: TextConfigs.kLabel_9,
-                  ),
-                  Text(
-                    "$prefix ${"0x1161642e402d07D13B243d678d6d08f476c08c0e".shortFor()}",
-                    style: TextConfigs.kCaption_9,
-                  )
-                ],
-              ),
-              const Spacer(),
-              if (transactionType != 2)
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    Text(
-                      "$sign$index ETH",
-                      style: TextConfigs.kBody2_9,
-                    ),
-                    Text(
-                      "$sign\$$index",
-                      style: TextConfigs.kBody2_9,
-                    ),
-                  ],
-                ),
-              24.horizontalSpace,
-            ],
+            ),
+          ).toSliver;
+        }
+
+        return SliverList(
+          delegate: SliverChildBuilderDelegate(
+            (context, index) {
+              return TransactionItem(
+                transaction: state.transactions[index],
+              );
+            },
+            childCount: state.transactions.length,
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }

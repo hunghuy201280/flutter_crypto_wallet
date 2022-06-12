@@ -22,6 +22,18 @@ class _$AccountSelectorEventTearOff {
     return const AccountSelectorInitialized();
   }
 
+  AccountSelectorDeleted deleted(Wallet wallet) {
+    return AccountSelectorDeleted(
+      wallet,
+    );
+  }
+
+  AccountSelectorAdded accountAdded({int? walletNumber}) {
+    return AccountSelectorAdded(
+      walletNumber: walletNumber,
+    );
+  }
+
   AccountSelectorSelected selected(Wallet wallet) {
     return AccountSelectorSelected(
       wallet,
@@ -37,18 +49,24 @@ mixin _$AccountSelectorEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialized,
+    required TResult Function(Wallet wallet) deleted,
+    required TResult Function(int? walletNumber) accountAdded,
     required TResult Function(Wallet wallet) selected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initialized,
+    TResult Function(Wallet wallet)? deleted,
+    TResult Function(int? walletNumber)? accountAdded,
     TResult Function(Wallet wallet)? selected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialized,
+    TResult Function(Wallet wallet)? deleted,
+    TResult Function(int? walletNumber)? accountAdded,
     TResult Function(Wallet wallet)? selected,
     required TResult orElse(),
   }) =>
@@ -56,18 +74,24 @@ mixin _$AccountSelectorEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(AccountSelectorInitialized value) initialized,
+    required TResult Function(AccountSelectorDeleted value) deleted,
+    required TResult Function(AccountSelectorAdded value) accountAdded,
     required TResult Function(AccountSelectorSelected value) selected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(AccountSelectorInitialized value)? initialized,
+    TResult Function(AccountSelectorDeleted value)? deleted,
+    TResult Function(AccountSelectorAdded value)? accountAdded,
     TResult Function(AccountSelectorSelected value)? selected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AccountSelectorInitialized value)? initialized,
+    TResult Function(AccountSelectorDeleted value)? deleted,
+    TResult Function(AccountSelectorAdded value)? accountAdded,
     TResult Function(AccountSelectorSelected value)? selected,
     required TResult orElse(),
   }) =>
@@ -144,6 +168,8 @@ class _$AccountSelectorInitialized
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialized,
+    required TResult Function(Wallet wallet) deleted,
+    required TResult Function(int? walletNumber) accountAdded,
     required TResult Function(Wallet wallet) selected,
   }) {
     return initialized();
@@ -153,6 +179,8 @@ class _$AccountSelectorInitialized
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initialized,
+    TResult Function(Wallet wallet)? deleted,
+    TResult Function(int? walletNumber)? accountAdded,
     TResult Function(Wallet wallet)? selected,
   }) {
     return initialized?.call();
@@ -162,6 +190,8 @@ class _$AccountSelectorInitialized
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialized,
+    TResult Function(Wallet wallet)? deleted,
+    TResult Function(int? walletNumber)? accountAdded,
     TResult Function(Wallet wallet)? selected,
     required TResult orElse(),
   }) {
@@ -175,6 +205,8 @@ class _$AccountSelectorInitialized
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(AccountSelectorInitialized value) initialized,
+    required TResult Function(AccountSelectorDeleted value) deleted,
+    required TResult Function(AccountSelectorAdded value) accountAdded,
     required TResult Function(AccountSelectorSelected value) selected,
   }) {
     return initialized(this);
@@ -184,6 +216,8 @@ class _$AccountSelectorInitialized
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(AccountSelectorInitialized value)? initialized,
+    TResult Function(AccountSelectorDeleted value)? deleted,
+    TResult Function(AccountSelectorAdded value)? accountAdded,
     TResult Function(AccountSelectorSelected value)? selected,
   }) {
     return initialized?.call(this);
@@ -193,6 +227,8 @@ class _$AccountSelectorInitialized
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AccountSelectorInitialized value)? initialized,
+    TResult Function(AccountSelectorDeleted value)? deleted,
+    TResult Function(AccountSelectorAdded value)? accountAdded,
     TResult Function(AccountSelectorSelected value)? selected,
     required TResult orElse(),
   }) {
@@ -205,6 +241,332 @@ class _$AccountSelectorInitialized
 
 abstract class AccountSelectorInitialized implements AccountSelectorEvent {
   const factory AccountSelectorInitialized() = _$AccountSelectorInitialized;
+}
+
+/// @nodoc
+abstract class $AccountSelectorDeletedCopyWith<$Res> {
+  factory $AccountSelectorDeletedCopyWith(AccountSelectorDeleted value,
+          $Res Function(AccountSelectorDeleted) then) =
+      _$AccountSelectorDeletedCopyWithImpl<$Res>;
+  $Res call({Wallet wallet});
+
+  $WalletCopyWith<$Res> get wallet;
+}
+
+/// @nodoc
+class _$AccountSelectorDeletedCopyWithImpl<$Res>
+    extends _$AccountSelectorEventCopyWithImpl<$Res>
+    implements $AccountSelectorDeletedCopyWith<$Res> {
+  _$AccountSelectorDeletedCopyWithImpl(AccountSelectorDeleted _value,
+      $Res Function(AccountSelectorDeleted) _then)
+      : super(_value, (v) => _then(v as AccountSelectorDeleted));
+
+  @override
+  AccountSelectorDeleted get _value => super._value as AccountSelectorDeleted;
+
+  @override
+  $Res call({
+    Object? wallet = freezed,
+  }) {
+    return _then(AccountSelectorDeleted(
+      wallet == freezed
+          ? _value.wallet
+          : wallet // ignore: cast_nullable_to_non_nullable
+              as Wallet,
+    ));
+  }
+
+  @override
+  $WalletCopyWith<$Res> get wallet {
+    return $WalletCopyWith<$Res>(_value.wallet, (value) {
+      return _then(_value.copyWith(wallet: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$AccountSelectorDeleted
+    with DiagnosticableTreeMixin
+    implements AccountSelectorDeleted {
+  const _$AccountSelectorDeleted(this.wallet);
+
+  @override
+  final Wallet wallet;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'AccountSelectorEvent.deleted(wallet: $wallet)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'AccountSelectorEvent.deleted'))
+      ..add(DiagnosticsProperty('wallet', wallet));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is AccountSelectorDeleted &&
+            const DeepCollectionEquality().equals(other.wallet, wallet));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(wallet));
+
+  @JsonKey(ignore: true)
+  @override
+  $AccountSelectorDeletedCopyWith<AccountSelectorDeleted> get copyWith =>
+      _$AccountSelectorDeletedCopyWithImpl<AccountSelectorDeleted>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function(Wallet wallet) deleted,
+    required TResult Function(int? walletNumber) accountAdded,
+    required TResult Function(Wallet wallet) selected,
+  }) {
+    return deleted(wallet);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(Wallet wallet)? deleted,
+    TResult Function(int? walletNumber)? accountAdded,
+    TResult Function(Wallet wallet)? selected,
+  }) {
+    return deleted?.call(wallet);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(Wallet wallet)? deleted,
+    TResult Function(int? walletNumber)? accountAdded,
+    TResult Function(Wallet wallet)? selected,
+    required TResult orElse(),
+  }) {
+    if (deleted != null) {
+      return deleted(wallet);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AccountSelectorInitialized value) initialized,
+    required TResult Function(AccountSelectorDeleted value) deleted,
+    required TResult Function(AccountSelectorAdded value) accountAdded,
+    required TResult Function(AccountSelectorSelected value) selected,
+  }) {
+    return deleted(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(AccountSelectorInitialized value)? initialized,
+    TResult Function(AccountSelectorDeleted value)? deleted,
+    TResult Function(AccountSelectorAdded value)? accountAdded,
+    TResult Function(AccountSelectorSelected value)? selected,
+  }) {
+    return deleted?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AccountSelectorInitialized value)? initialized,
+    TResult Function(AccountSelectorDeleted value)? deleted,
+    TResult Function(AccountSelectorAdded value)? accountAdded,
+    TResult Function(AccountSelectorSelected value)? selected,
+    required TResult orElse(),
+  }) {
+    if (deleted != null) {
+      return deleted(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AccountSelectorDeleted implements AccountSelectorEvent {
+  const factory AccountSelectorDeleted(Wallet wallet) =
+      _$AccountSelectorDeleted;
+
+  Wallet get wallet;
+  @JsonKey(ignore: true)
+  $AccountSelectorDeletedCopyWith<AccountSelectorDeleted> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $AccountSelectorAddedCopyWith<$Res> {
+  factory $AccountSelectorAddedCopyWith(AccountSelectorAdded value,
+          $Res Function(AccountSelectorAdded) then) =
+      _$AccountSelectorAddedCopyWithImpl<$Res>;
+  $Res call({int? walletNumber});
+}
+
+/// @nodoc
+class _$AccountSelectorAddedCopyWithImpl<$Res>
+    extends _$AccountSelectorEventCopyWithImpl<$Res>
+    implements $AccountSelectorAddedCopyWith<$Res> {
+  _$AccountSelectorAddedCopyWithImpl(
+      AccountSelectorAdded _value, $Res Function(AccountSelectorAdded) _then)
+      : super(_value, (v) => _then(v as AccountSelectorAdded));
+
+  @override
+  AccountSelectorAdded get _value => super._value as AccountSelectorAdded;
+
+  @override
+  $Res call({
+    Object? walletNumber = freezed,
+  }) {
+    return _then(AccountSelectorAdded(
+      walletNumber: walletNumber == freezed
+          ? _value.walletNumber
+          : walletNumber // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AccountSelectorAdded
+    with DiagnosticableTreeMixin
+    implements AccountSelectorAdded {
+  const _$AccountSelectorAdded({this.walletNumber});
+
+  @override
+  final int? walletNumber;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'AccountSelectorEvent.accountAdded(walletNumber: $walletNumber)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'AccountSelectorEvent.accountAdded'))
+      ..add(DiagnosticsProperty('walletNumber', walletNumber));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is AccountSelectorAdded &&
+            const DeepCollectionEquality()
+                .equals(other.walletNumber, walletNumber));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(walletNumber));
+
+  @JsonKey(ignore: true)
+  @override
+  $AccountSelectorAddedCopyWith<AccountSelectorAdded> get copyWith =>
+      _$AccountSelectorAddedCopyWithImpl<AccountSelectorAdded>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialized,
+    required TResult Function(Wallet wallet) deleted,
+    required TResult Function(int? walletNumber) accountAdded,
+    required TResult Function(Wallet wallet) selected,
+  }) {
+    return accountAdded(walletNumber);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(Wallet wallet)? deleted,
+    TResult Function(int? walletNumber)? accountAdded,
+    TResult Function(Wallet wallet)? selected,
+  }) {
+    return accountAdded?.call(walletNumber);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialized,
+    TResult Function(Wallet wallet)? deleted,
+    TResult Function(int? walletNumber)? accountAdded,
+    TResult Function(Wallet wallet)? selected,
+    required TResult orElse(),
+  }) {
+    if (accountAdded != null) {
+      return accountAdded(walletNumber);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AccountSelectorInitialized value) initialized,
+    required TResult Function(AccountSelectorDeleted value) deleted,
+    required TResult Function(AccountSelectorAdded value) accountAdded,
+    required TResult Function(AccountSelectorSelected value) selected,
+  }) {
+    return accountAdded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(AccountSelectorInitialized value)? initialized,
+    TResult Function(AccountSelectorDeleted value)? deleted,
+    TResult Function(AccountSelectorAdded value)? accountAdded,
+    TResult Function(AccountSelectorSelected value)? selected,
+  }) {
+    return accountAdded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AccountSelectorInitialized value)? initialized,
+    TResult Function(AccountSelectorDeleted value)? deleted,
+    TResult Function(AccountSelectorAdded value)? accountAdded,
+    TResult Function(AccountSelectorSelected value)? selected,
+    required TResult orElse(),
+  }) {
+    if (accountAdded != null) {
+      return accountAdded(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AccountSelectorAdded implements AccountSelectorEvent {
+  const factory AccountSelectorAdded({int? walletNumber}) =
+      _$AccountSelectorAdded;
+
+  int? get walletNumber;
+  @JsonKey(ignore: true)
+  $AccountSelectorAddedCopyWith<AccountSelectorAdded> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -293,6 +655,8 @@ class _$AccountSelectorSelected
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialized,
+    required TResult Function(Wallet wallet) deleted,
+    required TResult Function(int? walletNumber) accountAdded,
     required TResult Function(Wallet wallet) selected,
   }) {
     return selected(wallet);
@@ -302,6 +666,8 @@ class _$AccountSelectorSelected
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initialized,
+    TResult Function(Wallet wallet)? deleted,
+    TResult Function(int? walletNumber)? accountAdded,
     TResult Function(Wallet wallet)? selected,
   }) {
     return selected?.call(wallet);
@@ -311,6 +677,8 @@ class _$AccountSelectorSelected
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialized,
+    TResult Function(Wallet wallet)? deleted,
+    TResult Function(int? walletNumber)? accountAdded,
     TResult Function(Wallet wallet)? selected,
     required TResult orElse(),
   }) {
@@ -324,6 +692,8 @@ class _$AccountSelectorSelected
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(AccountSelectorInitialized value) initialized,
+    required TResult Function(AccountSelectorDeleted value) deleted,
+    required TResult Function(AccountSelectorAdded value) accountAdded,
     required TResult Function(AccountSelectorSelected value) selected,
   }) {
     return selected(this);
@@ -333,6 +703,8 @@ class _$AccountSelectorSelected
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(AccountSelectorInitialized value)? initialized,
+    TResult Function(AccountSelectorDeleted value)? deleted,
+    TResult Function(AccountSelectorAdded value)? accountAdded,
     TResult Function(AccountSelectorSelected value)? selected,
   }) {
     return selected?.call(this);
@@ -342,6 +714,8 @@ class _$AccountSelectorSelected
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AccountSelectorInitialized value)? initialized,
+    TResult Function(AccountSelectorDeleted value)? deleted,
+    TResult Function(AccountSelectorAdded value)? accountAdded,
     TResult Function(AccountSelectorSelected value)? selected,
     required TResult orElse(),
   }) {

@@ -90,6 +90,31 @@ class RemoteRepository {
     return response;
   }
 
+  Future<Response> getTransactionHistory({
+    required String address,
+    required int page,
+    required int pageSize,
+  }) async {
+    Response response =
+        await _dio.get(AppEndpoint.transactionHistory, queryParameters: {
+      "address": address,
+      "page": page,
+      "pageSize": pageSize,
+    });
+    return response;
+  }
+
+  Future<Response> addAccount({
+    required String mnemonic,
+    required int walletNumber,
+  }) async {
+    Response response = await _dio.post(AppEndpoint.addAccount, data: {
+      "mnemonic": mnemonic,
+      "walletNumber": walletNumber,
+    });
+    return response;
+  }
+
   Future<Response> getOwnerNft(
       String addressOwner, List<String> collections) async {
     Response response = await _dio.get(AppEndpoint.collectionOwner,

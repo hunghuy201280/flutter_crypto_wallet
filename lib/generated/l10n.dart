@@ -441,10 +441,10 @@ class S {
   }
 
   /// `Protect your wallet by saving your Secret Recovery Phrase in various places like on a piece of paper, password manager and/or the cloud`
-  String get protectYourWalletDesription {
+  String get protectYourWalletDescription {
     return Intl.message(
       'Protect your wallet by saving your Secret Recovery Phrase in various places like on a piece of paper, password manager and/or the cloud',
-      name: 'protectYourWalletDesription',
+      name: 'protectYourWalletDescription',
       desc: '',
       args: [],
     );
@@ -980,16 +980,6 @@ class S {
     );
   }
 
-  /// `Please Input Correct Amount`
-  String get pleaseInputCorrectAmount {
-    return Intl.message(
-      'Please Input Correct Amount',
-      name: 'pleaseInputCorrectAmount',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Import Collection`
   String get importCollection {
     return Intl.message(
@@ -1025,6 +1015,146 @@ class S {
     return Intl.message(
       'Valid Address Failure',
       name: 'validAddressFailure',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Transaction detail`
+  String get transactionDetail {
+    return Intl.message(
+      'Transaction detail',
+      name: 'transactionDetail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `From`
+  String get from {
+    return Intl.message(
+      'From',
+      name: 'from',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `To`
+  String get to {
+    return Intl.message(
+      'To',
+      name: 'to',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Exchange`
+  String get exchange {
+    return Intl.message(
+      'Exchange',
+      name: 'exchange',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Token detail`
+  String get tokenDetail {
+    return Intl.message(
+      'Token detail',
+      name: 'tokenDetail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Do you really want to remove this account?`
+  String get deleteAccountAlert {
+    return Intl.message(
+      'Do you really want to remove this account?',
+      name: 'deleteAccountAlert',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Yes, remove it`
+  String get removeIt {
+    return Intl.message(
+      'Yes, remove it',
+      name: 'removeIt',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Done`
+  String get done {
+    return Intl.message(
+      'Done',
+      name: 'done',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Show private key for “{accountName}”`
+  String showPrivateKeyFor(String accountName) {
+    return Intl.message(
+      'Show private key for “$accountName”',
+      name: 'showPrivateKeyFor',
+      desc: '',
+      args: [accountName],
+    );
+  }
+
+  /// `This is the private key for the current selected account. Never disclose this key. Anyone with your private key can fully control your account.`
+  String get showPrivateKeyDescription {
+    return Intl.message(
+      'This is the private key for the current selected account. Never disclose this key. Anyone with your private key can fully control your account.',
+      name: 'showPrivateKeyDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Show private key`
+  String get showPrivateKey {
+    return Intl.message(
+      'Show private key',
+      name: 'showPrivateKey',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Authenticate by fingerprint`
+  String get authenticateByFingerPrint {
+    return Intl.message(
+      'Authenticate by fingerprint',
+      name: 'authenticateByFingerPrint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Fingerprint not supported`
+  String get fingerprintNotSupported {
+    return Intl.message(
+      'Fingerprint not supported',
+      name: 'fingerprintNotSupported',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please Input Correct Amount`
+  String get pleaseInputCorrectAmount {
+    return Intl.message(
+      'Please Input Correct Amount',
+      name: 'pleaseInputCorrectAmount',
       desc: '',
       args: [],
     );

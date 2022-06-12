@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_crypto_wallet/configs/color_config.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../configs/app_config.dart';
 import '../../../configs/text_config.dart';
 import '../../../di/dependency_injection.dart';
 import '../../../generated/l10n.dart';
@@ -63,31 +64,32 @@ class _PasscodeBodyState extends State<PasscodeBody> {
           },
         ),
         16.verticalSpace,
-        Row(
-          children: [
-            Text(
-              s.signInWithBiometrics,
-              style: TextConfigs.kBody2_9,
-            ),
-            const Expanded(child: SizedBox()),
-            BlocSelector<PasscodeBloc, PasscodeState, bool>(
-              selector: (state) => state.isSignInBiometric,
-              builder: (context, isSignInBiometric) {
-                return Switch(
-                  materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                  hoverColor: AppColors.kColor6,
-                  activeColor: AppColors.kColor6,
-                  inactiveThumbColor: AppColors.kColor9,
-                  value: isSignInBiometric,
-                  onChanged: (value) {
-                    _bloc.add(
-                        PasscodeEvent.stateSignInWithBiometricsChanged(value));
-                  },
-                );
-              },
-            )
-          ],
-        )
+        if (AppConfigs.canAuthenticateWithBiometrics)
+          Row(
+            children: [
+              Text(
+                s.signInWithBiometrics,
+                style: TextConfigs.kBody2_9,
+              ),
+              const Expanded(child: SizedBox()),
+              BlocSelector<PasscodeBloc, PasscodeState, bool>(
+                selector: (state) => state.isSignInBiometric,
+                builder: (context, isSignInBiometric) {
+                  return Switch(
+                    materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                    hoverColor: AppColors.kColor6,
+                    activeColor: AppColors.kColor6,
+                    inactiveThumbColor: AppColors.kColor9,
+                    value: isSignInBiometric,
+                    onChanged: (value) {
+                      _bloc.add(PasscodeEvent.stateSignInWithBiometricsChanged(
+                          value));
+                    },
+                  );
+                },
+              )
+            ],
+          )
       ],
     );
   }

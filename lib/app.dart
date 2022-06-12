@@ -8,6 +8,7 @@ import 'package:flutter_crypto_wallet/utils/shared_widgets/loading/load.dart';
 import 'package:flutter_crypto_wallet/utils/utils.dart';
 import 'package:flutter_crypto_wallet/view_models/app_bloc/app_bloc.dart';
 import 'package:flutter_crypto_wallet/view_models/auth_bloc/auth_bloc.dart';
+import 'package:flutter_crypto_wallet/view_models/statistic_bloc/statistic_bloc.dart';
 import 'package:flutter_crypto_wallet/views/no_internet_screen.dart';
 import 'package:flutter_crypto_wallet/views/shared_widgets/app_loading_indicator.dart';
 import 'package:flutter_crypto_wallet/views/splash_screen.dart';
@@ -70,12 +71,7 @@ class _NFTAppState extends State<NFTApp> {
       onTap: () {
         FocusManager.instance.primaryFocus?.unfocus();
       },
-      child: MultiBlocProvider(
-        providers: [
-          BlocProvider<AuthBloc>(
-            create: (context) => getIt<AuthBloc>(),
-          ),
-        ],
+      child: BlocWrapper(
         child: ScreenUtilInit(
           designSize: const Size(390, 844),
           builder: (context, widget) {
@@ -111,6 +107,32 @@ class _NFTAppState extends State<NFTApp> {
           },
         ),
       ),
+    );
+  }
+}
+
+class BlocWrapper extends StatelessWidget {
+  const BlocWrapper({
+    Key? key,
+    required this.child,
+  }) : super(key: key);
+
+  final Widget child;
+  @override
+  Widget build(BuildContext context) {
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<AuthBloc>(
+          create: (context) => getIt<AuthBloc>(),
+        ),
+        BlocProvider<StatisticBloc>(
+          create: (context) => getIt<StatisticBloc>(
+            param1: context.read<AuthBloc>(),
+          ),
+          lazy: false,
+        ),
+      ],
+      child: child,
     );
   }
 }

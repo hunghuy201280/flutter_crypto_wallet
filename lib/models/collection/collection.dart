@@ -7,7 +7,7 @@ part 'collection.g.dart';
 @freezed
 class Collection with _$Collection {
   factory Collection({
-    String address,
+    required String address,
     String? name,
     String? symbol,
     List<Nft>? items,

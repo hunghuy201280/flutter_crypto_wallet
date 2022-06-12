@@ -4,7 +4,6 @@ part of 'change_password_bloc.dart';
 class ChangePasswordState with _$ChangePasswordState {
   const ChangePasswordState._();
   const factory ChangePasswordState({
-    required TextEditingController currentPassword,
     required TextEditingController newPassword,
     required TextEditingController reNewPassword,
     required bool isChecked,
@@ -13,7 +12,6 @@ class ChangePasswordState with _$ChangePasswordState {
 
   factory ChangePasswordState.initial() => ChangePasswordState(
         isChecked: false,
-        currentPassword: TextEditingController(),
         newPassword: TextEditingController(),
         reNewPassword: TextEditingController(),
         status: const Idle(),

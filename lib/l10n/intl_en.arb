@@ -53,7 +53,7 @@
   "currencyConversion": "Currency Conversion",
   "currentLanguage": "Current Language",
   "protectYourWallet": "Protect your wallet",
-  "protectYourWalletDesription": "Protect your wallet by saving your Secret Recovery Phrase in various places like on a piece of paper, password manager and/or the cloud",
+  "protectYourWalletDescription": "Protect your wallet by saving your Secret Recovery Phrase in various places like on a piece of paper, password manager and/or the cloud",
   "recoverySecretRecoveryPhrase" : "Recovery Secret Recovery Phrase",
   "passwordDescription" : "Choose a strong password to unclock Metamask app on your device. If you lose this password, you will need your Secret Recovery Phrase to re-import your wallet.",
   "changePassword" : "Change password",
@@ -114,9 +114,30 @@
   "error" :"Error",
   "alert" : "Alert",
   "withdrawSuccess" : "Withdraw Success",
-  "pleaseInputCorrectAmount" : "Please Input Correct Amount",
   "importCollection" : "Import Collection",
   "name" : "Name",
   "addCollection" : "Add Collection",
-  "validAddressFailure" : "Valid Address Failure"
+  "validAddressFailure" : "Valid Address Failure",
+  "transactionDetail" : "Transaction detail",
+  "from" : "From",
+  "to" : "To",
+  "exchange" : "Exchange",
+  "tokenDetail" : "Token detail",
+  "deleteAccountAlert" : "Do you really want to remove this account?",
+  "removeIt":"Yes, remove it",
+  "done":"Done",
+  "showPrivateKeyFor": "Show private key for “{accountName}”",
+  "@showPrivateKeyFor": {
+    "placeholders": {
+      "accountName": {
+        "type": "String"
+      }
+    }
+  },
+  "showPrivateKeyDescription": "This is the private key for the current selected account. Never disclose this key. Anyone with your private key can fully control your account.",
+  "showPrivateKey": "Show private key",
+  "authenticateByFingerPrint": "Authenticate by fingerprint",
+  "fingerprintNotSupported": "Fingerprint not supported",
+
+  "pleaseInputCorrectAmount" : "Please Input Correct Amount"
 }

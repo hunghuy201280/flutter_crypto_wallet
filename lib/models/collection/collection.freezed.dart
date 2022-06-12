@@ -23,7 +23,10 @@ class _$CollectionTearOff {
   const _$CollectionTearOff();
 
   _Collection call(
-      {String? address, String? name, String? symbol, List<Nft>? items}) {
+      {required String address,
+      String? name,
+      String? symbol,
+      List<Nft>? items}) {
     return _Collection(
       address: address,
       name: name,
@@ -42,7 +45,7 @@ const $Collection = _$CollectionTearOff();
 
 /// @nodoc
 mixin _$Collection {
-  String? get address => throw _privateConstructorUsedError;
+  String get address => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   String? get symbol => throw _privateConstructorUsedError;
   List<Nft>? get items => throw _privateConstructorUsedError;
@@ -58,7 +61,7 @@ abstract class $CollectionCopyWith<$Res> {
   factory $CollectionCopyWith(
           Collection value, $Res Function(Collection) then) =
       _$CollectionCopyWithImpl<$Res>;
-  $Res call({String? address, String? name, String? symbol, List<Nft>? items});
+  $Res call({String address, String? name, String? symbol, List<Nft>? items});
 }
 
 /// @nodoc
@@ -80,7 +83,7 @@ class _$CollectionCopyWithImpl<$Res> implements $CollectionCopyWith<$Res> {
       address: address == freezed
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -103,7 +106,7 @@ abstract class _$CollectionCopyWith<$Res> implements $CollectionCopyWith<$Res> {
           _Collection value, $Res Function(_Collection) then) =
       __$CollectionCopyWithImpl<$Res>;
   @override
-  $Res call({String? address, String? name, String? symbol, List<Nft>? items});
+  $Res call({String address, String? name, String? symbol, List<Nft>? items});
 }
 
 /// @nodoc
@@ -127,7 +130,7 @@ class __$CollectionCopyWithImpl<$Res> extends _$CollectionCopyWithImpl<$Res>
       address: address == freezed
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -147,13 +150,13 @@ class __$CollectionCopyWithImpl<$Res> extends _$CollectionCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Collection implements _Collection {
-  _$_Collection({this.address, this.name, this.symbol, this.items});
+  _$_Collection({required this.address, this.name, this.symbol, this.items});
 
   factory _$_Collection.fromJson(Map<String, dynamic> json) =>
       _$$_CollectionFromJson(json);
 
   @override
-  final String? address;
+  final String address;
   @override
   final String? name;
   @override
@@ -198,7 +201,7 @@ class _$_Collection implements _Collection {
 
 abstract class _Collection implements Collection {
   factory _Collection(
-      {String? address,
+      {required String address,
       String? name,
       String? symbol,
       List<Nft>? items}) = _$_Collection;
@@ -207,7 +210,7 @@ abstract class _Collection implements Collection {
       _$_Collection.fromJson;
 
   @override
-  String? get address;
+  String get address;
   @override
   String? get name;
   @override
