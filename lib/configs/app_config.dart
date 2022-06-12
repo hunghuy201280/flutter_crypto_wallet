@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:local_auth/local_auth.dart';
 
 import '../di/dependency_injection.dart';

@@ -12,31 +12,33 @@ import 'package:injectable/injectable.dart' as _i2;
 import '../constants/app_prefs.dart' as _i11;
 import '../models/prefs/configspref.dart' as _i5;
 import '../models/prefs/walletpref.dart' as _i10;
-import '../models/wallet/wallet.dart' as _i22;
-import '../services/local/local_provider.dart' as _i14;
+import '../services/local/local_provider.dart' as _i16;
 import '../services/local/local_repository.dart' as _i12;
 import '../services/remote/remote_provider.dart' as _i13;
 import '../services/remote/remote_repository.dart' as _i9;
 import '../view_models/account_selector_bloc/account_selector_bloc.dart'
-    as _i21;
+    as _i22;
 import '../view_models/app_bloc/app_bloc.dart' as _i3;
-import '../view_models/auth_bloc/auth_bloc.dart' as _i17;
+import '../view_models/auth_bloc/auth_bloc.dart' as _i15;
 import '../view_models/change_password_bloc/change_password_bloc.dart' as _i23;
-import '../view_models/create_wallet_bloc/create_wallet_bloc.dart' as _i24;
+import '../view_models/confirm_password_bloc/confirm_password_bloc.dart'
+    as _i24;
+import '../view_models/create_wallet_bloc/create_wallet_bloc.dart' as _i25;
 import '../view_models/dashboard_bloc/dashboard_bloc.dart' as _i6;
-import '../view_models/import_account_bloc/import_account_bloc.dart' as _i25;
+import '../view_models/import_account_bloc/import_account_bloc.dart' as _i26;
 import '../view_models/import_collection_bloc/import_collection_bloc.dart'
-    as _i26;
-import '../view_models/import_token_bloc/import_token_bloc.dart' as _i27;
-import '../view_models/import_wallet_bloc/import_wallet_bloc.dart' as _i28;
+    as _i27;
+import '../view_models/import_token_bloc/import_token_bloc.dart' as _i28;
+import '../view_models/import_wallet_bloc/import_wallet_bloc.dart' as _i29;
 import '../view_models/login_bloc/login_bloc.dart' as _i8;
-import '../view_models/onboard_cubit/onboard_cubit.dart' as _i15;
-import '../view_models/passcode_bloc/passcode_bloc.dart' as _i16;
-import '../view_models/splash_bloc/splash_bloc.dart' as _i18;
-import '../view_models/wallet_detail_bloc/wallet_detail_bloc.dart' as _i19;
-import '../view_models/withdraw_bloc/withdraw_bloc.dart' as _i20;
+import '../view_models/onboard_cubit/onboard_cubit.dart' as _i17;
+import '../view_models/passcode_bloc/passcode_bloc.dart' as _i18;
+import '../view_models/splash_bloc/splash_bloc.dart' as _i19;
+import '../view_models/statistic_bloc/statistic_bloc.dart' as _i14;
+import '../view_models/wallet_detail_bloc/wallet_detail_bloc.dart' as _i20;
+import '../view_models/withdraw_bloc/withdraw_bloc.dart' as _i21;
 import 'di_module/hive_module.dart'
-    as _i29; // ignore_for_file: unnecessary_lambdas
+    as _i30; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -64,40 +66,45 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
       _i12.LocalRepository(appPref: get<_i11.AppPref>()));
   gh.singleton<_i13.RemoteProvider>(
       _i13.RemoteProvider(repo: get<_i9.RemoteRepository>()));
-  gh.singleton<_i14.LocalProvider>(
-      _i14.LocalProvider(repo: get<_i12.LocalRepository>()));
-  gh.factory<_i15.OnboardCubit>(
-      () => _i15.OnboardCubit(get<_i14.LocalProvider>()));
-  gh.factoryParam<_i16.PasscodeBloc, _i17.AuthBloc, dynamic>((_authBloc, _) =>
-      _i16.PasscodeBloc(get<_i14.LocalProvider>(), _authBloc));
-  gh.factoryParam<_i18.SplashBloc, _i17.AuthBloc?, dynamic>(
-      (_authBloc, _) => _i18.SplashBloc(_authBloc, get<_i14.LocalProvider>()));
-  gh.factoryParam<_i19.WalletDetailBloc, _i17.AuthBloc, dynamic>(
-      (_authBloc, _) => _i19.WalletDetailBloc(
-          get<_i13.RemoteProvider>(), _authBloc, get<_i14.LocalProvider>()));
-  gh.factoryParam<_i20.WithdrawBloc, _i17.AuthBloc, dynamic>((_authBloc, _) =>
-      _i20.WithdrawBloc(
-          get<_i14.LocalProvider>(), get<_i13.RemoteProvider>(), _authBloc));
-  gh.factoryParam<_i21.AccountSelectorBloc, _i22.Wallet, _i17.AuthBloc>(
-      (_selectedWallet, _authBloc) => _i21.AccountSelectorBloc(_selectedWallet,
-          get<_i14.LocalProvider>(), _authBloc, get<_i13.RemoteProvider>()));
-  gh.factory<_i17.AuthBloc>(() => _i17.AuthBloc(get<_i14.LocalProvider>()));
+  gh.factoryParam<_i14.StatisticBloc, _i15.AuthBloc, dynamic>((authBloc, _) =>
+      _i14.StatisticBloc(
+          remoteProvider: get<_i13.RemoteProvider>(), authBloc: authBloc));
+  gh.singleton<_i16.LocalProvider>(
+      _i16.LocalProvider(repo: get<_i12.LocalRepository>()));
+  gh.factory<_i17.OnboardCubit>(
+      () => _i17.OnboardCubit(get<_i16.LocalProvider>()));
+  gh.factoryParam<_i18.PasscodeBloc, _i15.AuthBloc, dynamic>((_authBloc, _) =>
+      _i18.PasscodeBloc(get<_i16.LocalProvider>(), _authBloc));
+  gh.factoryParam<_i19.SplashBloc, _i15.AuthBloc?, dynamic>(
+      (_authBloc, _) => _i19.SplashBloc(_authBloc, get<_i16.LocalProvider>()));
+  gh.factoryParam<_i20.WalletDetailBloc, _i15.AuthBloc, dynamic>(
+      (_authBloc, _) => _i20.WalletDetailBloc(
+          get<_i13.RemoteProvider>(), _authBloc, get<_i16.LocalProvider>()));
+  gh.factoryParam<_i21.WithdrawBloc, _i15.AuthBloc, dynamic>((_authBloc, _) =>
+      _i21.WithdrawBloc(
+          get<_i16.LocalProvider>(), get<_i13.RemoteProvider>(), _authBloc));
+  gh.factoryParam<_i22.AccountSelectorBloc, _i15.AuthBloc, dynamic>(
+      (_authBloc, _) => _i22.AccountSelectorBloc(
+          get<_i16.LocalProvider>(), _authBloc, get<_i13.RemoteProvider>()));
+  gh.factory<_i15.AuthBloc>(() => _i15.AuthBloc(get<_i16.LocalProvider>()));
   gh.factory<_i23.ChangePasswordBloc>(
-      () => _i23.ChangePasswordBloc(get<_i14.LocalProvider>()));
-  gh.factoryParam<_i24.CreateWalletBloc, _i17.AuthBloc, dynamic>(
-      (_authBloc, _) => _i24.CreateWalletBloc(
-          get<_i13.RemoteProvider>(), get<_i14.LocalProvider>(), _authBloc));
-  gh.factory<_i25.ImportAccountBloc>(() => _i25.ImportAccountBloc(
-      get<_i13.RemoteProvider>(), get<_i14.LocalProvider>()));
-  gh.factoryParam<_i26.ImportCollectionBloc, _i17.AuthBloc, dynamic>(
-      (_authBloc, _) => _i26.ImportCollectionBloc(
-          get<_i13.RemoteProvider>(), get<_i14.LocalProvider>(), _authBloc));
-  gh.factory<_i27.ImportTokenBloc>(() => _i27.ImportTokenBloc(
-      get<_i13.RemoteProvider>(), get<_i14.LocalProvider>()));
-  gh.factoryParam<_i28.ImportWalletBloc, _i17.AuthBloc, dynamic>(
-      (_authBloc, _) => _i28.ImportWalletBloc(
-          get<_i13.RemoteProvider>(), get<_i14.LocalProvider>(), _authBloc));
+      () => _i23.ChangePasswordBloc(get<_i16.LocalProvider>()));
+  gh.factory<_i24.ConfirmPasswordBloc>(
+      () => _i24.ConfirmPasswordBloc(get<_i16.LocalProvider>()));
+  gh.factoryParam<_i25.CreateWalletBloc, _i15.AuthBloc, dynamic>(
+      (_authBloc, _) => _i25.CreateWalletBloc(
+          get<_i13.RemoteProvider>(), get<_i16.LocalProvider>(), _authBloc));
+  gh.factory<_i26.ImportAccountBloc>(() => _i26.ImportAccountBloc(
+      get<_i13.RemoteProvider>(), get<_i16.LocalProvider>()));
+  gh.factoryParam<_i27.ImportCollectionBloc, _i15.AuthBloc, dynamic>(
+      (_authBloc, _) => _i27.ImportCollectionBloc(
+          get<_i13.RemoteProvider>(), get<_i16.LocalProvider>(), _authBloc));
+  gh.factory<_i28.ImportTokenBloc>(() => _i28.ImportTokenBloc(
+      get<_i13.RemoteProvider>(), get<_i16.LocalProvider>()));
+  gh.factoryParam<_i29.ImportWalletBloc, _i15.AuthBloc, dynamic>(
+      (_authBloc, _) => _i29.ImportWalletBloc(
+          get<_i13.RemoteProvider>(), get<_i16.LocalProvider>(), _authBloc));
   return get;
 }
 
-class _$HiveModule extends _i29.HiveModule {}
+class _$HiveModule extends _i30.HiveModule {}

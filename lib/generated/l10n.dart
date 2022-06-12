@@ -980,6 +980,46 @@ class S {
     );
   }
 
+  /// `Import Collection`
+  String get importCollection {
+    return Intl.message(
+      'Import Collection',
+      name: 'importCollection',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Name`
+  String get name {
+    return Intl.message(
+      'Name',
+      name: 'name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add Collection`
+  String get addCollection {
+    return Intl.message(
+      'Add Collection',
+      name: 'addCollection',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Valid Address Failure`
+  String get validAddressFailure {
+    return Intl.message(
+      'Valid Address Failure',
+      name: 'validAddressFailure',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Transaction detail`
   String get transactionDetail {
     return Intl.message(
@@ -1115,46 +1155,6 @@ class S {
     return Intl.message(
       'Please Input Correct Amount',
       name: 'pleaseInputCorrectAmount',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Import Collection`
-  String get importCollection {
-    return Intl.message(
-      'Import Collection',
-      name: 'importCollection',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Name`
-  String get name {
-    return Intl.message(
-      'Name',
-      name: 'name',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Add Collection`
-  String get addCollection {
-    return Intl.message(
-      'Add Collection',
-      name: 'addCollection',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Valid Address Failure`
-  String get validAddressFailure {
-    return Intl.message(
-      'Valid Address Failure',
-      name: 'validAddressFailure',
       desc: '',
       args: [],
     );
