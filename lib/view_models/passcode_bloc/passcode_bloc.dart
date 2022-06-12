@@ -22,6 +22,10 @@ class SignedInFailed extends Error {
   const SignedInFailed(this.error);
 }
 
+class WrongPasswordError extends Error {
+  const WrongPasswordError();
+}
+
 @injectable
 class PasscodeBloc extends Bloc<PasscodeEvent, PasscodeState> {
   final LocalProvider _localProvider;
@@ -36,10 +40,15 @@ class PasscodeBloc extends Bloc<PasscodeEvent, PasscodeState> {
       emit(state.copyWith(isSignInBiometric: event.isBiometrics));
     });
     on<_PasscodeInitialLoaded>((event, emit) {
+      final isSignInBiometric = _localProvider.isLoginWithBiometrics();
       emit(
         state.copyWith(
-            isSignInBiometric: _localProvider.isLoginWithBiometrics()),
+          isSignInBiometric: isSignInBiometric,
+        ),
       );
+      if (isSignInBiometric) {
+        add(const _PasscodeEventSignInWithBiometrics());
+      }
     });
     on<_PasscodeChanged>(
       (event, emit) => emit(state.copyWith(password: event.passCode)),
@@ -88,7 +97,7 @@ class PasscodeBloc extends Bloc<PasscodeEvent, PasscodeState> {
         _authBloc.add(AuthLoggedIn(wallet));
         emit(state.copyWith(status: const SignedInSuccess()));
       } else {
-        emit(state.copyWith(status: const SignedInFailed("Wrong password")));
+        emit(state.copyWith(status: const WrongPasswordError()));
       }
       emit(state.copyWith(status: const Idle()));
     });

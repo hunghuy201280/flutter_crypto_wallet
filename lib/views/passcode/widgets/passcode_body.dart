@@ -51,6 +51,9 @@ class _PasscodeBodyState extends State<PasscodeBody> {
               title: s.password,
               obscureText: true,
               hint: s.password,
+              onSubmitted: (_) {
+                _bloc.add(const PasscodeEvent.signInWithPasscode());
+              },
               onChanged: (value) {
                 _bloc.add(PasscodeEvent.passCodeChanged(passCode: value));
               },
