@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_crypto_wallet/configs/color_config.dart';
 import 'package:flutter_crypto_wallet/configs/text_config.dart';
+import 'package:flutter_crypto_wallet/constants/constants.dart';
 import 'package:flutter_crypto_wallet/generated/l10n.dart';
 import 'package:flutter_crypto_wallet/utils/extensions.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -46,7 +47,7 @@ class DepositBottomSheet extends StatelessWidget {
             ),
             16.verticalSpace,
             QrImage(
-              data: walletAddress,
+              data: "$kUniLinkScheme://$kActionWithdraw?address=$walletAddress",
               version: QrVersions.auto,
               size: 240,
             ),

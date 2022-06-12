@@ -51,18 +51,18 @@ class _ImportWalletScreenState extends State<ImportWalletScreen> {
               case ImportWalletErrorState:
                 switch (state.status.data as ImportWalletErrorState) {
                   case ImportWalletErrorState.passwordNotMatch:
-                    showInfoDialog(context, message: s.passwordNotMatch);
+                    showErrorDialog(context, message: s.passwordNotMatch);
                     break;
                   case ImportWalletErrorState.passwordEmpty:
-                    showInfoDialog(context, message: s.passwordIsNotEmpty);
+                    showErrorDialog(context, message: s.passwordIsNotEmpty);
                     break;
                   case ImportWalletErrorState.networkError:
                     break;
                   case ImportWalletErrorState.policyAccept:
-                    showInfoDialog(context, message: s.pleaseAcceptPolicy);
+                    showErrorDialog(context, message: s.pleaseAcceptPolicy);
                     break;
                   case ImportWalletErrorState.passwordNotMeetCondition:
-                    showInfoDialog(context,
+                    showErrorDialog(context,
                         message: s.passwordNotMeetCondition);
                     break;
                 }

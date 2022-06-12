@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_crypto_wallet/constants/constants.dart';
 import 'package:flutter_crypto_wallet/views/withdraw_token/withdraw_screen.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 
@@ -22,11 +23,17 @@ class _QRScanScreenState extends State<QRScanScreen> {
             debugPrint('Failed to scan Barcode');
           } else {
             final String code = barcode.rawValue!;
-            if (code.contains("wikipedia")) {
+            if (code.contains("$kUniLinkScheme://$kActionWithdraw?address=")) {
               if (!isFound) {
                 isFound = true;
 
-                Navigator.pushReplacementNamed(context, WithdrawScreen.id);
+                final address = code.replaceAll(
+                    "$kUniLinkScheme://$kActionWithdraw?address=", "");
+                Navigator.pushReplacementNamed(
+                  context,
+                  WithdrawScreen.id,
+                  arguments: address,
+                );
               }
             }
             debugPrint('Barcode found! $code');

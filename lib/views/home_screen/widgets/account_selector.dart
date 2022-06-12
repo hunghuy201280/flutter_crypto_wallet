@@ -3,12 +3,12 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_crypto_wallet/utils/extensions.dart';
+import 'package:flutter_crypto_wallet/utils/jazzicon/jazziconshape.dart';
 import 'package:flutter_crypto_wallet/views/create_wallet/create_wallet_screen.dart';
 import 'package:flutter_crypto_wallet/views/import_account/import_account_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
-import '../../../configs/app_config.dart';
 import '../../../configs/color_config.dart';
 import '../../../configs/text_config.dart';
 import '../../../generated/l10n.dart';
@@ -79,6 +79,7 @@ class _AccountSelectorState extends State<AccountSelector> {
                         onSelected: () {
                           bloc.add(AccountSelectorEvent.selected(item));
                         },
+                        avatarData: item.avatar!,
                       );
                     },
                     separatorBuilder: (_, __) => divider,
@@ -130,6 +131,7 @@ class AccountItem extends StatelessWidget {
     this.imported = false,
     this.selected = false,
     required this.onSelected,
+    required this.avatarData,
   }) : super(key: key);
 
   final String name;
@@ -137,7 +139,7 @@ class AccountItem extends StatelessWidget {
   final bool imported;
   final bool selected;
   final GestureTapCallback onSelected;
-
+  final JazziconData avatarData;
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -148,7 +150,7 @@ class AccountItem extends StatelessWidget {
           children: [
             PrimaryAvatar(
               size: 64.w,
-              imageUrl: AppConfigs.tempImage,
+              data: avatarData,
             ),
             16.horizontalSpace,
             Column(

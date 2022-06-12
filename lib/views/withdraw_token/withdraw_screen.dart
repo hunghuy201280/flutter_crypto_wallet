@@ -13,12 +13,14 @@ import 'package:flutter_crypto_wallet/views/shared_widgets/primary_text_field.da
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tuple/tuple.dart';
 
+import '../../di/dependency_injection.dart';
 import '../../generated/l10n.dart';
+import '../../services/local/local_provider.dart';
 
 class WithdrawScreen extends StatefulWidget {
   static const id = '/withdraw';
-  const WithdrawScreen({Key? key}) : super(key: key);
-
+  const WithdrawScreen({Key? key, this.initialAddress}) : super(key: key);
+  final String? initialAddress;
   @override
   State<WithdrawScreen> createState() => _WithdrawScreenState();
 }
@@ -31,13 +33,16 @@ class _WithdrawScreenState extends State<WithdrawScreen> {
       resizeToAvoidBottomInset: false,
       backgroundColor: AppColors.kColor1,
       appBar: Utils.buildAppBar(context, title: s.withdraw, centerTitle: true),
-      body: const _BodyScreen(),
+      body: _BodyScreen(
+        initialAddress: widget.initialAddress,
+      ),
     );
   }
 }
 
 class _BodyScreen extends StatefulWidget {
-  const _BodyScreen({Key? key}) : super(key: key);
+  const _BodyScreen({Key? key, this.initialAddress}) : super(key: key);
+  final String? initialAddress;
 
   @override
   State<_BodyScreen> createState() => __BodyScreenState();
@@ -46,13 +51,15 @@ class _BodyScreen extends StatefulWidget {
 class __BodyScreenState extends State<_BodyScreen> {
   late WithdrawBloc _bloc;
   late FocusNode _focusNode;
+  bool isInitialLoaded = false;
   @override
   void initState() {
     _bloc = context.read<WithdrawBloc>();
     _focusNode = FocusNode();
     super.initState();
+    _bloc.add(const WithdrawEvent.initialData());
+
     WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
-      _bloc.add(const WithdrawEvent.initialData());
       _focusNode.addListener(checkFocusAddress);
     });
   }
@@ -70,6 +77,7 @@ class __BodyScreenState extends State<_BodyScreen> {
     super.dispose();
   }
 
+  final _localProvider = getIt<LocalProvider>();
   @override
   Widget build(BuildContext context) {
     final s = S.of(context);
@@ -94,6 +102,13 @@ class __BodyScreenState extends State<_BodyScreen> {
             break;
           case Idle:
             hideLoadingDialog();
+
+            if (widget.initialAddress != null && !isInitialLoaded) {
+              isInitialLoaded = true;
+              _bloc.state.controllerAddress.text = widget.initialAddress!;
+              _bloc.add(WithdrawEvent.onAddressChanged(widget.initialAddress!));
+              _bloc.add(const WithdrawEvent.validAddress());
+            }
             break;
           default:
             hideLoadingDialog();
@@ -134,7 +149,8 @@ class __BodyScreenState extends State<_BodyScreen> {
                                     (e) => DropdownIconMenuItem(
                                       title: e.symbol,
                                       value: e,
-                                      image: Image.network(e.imageUrl ?? ''),
+                                      image: e.avatar ??
+                                          _localProvider.getDefaultJazzicon(),
                                     ),
                                   )
                                   .toList(),

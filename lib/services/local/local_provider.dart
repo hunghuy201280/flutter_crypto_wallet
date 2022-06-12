@@ -1,7 +1,10 @@
+import 'package:flutter_crypto_wallet/utils/jazzicon/jazzicon.dart';
 import 'package:injectable/injectable.dart';
 
+import '../../constants/constants.dart';
 import '../../models/token/token.dart';
 import '../../models/wallet/wallet.dart';
+import '../../utils/jazzicon/jazziconshape.dart';
 import 'local_repository.dart';
 
 @singleton
@@ -28,7 +31,21 @@ class LocalProvider {
   }
 
   List<Wallet> getSavedWallets() {
-    return _repo.getSavedWallets();
+    var wallets = _repo.getSavedWallets();
+    if (wallets.any((element) => element.avatar == null)) {
+      final cloned = [...wallets];
+      wallets = cloned.map((e) {
+        if (e.avatar == null) {
+          final jazz = Jazzicon.getJazziconData(kJazziconSize);
+          final wallet = e.copyWith(avatar: jazz);
+          setSavedWallet(wallet);
+          return wallet;
+        }
+        return e;
+      }).toList();
+    }
+
+    return wallets;
   }
 
   Future setSavedWallets(List<Wallet> wallets) {
@@ -45,7 +62,11 @@ class LocalProvider {
 
   Future<void> addWallet({required Wallet wallet}) async {
     await _repo.addWallet(
-        value: wallet.copyWith(index: getSavedWallets().length + 1));
+      value: wallet.copyWith(
+        index: getSavedWallets().length + 1,
+        avatar: Jazzicon.getJazziconData(kJazziconSize),
+      ),
+    );
   }
 
   Future<void> removeAllWallets() async {
@@ -54,9 +75,13 @@ class LocalProvider {
 
   Wallet getSelectedWallet() {
     final selectedWalletAddress = _repo.getSelectedWallet();
-    final selectedWallet = _repo
-        .getSavedWallets()
+    var selectedWallet = getSavedWallets()
         .firstWhere((element) => element.address == selectedWalletAddress);
+    if (selectedWallet.avatar == null) {
+      final jazz = Jazzicon.getJazziconData(kJazziconSize);
+      selectedWallet = selectedWallet.copyWith(avatar: jazz);
+      setSavedWallet(selectedWallet);
+    }
     return selectedWallet;
   }
 
@@ -81,6 +106,10 @@ class LocalProvider {
     return _repo.getPasscode();
   }
 
+  JazziconData getDefaultJazzicon() {
+    return _repo.getDefaultJazzicon();
+  }
+
   Future<void> savePasscode({required String passCode}) async {
     await _repo.savePasscode(passCode: passCode);
   }
@@ -102,7 +131,13 @@ class LocalProvider {
   }
 
   Future<void> addSaveToken({required Token token}) async {
-    return _repo.addSaveToken(token: token);
+    return _repo.addSaveToken(
+      token: token.copyWith(
+        avatar: Jazzicon.getJazziconData(
+          kJazziconSize,
+        ),
+      ),
+    );
   }
 
   Future<void> deleteSaveToken({required Token token}) async {

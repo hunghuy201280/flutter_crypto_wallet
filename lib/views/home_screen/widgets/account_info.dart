@@ -5,7 +5,6 @@ import 'package:flutter_crypto_wallet/di/dependency_injection.dart';
 import 'package:flutter_crypto_wallet/utils/extensions.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../configs/app_config.dart';
 import '../../../configs/color_config.dart';
 import '../../../configs/text_config.dart';
 import '../../../utils/utils.dart';
@@ -39,8 +38,8 @@ class AccountInfo extends StatelessWidget {
                   children: [
                     PrimaryAvatar(
                       size: 64.w,
-                      imageUrl: AppConfigs.tempImage,
                       borderColor: AppColors.kColor9,
+                      data: state.wallet.avatar!,
                     ),
                     Column(
                       children: [

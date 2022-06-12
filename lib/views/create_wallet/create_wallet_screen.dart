@@ -53,18 +53,18 @@ class _CreateWalletScreenState extends State<CreateWalletScreen> {
               case CreateWalletErrorState:
                 switch (state.status.data as CreateWalletErrorState) {
                   case CreateWalletErrorState.passwordNotMatch:
-                    showInfoDialog(context, message: s.passwordNotMatch);
+                    showErrorDialog(context, message: s.passwordNotMatch);
                     break;
                   case CreateWalletErrorState.passwordEmpty:
-                    showInfoDialog(context, message: s.passwordIsNotEmpty);
+                    showErrorDialog(context, message: s.passwordIsNotEmpty);
                     break;
                   case CreateWalletErrorState.networkError:
                     break;
                   case CreateWalletErrorState.policyAccept:
-                    showInfoDialog(context, message: s.pleaseAcceptPolicy);
+                    showErrorDialog(context, message: s.pleaseAcceptPolicy);
                     break;
                   case CreateWalletErrorState.passwordNotMeetCondition:
-                    showInfoDialog(context,
+                    showErrorDialog(context,
                         message: s.passwordNotMeetCondition);
                     break;
                 }

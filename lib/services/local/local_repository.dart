@@ -1,5 +1,8 @@
 import 'package:flutter_crypto_wallet/configs/app_config.dart';
 import 'package:flutter_crypto_wallet/constants/app_prefs.dart';
+import 'package:flutter_crypto_wallet/constants/constants.dart';
+import 'package:flutter_crypto_wallet/utils/jazzicon/jazzicon.dart';
+import 'package:flutter_crypto_wallet/utils/jazzicon/jazziconshape.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../models/token/token.dart';
@@ -22,6 +25,7 @@ class LocalRepository {
 
   Future<void> saveStateFirstRunApp({required bool isFirstRun}) async {
     final config = _appPref.config;
+    await config.setDefaultJazzicon(Jazzicon.getJazziconData(kJazziconSize));
     await config.setFirstRun(isFirstRun);
   }
 
@@ -104,6 +108,16 @@ class LocalRepository {
   String getPasscode() {
     final wallet = _appPref.wallet;
     return wallet.passCode;
+  }
+
+  JazziconData getDefaultJazzicon() {
+    final jazziconData = _appPref.config.defaultJazzicon;
+    if (jazziconData == null) {
+      final newJazzicon = Jazzicon.getJazziconData(kJazziconSize);
+      _appPref.config.setDefaultJazzicon(newJazzicon);
+      return newJazzicon;
+    }
+    return jazziconData;
   }
 
   Future<void> savePasscode({required String passCode}) async {

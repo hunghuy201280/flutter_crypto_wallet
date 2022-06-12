@@ -28,13 +28,15 @@ class _$TokenTearOff {
       @HiveField(2) required int decimal,
       @HiveField(3) String? imageUrl,
       @HiveField(4) double balance = 0,
-      @HiveField(5) double amount = 0}) {
+      @HiveField(5) JazziconData? avatar,
+      @HiveField(6) double amount = 0}) {
     return _Token(
       address: address,
       symbol: symbol,
       decimal: decimal,
       imageUrl: imageUrl,
       balance: balance,
+      avatar: avatar,
       amount: amount,
     );
   }
@@ -60,6 +62,8 @@ mixin _$Token {
   @HiveField(4)
   double get balance => throw _privateConstructorUsedError;
   @HiveField(5)
+  JazziconData? get avatar => throw _privateConstructorUsedError;
+  @HiveField(6)
   double get amount => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -77,7 +81,10 @@ abstract class $TokenCopyWith<$Res> {
       @HiveField(2) int decimal,
       @HiveField(3) String? imageUrl,
       @HiveField(4) double balance,
-      @HiveField(5) double amount});
+      @HiveField(5) JazziconData? avatar,
+      @HiveField(6) double amount});
+
+  $JazziconDataCopyWith<$Res>? get avatar;
 }
 
 /// @nodoc
@@ -95,6 +102,7 @@ class _$TokenCopyWithImpl<$Res> implements $TokenCopyWith<$Res> {
     Object? decimal = freezed,
     Object? imageUrl = freezed,
     Object? balance = freezed,
+    Object? avatar = freezed,
     Object? amount = freezed,
   }) {
     return _then(_value.copyWith(
@@ -118,11 +126,26 @@ class _$TokenCopyWithImpl<$Res> implements $TokenCopyWith<$Res> {
           ? _value.balance
           : balance // ignore: cast_nullable_to_non_nullable
               as double,
+      avatar: avatar == freezed
+          ? _value.avatar
+          : avatar // ignore: cast_nullable_to_non_nullable
+              as JazziconData?,
       amount: amount == freezed
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
               as double,
     ));
+  }
+
+  @override
+  $JazziconDataCopyWith<$Res>? get avatar {
+    if (_value.avatar == null) {
+      return null;
+    }
+
+    return $JazziconDataCopyWith<$Res>(_value.avatar!, (value) {
+      return _then(_value.copyWith(avatar: value));
+    });
   }
 }
 
@@ -137,7 +160,11 @@ abstract class _$TokenCopyWith<$Res> implements $TokenCopyWith<$Res> {
       @HiveField(2) int decimal,
       @HiveField(3) String? imageUrl,
       @HiveField(4) double balance,
-      @HiveField(5) double amount});
+      @HiveField(5) JazziconData? avatar,
+      @HiveField(6) double amount});
+
+  @override
+  $JazziconDataCopyWith<$Res>? get avatar;
 }
 
 /// @nodoc
@@ -156,6 +183,7 @@ class __$TokenCopyWithImpl<$Res> extends _$TokenCopyWithImpl<$Res>
     Object? decimal = freezed,
     Object? imageUrl = freezed,
     Object? balance = freezed,
+    Object? avatar = freezed,
     Object? amount = freezed,
   }) {
     return _then(_Token(
@@ -179,6 +207,10 @@ class __$TokenCopyWithImpl<$Res> extends _$TokenCopyWithImpl<$Res>
           ? _value.balance
           : balance // ignore: cast_nullable_to_non_nullable
               as double,
+      avatar: avatar == freezed
+          ? _value.avatar
+          : avatar // ignore: cast_nullable_to_non_nullable
+              as JazziconData?,
       amount: amount == freezed
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
@@ -198,7 +230,8 @@ class _$_Token implements _Token {
       @HiveField(2) required this.decimal,
       @HiveField(3) this.imageUrl,
       @HiveField(4) this.balance = 0,
-      @HiveField(5) this.amount = 0});
+      @HiveField(5) this.avatar,
+      @HiveField(6) this.amount = 0});
 
   factory _$_Token.fromJson(Map<String, dynamic> json) =>
       _$$_TokenFromJson(json);
@@ -219,14 +252,17 @@ class _$_Token implements _Token {
   @override
   @HiveField(4)
   final double balance;
-  @JsonKey()
   @override
   @HiveField(5)
+  final JazziconData? avatar;
+  @JsonKey()
+  @override
+  @HiveField(6)
   final double amount;
 
   @override
   String toString() {
-    return 'Token(address: $address, symbol: $symbol, decimal: $decimal, imageUrl: $imageUrl, balance: $balance, amount: $amount)';
+    return 'Token(address: $address, symbol: $symbol, decimal: $decimal, imageUrl: $imageUrl, balance: $balance, avatar: $avatar, amount: $amount)';
   }
 
   @override
@@ -239,6 +275,7 @@ class _$_Token implements _Token {
             const DeepCollectionEquality().equals(other.decimal, decimal) &&
             const DeepCollectionEquality().equals(other.imageUrl, imageUrl) &&
             const DeepCollectionEquality().equals(other.balance, balance) &&
+            const DeepCollectionEquality().equals(other.avatar, avatar) &&
             const DeepCollectionEquality().equals(other.amount, amount));
   }
 
@@ -250,6 +287,7 @@ class _$_Token implements _Token {
       const DeepCollectionEquality().hash(decimal),
       const DeepCollectionEquality().hash(imageUrl),
       const DeepCollectionEquality().hash(balance),
+      const DeepCollectionEquality().hash(avatar),
       const DeepCollectionEquality().hash(amount));
 
   @JsonKey(ignore: true)
@@ -270,7 +308,8 @@ abstract class _Token implements Token {
       @HiveField(2) required int decimal,
       @HiveField(3) String? imageUrl,
       @HiveField(4) double balance,
-      @HiveField(5) double amount}) = _$_Token;
+      @HiveField(5) JazziconData? avatar,
+      @HiveField(6) double amount}) = _$_Token;
 
   factory _Token.fromJson(Map<String, dynamic> json) = _$_Token.fromJson;
 
@@ -291,6 +330,9 @@ abstract class _Token implements Token {
   double get balance;
   @override
   @HiveField(5)
+  JazziconData? get avatar;
+  @override
+  @HiveField(6)
   double get amount;
   @override
   @JsonKey(ignore: true)

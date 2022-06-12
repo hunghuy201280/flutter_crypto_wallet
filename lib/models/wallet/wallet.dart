@@ -1,4 +1,5 @@
 import 'package:flutter_crypto_wallet/constants/hive_configs.dart';
+import 'package:flutter_crypto_wallet/utils/jazzicon/jazziconshape.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive/hive.dart';
 
@@ -16,6 +17,7 @@ class Wallet with _$Wallet {
     @HiveField(2) @Default(false) bool isImportedWallet,
     @HiveField(3) Token? balanceToken,
     @HiveField(4) @Default(1) int index,
+    @HiveField(5) JazziconData? avatar,
   }) = _Wallet;
 
   factory Wallet.fromJson(Map<String, dynamic> json) => _$WalletFromJson(json);

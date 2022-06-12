@@ -21,11 +21,13 @@ class PrimaryTextField extends StatefulWidget {
     this.onChanged,
     this.focusNode,
     this.enable,
+    this.onSubmitted,
   }) : super(key: key);
 
   final TextEditingController? controller;
   final String? title;
   final String? hint;
+  final ValueChanged<String>? onSubmitted;
   final bool obscureText;
   final AutovalidateMode autovalidateMode;
   final FormFieldValidator<String>? validator;
@@ -100,6 +102,7 @@ class _PrimaryTextFieldState extends State<PrimaryTextField> {
           focusNode: widget.focusNode,
           style: TextConfigs.kBody2_9,
           obscureText: isHidden,
+          onFieldSubmitted: widget.onSubmitted,
           validator: widget.validator,
           maxLines: widget.maxLines ?? 1,
           textInputAction: widget.inputAction,

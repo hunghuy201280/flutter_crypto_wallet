@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_crypto_wallet/services/local/local_provider.dart';
 import 'package:flutter_crypto_wallet/utils/helpers/status.dart';
+import 'package:flutter_crypto_wallet/utils/utils.dart';
 import 'package:flutter_crypto_wallet/view_models/auth_bloc/auth_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -22,6 +23,10 @@ class SignedInFailed extends Error {
   const SignedInFailed(this.error);
 }
 
+class WrongPasswordError extends Error {
+  const WrongPasswordError();
+}
+
 @injectable
 class PasscodeBloc extends Bloc<PasscodeEvent, PasscodeState> {
   final LocalProvider _localProvider;
@@ -36,10 +41,15 @@ class PasscodeBloc extends Bloc<PasscodeEvent, PasscodeState> {
       emit(state.copyWith(isSignInBiometric: event.isBiometrics));
     });
     on<_PasscodeInitialLoaded>((event, emit) {
+      final isSignInBiometric = _localProvider.isLoginWithBiometrics();
       emit(
         state.copyWith(
-            isSignInBiometric: _localProvider.isLoginWithBiometrics()),
+          isSignInBiometric: isSignInBiometric,
+        ),
       );
+      if (isSignInBiometric) {
+        add(const _PasscodeEventSignInWithBiometrics());
+      }
     });
     on<_PasscodeChanged>(
       (event, emit) => emit(state.copyWith(password: event.passCode)),
@@ -68,7 +78,8 @@ class PasscodeBloc extends Bloc<PasscodeEvent, PasscodeState> {
               _authBloc.add(AuthLoggedIn(wallet));
               emit(state.copyWith(status: const SignedInSuccess()));
             }
-          } on PlatformException catch (e) {
+          } on PlatformException catch (e, trace) {
+            printLog(this, message: "Error", error: e, trace: trace);
             if (e.code == auth_error.notAvailable) {
               // Add handling of no hardware here.
             } else if (e.code == auth_error.notEnrolled) {
@@ -88,7 +99,7 @@ class PasscodeBloc extends Bloc<PasscodeEvent, PasscodeState> {
         _authBloc.add(AuthLoggedIn(wallet));
         emit(state.copyWith(status: const SignedInSuccess()));
       } else {
-        emit(state.copyWith(status: const SignedInFailed("Wrong password")));
+        emit(state.copyWith(status: const WrongPasswordError()));
       }
       emit(state.copyWith(status: const Idle()));
     });

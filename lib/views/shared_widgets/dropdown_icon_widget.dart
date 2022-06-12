@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_crypto_wallet/utils/extensions.dart';
+import 'package:flutter_crypto_wallet/utils/jazzicon/jazziconshape.dart';
 import 'package:flutter_crypto_wallet/views/shared_widgets/primary_avatar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -9,7 +10,7 @@ import '../../configs/text_config.dart';
 class DropdownIconMenuItem<T> {
   final String title;
   final T value;
-  final Image image;
+  final JazziconData image;
   DropdownIconMenuItem(
       {required this.title, required this.value, required this.image});
 }
@@ -55,7 +56,7 @@ class _DropdownIconWidgetState<T> extends State<DropdownIconWidget<T>> {
                     child: Row(mainAxisSize: MainAxisSize.min, children: [
                       PrimaryAvatar(
                         size: 28.w,
-                        image: e.image.image,
+                        data: e.image,
                       ),
                       14.horizontalSpace,
                       Text(

@@ -40,11 +40,11 @@ class _ImportAccountScreenState extends State<ImportAccountScreen> {
         switch (status.runtimeType) {
           case InvalidPrivateKeyError:
             hideLoadingDialog();
-            showInfoDialog(context, message: s.invalidPrivateKey);
+            showErrorDialog(context, message: s.invalidPrivateKey);
             break;
           case DuplicateAccountError:
             hideLoadingDialog();
-            showInfoDialog(context, message: s.duplicateAccount);
+            showErrorDialog(context, message: s.duplicateAccount);
             break;
           case Loading:
             showLoadingDialog();

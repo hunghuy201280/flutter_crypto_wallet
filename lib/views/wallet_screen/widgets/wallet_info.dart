@@ -1,7 +1,6 @@
 import 'package:clipboard/clipboard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_crypto_wallet/configs/app_config.dart';
 import 'package:flutter_crypto_wallet/configs/color_config.dart';
 import 'package:flutter_crypto_wallet/configs/text_config.dart';
 import 'package:flutter_crypto_wallet/utils/extensions.dart';
@@ -34,8 +33,8 @@ class _WalletInfoState extends State<WalletInfo> {
             children: [
               PrimaryAvatar(
                 size: 88.w,
-                imageUrl: AppConfigs.tempImage,
                 borderColor: AppColors.kColor9,
+                data: state.wallet.avatar!,
               ),
               16.verticalSpace,
               Text(

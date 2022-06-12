@@ -160,9 +160,12 @@ class AppRoute {
       case WithdrawScreen.id:
         return CupertinoPageRoute(
           builder: (context) => BlocProvider(
-              create: (context) =>
-                  getIt.call<WithdrawBloc>(param1: context.read<AuthBloc>()),
-              child: const WithdrawScreen()),
+            create: (context) =>
+                getIt.call<WithdrawBloc>(param1: context.read<AuthBloc>()),
+            child: WithdrawScreen(
+              initialAddress: settings.arguments as String?,
+            ),
+          ),
         );
       default:
         return _errorRoute();

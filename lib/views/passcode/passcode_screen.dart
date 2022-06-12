@@ -8,6 +8,7 @@ import 'package:flutter_crypto_wallet/views/loading_screen.dart';
 import 'package:flutter_crypto_wallet/views/passcode/widgets/passcode_bottom.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../generated/l10n.dart';
 import '../../view_models/passcode_bloc/passcode_bloc.dart';
 import 'widgets/passcode_body.dart';
 
@@ -30,6 +31,7 @@ class _PasscodeScreenState extends State<PasscodeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final s = S.of(context);
     return BlocListener<PasscodeBloc, PasscodeState>(
       listener: (context, state) {
         final status = state.status;
@@ -37,9 +39,9 @@ class _PasscodeScreenState extends State<PasscodeScreen> {
           hideLoadingDialog();
           Navigator.pushNamedAndRemoveUntil(
               context, LoadingScreen.id, (route) => false);
-        } else if (status is SignedInFailed) {
+        } else if (status is WrongPasswordError) {
           hideLoadingDialog();
-          showInfoDialog(context, message: status.error);
+          showErrorDialog(context, message: s.wrongPassword);
           printLog(this, message: "$state");
         } else if (status is Loading) {
           showLoadingDialog();
