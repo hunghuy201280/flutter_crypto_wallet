@@ -28,6 +28,8 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m2(num) => "Must be at least ${num} characters";
 
+  static String m3(accountName) => "Show private key for “${accountName}”";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "about": MessageLookupByLibrary.simpleMessage("About"),
@@ -60,6 +62,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "deleteAccountAlert": MessageLookupByLibrary.simpleMessage(
             "Do you really want to remove this account?"),
         "depositCrypto": MessageLookupByLibrary.simpleMessage("Deposit Crypto"),
+        "done": MessageLookupByLibrary.simpleMessage("Done"),
         "dontGiveThisPrivateKeyToAnyone": MessageLookupByLibrary.simpleMessage(
             "Don’t give this privatekey to anyone!"),
         "dontSeeYourNFT":
@@ -129,7 +132,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "e.g. 570b05a4bcdbg97afdb8ae9cd1ad8cc55dfa7x1e5d25e4dse8b8c9379f5cgfe9"),
         "protectYourWallet":
             MessageLookupByLibrary.simpleMessage("Protect your wallet"),
-        "protectYourWalletDesription": MessageLookupByLibrary.simpleMessage(
+        "protectYourWalletDescription": MessageLookupByLibrary.simpleMessage(
             "Protect your wallet by saving your Secret Recovery Phrase in various places like on a piece of paper, password manager and/or the cloud"),
         "receive": MessageLookupByLibrary.simpleMessage("Receive"),
         "recoverySecretRecoveryPhrase": MessageLookupByLibrary.simpleMessage(
@@ -146,6 +149,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "seeAll": MessageLookupByLibrary.simpleMessage("See all"),
         "send": MessageLookupByLibrary.simpleMessage("Send"),
         "show": MessageLookupByLibrary.simpleMessage("Show"),
+        "showPrivateKey":
+            MessageLookupByLibrary.simpleMessage("Show private key"),
+        "showPrivateKeyDescription": MessageLookupByLibrary.simpleMessage(
+            "This is the private key for the current selected account. Never disclose this key. Anyone with your private key can fully control your account."),
+        "showPrivateKeyFor": m3,
         "signIn": MessageLookupByLibrary.simpleMessage("Sign In"),
         "signInWithBiometrics":
             MessageLookupByLibrary.simpleMessage("Sign in with Biometrics ?"),

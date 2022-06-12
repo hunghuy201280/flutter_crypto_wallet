@@ -441,10 +441,10 @@ class S {
   }
 
   /// `Protect your wallet by saving your Secret Recovery Phrase in various places like on a piece of paper, password manager and/or the cloud`
-  String get protectYourWalletDesription {
+  String get protectYourWalletDescription {
     return Intl.message(
       'Protect your wallet by saving your Secret Recovery Phrase in various places like on a piece of paper, password manager and/or the cloud',
-      name: 'protectYourWalletDesription',
+      name: 'protectYourWalletDescription',
       desc: '',
       args: [],
     );
@@ -1045,6 +1045,46 @@ class S {
     return Intl.message(
       'Yes, remove it',
       name: 'removeIt',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Done`
+  String get done {
+    return Intl.message(
+      'Done',
+      name: 'done',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Show private key for “{accountName}”`
+  String showPrivateKeyFor(String accountName) {
+    return Intl.message(
+      'Show private key for “$accountName”',
+      name: 'showPrivateKeyFor',
+      desc: '',
+      args: [accountName],
+    );
+  }
+
+  /// `This is the private key for the current selected account. Never disclose this key. Anyone with your private key can fully control your account.`
+  String get showPrivateKeyDescription {
+    return Intl.message(
+      'This is the private key for the current selected account. Never disclose this key. Anyone with your private key can fully control your account.',
+      name: 'showPrivateKeyDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Show private key`
+  String get showPrivateKey {
+    return Intl.message(
+      'Show private key',
+      name: 'showPrivateKey',
       desc: '',
       args: [],
     );

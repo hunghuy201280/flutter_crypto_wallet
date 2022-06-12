@@ -20,6 +20,7 @@ import 'package:flutter_crypto_wallet/views/withdraw_token/withdraw_screen.dart'
 
 import '../di/dependency_injection.dart';
 import '../view_models/auth_bloc/auth_bloc.dart';
+import '../view_models/confirm_password_bloc/confirm_password_bloc.dart';
 import '../view_models/create_wallet_bloc/create_wallet_bloc.dart';
 import '../view_models/import_account_bloc/import_account_bloc.dart';
 import '../view_models/import_token_bloc/import_token_bloc.dart';
@@ -32,7 +33,9 @@ import '../views/import_wallet/import_wallet_success_screen.dart';
 import '../views/nav_bar_view/nav_bar_view.dart';
 import '../views/no_internet_screen.dart';
 import '../views/qr_scan_screen.dart';
+import '../views/recover_mnenomic_phrase/recover_mnemonic_screen.dart';
 import '../views/settings_screen/general/general_screen.dart';
+import '../views/show_private_key_screen/show_private_key_screen.dart';
 import '../views/webview/webview_screen.dart';
 
 class AppRoute {
@@ -120,8 +123,11 @@ class AppRoute {
         );
       case ChangePasswordScreen.id:
         return CupertinoPageRoute(
-          builder: (context) => BlocProvider(
-            create: (context) => getIt<ChangePasswordBloc>(),
+          builder: (context) => MultiBlocProvider(
+            providers: [
+              BlocProvider(create: (_) => getIt<ChangePasswordBloc>()),
+              BlocProvider(create: (_) => getIt<ConfirmPasswordBloc>()),
+            ],
             child: const ChangePasswordScreen(),
           ),
           settings: settings,
@@ -129,6 +135,22 @@ class AppRoute {
       case GeneralScreen.id:
         return CupertinoPageRoute(
           builder: (context) => const GeneralScreen(),
+          settings: settings,
+        );
+      case RecoverMnemonicScreen.id:
+        return CupertinoPageRoute(
+          builder: (context) => BlocProvider(
+            create: (_) => getIt<ConfirmPasswordBloc>(),
+            child: const RecoverMnemonicScreen(),
+          ),
+          settings: settings,
+        );
+      case ShowPrivateKeyScreen.id:
+        return CupertinoPageRoute(
+          builder: (context) => BlocProvider(
+            create: (_) => getIt<ConfirmPasswordBloc>(),
+            child: const ShowPrivateKeyScreen(),
+          ),
           settings: settings,
         );
       case LoadingScreen.id:

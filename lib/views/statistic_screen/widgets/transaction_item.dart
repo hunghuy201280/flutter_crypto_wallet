@@ -46,7 +46,7 @@ class TransactionItem extends StatelessWidget {
       case TransactionType.deposit:
         return "${s.from}: ${transaction.from.shortFor()}";
       case TransactionType.swap:
-        return "${s.exchange}: ";
+        return s.exchange;
       case TransactionType.withdraw:
         return "${s.to}: ${transaction.to!.shortFor()}";
       default:
@@ -90,13 +90,13 @@ class TransactionItem extends StatelessWidget {
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
-                  color: color.withOpacity(0.65),
+                  color: color,
                 ),
                 width: 48.w,
                 height: 48.w,
                 child: Center(
                   child: icon.getIcon(
-                    color: color,
+                    color: AppColors.kColor9,
                     width: 16.w,
                     height: 16.w,
                   ),

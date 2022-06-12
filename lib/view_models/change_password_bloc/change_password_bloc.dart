@@ -11,8 +11,6 @@ part 'change_password_event.dart';
 part 'change_password_state.dart';
 
 enum ChangePasswordEventType {
-  wrongPassword,
-  correctPassword,
   reNewPasswordIsNotIdentical,
   passwordChangedSuccessfully,
   notChecked,
@@ -30,21 +28,6 @@ class ChangePasswordBloc
 
   //#region mapEventToState
   void _mapEventToState() {
-    on<ChangePasswordConfirmed>((event, emit) {
-      final password = localProvider.getPasscode();
-      if (password != state.currentPassword.text.trim()) {
-        _emitStatus(
-            const Error<ChangePasswordEventType>(
-                ChangePasswordEventType.wrongPassword),
-            emit);
-        return;
-      }
-      _emitStatus(
-        const Success<ChangePasswordEventType>(
-            ChangePasswordEventType.correctPassword),
-        emit,
-      );
-    });
     on<ChangePasswordSubmitted>((event, emit) async {
       if (!state.isChecked) {
         _emitStatus(

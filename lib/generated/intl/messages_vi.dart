@@ -28,6 +28,8 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m2(num) => "Phải chứa ít nhất ${num} kí tự";
 
+  static String m3(accountName) => "Xem private key của “${accountName}”";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "about": MessageLookupByLibrary.simpleMessage("Thông tin"),
@@ -58,6 +60,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "deleteAccountAlert": MessageLookupByLibrary.simpleMessage(
             "Bạn có thật sự muốn xoá account này?"),
         "depositCrypto": MessageLookupByLibrary.simpleMessage("Nạp tiền"),
+        "done": MessageLookupByLibrary.simpleMessage("Xong"),
         "dontGiveThisPrivateKeyToAnyone": MessageLookupByLibrary.simpleMessage(
             "Không tiết lộ private key này cho bất cứ ai!"),
         "dontSeeYourNFT":
@@ -128,8 +131,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Ví dụ 570b05a4bcdbg97afdb8ae9cd1ad8cc55dfa7x1e5d25e4dse8b8c9379f5cgfe9"),
         "protectYourWallet":
             MessageLookupByLibrary.simpleMessage("Protect your wallet"),
-        "protectYourWalletDesription": MessageLookupByLibrary.simpleMessage(
-            "Bảo vệ ví của bạn bằng cách lưu Cụm từ khôi phục bí mật của bạn ở nhiều nơi khác nhau như trên một mảnh giấy, trình quản lý mật khẩu và / hoặc đám mây"),
+        "protectYourWalletDescription": MessageLookupByLibrary.simpleMessage(
+            "Bảo vệ ví của bạn bằng cái lưu trữ cụm từ bí mật ở nhiều nới như trên giấy, các ứng dụng quản lý mật khẩu hoặc đám mây"),
         "receive": MessageLookupByLibrary.simpleMessage("Nhận"),
         "recoverySecretRecoveryPhrase": MessageLookupByLibrary.simpleMessage(
             "Khôi phục cụm từ khôi phục bí mật"),
@@ -145,6 +148,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "seeAll": MessageLookupByLibrary.simpleMessage("Xem tất cả"),
         "send": MessageLookupByLibrary.simpleMessage("Gửi"),
         "show": MessageLookupByLibrary.simpleMessage("Hiện"),
+        "showPrivateKey":
+            MessageLookupByLibrary.simpleMessage("Xem private key"),
+        "showPrivateKeyDescription": MessageLookupByLibrary.simpleMessage(
+            "Đây là private key của ví đang được chọn. Không được chia sẻ mã này cho bất kì ai. Bất cứ ai sở hũu private key đều có thể toàn quyền sở hữu ví của bạn"),
+        "showPrivateKeyFor": m3,
         "signIn": MessageLookupByLibrary.simpleMessage("Đăng nhập"),
         "signInWithBiometrics": MessageLookupByLibrary.simpleMessage(
             "Muốn đăng nhập bằng vân tay ?"),

@@ -21,7 +21,9 @@ import '../view_models/account_selector_bloc/account_selector_bloc.dart'
 import '../view_models/app_bloc/app_bloc.dart' as _i3;
 import '../view_models/auth_bloc/auth_bloc.dart' as _i15;
 import '../view_models/change_password_bloc/change_password_bloc.dart' as _i23;
-import '../view_models/create_wallet_bloc/create_wallet_bloc.dart' as _i24;
+import '../view_models/confirm_password_bloc/confirm_password_bloc.dart'
+    as _i24;
+import '../view_models/create_wallet_bloc/create_wallet_bloc.dart';
 import '../view_models/dashboard_bloc/dashboard_bloc.dart' as _i6;
 import '../view_models/import_account_bloc/import_account_bloc.dart' as _i25;
 import '../view_models/import_token_bloc/import_token_bloc.dart' as _i26;
@@ -85,8 +87,10 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
   gh.factory<_i15.AuthBloc>(() => _i15.AuthBloc(get<_i16.LocalProvider>()));
   gh.factory<_i23.ChangePasswordBloc>(
       () => _i23.ChangePasswordBloc(get<_i16.LocalProvider>()));
-  gh.factoryParam<_i24.CreateWalletBloc, _i15.AuthBloc, dynamic>(
-      (_authBloc, _) => _i24.CreateWalletBloc(
+  gh.factory<_i24.ConfirmPasswordBloc>(
+      () => _i24.ConfirmPasswordBloc(get<_i16.LocalProvider>()));
+  gh.factoryParam<CreateWalletBloc, _i15.AuthBloc, dynamic>((_authBloc, _) =>
+      CreateWalletBloc(
           get<_i13.RemoteProvider>(), get<_i16.LocalProvider>(), _authBloc));
   gh.factory<_i25.ImportAccountBloc>(() => _i25.ImportAccountBloc(
       get<_i13.RemoteProvider>(), get<_i16.LocalProvider>()));

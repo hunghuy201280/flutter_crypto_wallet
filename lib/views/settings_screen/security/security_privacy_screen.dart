@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_crypto_wallet/configs/color_config.dart';
 import 'package:flutter_crypto_wallet/utils/utils.dart';
+import 'package:flutter_crypto_wallet/views/recover_mnenomic_phrase/recover_mnemonic_screen.dart';
 import 'package:flutter_crypto_wallet/views/settings_screen/security/widgets/security_privacy_item.dart';
+import 'package:flutter_crypto_wallet/views/show_private_key_screen/show_private_key_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../generated/l10n.dart';
+import '../../../view_models/auth_bloc/auth_bloc.dart';
 import '../../forgot_password/change_password_screen.dart';
 
 class SecurityPrivacyScreen extends StatefulWidget {
@@ -31,9 +35,11 @@ class _SecurityPrivacyScreenState extends State<SecurityPrivacyScreen> {
         children: [
           SecurityPrivacyItem(
             title: s.protectYourWallet,
-            description: s.protectYourWalletDesription,
+            description: s.protectYourWalletDescription,
             btnTitle: s.recoverySecretRecoveryPhrase,
-            onClick: () {},
+            onClick: () {
+              Navigator.pushNamed(context, RecoverMnemonicScreen.id);
+            },
           ),
           16.verticalSpace,
           SecurityPrivacyItem(
@@ -42,6 +48,16 @@ class _SecurityPrivacyScreenState extends State<SecurityPrivacyScreen> {
             btnTitle: s.changePassword,
             onClick: () {
               Navigator.pushNamed(context, ChangePasswordScreen.id);
+            },
+          ),
+          16.verticalSpace,
+          SecurityPrivacyItem(
+            title: s.showPrivateKeyFor(
+                "Account ${(context.read<AuthBloc>().state as Authenticated).wallet.index}"),
+            description: s.showPrivateKeyDescription,
+            btnTitle: s.showPrivateKey,
+            onClick: () {
+              Navigator.pushNamed(context, ShowPrivateKeyScreen.id);
             },
           ),
         ],
