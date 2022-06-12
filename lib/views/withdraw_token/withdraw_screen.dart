@@ -13,7 +13,9 @@ import 'package:flutter_crypto_wallet/views/shared_widgets/primary_text_field.da
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tuple/tuple.dart';
 
+import '../../di/dependency_injection.dart';
 import '../../generated/l10n.dart';
+import '../../services/local/local_provider.dart';
 
 class WithdrawScreen extends StatefulWidget {
   static const id = '/withdraw';
@@ -75,6 +77,7 @@ class __BodyScreenState extends State<_BodyScreen> {
     super.dispose();
   }
 
+  final _localProvider = getIt<LocalProvider>();
   @override
   Widget build(BuildContext context) {
     final s = S.of(context);
@@ -146,7 +149,8 @@ class __BodyScreenState extends State<_BodyScreen> {
                                     (e) => DropdownIconMenuItem(
                                       title: e.symbol,
                                       value: e,
-                                      image: e.avatar!,
+                                      image: e.avatar ??
+                                          _localProvider.getDefaultJazzicon(),
                                     ),
                                   )
                                   .toList(),
