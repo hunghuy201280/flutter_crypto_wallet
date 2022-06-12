@@ -132,6 +132,8 @@
   },
   "showPrivateKeyDescription": "This is the private key for the current selected account. Never disclose this key. Anyone with your private key can fully control your account.",
   "showPrivateKey": "Show private key",
+  "authenticateByFingerPrint": "Authenticate by fingerprint",
+  "fingerprintNotSupported": "Fingerprint not supported",
 
   "pleaseInputCorrectAmount" : "Please Input Correct Amount"
 }

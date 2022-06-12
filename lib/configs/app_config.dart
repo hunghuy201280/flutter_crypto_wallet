@@ -1,3 +1,5 @@
+import 'package:local_auth/local_auth.dart';
+
 import '../di/dependency_injection.dart';
 
 class AppConfigs {
@@ -8,7 +10,15 @@ class AppConfigs {
   static const tempImage = "https://i.imgur.com/BsxRxlQ.png";
   static const kConnectionTimeOut = 20000;
   static const kReceiveTimeOut = 20000;
+  static final localAuth = LocalAuthentication();
+  static late final bool canAuthenticateWithBiometrics;
   static Future<void> initializeApp() async {
+    final List<BiometricType> availableBiometrics =
+        await localAuth.getAvailableBiometrics();
+    canAuthenticateWithBiometrics = await localAuth.canCheckBiometrics &&
+        await localAuth.isDeviceSupported() &&
+        (availableBiometrics.contains(BiometricType.strong) ||
+            availableBiometrics.contains(BiometricType.face));
     configureDependencies();
   }
 }

@@ -5,6 +5,8 @@ import 'package:injectable/injectable.dart';
 
 import '../../services/local/local_provider.dart';
 import '../../utils/helpers/status.dart';
+import '../../utils/utils.dart';
+import '../passcode_bloc/passcode_bloc.dart';
 
 part 'confirm_password_bloc.freezed.dart';
 part 'confirm_password_event.dart';
@@ -36,6 +38,28 @@ class ConfirmPasswordBloc
         emit,
       );
     });
+    on<ConfirmPasswordFingerprintAuthenticated>((event, emit) async {
+      emit(state.copyWith(status: const Loading()));
+      try {
+        final didAuthenticate = await Utils.authWithFingerprint();
+        if (didAuthenticate) {
+          _emitStatus(
+            const Success<ConfirmPasswordEventType>(
+                ConfirmPasswordEventType.correctPassword),
+            emit,
+          );
+        }
+      } catch (e, trace) {
+        printLog(this, message: "Error", trace: trace, error: e);
+        emit(state.copyWith(status: const FingerprintNotSupported()));
+      } finally {
+        emit(state.copyWith(status: const Idle()));
+      }
+    });
+    final isSignInBiometric = localProvider.isLoginWithBiometrics();
+    if (isSignInBiometric) {
+      add(const ConfirmPasswordFingerprintAuthenticated());
+    }
   }
   final LocalProvider localProvider;
 

@@ -2,12 +2,16 @@ import 'dart:math';
 
 import 'package:another_flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_animated_dialog/flutter_animated_dialog.dart';
+import 'package:flutter_crypto_wallet/configs/app_config.dart';
 import 'package:flutter_crypto_wallet/configs/color_config.dart';
 import 'package:flutter_crypto_wallet/utils/extensions.dart';
 import 'package:flutter_crypto_wallet/views/shared_widgets/base_dialog.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:local_auth/error_codes.dart' as auth_error;
+import 'package:local_auth/local_auth.dart';
 import 'package:shimmer/shimmer.dart';
 
 import '../configs/text_config.dart';
@@ -96,6 +100,37 @@ class Utils {
             },
       ),
     );
+  }
+
+  static Future<bool> authWithFingerprint() async {
+    final canAuthenticate = AppConfigs.canAuthenticateWithBiometrics;
+    final auth = AppConfigs.localAuth;
+    if (!canAuthenticate) {
+      throw "Biometric not supported";
+    }
+
+    try {
+      final bool didAuthenticate = await auth.authenticate(
+        localizedReason: 'Please authenticate to login app',
+        options: const AuthenticationOptions(useErrorDialogs: false),
+      );
+      if (didAuthenticate) {
+        return true;
+      }
+      return false;
+    } on PlatformException catch (e, trace) {
+      if (e.code == auth_error.notAvailable) {
+        printLog("[Utils][authWithFingerprint]",
+            message: "Error", error: "Fingerprint not available", trace: trace);
+      } else if (e.code == auth_error.notEnrolled) {
+        printLog("[Utils][authWithFingerprint]",
+            message: "Error", error: "Fingerprint not enrolled", trace: trace);
+      } else {
+        printLog("[Utils][authWithFingerprint]",
+            message: "Error", error: e, trace: trace);
+      }
+      return false;
+    }
   }
 
   static Widget get empty => const SizedBox.shrink();

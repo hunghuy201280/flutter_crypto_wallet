@@ -1090,6 +1090,26 @@ class S {
     );
   }
 
+  /// `Authenticate by fingerprint`
+  String get authenticateByFingerPrint {
+    return Intl.message(
+      'Authenticate by fingerprint',
+      name: 'authenticateByFingerPrint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Fingerprint not supported`
+  String get fingerprintNotSupported {
+    return Intl.message(
+      'Fingerprint not supported',
+      name: 'fingerprintNotSupported',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Please Input Correct Amount`
   String get pleaseInputCorrectAmount {
     return Intl.message(

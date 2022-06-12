@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_crypto_wallet/utils/extensions.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../configs/app_config.dart';
+import '../../configs/color_config.dart';
 import '../../configs/text_config.dart';
 import '../../generated/l10n.dart';
 import '../../utils/utils.dart';
@@ -53,6 +56,37 @@ class ConfirmPasswordBody extends StatelessWidget {
               bloc.add(const ConfirmPasswordConfirmed());
             },
           ),
+          if (AppConfigs.canAuthenticateWithBiometrics) ...[
+            16.verticalSpace,
+            Center(
+              child: Text(
+                s.or,
+                style: TextConfigs.kBody2_9,
+              ),
+            ),
+            Center(
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  primary: AppColors.kColor9,
+                ),
+                onPressed: () {
+                  bloc.add(const ConfirmPasswordFingerprintAuthenticated());
+                },
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    "fingerprint".getIcon(width: 24.w, height: 24.w),
+                    16.horizontalSpace,
+                    Text(
+                      s.logInWithBiometrics,
+                      style: TextConfigs.kBody2_9,
+                    )
+                  ],
+                ),
+              ),
+            ),
+          ]
         ],
       ),
     );

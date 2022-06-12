@@ -39,6 +39,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "address": MessageLookupByLibrary.simpleMessage("Địa chỉ"),
         "alert": MessageLookupByLibrary.simpleMessage("Thông báo"),
         "appName": MessageLookupByLibrary.simpleMessage("App Name"),
+        "authenticateByFingerPrint":
+            MessageLookupByLibrary.simpleMessage("Xác thực bằng vân tay"),
         "cancel": MessageLookupByLibrary.simpleMessage("Huỷ"),
         "changePassword": MessageLookupByLibrary.simpleMessage("Đổi mật khẩu"),
         "changePasswordSentence1": MessageLookupByLibrary.simpleMessage(
@@ -78,6 +80,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "exchange": MessageLookupByLibrary.simpleMessage("Quy đổi"),
         "exchangeCrypto":
             MessageLookupByLibrary.simpleMessage("Chuyển đổi tiền"),
+        "fingerprintNotSupported": MessageLookupByLibrary.simpleMessage(
+            "Thiết bị không hỗ trợ xác thực bằng vân tay"),
         "from": MessageLookupByLibrary.simpleMessage("Từ"),
         "general": MessageLookupByLibrary.simpleMessage("Chung"),
         "generalDescription": MessageLookupByLibrary.simpleMessage(

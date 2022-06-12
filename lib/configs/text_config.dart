@@ -52,6 +52,12 @@ class TextConfigs {
     fontWeight: FontWeight.w600,
     color: AppColors.kColor5,
   );
+  static final kSubtitle_6 = TextStyle(
+    fontSize: 20.sp,
+    fontFamily: kFontFamily,
+    fontWeight: FontWeight.w600,
+    color: AppColors.kColor6,
+  );
 
   static final kLabel_9 = TextStyle(
     fontSize: 16.sp,
@@ -92,6 +98,12 @@ class TextConfigs {
     fontFamily: kFontFamily,
     fontWeight: FontWeight.w300,
     color: AppColors.kColor9,
+  );
+  static final kBody2_6 = TextStyle(
+    fontSize: 16.sp,
+    fontFamily: kFontFamily,
+    fontWeight: FontWeight.w300,
+    color: AppColors.kColor6,
   );
   static final kBody2_1 = TextStyle(
     fontSize: 16.sp,

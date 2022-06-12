@@ -42,9 +42,11 @@ class _PasscodeScreenState extends State<PasscodeScreen> {
         } else if (status is WrongPasswordError) {
           hideLoadingDialog();
           showErrorDialog(context, message: s.wrongPassword);
-          printLog(this, message: "$state");
         } else if (status is Loading) {
           showLoadingDialog();
+        } else if (status is FingerprintNotSupported) {
+          hideLoadingDialog();
+          showErrorDialog(context, message: s.wrongPassword);
         } else {
           hideLoadingDialog();
         }

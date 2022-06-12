@@ -21,6 +21,10 @@ class _$ConfirmPasswordEventTearOff {
   ConfirmPasswordConfirmed confirmed() {
     return const ConfirmPasswordConfirmed();
   }
+
+  ConfirmPasswordFingerprintAuthenticated fingerprintAuthenticated() {
+    return const ConfirmPasswordFingerprintAuthenticated();
+  }
 }
 
 /// @nodoc
@@ -31,32 +35,41 @@ mixin _$ConfirmPasswordEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() confirmed,
+    required TResult Function() fingerprintAuthenticated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? confirmed,
+    TResult Function()? fingerprintAuthenticated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? confirmed,
+    TResult Function()? fingerprintAuthenticated,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ConfirmPasswordConfirmed value) confirmed,
+    required TResult Function(ConfirmPasswordFingerprintAuthenticated value)
+        fingerprintAuthenticated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(ConfirmPasswordConfirmed value)? confirmed,
+    TResult Function(ConfirmPasswordFingerprintAuthenticated value)?
+        fingerprintAuthenticated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ConfirmPasswordConfirmed value)? confirmed,
+    TResult Function(ConfirmPasswordFingerprintAuthenticated value)?
+        fingerprintAuthenticated,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -122,6 +135,7 @@ class _$ConfirmPasswordConfirmed implements ConfirmPasswordConfirmed {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() confirmed,
+    required TResult Function() fingerprintAuthenticated,
   }) {
     return confirmed();
   }
@@ -130,6 +144,7 @@ class _$ConfirmPasswordConfirmed implements ConfirmPasswordConfirmed {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? confirmed,
+    TResult Function()? fingerprintAuthenticated,
   }) {
     return confirmed?.call();
   }
@@ -138,6 +153,7 @@ class _$ConfirmPasswordConfirmed implements ConfirmPasswordConfirmed {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? confirmed,
+    TResult Function()? fingerprintAuthenticated,
     required TResult orElse(),
   }) {
     if (confirmed != null) {
@@ -150,6 +166,8 @@ class _$ConfirmPasswordConfirmed implements ConfirmPasswordConfirmed {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ConfirmPasswordConfirmed value) confirmed,
+    required TResult Function(ConfirmPasswordFingerprintAuthenticated value)
+        fingerprintAuthenticated,
   }) {
     return confirmed(this);
   }
@@ -158,6 +176,8 @@ class _$ConfirmPasswordConfirmed implements ConfirmPasswordConfirmed {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(ConfirmPasswordConfirmed value)? confirmed,
+    TResult Function(ConfirmPasswordFingerprintAuthenticated value)?
+        fingerprintAuthenticated,
   }) {
     return confirmed?.call(this);
   }
@@ -166,6 +186,8 @@ class _$ConfirmPasswordConfirmed implements ConfirmPasswordConfirmed {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ConfirmPasswordConfirmed value)? confirmed,
+    TResult Function(ConfirmPasswordFingerprintAuthenticated value)?
+        fingerprintAuthenticated,
     required TResult orElse(),
   }) {
     if (confirmed != null) {
@@ -177,6 +199,122 @@ class _$ConfirmPasswordConfirmed implements ConfirmPasswordConfirmed {
 
 abstract class ConfirmPasswordConfirmed implements ConfirmPasswordEvent {
   const factory ConfirmPasswordConfirmed() = _$ConfirmPasswordConfirmed;
+}
+
+/// @nodoc
+abstract class $ConfirmPasswordFingerprintAuthenticatedCopyWith<$Res> {
+  factory $ConfirmPasswordFingerprintAuthenticatedCopyWith(
+          ConfirmPasswordFingerprintAuthenticated value,
+          $Res Function(ConfirmPasswordFingerprintAuthenticated) then) =
+      _$ConfirmPasswordFingerprintAuthenticatedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$ConfirmPasswordFingerprintAuthenticatedCopyWithImpl<$Res>
+    extends _$ConfirmPasswordEventCopyWithImpl<$Res>
+    implements $ConfirmPasswordFingerprintAuthenticatedCopyWith<$Res> {
+  _$ConfirmPasswordFingerprintAuthenticatedCopyWithImpl(
+      ConfirmPasswordFingerprintAuthenticated _value,
+      $Res Function(ConfirmPasswordFingerprintAuthenticated) _then)
+      : super(
+            _value, (v) => _then(v as ConfirmPasswordFingerprintAuthenticated));
+
+  @override
+  ConfirmPasswordFingerprintAuthenticated get _value =>
+      super._value as ConfirmPasswordFingerprintAuthenticated;
+}
+
+/// @nodoc
+
+class _$ConfirmPasswordFingerprintAuthenticated
+    implements ConfirmPasswordFingerprintAuthenticated {
+  const _$ConfirmPasswordFingerprintAuthenticated();
+
+  @override
+  String toString() {
+    return 'ConfirmPasswordEvent.fingerprintAuthenticated()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ConfirmPasswordFingerprintAuthenticated);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() confirmed,
+    required TResult Function() fingerprintAuthenticated,
+  }) {
+    return fingerprintAuthenticated();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? confirmed,
+    TResult Function()? fingerprintAuthenticated,
+  }) {
+    return fingerprintAuthenticated?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? confirmed,
+    TResult Function()? fingerprintAuthenticated,
+    required TResult orElse(),
+  }) {
+    if (fingerprintAuthenticated != null) {
+      return fingerprintAuthenticated();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ConfirmPasswordConfirmed value) confirmed,
+    required TResult Function(ConfirmPasswordFingerprintAuthenticated value)
+        fingerprintAuthenticated,
+  }) {
+    return fingerprintAuthenticated(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ConfirmPasswordConfirmed value)? confirmed,
+    TResult Function(ConfirmPasswordFingerprintAuthenticated value)?
+        fingerprintAuthenticated,
+  }) {
+    return fingerprintAuthenticated?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ConfirmPasswordConfirmed value)? confirmed,
+    TResult Function(ConfirmPasswordFingerprintAuthenticated value)?
+        fingerprintAuthenticated,
+    required TResult orElse(),
+  }) {
+    if (fingerprintAuthenticated != null) {
+      return fingerprintAuthenticated(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ConfirmPasswordFingerprintAuthenticated
+    implements ConfirmPasswordEvent {
+  const factory ConfirmPasswordFingerprintAuthenticated() =
+      _$ConfirmPasswordFingerprintAuthenticated;
 }
 
 /// @nodoc

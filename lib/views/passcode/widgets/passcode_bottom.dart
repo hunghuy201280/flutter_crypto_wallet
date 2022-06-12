@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_crypto_wallet/configs/app_config.dart';
 import 'package:flutter_crypto_wallet/utils/extensions.dart';
 import 'package:flutter_crypto_wallet/view_models/passcode_bloc/passcode_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -32,26 +33,27 @@ class _PasscodeBottomState extends State<PasscodeBottom> {
       mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        TextButton(
-          style: TextButton.styleFrom(
-            primary: AppColors.kColor9,
+        if (AppConfigs.canAuthenticateWithBiometrics)
+          TextButton(
+            style: TextButton.styleFrom(
+              primary: AppColors.kColor9,
+            ),
+            onPressed: () {
+              _bloc.add(const PasscodeEvent.signInWithBiometrics());
+            },
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                "fingerprint".getIcon(width: 24.w, height: 24.w),
+                16.horizontalSpace,
+                Text(
+                  s.logInWithBiometrics,
+                  style: TextConfigs.kBody2_9,
+                )
+              ],
+            ),
           ),
-          onPressed: () {
-            _bloc.add(const PasscodeEvent.signInWithBiometrics());
-          },
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              "fingerprint".getIcon(width: 24.w, height: 24.w),
-              16.horizontalSpace,
-              Text(
-                s.logInWithBiometrics,
-                style: TextConfigs.kBody2_9,
-              )
-            ],
-          ),
-        ),
         32.verticalSpace,
         PrimaryButton(
           title: s.signIn,

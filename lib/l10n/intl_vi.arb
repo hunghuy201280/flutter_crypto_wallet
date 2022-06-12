@@ -106,5 +106,8 @@
   "showPrivateKeyFor": "Xem private key của “{accountName}”",
   "showPrivateKeyDescription": "Đây là private key của ví đang được chọn. Không được chia sẻ mã này cho bất kì ai. Bất cứ ai sở hũu private key đều có thể toàn quyền sở hữu ví của bạn",
   "showPrivateKey": "Xem private key",
+  "authenticateByFingerPrint": "Xác thực bằng vân tay",
+  "fingerprintNotSupported": "Thiết bị không hỗ trợ xác thực bằng vân tay",
+
   "pleaseInputCorrectAmount" : "Vui lòng nhập đúng số tiền"
 }

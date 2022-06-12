@@ -39,6 +39,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "address": MessageLookupByLibrary.simpleMessage("Address"),
         "alert": MessageLookupByLibrary.simpleMessage("Alert"),
         "appName": MessageLookupByLibrary.simpleMessage("App Name"),
+        "authenticateByFingerPrint":
+            MessageLookupByLibrary.simpleMessage("Authenticate by fingerprint"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "changePassword":
             MessageLookupByLibrary.simpleMessage("Change password"),
@@ -80,6 +82,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "exchange": MessageLookupByLibrary.simpleMessage("Exchange"),
         "exchangeCrypto":
             MessageLookupByLibrary.simpleMessage("Exchange Crypto"),
+        "fingerprintNotSupported":
+            MessageLookupByLibrary.simpleMessage("Fingerprint not supported"),
         "from": MessageLookupByLibrary.simpleMessage("From"),
         "general": MessageLookupByLibrary.simpleMessage("General"),
         "generalDescription": MessageLookupByLibrary.simpleMessage(
