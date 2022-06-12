@@ -31,7 +31,21 @@ class LocalProvider {
   }
 
   List<Wallet> getSavedWallets() {
-    return _repo.getSavedWallets();
+    var wallets = _repo.getSavedWallets();
+    if (wallets.any((element) => element.avatar == null)) {
+      final cloned = [...wallets];
+      wallets = cloned.map((e) {
+        if (e.avatar == null) {
+          final jazz = Jazzicon.getJazziconData(kJazziconSize);
+          final wallet = e.copyWith(avatar: jazz);
+          setSavedWallet(wallet);
+          return wallet;
+        }
+        return e;
+      }).toList();
+    }
+
+    return wallets;
   }
 
   Future setSavedWallets(List<Wallet> wallets) {
@@ -61,9 +75,13 @@ class LocalProvider {
 
   Wallet getSelectedWallet() {
     final selectedWalletAddress = _repo.getSelectedWallet();
-    final selectedWallet = _repo
-        .getSavedWallets()
+    var selectedWallet = getSavedWallets()
         .firstWhere((element) => element.address == selectedWalletAddress);
+    if (selectedWallet.avatar == null) {
+      final jazz = Jazzicon.getJazziconData(kJazziconSize);
+      selectedWallet = selectedWallet.copyWith(avatar: jazz);
+      setSavedWallet(selectedWallet);
+    }
     return selectedWallet;
   }
 
