@@ -5,6 +5,7 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import '../models/wallet/wallet.dart';
+import '../utils/jazzicon/jazziconshape.dart';
 
 class HiveConfigs {
   static final HiveConfigs _singleton = HiveConfigs._internal();
@@ -20,6 +21,8 @@ class HiveConfigs {
     final key = await getSecureKey();
     Hive.registerAdapter(WalletAdapter());
     Hive.registerAdapter(TokenAdapter());
+    Hive.registerAdapter(JazziconShapeAdapter());
+    Hive.registerAdapter(JazziconDataAdapter());
 
     await Hive.openBox(kConfig, encryptionCipher: HiveAesCipher(key));
     await Hive.openBox(kWallet, encryptionCipher: HiveAesCipher(key));
@@ -46,4 +49,6 @@ class HiveConfigs {
   static const kWallet = "WALLET_BOX";
   static const kWalletTypeId = 1;
   static const kTokenTypeId = 2;
+  static const kJazziconShapeId = 3;
+  static const kJazziconDataId = 4;
 }

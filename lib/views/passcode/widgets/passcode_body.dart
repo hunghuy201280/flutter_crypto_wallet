@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_crypto_wallet/configs/app_config.dart';
 import 'package:flutter_crypto_wallet/configs/color_config.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../configs/text_config.dart';
+import '../../../di/dependency_injection.dart';
 import '../../../generated/l10n.dart';
+import '../../../services/local/local_provider.dart';
 import '../../../view_models/passcode_bloc/passcode_bloc.dart';
 import '../../shared_widgets/primary_avatar.dart';
 import '../../shared_widgets/primary_text_field.dart';
@@ -26,6 +27,7 @@ class _PasscodeBodyState extends State<PasscodeBody> {
     _bloc = context.read<PasscodeBloc>();
   }
 
+  final localProvider = getIt<LocalProvider>();
   @override
   Widget build(BuildContext context) {
     final s = S.of(context);
@@ -36,7 +38,7 @@ class _PasscodeBodyState extends State<PasscodeBody> {
       children: [
         PrimaryAvatar(
           size: 96.w,
-          imageUrl: AppConfigs.tempImage,
+          data: localProvider.getSelectedWallet().avatar!,
         ),
         24.verticalSpace,
         Text(

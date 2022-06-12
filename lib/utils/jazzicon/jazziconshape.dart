@@ -10,33 +10,44 @@
 // colors: string[];
 // }
 
-import 'package:flutter/cupertino.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
-class JazziconShape {
-  double center;
-  double tx;
-  double ty;
-  double rotate;
-  Color fill;
+import '../../constants/hive_configs.dart';
 
-  JazziconShape(
-      {required this.center,
-      required this.tx,
-      required this.ty,
-      required this.rotate,
-      required this.fill});
+part 'jazziconshape.freezed.dart';
+part 'jazziconshape.g.dart';
 
-  @override
-  String toString() {
-    return "JazziconShape tx=$tx ty=$ty rotate=$rotate center=$center fill=$fill";
-  }
+@freezed
+class JazziconShape with _$JazziconShape {
+  // ignore: invalid_annotation_target
+  @JsonSerializable(explicitToJson: true)
+  @HiveType(
+      typeId: HiveConfigs.kJazziconShapeId, adapterName: "JazziconShapeAdapter")
+  const factory JazziconShape({
+    @HiveField(0) required double center,
+    @HiveField(1) required double tx,
+    @HiveField(2) required double ty,
+    @HiveField(3) required double rotate,
+    @HiveField(4) required int fill,
+  }) = _JazziconShape;
+
+  factory JazziconShape.fromJson(Map<String, dynamic> json) =>
+      _$JazziconShapeFromJson(json);
 }
 
-class JazziconData {
-  double size;
-  Color background;
-  List<JazziconShape> shapelist;
+@freezed
+class JazziconData with _$JazziconData {
+  // ignore: invalid_annotation_target
+  @JsonSerializable(explicitToJson: true)
+  @HiveType(
+      typeId: HiveConfigs.kJazziconDataId, adapterName: "JazziconDataAdapter")
+  const factory JazziconData({
+    @HiveField(0) required double size,
+    @HiveField(1) required int background,
+    @HiveField(2) required List<JazziconShape> shapelist,
+  }) = _JazziconData;
 
-  JazziconData(
-      {required this.size, required this.background, required this.shapelist});
+  factory JazziconData.fromJson(Map<String, dynamic> json) =>
+      _$JazziconDataFromJson(json);
 }

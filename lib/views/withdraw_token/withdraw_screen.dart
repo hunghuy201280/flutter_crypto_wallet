@@ -146,7 +146,7 @@ class __BodyScreenState extends State<_BodyScreen> {
                                     (e) => DropdownIconMenuItem(
                                       title: e.symbol,
                                       value: e,
-                                      image: Image.network(e.imageUrl ?? ''),
+                                      image: e.avatar!,
                                     ),
                                   )
                                   .toList(),

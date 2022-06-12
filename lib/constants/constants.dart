@@ -12,4 +12,6 @@ final logger = Logger(
 );
 
 const kUniLinkScheme = "cryptowallet";
-const kActionWithdraw="withdraw";
+const kActionWithdraw = "withdraw";
+
+const kJazziconSize = 150.0;

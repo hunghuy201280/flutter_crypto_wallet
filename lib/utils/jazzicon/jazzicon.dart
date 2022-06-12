@@ -9,16 +9,16 @@ import 'jazziconshape.dart';
 import 'mersennetwister19937.dart';
 
 const List<Color> colors = [
-  Color(0x01888C), // teal             '#01888C', // teal
-  Color(0xFC7500), // bright orange    '#FC7500', // bright orange
-  Color(0x034F5D), // dark teal        '#034F5D', // dark teal
-  Color(0xF73F01), // orangered        '#F73F01', // orangered
-  Color(0xFC1960), // magenta          '#FC1960', // magenta
-  Color(0xC7144C), // raspberry        '#C7144C', // raspberry
-  Color(0xF3C100), // goldenrod        '#F3C100', // goldenrod
-  Color(0x1598F2), // lightning blue   '#1598F2', // lightning blue
-  Color(0x2465E1), // sail blue        '#2465E1', // sail blue
-  Color(0xF19E02), // gold             '#F19E02', // gold
+  Color(0xff01888c), // teal             '#01888C', // teal
+  Color(0xfffc7500), // bright orange    '#FC7500', // bright orange
+  Color(0xff034f5d), // dark teal        '#034F5D', // dark teal
+  Color(0xfff73f01), // orangered        '#F73F01', // orangered
+  Color(0xfffc1960), // magenta          '#FC1960', // magenta
+  Color(0xffc7144c), // raspberry        '#C7144C', // raspberry
+  Color(0xfff3c100), // goldenrod        '#F3C100', // goldenrod
+  Color(0xff1598f2), // lightning blue   '#1598F2', // lightning blue
+  Color(0xff2465e1), // sail blue        '#2465E1', // sail blue
+  Color(0xfff19e02), // gold             '#F19E02', // gold
 ];
 
 const int wobble = 30;
@@ -28,7 +28,7 @@ const int shapeCount = 4;
 class Jazzicon {
   static JazziconData getJazziconData(double diameter,
       {int? seed, String? address}) {
-    if (address != null && address.trim().length > 0) {
+    if (address != null && address.trim().isNotEmpty) {
       address = address.toLowerCase();
       if (address.startsWith("0x")) {
         String sub = address.substring(2, 10);
@@ -51,7 +51,7 @@ class Jazzicon {
     }
 
     JazziconData jd = JazziconData(
-        size: diameter, background: background, shapelist: shapelist);
+        size: diameter, background: background.value, shapelist: shapelist);
     return jd;
   }
 
@@ -90,11 +90,12 @@ class Jazzicon {
     Color fill = _genColor(remainingColors, generator);
 
     return JazziconShape(
-        center: center,
-        tx: tx,
-        ty: ty,
-        rotate: double.parse(rot.toStringAsFixed(1)),
-        fill: fill);
+      center: center,
+      tx: tx,
+      ty: ty,
+      rotate: double.parse(rot.toStringAsFixed(1)),
+      fill: fill.value,
+    );
   }
 
   static Widget getIconWidget(JazziconData jd, {double? size}) {
@@ -109,13 +110,13 @@ class Jazzicon {
           child: Container(
             width: size ?? jd.size,
             height: size ?? jd.size,
-            color: jd.background,
+            color: Color(jd.background),
             child: Stack(
               children: jd.shapelist.map((shape) {
                 Widget sp = Container(
                   width: size ?? jd.size,
                   height: size ?? jd.size,
-                  color: shape.fill,
+                  color: Color(shape.fill),
                 );
 
                 Widget sp_r = Transform.rotate(

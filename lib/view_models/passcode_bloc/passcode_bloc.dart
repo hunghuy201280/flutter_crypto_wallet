@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_crypto_wallet/services/local/local_provider.dart';
 import 'package:flutter_crypto_wallet/utils/helpers/status.dart';
+import 'package:flutter_crypto_wallet/utils/utils.dart';
 import 'package:flutter_crypto_wallet/view_models/auth_bloc/auth_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -77,7 +78,8 @@ class PasscodeBloc extends Bloc<PasscodeEvent, PasscodeState> {
               _authBloc.add(AuthLoggedIn(wallet));
               emit(state.copyWith(status: const SignedInSuccess()));
             }
-          } on PlatformException catch (e) {
+          } on PlatformException catch (e, trace) {
+            printLog(this, message: "Error", error: e, trace: trace);
             if (e.code == auth_error.notAvailable) {
               // Add handling of no hardware here.
             } else if (e.code == auth_error.notEnrolled) {
