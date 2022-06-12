@@ -79,7 +79,11 @@ class _CreateWalletScreenState extends State<CreateWalletScreen> {
             break;
           case Success:
             hideLoadingDialog();
-            Navigator.pushNamed(context, LoadingScreen.id);
+            Navigator.pushNamedAndRemoveUntil(
+              context,
+              LoadingScreen.id,
+              (route) => false,
+            );
             break;
         }
       },

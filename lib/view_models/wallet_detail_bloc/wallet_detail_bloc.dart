@@ -25,6 +25,7 @@ class WalletDetailBloc extends Bloc<WalletDetailEvent, WalletDetailState> {
       : super(WalletDetailState.initial()) {
     _mapEventToState();
     add(const WalletDetailBalanceTokensLoaded());
+    add(const WalletDetailEvent.NFTsLoaded());
   }
   final RemoteProvider _remoteProvider;
   final LocalProvider _localProvider;

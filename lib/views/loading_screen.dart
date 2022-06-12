@@ -41,7 +41,11 @@ class _LoadingScreenState extends State<LoadingScreen> {
       );
       await _localProvider.setSavedWallet(updatedWallet);
       _authBloc.add(const AuthEvent.reloadSelectedWallet());
-      Navigator.pushNamed(context, NavBarView.id);
+      Navigator.pushNamedAndRemoveUntil(
+        context,
+        NavBarView.id,
+        (route) => false,
+      );
     } catch (e, trace) {
       printLog(this, message: "Error", error: e, trace: trace);
       _load();

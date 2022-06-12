@@ -80,6 +80,7 @@ class _WalletScreenState extends State<WalletScreen>
         BlocListener<AuthBloc, AuthState>(listener: (context, state) {
           if (state is Authenticated) {
             _bloc.add(const WalletDetailEvent.balanceTokensLoaded());
+            _bloc.add(const WalletDetailEvent.NFTsLoaded());
           }
         })
       ],
