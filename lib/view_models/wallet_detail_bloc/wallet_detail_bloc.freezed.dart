@@ -335,9 +335,12 @@ class _$WalletDetailStateTearOff {
   const _$WalletDetailStateTearOff();
 
   _WalletDetailState call(
-      {required List<Token> tokens, required Status<dynamic> status}) {
+      {required List<Token> tokens,
+      required List<Collection> collections,
+      required Status<dynamic> status}) {
     return _WalletDetailState(
       tokens: tokens,
+      collections: collections,
       status: status,
     );
   }
@@ -349,6 +352,7 @@ const $WalletDetailState = _$WalletDetailStateTearOff();
 /// @nodoc
 mixin _$WalletDetailState {
   List<Token> get tokens => throw _privateConstructorUsedError;
+  List<Collection> get collections => throw _privateConstructorUsedError;
   Status<dynamic> get status => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -361,7 +365,10 @@ abstract class $WalletDetailStateCopyWith<$Res> {
   factory $WalletDetailStateCopyWith(
           WalletDetailState value, $Res Function(WalletDetailState) then) =
       _$WalletDetailStateCopyWithImpl<$Res>;
-  $Res call({List<Token> tokens, Status<dynamic> status});
+  $Res call(
+      {List<Token> tokens,
+      List<Collection> collections,
+      Status<dynamic> status});
 }
 
 /// @nodoc
@@ -376,6 +383,7 @@ class _$WalletDetailStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? tokens = freezed,
+    Object? collections = freezed,
     Object? status = freezed,
   }) {
     return _then(_value.copyWith(
@@ -383,6 +391,10 @@ class _$WalletDetailStateCopyWithImpl<$Res>
           ? _value.tokens
           : tokens // ignore: cast_nullable_to_non_nullable
               as List<Token>,
+      collections: collections == freezed
+          ? _value.collections
+          : collections // ignore: cast_nullable_to_non_nullable
+              as List<Collection>,
       status: status == freezed
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -398,7 +410,10 @@ abstract class _$WalletDetailStateCopyWith<$Res>
           _WalletDetailState value, $Res Function(_WalletDetailState) then) =
       __$WalletDetailStateCopyWithImpl<$Res>;
   @override
-  $Res call({List<Token> tokens, Status<dynamic> status});
+  $Res call(
+      {List<Token> tokens,
+      List<Collection> collections,
+      Status<dynamic> status});
 }
 
 /// @nodoc
@@ -415,6 +430,7 @@ class __$WalletDetailStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? tokens = freezed,
+    Object? collections = freezed,
     Object? status = freezed,
   }) {
     return _then(_WalletDetailState(
@@ -422,6 +438,10 @@ class __$WalletDetailStateCopyWithImpl<$Res>
           ? _value.tokens
           : tokens // ignore: cast_nullable_to_non_nullable
               as List<Token>,
+      collections: collections == freezed
+          ? _value.collections
+          : collections // ignore: cast_nullable_to_non_nullable
+              as List<Collection>,
       status: status == freezed
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -434,17 +454,20 @@ class __$WalletDetailStateCopyWithImpl<$Res>
 
 class _$_WalletDetailState extends _WalletDetailState
     with DiagnosticableTreeMixin {
-  const _$_WalletDetailState({required this.tokens, required this.status})
+  const _$_WalletDetailState(
+      {required this.tokens, required this.collections, required this.status})
       : super._();
 
   @override
   final List<Token> tokens;
   @override
+  final List<Collection> collections;
+  @override
   final Status<dynamic> status;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'WalletDetailState(tokens: $tokens, status: $status)';
+    return 'WalletDetailState(tokens: $tokens, collections: $collections, status: $status)';
   }
 
   @override
@@ -453,6 +476,7 @@ class _$_WalletDetailState extends _WalletDetailState
     properties
       ..add(DiagnosticsProperty('type', 'WalletDetailState'))
       ..add(DiagnosticsProperty('tokens', tokens))
+      ..add(DiagnosticsProperty('collections', collections))
       ..add(DiagnosticsProperty('status', status));
   }
 
@@ -462,6 +486,8 @@ class _$_WalletDetailState extends _WalletDetailState
         (other.runtimeType == runtimeType &&
             other is _WalletDetailState &&
             const DeepCollectionEquality().equals(other.tokens, tokens) &&
+            const DeepCollectionEquality()
+                .equals(other.collections, collections) &&
             const DeepCollectionEquality().equals(other.status, status));
   }
 
@@ -469,6 +495,7 @@ class _$_WalletDetailState extends _WalletDetailState
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(tokens),
+      const DeepCollectionEquality().hash(collections),
       const DeepCollectionEquality().hash(status));
 
   @JsonKey(ignore: true)
@@ -480,11 +507,14 @@ class _$_WalletDetailState extends _WalletDetailState
 abstract class _WalletDetailState extends WalletDetailState {
   const factory _WalletDetailState(
       {required List<Token> tokens,
+      required List<Collection> collections,
       required Status<dynamic> status}) = _$_WalletDetailState;
   const _WalletDetailState._() : super._();
 
   @override
   List<Token> get tokens;
+  @override
+  List<Collection> get collections;
   @override
   Status<dynamic> get status;
   @override

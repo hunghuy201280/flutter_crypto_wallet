@@ -17,6 +17,7 @@ class WalletPref {
   static const kPasscodeKey = "PASSCODE_KEY";
   static const kIsLoginWithBiometrics = "IS_LOGIN_WITH_BIOMETRIC_KEY";
   static const kSaveTokensKey = "SAVE_TOKENS_KEY";
+  static const kSaveCollectionsKey = "SAVE_COLLECTIONS_KEY";
 
   String get mnemonicPhrase => box.get(kMnemonicPhraseKey, defaultValue: "");
   Future<void> setMnemonicPhrase(String value) =>
@@ -50,4 +51,30 @@ class WalletPref {
 
   Future<void> setSavedTokens(List<Token> value) =>
       box.put(kSaveTokensKey, value);
+
+  List<String> get saveCollections =>
+      (box.get(kSaveCollectionsKey, defaultValue: <String>[]) as List)
+          .map((e) => e as String)
+          .toList();
+
+  Future<void> addCollection(String value) async {
+    final list = saveCollections;
+    if (!list.contains(value)) {
+      list.add(value);
+      await setSavedCollections(list);
+    }
+  }
+
+  Future<void> removeCollection(String value) async {
+    final list = saveCollections;
+    if (list.contains(value)) {
+      list.remove(value);
+      await setSavedCollections(list);
+    }
+  }
+
+  Future<void> setSavedCollections(List<String> value) =>
+      box.put(kSaveCollectionsKey, value);
+
+  Future<void> deleteSavedCollections() => box.put(kSaveCollectionsKey, []);
 }

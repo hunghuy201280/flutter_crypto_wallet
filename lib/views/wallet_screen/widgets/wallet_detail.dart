@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_crypto_wallet/configs/color_config.dart';
 import 'package:flutter_crypto_wallet/configs/text_config.dart';
+import 'package:flutter_crypto_wallet/models/collection/collection.dart';
 import 'package:flutter_crypto_wallet/models/token/token.dart';
 import 'package:flutter_crypto_wallet/utils/extensions.dart';
 import 'package:flutter_crypto_wallet/utils/helpers/status.dart';
+import 'package:flutter_crypto_wallet/views/import_collection/import_collection.dart';
 import 'package:flutter_crypto_wallet/views/import_token/import_token_screen.dart';
 import 'package:flutter_crypto_wallet/views/wallet_screen/widgets/wallet_coin_item.dart';
 import 'package:flutter_crypto_wallet/views/wallet_screen/widgets/wallet_nft_group.dart';
@@ -136,16 +138,35 @@ class _NFTTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = S.of(context);
+    final _bloc = context.read<WalletDetailBloc>();
     return ListView(
       physics:
           const NeverScrollableScrollPhysics(parent: BouncingScrollPhysics()),
       shrinkWrap: true,
       children: [
-        ListView.builder(
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          itemBuilder: (context, index) => const WalletNFTGroup(),
-          itemCount: 3,
+        BlocSelector<WalletDetailBloc, WalletDetailState,
+            Tuple2<List<Collection>, Status>>(
+          selector: (state) => Tuple2(state.collections, state.status),
+          builder: (context, state) {
+            final collections = state.item1;
+            final status = state.item2;
+            if ((status is Success || status is Idle) &&
+                collections.isNotEmpty) {
+              return ListView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemBuilder: (context, index) =>
+                    WalletNFTGroup(collection: state.item1[index]),
+                itemCount: state.item1.length,
+              );
+            } else {
+              return Container(
+                margin: EdgeInsets.symmetric(vertical: 30.h),
+                child: 'empty_box'.getIcon(
+                    height: 0.3.sw, width: 0.3.sw, color: AppColors.kColor9),
+              );
+            }
+          },
         ),
         16.verticalSpace,
         Column(
@@ -158,7 +179,13 @@ class _NFTTab extends StatelessWidget {
             ),
             2.verticalSpace,
             GestureDetector(
-              onTap: () {},
+              onTap: () async {
+                final res = await Navigator.of(context, rootNavigator: true)
+                    .pushNamed(ImportCollectionScreen.id);
+                if (res == true) {
+                  _bloc.add(const WalletDetailEvent.NFTsLoaded());
+                }
+              },
               child: Text(
                 s.importNFTs,
                 style: TextConfigs.kCaption_4,

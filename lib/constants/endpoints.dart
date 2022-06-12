@@ -16,4 +16,9 @@ class AppEndpoint {
       '/transaction/history?address=$address';
   static String transactionHistory = '/transaction/history';
   static String addAccount = '/wallet/add_account';
+  static String collectionOwner = '/collection/owner';
+  static String getValidCollectionAddress(String address) =>
+      '/collection/valid/$address';
+  static String getInfoOfCollection(String address) =>
+      '/collection/info/$address';
 }

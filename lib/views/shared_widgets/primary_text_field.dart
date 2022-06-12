@@ -97,7 +97,7 @@ class _PrimaryTextFieldState extends State<PrimaryTextField> {
           ),
         if (!widget.obscureText) 8.verticalSpace,
         TextFormField(
-          enabled: widget.enable,
+          readOnly: !(widget.enable ?? true),
           controller: widget.controller,
           focusNode: widget.focusNode,
           style: TextConfigs.kBody2_9,

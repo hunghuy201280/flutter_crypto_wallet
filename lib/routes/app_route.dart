@@ -2,10 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_crypto_wallet/view_models/change_password_bloc/change_password_bloc.dart';
+import 'package:flutter_crypto_wallet/view_models/import_collection_bloc/import_collection_bloc.dart';
 import 'package:flutter_crypto_wallet/view_models/login_bloc/login_bloc.dart';
 import 'package:flutter_crypto_wallet/view_models/onboard_cubit/onboard_cubit.dart';
 import 'package:flutter_crypto_wallet/view_models/passcode_bloc/passcode_bloc.dart';
 import 'package:flutter_crypto_wallet/view_models/withdraw_bloc/withdraw_bloc.dart';
+import 'package:flutter_crypto_wallet/views/import_collection/import_collection.dart';
 import 'package:flutter_crypto_wallet/views/import_token/import_token_screen.dart';
 import 'package:flutter_crypto_wallet/views/import_wallet/import_wallet_screen.dart';
 import 'package:flutter_crypto_wallet/views/loading_screen.dart';
@@ -197,6 +199,14 @@ class AppRoute {
             child: WithdrawScreen(
               initialAddress: settings.arguments as String?,
             ),
+          ),
+        );
+      case ImportCollectionScreen.id:
+        return CupertinoPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) => getIt.call<ImportCollectionBloc>(
+                param1: context.read<AuthBloc>()),
+            child: const ImportCollectionScreen(),
           ),
         );
       default:

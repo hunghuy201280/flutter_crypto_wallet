@@ -52,9 +52,18 @@ class _WalletCoinItemState extends State<WalletCoinItem> {
             Expanded(
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16.w),
-                child: Text(
-                  "${widget.token.balance.toStringAsFixed(3)} ${widget.token.symbol}",
-                  style: TextConfigs.kBody2_9,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "${widget.token.balance.toStringAsFixed(3)} ${widget.token.symbol}",
+                      style: TextConfigs.kBody2_9,
+                    ),
+                    Text(
+                      "\$ ${widget.token.amount}",
+                      style: TextConfigs.kCaption_9,
+                    ),
+                  ],
                 ),
               ),
             ),

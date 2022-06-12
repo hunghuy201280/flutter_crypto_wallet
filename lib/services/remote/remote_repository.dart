@@ -114,4 +114,28 @@ class RemoteRepository {
     });
     return response;
   }
+
+  Future<Response> getOwnerNft(
+      String addressOwner, List<String> collections) async {
+    Response response = await _dio.get(AppEndpoint.collectionOwner,
+        queryParameters: {
+          'address': addressOwner,
+          'collections': collections.join(',')
+        });
+    return response;
+  }
+
+  Future<Response> getValidCollectionAddress(String address) async {
+    Response response = await _dio.get(
+      AppEndpoint.getValidCollectionAddress(address),
+    );
+    return response;
+  }
+
+  Future<Response> getInfoOfCollection(String address) async {
+    Response response = await _dio.get(
+      AppEndpoint.getInfoOfCollection(address),
+    );
+    return response;
+  }
 }

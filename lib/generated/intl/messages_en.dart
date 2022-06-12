@@ -34,6 +34,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "about": MessageLookupByLibrary.simpleMessage("About"),
         "aboutAppName": MessageLookupByLibrary.simpleMessage("About App Name"),
+        "addCollection": MessageLookupByLibrary.simpleMessage("Add Collection"),
         "addCustomToken":
             MessageLookupByLibrary.simpleMessage("Add Custom Token"),
         "address": MessageLookupByLibrary.simpleMessage("Address"),
@@ -94,6 +95,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "importAccountText1": m1,
         "importAnAccount":
             MessageLookupByLibrary.simpleMessage("Import an Account"),
+        "importCollection":
+            MessageLookupByLibrary.simpleMessage("Import Collection"),
         "importNFTs": MessageLookupByLibrary.simpleMessage("Import nfts"),
         "importTokens": MessageLookupByLibrary.simpleMessage("Import tokens"),
         "importWallet": MessageLookupByLibrary.simpleMessage("Import Wallet"),
@@ -107,6 +110,7 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Manage your every penny and transaction with ease"),
         "max": MessageLookupByLibrary.simpleMessage("Max"),
         "mustBeAtLeastCharacters": m2,
+        "name": MessageLookupByLibrary.simpleMessage("Name"),
         "networks": MessageLookupByLibrary.simpleMessage("Networks"),
         "networksDescription": MessageLookupByLibrary.simpleMessage(
             "Add and edit custom RPC networks"),
@@ -185,6 +189,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "unableToConnectToTheBlockchainHost":
             MessageLookupByLibrary.simpleMessage(
                 "Unable to connect to the blockchain host"),
+        "validAddressFailure":
+            MessageLookupByLibrary.simpleMessage("Valid Address Failure"),
         "vietnamese": MessageLookupByLibrary.simpleMessage("Vietnamese"),
         "walletAddedSuccessfully":
             MessageLookupByLibrary.simpleMessage("Wallet added successfully"),

@@ -19,6 +19,7 @@ class Token with _$Token {
     @HiveField(3) String? imageUrl,
     @HiveField(4) @Default(0) double balance,
     @HiveField(5) JazziconData? avatar,
+    @HiveField(6) @Default(0) double amount,
   }) = _Token;
 
   factory Token.fromJson(Map<String, dynamic> json) => _$TokenFromJson(json);

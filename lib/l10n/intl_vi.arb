@@ -109,5 +109,9 @@
   "authenticateByFingerPrint": "Xác thực bằng vân tay",
   "fingerprintNotSupported": "Thiết bị không hỗ trợ xác thực bằng vân tay",
 
-  "pleaseInputCorrectAmount" : "Vui lòng nhập đúng số tiền"
+  "pleaseInputCorrectAmount" : "Vui lòng nhập đúng số tiền",
+  "importCollection" : "Thêm bộ sưu tập",
+  "name" : "Tên",
+  "addCollection" : "Thêm vào bộ sưu tập",
+  "validAddressFailure" : "Địa chỉ không hợp lệ"
 }

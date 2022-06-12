@@ -155,4 +155,20 @@ class LocalProvider {
   Future<void> setSaveTokens({required List<Token> tokens}) async {
     return _repo.setSaveTokens(tokens: tokens);
   }
+
+  List<String> getSaveCollections() {
+    return _repo.getSaveCollections();
+  }
+
+  Future<void> addCollection({required String address}) async {
+    return _repo.addCollection(address);
+  }
+
+  Future<void> removeCollection({required String address}) async {
+    return _repo.removeCollection(address);
+  }
+
+  Future<void> deleteSaveCollections() async {
+    return _repo.deleteSaveCollections();
+  }
 }

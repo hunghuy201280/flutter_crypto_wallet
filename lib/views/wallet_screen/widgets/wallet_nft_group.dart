@@ -4,8 +4,11 @@ import 'package:flutter_crypto_wallet/configs/text_config.dart';
 import 'package:flutter_crypto_wallet/views/wallet_screen/widgets/wallet_nft_item.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../models/collection/collection.dart';
+
 class WalletNFTGroup extends StatelessWidget {
-  const WalletNFTGroup({Key? key}) : super(key: key);
+  final Collection collection;
+  const WalletNFTGroup({Key? key, required this.collection}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,24 +19,26 @@ class WalletNFTGroup extends StatelessWidget {
         collapsedTextColor: AppColors.kColor2,
         iconColor: AppColors.kColor2,
         title: Text(
-          "Category 1",
+          collection.name.toString(),
           style: TextConfigs.kLabel_2,
         ),
         children: [
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.w),
-            child: GridView.builder(
-              physics: const NeverScrollableScrollPhysics(),
-              shrinkWrap: true,
-              itemCount: 3,
-              itemBuilder: (context, index) => const WalletNFTItem(),
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                childAspectRatio: 96.w / 120.h,
-                crossAxisCount: 3,
-                crossAxisSpacing: 24.w,
+          if (collection.items != null)
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16.w),
+              child: GridView.builder(
+                physics: const NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                itemCount: collection.items?.length,
+                itemBuilder: (context, index) =>
+                    WalletNFTItem(nft: collection.items!.elementAt(index)),
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  childAspectRatio: 96.w / 120.h,
+                  crossAxisCount: 3,
+                  crossAxisSpacing: 24.w,
+                ),
               ),
-            ),
-          )
+            )
         ],
       ),
     );

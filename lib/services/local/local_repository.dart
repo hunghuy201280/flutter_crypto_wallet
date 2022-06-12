@@ -196,4 +196,24 @@ class LocalRepository {
     final wallet = _appPref.wallet;
     await wallet.setSavedTokens([]);
   }
+
+  List<String> getSaveCollections() {
+    final wallet = _appPref.wallet;
+    return wallet.saveCollections;
+  }
+
+  Future<void> addCollection(String value) async {
+    final wallet = _appPref.wallet;
+    return await wallet.addCollection(value);
+  }
+
+  Future<void> removeCollection(String value) async {
+    final wallet = _appPref.wallet;
+    return await wallet.removeCollection(value);
+  }
+
+  Future<void> deleteSaveCollections() async {
+    final wallet = _appPref.wallet;
+    return await wallet.deleteSavedCollections();
+  }
 }

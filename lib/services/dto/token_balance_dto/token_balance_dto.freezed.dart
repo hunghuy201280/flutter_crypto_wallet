@@ -22,10 +22,14 @@ TokenBalanceDto _$TokenBalanceDtoFromJson(Map<String, dynamic> json) {
 class _$TokenBalanceDtoTearOff {
   const _$TokenBalanceDtoTearOff();
 
-  _TokenBalanceDto call({required String address, required double balance}) {
+  _TokenBalanceDto call(
+      {required String address,
+      required double balance,
+      required double amount}) {
     return _TokenBalanceDto(
       address: address,
       balance: balance,
+      amount: amount,
     );
   }
 
@@ -41,6 +45,7 @@ const $TokenBalanceDto = _$TokenBalanceDtoTearOff();
 mixin _$TokenBalanceDto {
   String get address => throw _privateConstructorUsedError;
   double get balance => throw _privateConstructorUsedError;
+  double get amount => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -53,7 +58,7 @@ abstract class $TokenBalanceDtoCopyWith<$Res> {
   factory $TokenBalanceDtoCopyWith(
           TokenBalanceDto value, $Res Function(TokenBalanceDto) then) =
       _$TokenBalanceDtoCopyWithImpl<$Res>;
-  $Res call({String address, double balance});
+  $Res call({String address, double balance, double amount});
 }
 
 /// @nodoc
@@ -69,6 +74,7 @@ class _$TokenBalanceDtoCopyWithImpl<$Res>
   $Res call({
     Object? address = freezed,
     Object? balance = freezed,
+    Object? amount = freezed,
   }) {
     return _then(_value.copyWith(
       address: address == freezed
@@ -78,6 +84,10 @@ class _$TokenBalanceDtoCopyWithImpl<$Res>
       balance: balance == freezed
           ? _value.balance
           : balance // ignore: cast_nullable_to_non_nullable
+              as double,
+      amount: amount == freezed
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
               as double,
     ));
   }
@@ -90,7 +100,7 @@ abstract class _$TokenBalanceDtoCopyWith<$Res>
           _TokenBalanceDto value, $Res Function(_TokenBalanceDto) then) =
       __$TokenBalanceDtoCopyWithImpl<$Res>;
   @override
-  $Res call({String address, double balance});
+  $Res call({String address, double balance, double amount});
 }
 
 /// @nodoc
@@ -108,6 +118,7 @@ class __$TokenBalanceDtoCopyWithImpl<$Res>
   $Res call({
     Object? address = freezed,
     Object? balance = freezed,
+    Object? amount = freezed,
   }) {
     return _then(_TokenBalanceDto(
       address: address == freezed
@@ -118,6 +129,10 @@ class __$TokenBalanceDtoCopyWithImpl<$Res>
           ? _value.balance
           : balance // ignore: cast_nullable_to_non_nullable
               as double,
+      amount: amount == freezed
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
+              as double,
     ));
   }
 }
@@ -125,7 +140,8 @@ class __$TokenBalanceDtoCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_TokenBalanceDto implements _TokenBalanceDto {
-  _$_TokenBalanceDto({required this.address, required this.balance});
+  _$_TokenBalanceDto(
+      {required this.address, required this.balance, required this.amount});
 
   factory _$_TokenBalanceDto.fromJson(Map<String, dynamic> json) =>
       _$$_TokenBalanceDtoFromJson(json);
@@ -134,10 +150,12 @@ class _$_TokenBalanceDto implements _TokenBalanceDto {
   final String address;
   @override
   final double balance;
+  @override
+  final double amount;
 
   @override
   String toString() {
-    return 'TokenBalanceDto(address: $address, balance: $balance)';
+    return 'TokenBalanceDto(address: $address, balance: $balance, amount: $amount)';
   }
 
   @override
@@ -146,14 +164,16 @@ class _$_TokenBalanceDto implements _TokenBalanceDto {
         (other.runtimeType == runtimeType &&
             other is _TokenBalanceDto &&
             const DeepCollectionEquality().equals(other.address, address) &&
-            const DeepCollectionEquality().equals(other.balance, balance));
+            const DeepCollectionEquality().equals(other.balance, balance) &&
+            const DeepCollectionEquality().equals(other.amount, amount));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(address),
-      const DeepCollectionEquality().hash(balance));
+      const DeepCollectionEquality().hash(balance),
+      const DeepCollectionEquality().hash(amount));
 
   @JsonKey(ignore: true)
   @override
@@ -167,8 +187,10 @@ class _$_TokenBalanceDto implements _TokenBalanceDto {
 }
 
 abstract class _TokenBalanceDto implements TokenBalanceDto {
-  factory _TokenBalanceDto({required String address, required double balance}) =
-      _$_TokenBalanceDto;
+  factory _TokenBalanceDto(
+      {required String address,
+      required double balance,
+      required double amount}) = _$_TokenBalanceDto;
 
   factory _TokenBalanceDto.fromJson(Map<String, dynamic> json) =
       _$_TokenBalanceDto.fromJson;
@@ -177,6 +199,8 @@ abstract class _TokenBalanceDto implements TokenBalanceDto {
   String get address;
   @override
   double get balance;
+  @override
+  double get amount;
   @override
   @JsonKey(ignore: true)
   _$TokenBalanceDtoCopyWith<_TokenBalanceDto> get copyWith =>
