@@ -10,10 +10,12 @@ _$_TokenBalanceDto _$$_TokenBalanceDtoFromJson(Map<String, dynamic> json) =>
     _$_TokenBalanceDto(
       address: json['address'] as String,
       balance: (json['balance'] as num).toDouble(),
+      amount: (json['amount'] as num).toDouble(),
     );
 
 Map<String, dynamic> _$$_TokenBalanceDtoToJson(_$_TokenBalanceDto instance) =>
     <String, dynamic>{
       'address': instance.address,
       'balance': instance.balance,
+      'amount': instance.amount,
     };

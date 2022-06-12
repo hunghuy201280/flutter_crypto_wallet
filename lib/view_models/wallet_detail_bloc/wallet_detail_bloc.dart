@@ -6,6 +6,7 @@ import 'package:flutter_crypto_wallet/services/remote/remote_provider.dart';
 import 'package:flutter_crypto_wallet/view_models/auth_bloc/auth_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:tuple/tuple.dart';
 
 import '../../models/token/token.dart';
 import '../../models/wallet/wallet.dart';
@@ -42,15 +43,15 @@ class WalletDetailBloc extends Bloc<WalletDetailEvent, WalletDetailState> {
         var tokens = _localProvider.getSaveTokens();
         if (wallet.balanceToken != null) tokens.insert(0, wallet.balanceToken!);
         emit(state.copyWith(tokens: tokens));
-        var listTokenFetch = <String, double>{};
+        var listTokenFetch = <String, Tuple2<double, double>>{};
         // Fetch balance of tokens
         try {
           final result = await _remoteProvider.getBalanceTokensOfAddress(
               wallet.address, state.tokens);
           if (result.error) throw result.message;
           if (result.result != null) {
-            var items =
-                result.result!.map((e) => MapEntry(e.address, e.balance));
+            var items = result.result!
+                .map((e) => MapEntry(e.address, Tuple2(e.balance, e.amount)));
             listTokenFetch.addEntries(items);
           }
         } catch (e) {
@@ -62,15 +63,18 @@ class WalletDetailBloc extends Bloc<WalletDetailEvent, WalletDetailState> {
           if (result.error) throw result.message;
           if (result.result != null) {
             final token = result.result!;
-            listTokenFetch.addEntries([MapEntry("", token.balance)]);
+            listTokenFetch.addEntries(
+                [MapEntry("", Tuple2(token.balance, token.amount))]);
             final wallets = _localProvider.getSavedWallets();
             await _localProvider.setSavedWallets(wallets.map((walletItem) {
               int index = wallets
                   .indexWhere((element) => element.address == wallet.address);
               if (index >= 0) {
                 walletItem = walletItem.copyWith(
-                    balanceToken: walletItem.balanceToken
-                        ?.copyWith(balance: token.balance));
+                    balanceToken: walletItem.balanceToken?.copyWith(
+                        balance: token.balance,
+                        amount: token.amount,
+                        imageUrl: token.imageUrl));
               }
               return walletItem;
             }).toList());
@@ -84,7 +88,8 @@ class WalletDetailBloc extends Bloc<WalletDetailEvent, WalletDetailState> {
           int index =
               tokensClone.indexWhere((element) => element.address == key);
           if (index >= 0) {
-            tokensClone[index] = tokensClone[index].copyWith(balance: value);
+            tokensClone[index] = tokensClone[index]
+                .copyWith(balance: value.item1, amount: value.item2);
           }
         }));
 

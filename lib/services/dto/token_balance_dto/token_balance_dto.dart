@@ -8,6 +8,7 @@ class TokenBalanceDto with _$TokenBalanceDto {
   factory TokenBalanceDto({
     required String address,
     required double balance,
+    required double amount,
   }) = _TokenBalanceDto;
 
   factory TokenBalanceDto.fromJson(Map<String, dynamic> json) =>

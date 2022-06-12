@@ -42,7 +42,7 @@ class _WalletCoinItemState extends State<WalletCoinItem> {
                       style: TextConfigs.kBody2_9,
                     ),
                     Text(
-                      "\$ ${widget.token.balance}",
+                      "\$ ${widget.token.amount}",
                       style: TextConfigs.kCaption_9,
                     ),
                   ],

@@ -27,13 +27,15 @@ class _$TokenTearOff {
       @HiveField(1) required String symbol,
       @HiveField(2) required int decimal,
       @HiveField(3) String? imageUrl,
-      @HiveField(4) double balance = 0}) {
+      @HiveField(4) double balance = 0,
+      @HiveField(5) double amount = 0}) {
     return _Token(
       address: address,
       symbol: symbol,
       decimal: decimal,
       imageUrl: imageUrl,
       balance: balance,
+      amount: amount,
     );
   }
 
@@ -57,6 +59,8 @@ mixin _$Token {
   String? get imageUrl => throw _privateConstructorUsedError;
   @HiveField(4)
   double get balance => throw _privateConstructorUsedError;
+  @HiveField(5)
+  double get amount => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -72,7 +76,8 @@ abstract class $TokenCopyWith<$Res> {
       @HiveField(1) String symbol,
       @HiveField(2) int decimal,
       @HiveField(3) String? imageUrl,
-      @HiveField(4) double balance});
+      @HiveField(4) double balance,
+      @HiveField(5) double amount});
 }
 
 /// @nodoc
@@ -90,6 +95,7 @@ class _$TokenCopyWithImpl<$Res> implements $TokenCopyWith<$Res> {
     Object? decimal = freezed,
     Object? imageUrl = freezed,
     Object? balance = freezed,
+    Object? amount = freezed,
   }) {
     return _then(_value.copyWith(
       address: address == freezed
@@ -112,6 +118,10 @@ class _$TokenCopyWithImpl<$Res> implements $TokenCopyWith<$Res> {
           ? _value.balance
           : balance // ignore: cast_nullable_to_non_nullable
               as double,
+      amount: amount == freezed
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
+              as double,
     ));
   }
 }
@@ -126,7 +136,8 @@ abstract class _$TokenCopyWith<$Res> implements $TokenCopyWith<$Res> {
       @HiveField(1) String symbol,
       @HiveField(2) int decimal,
       @HiveField(3) String? imageUrl,
-      @HiveField(4) double balance});
+      @HiveField(4) double balance,
+      @HiveField(5) double amount});
 }
 
 /// @nodoc
@@ -145,6 +156,7 @@ class __$TokenCopyWithImpl<$Res> extends _$TokenCopyWithImpl<$Res>
     Object? decimal = freezed,
     Object? imageUrl = freezed,
     Object? balance = freezed,
+    Object? amount = freezed,
   }) {
     return _then(_Token(
       address: address == freezed
@@ -167,6 +179,10 @@ class __$TokenCopyWithImpl<$Res> extends _$TokenCopyWithImpl<$Res>
           ? _value.balance
           : balance // ignore: cast_nullable_to_non_nullable
               as double,
+      amount: amount == freezed
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
+              as double,
     ));
   }
 }
@@ -181,7 +197,8 @@ class _$_Token implements _Token {
       @HiveField(1) required this.symbol,
       @HiveField(2) required this.decimal,
       @HiveField(3) this.imageUrl,
-      @HiveField(4) this.balance = 0});
+      @HiveField(4) this.balance = 0,
+      @HiveField(5) this.amount = 0});
 
   factory _$_Token.fromJson(Map<String, dynamic> json) =>
       _$$_TokenFromJson(json);
@@ -202,10 +219,14 @@ class _$_Token implements _Token {
   @override
   @HiveField(4)
   final double balance;
+  @JsonKey()
+  @override
+  @HiveField(5)
+  final double amount;
 
   @override
   String toString() {
-    return 'Token(address: $address, symbol: $symbol, decimal: $decimal, imageUrl: $imageUrl, balance: $balance)';
+    return 'Token(address: $address, symbol: $symbol, decimal: $decimal, imageUrl: $imageUrl, balance: $balance, amount: $amount)';
   }
 
   @override
@@ -217,7 +238,8 @@ class _$_Token implements _Token {
             const DeepCollectionEquality().equals(other.symbol, symbol) &&
             const DeepCollectionEquality().equals(other.decimal, decimal) &&
             const DeepCollectionEquality().equals(other.imageUrl, imageUrl) &&
-            const DeepCollectionEquality().equals(other.balance, balance));
+            const DeepCollectionEquality().equals(other.balance, balance) &&
+            const DeepCollectionEquality().equals(other.amount, amount));
   }
 
   @override
@@ -227,7 +249,8 @@ class _$_Token implements _Token {
       const DeepCollectionEquality().hash(symbol),
       const DeepCollectionEquality().hash(decimal),
       const DeepCollectionEquality().hash(imageUrl),
-      const DeepCollectionEquality().hash(balance));
+      const DeepCollectionEquality().hash(balance),
+      const DeepCollectionEquality().hash(amount));
 
   @JsonKey(ignore: true)
   @override
@@ -246,7 +269,8 @@ abstract class _Token implements Token {
       @HiveField(1) required String symbol,
       @HiveField(2) required int decimal,
       @HiveField(3) String? imageUrl,
-      @HiveField(4) double balance}) = _$_Token;
+      @HiveField(4) double balance,
+      @HiveField(5) double amount}) = _$_Token;
 
   factory _Token.fromJson(Map<String, dynamic> json) = _$_Token.fromJson;
 
@@ -265,6 +289,9 @@ abstract class _Token implements Token {
   @override
   @HiveField(4)
   double get balance;
+  @override
+  @HiveField(5)
+  double get amount;
   @override
   @JsonKey(ignore: true)
   _$TokenCopyWith<_Token> get copyWith => throw _privateConstructorUsedError;

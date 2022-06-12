@@ -22,13 +22,14 @@ class TokenAdapter extends TypeAdapter<_$_Token> {
       decimal: fields[2] as int,
       imageUrl: fields[3] as String?,
       balance: fields[4] as double,
+      amount: fields[5] as double,
     );
   }
 
   @override
   void write(BinaryWriter writer, _$_Token obj) {
     writer
-      ..writeByte(5)
+      ..writeByte(6)
       ..writeByte(0)
       ..write(obj.address)
       ..writeByte(1)
@@ -38,7 +39,9 @@ class TokenAdapter extends TypeAdapter<_$_Token> {
       ..writeByte(3)
       ..write(obj.imageUrl)
       ..writeByte(4)
-      ..write(obj.balance);
+      ..write(obj.balance)
+      ..writeByte(5)
+      ..write(obj.amount);
   }
 
   @override
@@ -62,6 +65,7 @@ _$_Token _$$_TokenFromJson(Map<String, dynamic> json) => _$_Token(
       decimal: json['decimal'] as int,
       imageUrl: json['imageUrl'] as String?,
       balance: (json['balance'] as num?)?.toDouble() ?? 0,
+      amount: (json['amount'] as num?)?.toDouble() ?? 0,
     );
 
 Map<String, dynamic> _$$_TokenToJson(_$_Token instance) => <String, dynamic>{
@@ -70,4 +74,5 @@ Map<String, dynamic> _$$_TokenToJson(_$_Token instance) => <String, dynamic>{
       'decimal': instance.decimal,
       'imageUrl': instance.imageUrl,
       'balance': instance.balance,
+      'amount': instance.amount,
     };
