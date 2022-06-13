@@ -23,15 +23,16 @@ class WalletNFTGroup extends StatelessWidget {
           style: TextConfigs.kLabel_2,
         ),
         children: [
-          if (collection.items != null)
+          if (collection.items != null && collection.items!.isNotEmpty)
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 16.w),
               child: GridView.builder(
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
                 itemCount: collection.items?.length,
-                itemBuilder: (context, index) =>
-                    WalletNFTItem(nft: collection.items!.elementAt(index)),
+                itemBuilder: (context, index) => WalletNFTItem(
+                    collectionAddress: collection.address,
+                    nft: collection.items!.elementAt(index)),
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   childAspectRatio: 96.w / 120.h,
                   crossAxisCount: 3,

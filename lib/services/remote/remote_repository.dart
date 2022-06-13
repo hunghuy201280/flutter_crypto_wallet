@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_crypto_wallet/configs/app_config.dart';
 import 'package:flutter_crypto_wallet/constants/endpoints.dart';
+import 'package:flutter_crypto_wallet/models/transaction/transaction.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../models/token/token.dart';
@@ -136,6 +137,23 @@ class RemoteRepository {
     Response response = await _dio.get(
       AppEndpoint.getInfoOfCollection(address),
     );
+    return response;
+  }
+
+  Future<Response> sendNFT({
+    required String fromAddress,
+    required String toAddress,
+    required String contractAddress,
+    required String fromPrivateKey,
+    required int tokenId,
+  }) async {
+    Response response = await _dio.post(AppEndpoint.collectionSend, data: {
+      'fromAddress': fromAddress,
+      'toAddress': toAddress,
+      'contractAddress': contractAddress,
+      'fromPrivateKey': fromPrivateKey,
+      'tokenId': tokenId,
+    });
     return response;
   }
 }

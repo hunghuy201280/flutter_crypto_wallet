@@ -86,6 +86,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "fingerprintNotSupported":
             MessageLookupByLibrary.simpleMessage("Fingerprint not supported"),
         "from": MessageLookupByLibrary.simpleMessage("From"),
+        "fromAddress": MessageLookupByLibrary.simpleMessage("From Address"),
         "general": MessageLookupByLibrary.simpleMessage("General"),
         "generalDescription": MessageLookupByLibrary.simpleMessage(
             "Currency conversion, language"),
@@ -156,6 +157,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Privacy settings, private key and wallet Secret Recovery Phrase"),
         "seeAll": MessageLookupByLibrary.simpleMessage("See all"),
         "send": MessageLookupByLibrary.simpleMessage("Send"),
+        "sendNft": MessageLookupByLibrary.simpleMessage("Send NFT"),
         "show": MessageLookupByLibrary.simpleMessage("Show"),
         "showPrivateKey":
             MessageLookupByLibrary.simpleMessage("Show private key"),
@@ -175,6 +177,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "thisWeek": MessageLookupByLibrary.simpleMessage("This Week"),
         "thisYear": MessageLookupByLibrary.simpleMessage("This Year"),
         "to": MessageLookupByLibrary.simpleMessage("To"),
+        "toAddress": MessageLookupByLibrary.simpleMessage("To Address"),
         "tokenContractAddress":
             MessageLookupByLibrary.simpleMessage("Token Contract Address"),
         "tokenDetail": MessageLookupByLibrary.simpleMessage("Token detail"),

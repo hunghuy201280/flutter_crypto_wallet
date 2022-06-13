@@ -139,5 +139,8 @@
   "authenticateByFingerPrint": "Authenticate by fingerprint",
   "fingerprintNotSupported": "Fingerprint not supported",
 
-  "pleaseInputCorrectAmount" : "Please Input Correct Amount"
+  "pleaseInputCorrectAmount" : "Please Input Correct Amount",
+  "sendNft" : "Send NFT",
+  "fromAddress" : "From Address",
+  "toAddress" : "To Address"
 }

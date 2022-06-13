@@ -113,5 +113,8 @@
   "importCollection" : "Thêm bộ sưu tập",
   "name" : "Tên",
   "addCollection" : "Thêm vào bộ sưu tập",
-  "validAddressFailure" : "Địa chỉ không hợp lệ"
+  "validAddressFailure" : "Địa chỉ không hợp lệ",
+  "sendNft" : "Gửi",
+  "fromAddress" : "Từ địa chỉ",
+  "toAddress" : "Đến địa chỉ"
 }

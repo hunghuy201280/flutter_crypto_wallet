@@ -85,6 +85,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "fingerprintNotSupported": MessageLookupByLibrary.simpleMessage(
             "Thiết bị không hỗ trợ xác thực bằng vân tay"),
         "from": MessageLookupByLibrary.simpleMessage("Từ"),
+        "fromAddress": MessageLookupByLibrary.simpleMessage("Từ địa chỉ"),
         "general": MessageLookupByLibrary.simpleMessage("Chung"),
         "generalDescription": MessageLookupByLibrary.simpleMessage(
             "Chuyển đổi tiền tệ, ngôn ngữ"),
@@ -156,6 +157,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Cài đặt quyền riêng tư, khóa cá nhân và ví cụm từ khôi phục bí mật"),
         "seeAll": MessageLookupByLibrary.simpleMessage("Xem tất cả"),
         "send": MessageLookupByLibrary.simpleMessage("Gửi"),
+        "sendNft": MessageLookupByLibrary.simpleMessage("Gửi"),
         "show": MessageLookupByLibrary.simpleMessage("Hiện"),
         "showPrivateKey":
             MessageLookupByLibrary.simpleMessage("Xem private key"),
@@ -175,6 +177,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "thisWeek": MessageLookupByLibrary.simpleMessage("Tuần này"),
         "thisYear": MessageLookupByLibrary.simpleMessage("Năm này"),
         "to": MessageLookupByLibrary.simpleMessage("Đến"),
+        "toAddress": MessageLookupByLibrary.simpleMessage("Đến địa chỉ"),
         "tokenContractAddress":
             MessageLookupByLibrary.simpleMessage("Địa Chỉ Token"),
         "tokenDetail": MessageLookupByLibrary.simpleMessage("Chi tiết token"),

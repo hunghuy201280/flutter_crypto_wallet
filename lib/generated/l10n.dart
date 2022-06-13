@@ -1159,6 +1159,36 @@ class S {
       args: [],
     );
   }
+
+  /// `Send NFT`
+  String get sendNft {
+    return Intl.message(
+      'Send NFT',
+      name: 'sendNft',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `From Address`
+  String get fromAddress {
+    return Intl.message(
+      'From Address',
+      name: 'fromAddress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `To Address`
+  String get toAddress {
+    return Intl.message(
+      'To Address',
+      name: 'toAddress',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

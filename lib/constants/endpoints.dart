@@ -21,4 +21,5 @@ class AppEndpoint {
       '/collection/valid/$address';
   static String getInfoOfCollection(String address) =>
       '/collection/info/$address';
+  static String collectionSend = '/collection/send';
 }

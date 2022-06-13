@@ -224,4 +224,29 @@ class RemoteProvider {
       return BaseDto.fromJson(e.response?.data);
     }
   }
+
+  Future<BaseDto<Transaction>> sendNFT({
+    required String fromAddress,
+    required String toAddress,
+    required String contractAddress,
+    required String fromPrivateKey,
+    required int tokenId,
+  }) async {
+    try {
+      final response = await _repo.sendNFT(
+        fromAddress: fromAddress,
+        toAddress: toAddress,
+        contractAddress: contractAddress,
+        fromPrivateKey: fromPrivateKey,
+        tokenId: tokenId,
+      );
+      final data = BaseDto<Transaction>.fromJson(
+        response.data,
+        create: (data) => Transaction.fromJson(data),
+      );
+      return data;
+    } on DioError catch (e) {
+      return BaseDto.fromJson(e.response?.data);
+    }
+  }
 }

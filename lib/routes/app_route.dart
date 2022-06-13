@@ -7,11 +7,13 @@ import 'package:flutter_crypto_wallet/view_models/login_bloc/login_bloc.dart';
 import 'package:flutter_crypto_wallet/view_models/onboard_cubit/onboard_cubit.dart';
 import 'package:flutter_crypto_wallet/view_models/passcode_bloc/passcode_bloc.dart';
 import 'package:flutter_crypto_wallet/view_models/withdraw_bloc/withdraw_bloc.dart';
+import 'package:flutter_crypto_wallet/view_models/withdraw_nft_bloc/withdraw_nft_bloc.dart';
 import 'package:flutter_crypto_wallet/views/import_collection/import_collection.dart';
 import 'package:flutter_crypto_wallet/views/import_token/import_token_screen.dart';
 import 'package:flutter_crypto_wallet/views/import_wallet/import_wallet_screen.dart';
 import 'package:flutter_crypto_wallet/views/loading_screen.dart';
 import 'package:flutter_crypto_wallet/views/login/login_screen.dart';
+import 'package:flutter_crypto_wallet/views/nft_detail/nft_detail.dart';
 import 'package:flutter_crypto_wallet/views/onboarding_screen.dart';
 import 'package:flutter_crypto_wallet/views/passcode/passcode_screen.dart';
 import 'package:flutter_crypto_wallet/views/settings_screen/about_screen.dart';
@@ -21,6 +23,7 @@ import 'package:flutter_crypto_wallet/views/splash_screen.dart';
 import 'package:flutter_crypto_wallet/views/withdraw_token/withdraw_screen.dart';
 
 import '../di/dependency_injection.dart';
+import '../models/nft/nft.dart';
 import '../view_models/auth_bloc/auth_bloc.dart';
 import '../view_models/confirm_password_bloc/confirm_password_bloc.dart';
 import '../view_models/create_wallet_bloc/create_wallet_bloc.dart';
@@ -207,6 +210,18 @@ class AppRoute {
             create: (context) => getIt.call<ImportCollectionBloc>(
                 param1: context.read<AuthBloc>()),
             child: const ImportCollectionScreen(),
+          ),
+        );
+      case NftDetail.id:
+        final args = settings.arguments as List<Object>?;
+        return CupertinoPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) =>
+                getIt.call<WithdrawNftBloc>(param1: context.read<AuthBloc>()),
+            child: NftDetail(
+              contractAddress: args?.elementAt(0) as String,
+              nft: args?.elementAt(1) as Nft?,
+            ),
           ),
         );
       default:
