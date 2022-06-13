@@ -10,7 +10,7 @@ import '../../models/wallet/wallet.dart';
 
 @singleton
 class LocalRepository {
-  static final baseUrl = AppConfigs.kServerUri;
+  static const baseUrl = AppConfigs.kServerUri;
 
   const LocalRepository({
     required AppPref appPref,

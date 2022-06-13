@@ -11,6 +11,7 @@ import 'package:flutter_crypto_wallet/views/import_token/import_token_screen.dar
 import 'package:flutter_crypto_wallet/views/wallet_screen/widgets/wallet_coin_item.dart';
 import 'package:flutter_crypto_wallet/views/wallet_screen/widgets/wallet_nft_group.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:tuple/tuple.dart';
 
 import '../../../generated/l10n.dart';
@@ -83,7 +84,16 @@ class _TokenTab extends StatelessWidget {
             builder: (context, tuple2) {
               final tokens = tuple2.item1;
               final status = tuple2.item2;
-              if ((status is Success || status is Idle) && tokens.isNotEmpty) {
+              if ((status is Error || (tokens.isEmpty && status is! Loading))) {
+                return Container(
+                  margin: EdgeInsets.symmetric(vertical: 30.h),
+                  child: 'empty_box'.getIcon(
+                      height: 0.3.sw, width: 0.3.sw, color: AppColors.kColor9),
+                );
+              }
+              if ((status is Success ||
+                  status is Idle ||
+                  (status is Loading && status.data != 'token'))) {
                 return ListView.builder(
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
@@ -94,9 +104,12 @@ class _TokenTab extends StatelessWidget {
                 );
               } else {
                 return Container(
-                  margin: EdgeInsets.symmetric(vertical: 30.h),
-                  child: 'empty_box'.getIcon(
-                      height: 0.3.sw, width: 0.3.sw, color: AppColors.kColor9),
+                  constraints: BoxConstraints(minHeight: 160.h),
+                  child: const Center(
+                    child: SpinKitDancingSquare(
+                      color: AppColors.kColor6,
+                    ),
+                  ),
                 );
               }
             },
@@ -150,8 +163,16 @@ class _NFTTab extends StatelessWidget {
           builder: (context, state) {
             final collections = state.item1;
             final status = state.item2;
-            if ((status is Success || status is Idle) &&
-                collections.isNotEmpty) {
+            if (status is Error ||
+                (collections.isEmpty && status is! Loading)) {
+              return Container(
+                margin: EdgeInsets.symmetric(vertical: 30.h),
+                child: 'empty_box'.getIcon(
+                    height: 0.3.sw, width: 0.3.sw, color: AppColors.kColor9),
+              );
+            } else if ((status is Success ||
+                status is Idle ||
+                (status is Loading && status.data != 'collection'))) {
               return ListView.builder(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
@@ -161,9 +182,12 @@ class _NFTTab extends StatelessWidget {
               );
             } else {
               return Container(
-                margin: EdgeInsets.symmetric(vertical: 30.h),
-                child: 'empty_box'.getIcon(
-                    height: 0.3.sw, width: 0.3.sw, color: AppColors.kColor9),
+                constraints: BoxConstraints(minHeight: 160.h),
+                child: const Center(
+                  child: SpinKitDancingSquare(
+                    color: AppColors.kColor6,
+                  ),
+                ),
               );
             }
           },

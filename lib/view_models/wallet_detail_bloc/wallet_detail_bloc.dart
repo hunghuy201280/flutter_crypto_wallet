@@ -41,6 +41,7 @@ class WalletDetailBloc extends Bloc<WalletDetailEvent, WalletDetailState> {
 
   void _mapEventToState() {
     on<WalletDetailBalanceTokensLoaded>((event, emit) async {
+      emit(state.copyWith(status: const Loading('token'), tokens: []));
       try {
         var tokens = _localProvider.getSaveTokens();
         if (wallet.balanceToken != null) tokens.insert(0, wallet.balanceToken!);
@@ -107,17 +108,19 @@ class WalletDetailBloc extends Bloc<WalletDetailEvent, WalletDetailState> {
       }
     });
     on<WalletDetailNFTsLoaded>((event, emit) async {
+      emit(
+          state.copyWith(status: const Loading('collection'), collections: []));
       try {
         final collectionsAddress = _localProvider.getSaveCollections();
-        final result = await _remoteProvider.getOwnerNft(
-          wallet.address,
-          collectionsAddress,
-        );
-        if (result.error) throw result.message;
-        if (result.result != null) {
-          final collections = result.result!;
-          emit(state.copyWith(
-              status: const Success(), collections: collections));
+        if (collectionsAddress.isNotEmpty) {
+          final result = await _remoteProvider.getOwnerNft(
+              wallet.address, collectionsAddress);
+          if (result.error) throw result.message;
+          if (result.result != null) {
+            final collections = result.result!;
+            emit(state.copyWith(
+                status: const Success(), collections: collections));
+          }
         }
       } catch (e, trace) {
         printLog(this,

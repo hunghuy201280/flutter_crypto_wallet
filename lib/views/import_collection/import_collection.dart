@@ -57,7 +57,7 @@ class _ImportCollectionScreenState extends State<ImportCollectionScreen> {
             break;
           case Success:
             hideLoadingDialog();
-            Navigator.pop(context, true);
+            Navigator.of(context, rootNavigator: true).pop(true);
             break;
           case Error:
             hideLoadingDialog();

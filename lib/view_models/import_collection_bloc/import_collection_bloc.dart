@@ -39,6 +39,7 @@ class ImportCollectionBloc
     on<_ImportCollectionEventAddressChanged>(
         (event, emit) => emit(state.copyWith(address: event.address)));
     on<_ImportCollectionEventValidAddress>((event, emit) async {
+      if (state.address == null) return;
       emit(state.copyWith(status: const Loading()));
       try {
         final result = await _remoteProvider
