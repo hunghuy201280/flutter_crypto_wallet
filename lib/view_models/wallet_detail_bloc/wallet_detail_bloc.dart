@@ -110,7 +110,9 @@ class WalletDetailBloc extends Bloc<WalletDetailEvent, WalletDetailState> {
       try {
         final collectionsAddress = _localProvider.getSaveCollections();
         final result = await _remoteProvider.getOwnerNft(
-            wallet.address, collectionsAddress);
+          wallet.address,
+          collectionsAddress,
+        );
         if (result.error) throw result.message;
         if (result.result != null) {
           final collections = result.result!;

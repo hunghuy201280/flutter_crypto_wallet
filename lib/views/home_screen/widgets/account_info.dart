@@ -56,7 +56,7 @@ class AccountInfo extends StatelessWidget {
                           clipBehavior: Clip.hardEdge,
                           child: InkWell(
                             onTap: () {
-                              FlutterClipboard.controlC("text");
+                              FlutterClipboard.controlC(state.wallet.address);
                               Utils.showToast(context, message: "Copied");
                             },
                             child: Padding(

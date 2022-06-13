@@ -82,7 +82,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         divider,
         SettingItem(
           title: s.aboutAppName,
-          description: '',
+          description: '${s.version} 1.0.0',
           action: () {
             Navigator.of(context, rootNavigator: true)
                 .pushNamed(AboutAppScreen.id);

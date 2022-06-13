@@ -50,10 +50,10 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `App Name`
+  /// `Hornydeer`
   String get appName {
     return Intl.message(
-      'App Name',
+      'Hornydeer',
       name: 'appName',
       desc: '',
       args: [],
@@ -600,10 +600,10 @@ class S {
     );
   }
 
-  /// `About App Name`
+  /// `About Hornydeer`
   String get aboutAppName {
     return Intl.message(
-      'About App Name',
+      'About Hornydeer',
       name: 'aboutAppName',
       desc: '',
       args: [],
@@ -870,10 +870,10 @@ class S {
     );
   }
 
-  /// `Quét mã QR để nhận thanh toán`
+  /// `Scan QR code to receive payment`
   String get scanAddressTo {
     return Intl.message(
-      'Quét mã QR để nhận thanh toán',
+      'Scan QR code to receive payment',
       name: 'scanAddressTo',
       desc: '',
       args: [],
@@ -1175,6 +1175,46 @@ class S {
     return Intl.message(
       'From Address',
       name: 'fromAddress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Links`
+  String get links {
+    return Intl.message(
+      'Links',
+      name: 'links',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Privacy Policy`
+  String get privacyPolicy {
+    return Intl.message(
+      'Privacy Policy',
+      name: 'privacyPolicy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Terms of Use`
+  String get termsOfUse {
+    return Intl.message(
+      'Terms of Use',
+      name: 'termsOfUse',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Version`
+  String get version {
+    return Intl.message(
+      'Version',
+      name: 'version',
       desc: '',
       args: [],
     );

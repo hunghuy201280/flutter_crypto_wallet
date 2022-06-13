@@ -25,6 +25,12 @@ class TextConfigs {
     fontWeight: FontWeight.w800,
     color: AppColors.kColor9,
   );
+  static final kHeader3_4 = TextStyle(
+    fontSize: 25.sp,
+    fontFamily: kFontFamily,
+    fontWeight: FontWeight.w800,
+    color: AppColors.kColor4,
+  );
 
   static final kHeader4_9 = TextStyle(
     fontSize: 20.sp,

@@ -142,6 +142,7 @@ class AppRoute {
           builder: (context) => const GeneralScreen(),
           settings: settings,
         );
+
       case RecoverMnemonicScreen.id:
         return CupertinoPageRoute(
           builder: (context) => BlocProvider(
