@@ -50,7 +50,7 @@ class _WalletInfoState extends State<WalletInfo> {
                 color: AppColors.kColor5,
                 child: InkWell(
                   onTap: () {
-                    FlutterClipboard.controlC("text");
+                    FlutterClipboard.controlC(state.wallet.address);
                     Utils.showToast(context, message: "Copied");
                   },
                   splashFactory: InkRipple.splashFactory,

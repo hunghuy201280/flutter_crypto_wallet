@@ -1,6 +1,6 @@
 {
   "@@locale": "vi",
-  "appName": "App Name",
+  "appName": "Hornydeer",
   "easyWayToManageYourEWallet": "Dễ dàng để quản lý ví điện tử của bạn",
   "manageYourEveryPennyAndTransactionWithEase": "Quản lý từng xu và giao dịch của bạn một cách dễ dàng",
   "enterToYourWallet": "Truy cập vào ví",
@@ -38,7 +38,7 @@
   "generalDescription" : "Chuyển đổi tiền tệ, ngôn ngữ",
   "currencyConversion": "Chuyển đổi tiền tệ",
   "currentLanguage": "Ngôn ngữ mặc định",
-  "protectYourWallet": "Protect your wallet",
+  "protectYourWallet": "Bảo vệ ví của bạn",
   "protectYourWalletDesription": "Bảo vệ ví của bạn bằng cách lưu Cụm từ khôi phục bí mật của bạn ở nhiều nơi khác nhau như trên một mảnh giấy, trình quản lý mật khẩu và / hoặc đám mây",
   "recoverySecretRecoveryPhrase": "Khôi phục cụm từ khôi phục bí mật",
   "passwordDescription": "Chọn một mật khẩu mạnh để mở khóa ứng dụng Metamask trên thiết bị của bạn. Nếu bạn mất mật khẩu này, bạn sẽ cần Cụm từ khôi phục bí mật để nhập lại ví của mình.",
@@ -55,7 +55,7 @@
   "thisYear" : "Năm này",
   "seeAll" : "Xem tất cả",
   "about" : "Thông tin",
-  "aboutAppName" : "Thông tin về App Name",
+  "aboutAppName" : "Thông tin về Hornydeer",
   "passwordNotMatch" : "Mật khẩu không khớp",
   "passwordIsNotEmpty" : "Mật khẩu không được trống", 
   "secretRecoveryPhrase" : "Cụm từ khôi phục bí mật",
@@ -116,5 +116,10 @@
   "validAddressFailure" : "Địa chỉ không hợp lệ",
   "sendNft" : "Gửi",
   "fromAddress" : "Từ địa chỉ",
+  "links" : "Các đường dẫn",
+  "privacyPolicy" : "Chính sách bảo mật",
+  "termsOfUse" : "Điều khoản sử dụng",
+  "version" : "Phiên bản",
+
   "toAddress" : "Đến địa chỉ"
 }

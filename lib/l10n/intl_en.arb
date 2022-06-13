@@ -1,6 +1,6 @@
 {
   "@@locale": "en",
-  "appName": "App Name",
+  "appName": "Hornydeer",
   "easyWayToManageYourEWallet": "Easy way to manage your e-wallet",
   "manageYourEveryPennyAndTransactionWithEase": "Manage your every penny and transaction with ease",
   "enterToYourWallet": "Enter to your wallet",
@@ -69,7 +69,7 @@
   "thisYear" : "This Year",
   "seeAll" : "See all",
   "about" : "About",
-  "aboutAppName" : "About App Name",
+  "aboutAppName" : "About Hornydeer",
   "passwordNotMatch" : "Password not match",
   "passwordIsNotEmpty" : "Password is not empty", 
   "secretRecoveryPhrase" : "Secret Recovery Phrase",
@@ -103,7 +103,7 @@
   "withdraw" : "Withdraw",
   "max" : "Max",
   "send" : "Send",
-  "scanAddressTo" : "Quét mã QR để nhận thanh toán",
+  "scanAddressTo" : "Scan QR code to receive payment",
   "receive" : "Receive",
   "or": "Or",
   "copied" : "Copied",
@@ -142,5 +142,9 @@
   "pleaseInputCorrectAmount" : "Please Input Correct Amount",
   "sendNft" : "Send NFT",
   "fromAddress" : "From Address",
+  "links" : "Links",
+  "privacyPolicy" : "Privacy Policy",
+  "termsOfUse" : "Terms of Use",
+  "version" : "Version",
   "toAddress" : "To Address"
 }

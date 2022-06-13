@@ -6,8 +6,8 @@ class AppConfigs {
   // static final kServerUri =
   //     Platform.isIOS ? "http://localhost:3000" : "http://10.0.2.2:3000";
   //static const kServerUri = "https://crypto-wallet-db.herokuapp.com";
-  static const kServerUri = "http://192.168.1.10:3000";
-  static const tempImage = "https://i.imgur.com/BsxRxlQ.png";
+  static const kServerUri = "http://192.168.1.8:3000";
+  static const tempImage = "ht66tps://i.imgur.com/BsxRxlQ.png";
   static const kConnectionTimeOut = 20000;
   static const kReceiveTimeOut = 20000;
   static final localAuth = LocalAuthentication();

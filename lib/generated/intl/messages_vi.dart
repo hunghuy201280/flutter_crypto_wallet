@@ -34,13 +34,13 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "about": MessageLookupByLibrary.simpleMessage("Thông tin"),
         "aboutAppName":
-            MessageLookupByLibrary.simpleMessage("Thông tin về App Name"),
+            MessageLookupByLibrary.simpleMessage("Thông tin về Hornydeer"),
         "addCollection":
             MessageLookupByLibrary.simpleMessage("Thêm vào bộ sưu tập"),
         "addCustomToken": MessageLookupByLibrary.simpleMessage("Thêm Token"),
         "address": MessageLookupByLibrary.simpleMessage("Địa chỉ"),
         "alert": MessageLookupByLibrary.simpleMessage("Thông báo"),
-        "appName": MessageLookupByLibrary.simpleMessage("App Name"),
+        "appName": MessageLookupByLibrary.simpleMessage("Hornydeer"),
         "authenticateByFingerPrint":
             MessageLookupByLibrary.simpleMessage("Xác thực bằng vân tay"),
         "cancel": MessageLookupByLibrary.simpleMessage("Huỷ"),
@@ -102,6 +102,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "importWallet": MessageLookupByLibrary.simpleMessage("Nhập ví"),
         "invalidPrivateKey":
             MessageLookupByLibrary.simpleMessage("Private key không hợp lệ"),
+        "links": MessageLookupByLibrary.simpleMessage("Các đường dẫn"),
         "logInWithBiometrics":
             MessageLookupByLibrary.simpleMessage("Đăng nhập bằng vân tay"),
         "logout": MessageLookupByLibrary.simpleMessage("Đăng xuất"),
@@ -136,11 +137,13 @@ class MessageLookup extends MessageLookupByLibrary {
             "Vui lòng chấp nhận chính sách"),
         "pleaseInputCorrectAmount":
             MessageLookupByLibrary.simpleMessage("Vui lòng nhập đúng số tiền"),
+        "privacyPolicy":
+            MessageLookupByLibrary.simpleMessage("Chính sách bảo mật"),
         "privateKey": MessageLookupByLibrary.simpleMessage("Private key"),
         "privateKeyHint": MessageLookupByLibrary.simpleMessage(
             "Ví dụ 570b05a4bcdbg97afdb8ae9cd1ad8cc55dfa7x1e5d25e4dse8b8c9379f5cgfe9"),
         "protectYourWallet":
-            MessageLookupByLibrary.simpleMessage("Protect your wallet"),
+            MessageLookupByLibrary.simpleMessage("Bảo vệ ví của bạn"),
         "protectYourWalletDescription": MessageLookupByLibrary.simpleMessage(
             "Bảo vệ ví của bạn bằng cái lưu trữ cụm từ bí mật ở nhiều nới như trên giấy, các ứng dụng quản lý mật khẩu hoặc đám mây"),
         "receive": MessageLookupByLibrary.simpleMessage("Nhận"),
@@ -170,6 +173,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "somethingHappenedWrong":
             MessageLookupByLibrary.simpleMessage("Có điều gì đó đã xảy ra sai"),
         "statistic": MessageLookupByLibrary.simpleMessage("Thống kê"),
+        "termsOfUse":
+            MessageLookupByLibrary.simpleMessage("Điều khoản sử dụng"),
         "thisMonth": MessageLookupByLibrary.simpleMessage("Tháng này"),
         "thisPasswordWillUnlockYourWalletOnlyOnThisDevice":
             MessageLookupByLibrary.simpleMessage(
@@ -194,6 +199,7 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Không thể kết nối đến máy chủ phân tán Blockchain"),
         "validAddressFailure":
             MessageLookupByLibrary.simpleMessage("Địa chỉ không hợp lệ"),
+        "version": MessageLookupByLibrary.simpleMessage("Phiên bản"),
         "vietnamese": MessageLookupByLibrary.simpleMessage("Tiếng Việt"),
         "walletAddedSuccessfully":
             MessageLookupByLibrary.simpleMessage("Thêm ví thành công"),

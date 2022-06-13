@@ -20,4 +20,10 @@ class ConfigsPref {
       );
   Future<void> setDefaultJazzicon(JazziconData value) =>
       box.put(kDefaultJazziconKey, value);
+
+  static const kLocale = "AppLocale";
+  String? get locale => box.get(
+        kLocale,
+      );
+  Future<void> setLocale(String value) => box.put(kLocale, value);
 }

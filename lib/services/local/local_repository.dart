@@ -216,4 +216,16 @@ class LocalRepository {
     final wallet = _appPref.wallet;
     return await wallet.deleteSavedCollections();
   }
+
+  Future setLocale(String locale) async {
+    await _appPref.config.setLocale(locale);
+  }
+
+  String getLocale() {
+    if (_appPref.config.locale == null) {
+      setLocale("en");
+      return "en";
+    }
+    return _appPref.config.locale!;
+  }
 }

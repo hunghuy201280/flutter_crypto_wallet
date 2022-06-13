@@ -33,13 +33,13 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "about": MessageLookupByLibrary.simpleMessage("About"),
-        "aboutAppName": MessageLookupByLibrary.simpleMessage("About App Name"),
+        "aboutAppName": MessageLookupByLibrary.simpleMessage("About Hornydeer"),
         "addCollection": MessageLookupByLibrary.simpleMessage("Add Collection"),
         "addCustomToken":
             MessageLookupByLibrary.simpleMessage("Add Custom Token"),
         "address": MessageLookupByLibrary.simpleMessage("Address"),
         "alert": MessageLookupByLibrary.simpleMessage("Alert"),
-        "appName": MessageLookupByLibrary.simpleMessage("App Name"),
+        "appName": MessageLookupByLibrary.simpleMessage("Hornydeer"),
         "authenticateByFingerPrint":
             MessageLookupByLibrary.simpleMessage("Authenticate by fingerprint"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
@@ -103,6 +103,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "importWallet": MessageLookupByLibrary.simpleMessage("Import Wallet"),
         "invalidPrivateKey":
             MessageLookupByLibrary.simpleMessage("Invalid private key"),
+        "links": MessageLookupByLibrary.simpleMessage("Links"),
         "logInWithBiometrics":
             MessageLookupByLibrary.simpleMessage("Log In With Biometrics"),
         "logout": MessageLookupByLibrary.simpleMessage("Logout"),
@@ -136,6 +137,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Please accept policy"),
         "pleaseInputCorrectAmount":
             MessageLookupByLibrary.simpleMessage("Please Input Correct Amount"),
+        "privacyPolicy": MessageLookupByLibrary.simpleMessage("Privacy Policy"),
         "privateKey": MessageLookupByLibrary.simpleMessage("Private key"),
         "privateKeyHint": MessageLookupByLibrary.simpleMessage(
             "e.g. 570b05a4bcdbg97afdb8ae9cd1ad8cc55dfa7x1e5d25e4dse8b8c9379f5cgfe9"),
@@ -148,7 +150,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Recovery Secret Recovery Phrase"),
         "removeIt": MessageLookupByLibrary.simpleMessage("Yes, remove it"),
         "scanAddressTo": MessageLookupByLibrary.simpleMessage(
-            "Quét mã QR để nhận thanh toán"),
+            "Scan QR code to receive payment"),
         "secretRecoveryPhrase":
             MessageLookupByLibrary.simpleMessage("Secret Recovery Phrase"),
         "securityAndPrivacy":
@@ -170,6 +172,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "somethingHappenedWrong":
             MessageLookupByLibrary.simpleMessage("Something happened wrong"),
         "statistic": MessageLookupByLibrary.simpleMessage("Statistic"),
+        "termsOfUse": MessageLookupByLibrary.simpleMessage("Terms of Use"),
         "thisMonth": MessageLookupByLibrary.simpleMessage("This Month"),
         "thisPasswordWillUnlockYourWalletOnlyOnThisDevice":
             MessageLookupByLibrary.simpleMessage(
@@ -194,6 +197,7 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Unable to connect to the blockchain host"),
         "validAddressFailure":
             MessageLookupByLibrary.simpleMessage("Valid Address Failure"),
+        "version": MessageLookupByLibrary.simpleMessage("Version"),
         "vietnamese": MessageLookupByLibrary.simpleMessage("Vietnamese"),
         "walletAddedSuccessfully":
             MessageLookupByLibrary.simpleMessage("Wallet added successfully"),

@@ -171,4 +171,12 @@ class LocalProvider {
   Future<void> deleteSaveCollections() async {
     return _repo.deleteSaveCollections();
   }
+
+  Future setLocale(String locale) async {
+    await _repo.setLocale(locale);
+  }
+
+  String getLocale() {
+    return _repo.getLocale();
+  }
 }

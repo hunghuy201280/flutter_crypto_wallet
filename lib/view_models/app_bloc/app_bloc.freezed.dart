@@ -243,7 +243,7 @@ abstract class AppLocaleChanged implements AppEvent {
 class _$AppStateTearOff {
   const _$AppStateTearOff();
 
-  _AppState call({Locale locale = const Locale('vi')}) {
+  _AppState call({required Locale locale}) {
     return _AppState(
       locale: locale,
     );
@@ -323,9 +323,8 @@ class __$AppStateCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_AppState with DiagnosticableTreeMixin implements _AppState {
-  const _$_AppState({this.locale = const Locale('vi')});
+  const _$_AppState({required this.locale});
 
-  @JsonKey()
   @override
   final Locale locale;
 
@@ -361,7 +360,7 @@ class _$_AppState with DiagnosticableTreeMixin implements _AppState {
 }
 
 abstract class _AppState implements AppState {
-  const factory _AppState({Locale locale}) = _$_AppState;
+  const factory _AppState({required Locale locale}) = _$_AppState;
 
   @override
   Locale get locale;
