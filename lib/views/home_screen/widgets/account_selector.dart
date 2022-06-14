@@ -84,9 +84,8 @@ class _AccountSelectorState extends State<AccountSelector> {
                           showAlertDialog(context,
                               message: s.deleteAccountAlert,
                               positiveText: s.removeIt,
-                              negativeText: s.cancel, onNegative: () {
-                            Navigator.pop(context);
-                          }, onPositive: () {
+                              negativeText: s.cancel,
+                              onNegative: () {}, onPositive: () {
                             bloc.add(AccountSelectorDeleted(item));
                           });
                         },
