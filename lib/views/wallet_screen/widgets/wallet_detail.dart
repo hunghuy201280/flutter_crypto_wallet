@@ -91,9 +91,7 @@ class _TokenTab extends StatelessWidget {
                       height: 0.3.sw, width: 0.3.sw, color: AppColors.kColor9),
                 );
               }
-              if ((status is Success ||
-                  status is Idle ||
-                  (status is Loading && status.data != 'token'))) {
+              if ((status is Success || status is Idle)) {
                 return ListView.builder(
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
@@ -129,7 +127,7 @@ class _TokenTab extends StatelessWidget {
                   final res = await Navigator.of(context, rootNavigator: true)
                       .pushNamed(ImportTokenScreen.id);
                   if (res == true) {
-                    _bloc.add(const WalletDetailEvent.balanceTokensLoaded());
+                    _bloc.add(const WalletDetailEvent.onDataLoaded());
                   }
                 },
                 child: Text(
@@ -170,9 +168,7 @@ class _NFTTab extends StatelessWidget {
                 child: 'empty_box'.getIcon(
                     height: 0.3.sw, width: 0.3.sw, color: AppColors.kColor9),
               );
-            } else if ((status is Success ||
-                status is Idle ||
-                (status is Loading && status.data != 'collection'))) {
+            } else if ((status is Success || status is Idle)) {
               return ListView.builder(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
@@ -207,7 +203,7 @@ class _NFTTab extends StatelessWidget {
                 final res = await Navigator.of(context, rootNavigator: true)
                     .pushNamed(ImportCollectionScreen.id);
                 if (res == true) {
-                  _bloc.add(const WalletDetailEvent.NFTsLoaded());
+                  _bloc.add(const WalletDetailEvent.onDataLoaded());
                 }
               },
               child: Text(

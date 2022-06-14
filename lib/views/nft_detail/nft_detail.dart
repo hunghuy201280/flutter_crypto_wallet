@@ -57,14 +57,15 @@ class _NftDetailState extends State<NftDetail> {
   Widget build(BuildContext context) {
     final s = S.of(context);
     return BlocListener<WithdrawNftBloc, WithdrawNftState>(
-      listener: (context, state) {
+      listener: (context, state) async {
         switch (state.status.runtimeType) {
           case Loading:
             showLoadingDialog();
             break;
           case Success:
             hideLoadingDialog();
-            Navigator.pop(context);
+            await Future.delayed(const Duration(milliseconds: 200));
+            Navigator.of(context, rootNavigator: true).pop(true);
             break;
           case Error:
             hideLoadingDialog();

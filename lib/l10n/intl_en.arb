@@ -146,5 +146,6 @@
   "privacyPolicy" : "Privacy Policy",
   "termsOfUse" : "Terms of Use",
   "version" : "Version",
-  "toAddress" : "To Address"
+  "toAddress" : "To Address",
+  "sendNftSuccess" : "Send NFT Succeeded"
 }

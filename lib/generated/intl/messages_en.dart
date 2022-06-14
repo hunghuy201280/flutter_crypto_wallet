@@ -160,6 +160,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "seeAll": MessageLookupByLibrary.simpleMessage("See all"),
         "send": MessageLookupByLibrary.simpleMessage("Send"),
         "sendNft": MessageLookupByLibrary.simpleMessage("Send NFT"),
+        "sendNftSuccess":
+            MessageLookupByLibrary.simpleMessage("Send NFT Succeeded"),
         "show": MessageLookupByLibrary.simpleMessage("Show"),
         "showPrivateKey":
             MessageLookupByLibrary.simpleMessage("Show private key"),

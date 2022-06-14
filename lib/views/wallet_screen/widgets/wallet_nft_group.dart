@@ -36,6 +36,7 @@ class WalletNFTGroup extends StatelessWidget {
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   childAspectRatio: 96.w / 120.h,
                   crossAxisCount: 3,
+                  mainAxisSpacing: 24.w,
                   crossAxisSpacing: 24.w,
                 ),
               ),

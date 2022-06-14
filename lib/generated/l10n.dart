@@ -1229,6 +1229,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Send NFT Succeeded`
+  String get sendNftSuccess {
+    return Intl.message(
+      'Send NFT Succeeded',
+      name: 'sendNftSuccess',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -120,6 +120,6 @@
   "privacyPolicy" : "Chính sách bảo mật",
   "termsOfUse" : "Điều khoản sử dụng",
   "version" : "Phiên bản",
-
-  "toAddress" : "Đến địa chỉ"
+  "toAddress" : "Đến địa chỉ",
+  "sendNftSuccess" : "Chuyển NFT thành công"
 }

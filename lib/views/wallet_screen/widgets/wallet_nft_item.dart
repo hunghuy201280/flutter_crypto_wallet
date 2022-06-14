@@ -7,6 +7,8 @@ import 'package:flutter_crypto_wallet/models/nft/nft.dart';
 import 'package:flutter_crypto_wallet/views/nft_detail/nft_detail.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../generated/l10n.dart';
+import '../../../utils/utils.dart';
 import '../../../view_models/wallet_detail_bloc/wallet_detail_bloc.dart';
 
 class WalletNFTItem extends StatelessWidget {
@@ -19,12 +21,14 @@ class WalletNFTItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final _bloc = context.read<WalletDetailBloc>();
+    final s = S.of(context);
     return InkWell(
       onTap: () async {
         final result = await Navigator.of(context, rootNavigator: true)
             .pushNamed(NftDetail.id, arguments: [collectionAddress, nft]);
         if (result is bool && result) {
-          _bloc.add(const WalletDetailEvent.NFTsLoaded());
+          _bloc.add(const WalletDetailEvent.onDataLoaded());
+          showAlertDialog(context, message: s.sendNftSuccess);
         }
       },
       child: ClipRRect(

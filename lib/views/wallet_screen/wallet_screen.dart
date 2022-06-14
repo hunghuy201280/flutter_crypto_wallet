@@ -79,8 +79,7 @@ class _WalletScreenState extends State<WalletScreen>
         }),
         BlocListener<AuthBloc, AuthState>(listener: (context, state) {
           if (state is Authenticated) {
-            _bloc.add(const WalletDetailEvent.balanceTokensLoaded());
-            _bloc.add(const WalletDetailEvent.NFTsLoaded());
+            _bloc.add(const WalletDetailEvent.onDataLoaded());
           }
         })
       ],
@@ -95,12 +94,7 @@ class _WalletScreenState extends State<WalletScreen>
           },
           onRefresh: () {
             _refreshCompleter = Completer();
-            if (_tabController.index == 0) {
-              _bloc.add(const WalletDetailEvent.balanceTokensLoaded());
-            } else {
-              _bloc.add(const WalletDetailEvent.NFTsLoaded());
-            }
-
+            _bloc.add(const WalletDetailEvent.onDataLoaded());
             return _refreshCompleter!.future;
           },
           child: NotificationListener<OverscrollIndicatorNotification>(

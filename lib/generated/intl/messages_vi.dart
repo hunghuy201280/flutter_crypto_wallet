@@ -161,6 +161,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "seeAll": MessageLookupByLibrary.simpleMessage("Xem tất cả"),
         "send": MessageLookupByLibrary.simpleMessage("Gửi"),
         "sendNft": MessageLookupByLibrary.simpleMessage("Gửi"),
+        "sendNftSuccess":
+            MessageLookupByLibrary.simpleMessage("Chuyển NFT thành công"),
         "show": MessageLookupByLibrary.simpleMessage("Hiện"),
         "showPrivateKey":
             MessageLookupByLibrary.simpleMessage("Xem private key"),

@@ -24,8 +24,7 @@ class WalletDetailBloc extends Bloc<WalletDetailEvent, WalletDetailState> {
       this._remoteProvider, @factoryParam this._authBloc, this._localProvider)
       : super(WalletDetailState.initial()) {
     _mapEventToState();
-    add(const WalletDetailBalanceTokensLoaded());
-    add(const WalletDetailEvent.NFTsLoaded());
+    add(const WalletDetailEvent.onDataLoaded());
   }
   final RemoteProvider _remoteProvider;
   final LocalProvider _localProvider;
@@ -40,8 +39,9 @@ class WalletDetailBloc extends Bloc<WalletDetailEvent, WalletDetailState> {
   }
 
   void _mapEventToState() {
-    on<WalletDetailBalanceTokensLoaded>((event, emit) async {
-      emit(state.copyWith(status: const Loading('token'), tokens: []));
+    on<WalletDetailEventOnDataLoaded>((event, emit) async {
+      emit(state.copyWith(
+          status: const Loading('token'), tokens: [], collections: []));
       try {
         var tokens = _localProvider.getSaveTokens();
         if (wallet.balanceToken != null) tokens.insert(0, wallet.balanceToken!);
@@ -86,6 +86,7 @@ class WalletDetailBloc extends Bloc<WalletDetailEvent, WalletDetailState> {
         } catch (e) {
           printLog(this, message: 'Fetch Token Balance Faild', error: e);
         }
+
         final tokensClone = List<Token>.from(state.tokens);
         listTokenFetch.forEach(((key, value) {
           int index =
@@ -95,36 +96,31 @@ class WalletDetailBloc extends Bloc<WalletDetailEvent, WalletDetailState> {
                 .copyWith(balance: value.item1, amount: value.item2);
           }
         }));
+        final collections = <Collection>[];
+        try {
+          final collectionsAddress = _localProvider.getSaveCollections();
+          if (collectionsAddress.isNotEmpty) {
+            final result = await _remoteProvider.getOwnerNft(
+                wallet.address, collectionsAddress);
+            if (result.error) throw result.message;
+            if (result.result != null) {
+              collections.addAll(result.result!);
+            }
+          }
+        } catch (e, trace) {
+          printLog(this,
+              message: "Fetch Colelction Failed", error: e, trace: trace);
+        }
 
-        emit(state.copyWith(tokens: [...tokensClone], status: const Success()));
+        emit(state.copyWith(
+            tokens: [...tokensClone],
+            collections: collections,
+            status: const Success()));
 
         tokensClone.removeWhere((element) => element.address.isEmpty);
         await _localProvider.setSaveTokens(tokens: tokensClone);
       } on DioError catch (e, trace) {
         printLog(this, message: "Error", error: e, trace: trace);
-        emit(state.copyWith(status: Error(e)));
-      } finally {
-        emit(state.copyWith(status: const Idle()));
-      }
-    });
-    on<WalletDetailNFTsLoaded>((event, emit) async {
-      emit(
-          state.copyWith(status: const Loading('collection'), collections: []));
-      try {
-        final collectionsAddress = _localProvider.getSaveCollections();
-        if (collectionsAddress.isNotEmpty) {
-          final result = await _remoteProvider.getOwnerNft(
-              wallet.address, collectionsAddress);
-          if (result.error) throw result.message;
-          if (result.result != null) {
-            final collections = result.result!;
-            emit(state.copyWith(
-                status: const Success(), collections: collections));
-          }
-        }
-      } catch (e, trace) {
-        printLog(this,
-            message: "Fetch Colelction Failed", error: e, trace: trace);
         emit(state.copyWith(status: Error(e)));
       } finally {
         emit(state.copyWith(status: const Idle()));
